@@ -62,6 +62,7 @@ namespace Controlador
 
 
 
+
         public void OnButtonClick(object sender, EventArgs e) // escucha eventos botones
         {
             if (sender is Button button)
@@ -127,6 +128,7 @@ namespace Controlador
             usuarioDTO.nombreUsuario = altasEjecutivoYJefeDeServicios.TBAltaUsuNom1.Text;
             usuarioDTO.contraUsuario = altasEjecutivoYJefeDeServicios.TBAltaUsuPass1.Text;
             usuarioDTO.idTipoUsuario = altasEjecutivoYJefeDeServicios.CBAltaTipoUsu1.Text;
+            MessageBox.Show("Usuario Ingresado Correctamente");
             MessageBox.Show("Usuario Ingresado Correctamente");
             usuariosServicios.AgregarUsuario(usuarioDTO);
             altasEjecutivoYJefeDeServicios.TBAltaUsuNom1.Clear();
