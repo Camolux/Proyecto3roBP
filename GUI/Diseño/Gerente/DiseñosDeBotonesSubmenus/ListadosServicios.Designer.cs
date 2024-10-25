@@ -28,7 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button1 = new Button();
+            dataGridViewVehiculos = new DataGridView();
+            label5 = new Label();
+            panel1 = new Panel();
+            textBox1 = new TextBox();
+            label1 = new Label();
+            btnIngresarVehiculos = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewVehiculos).BeginInit();
             SuspendLayout();
+            // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.ButtonFace;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(404, 469);
+            button1.Name = "button1";
+            button1.Size = new Size(204, 38);
+            button1.TabIndex = 66;
+            button1.Text = "Mostrar";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // dataGridViewVehiculos
+            // 
+            dataGridViewVehiculos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewVehiculos.Location = new Point(73, 180);
+            dataGridViewVehiculos.Name = "dataGridViewVehiculos";
+            dataGridViewVehiculos.RowTemplate.Height = 25;
+            dataGridViewVehiculos.Size = new Size(589, 268);
+            dataGridViewVehiculos.TabIndex = 65;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Sitka Text", 26.2499962F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(225, 32);
+            label5.Name = "label5";
+            label5.Size = new Size(292, 50);
+            label5.TabIndex = 64;
+            label5.Text = "Listar Servicios";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.ActiveCaptionText;
+            panel1.Location = new Point(266, 162);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(246, 2);
+            panel1.TabIndex = 63;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = SystemColors.ActiveCaption;
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Location = new Point(266, 140);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(246, 16);
+            textBox1.TabIndex = 62;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(63, 138);
+            label1.Name = "label1";
+            label1.Size = new Size(175, 18);
+            label1.TabIndex = 61;
+            label1.Text = "Buscar por ID del Servicio";
+            // 
+            // btnIngresarVehiculos
+            // 
+            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
+            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
+            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
+            btnIngresarVehiculos.Location = new Point(121, 469);
+            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
+            btnIngresarVehiculos.Size = new Size(204, 38);
+            btnIngresarVehiculos.TabIndex = 60;
+            btnIngresarVehiculos.Text = "Buscar ";
+            btnIngresarVehiculos.UseVisualStyleBackColor = false;
             // 
             // ListadosServicios
             // 
@@ -36,12 +114,29 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(button1);
+            Controls.Add(dataGridViewVehiculos);
+            Controls.Add(label5);
+            Controls.Add(panel1);
+            Controls.Add(textBox1);
+            Controls.Add(label1);
+            Controls.Add(btnIngresarVehiculos);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ListadosServicios";
             Text = "ListadosServicios";
+            ((System.ComponentModel.ISupportInitialize)dataGridViewVehiculos).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Button button1;
+        public DataGridView dataGridViewVehiculos;
+        private Label label5;
+        private Panel panel1;
+        private TextBox textBox1;
+        private Label label1;
+        private Button btnIngresarVehiculos;
     }
 }

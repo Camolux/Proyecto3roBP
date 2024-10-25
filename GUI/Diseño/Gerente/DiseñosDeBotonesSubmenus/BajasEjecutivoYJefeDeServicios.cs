@@ -16,5 +16,10 @@ namespace GUI.Diseño.Gerente.Vehiculos
         {
             InitializeComponent();
         }
+
+        private void btnIngresarVehiculos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -78,11 +78,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(48, 138);
+            label1.Location = new Point(95, 140);
             label1.Name = "label1";
-            label1.Size = new Size(208, 18);
+            label1.Size = new Size(147, 18);
             label1.TabIndex = 54;
-            label1.Text = "Buscar Cliente por CI/IDCliente";
+            label1.Text = "Buscar Cliente por CI ";
             // 
             // btnIngresarVehiculos
             // 
@@ -93,7 +93,7 @@
             btnIngresarVehiculos.Name = "btnIngresarVehiculos";
             btnIngresarVehiculos.Size = new Size(204, 38);
             btnIngresarVehiculos.TabIndex = 53;
-            btnIngresarVehiculos.Text = "Buscar vehiculo";
+            btnIngresarVehiculos.Text = "Buscar";
             btnIngresarVehiculos.UseVisualStyleBackColor = false;
             // 
             // button1

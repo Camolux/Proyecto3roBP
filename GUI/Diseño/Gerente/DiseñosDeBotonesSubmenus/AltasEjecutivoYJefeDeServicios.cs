@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controlador;
+using Servicios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,27 @@ namespace GUI.Diseño.Gerente.Vehiculos
 {
     public partial class AltasEjecutivoYJefeDeServicios : Form
     {
-        public AltasEjecutivoYJefeDeServicios()
+        public static AltasEjecutivoYJefeDeServicios instance;
+        private AltasEjecutivoYJefeDeServicios()
         {
             InitializeComponent();
+            Controlador.Controlador controlador = Controlador.Controlador.GetInstance();
+            
+            BTNAltaUsuarioGer.Click += new EventHandler(controlador.OnButtonClick);
+        }
+
+        public static AltasEjecutivoYJefeDeServicios GetInsance()
+        {
+            if (instance == null)
+            {
+                instance = new AltasEjecutivoYJefeDeServicios();
+            }
+            return instance;
+        }
+
+        private void btnIngresarVehiculos_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

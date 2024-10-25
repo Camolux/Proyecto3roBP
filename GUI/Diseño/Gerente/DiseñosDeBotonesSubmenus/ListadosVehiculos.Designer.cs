@@ -74,7 +74,7 @@
             btnIngresarVehiculos.Name = "btnIngresarVehiculos";
             btnIngresarVehiculos.Size = new Size(204, 38);
             btnIngresarVehiculos.TabIndex = 38;
-            btnIngresarVehiculos.Text = "Buscar vehiculo";
+            btnIngresarVehiculos.Text = "Buscar";
             btnIngresarVehiculos.UseVisualStyleBackColor = false;
             // 
             // label5
@@ -123,7 +123,7 @@
             Controls.Add(btnIngresarVehiculos);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ListadosVehiculos";
-            Text = "ListadosVehiculos";
+            Text = "  ";
             ((System.ComponentModel.ISupportInitialize)dataGridViewVehiculos).EndInit();
             ResumeLayout(false);
             PerformLayout();

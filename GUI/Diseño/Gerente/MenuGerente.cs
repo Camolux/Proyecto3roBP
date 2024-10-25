@@ -1,24 +1,52 @@
 ﻿using GUI.Diseño.Gerente.Clientes;
+using GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus;
 using GUI.Diseño.Gerente.Vehiculos;
 using System;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using Controlador;
 
 namespace GUI
 {
     public partial class MenuGerente : Form
     {
-        public MenuGerente()
+        public static MenuGerente instance;
+        private Controlador.Controlador controlador;
+
+        private MenuGerente()
         {
             InitializeComponent();
             personalizardiseño();
         }
+
+        public static MenuGerente GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new MenuGerente();
+            }
+            return instance;
+        }
+
+        public void SetControlador(Controlador.Controlador controlador)
+        {
+            this.controlador = controlador;
+            controlador.formGerente = this;
+            this.FormClosing += new FormClosingEventHandler(controlador.FormGerente_FormClosing);
+
+            // BTNIngresarClientes.Click += new EventHandler(controlador.OnButtonClick);
+            // BTNMostrarClientes.Click += new EventHandler(controlador.OnButtonClick);
+            // BTNMostrarVehiculos.Click += new EventHandler(controlador.OnButtonClick);
+        }
+
+
         private void personalizardiseño()
         {
             panelVehiculosmenu.Visible = false;
             panelClientesmenu.Visible = false;
             panelServiciosmenu.Visible = false;
             panelEjecutivoyjefedeserviciosmenu.Visible = false;
-            panelCambiarCostosDeServicios.Visible = false;
+
 
         }
         private void ocultarsubmenu()
@@ -31,8 +59,8 @@ namespace GUI
                 panelServiciosmenu.Visible = false;
             if (panelEjecutivoyjefedeserviciosmenu.Visible == true)
                 panelEjecutivoyjefedeserviciosmenu.Visible = false;
-            if (panelCambiarCostosDeServicios.Visible == true)
-                panelCambiarCostosDeServicios.Visible = false;
+
+
 
         }
         private void mostrarsubmenu(Panel subMenu)
@@ -59,6 +87,7 @@ namespace GUI
             FormularioHijo.Show();
 
         }
+        private Form FormularioActivo = null;
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -117,9 +146,7 @@ namespace GUI
 
         private void btnBajasvehiculos_Click_1(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new BajasVehiculos());
-            //codigo
-            ocultarsubmenu();
+
         }
 
         private void btnModificacionesvehiculos_Click_1(object sender, EventArgs e)
@@ -138,9 +165,6 @@ namespace GUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new BajasClientes());
-            //codigo
-            ocultarsubmenu();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -159,9 +183,7 @@ namespace GUI
 
         private void button7_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new BajasServicios());
-            //codigo
-            ocultarsubmenu();
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -173,7 +195,7 @@ namespace GUI
 
         private void button12_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new AltasEjecutivoYJefeDeServicios());
+            AbrirFormulariohijo( AltasEjecutivoYJefeDeServicios.GetInsance());
             //codigo
             ocultarsubmenu();
         }
@@ -204,30 +226,22 @@ namespace GUI
 
         private void btnAltasCambiarCostoDeServicio_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new AltasCambiarCostosDeServicios());
-            //codigo
-            ocultarsubmenu();
+
         }
 
         private void btnBajasCambiarCostosDeServicios_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new BajasCambiarCostosDeServicios());
-            //codigo
-            ocultarsubmenu();
+
         }
 
         private void btnModificacionesCambiarCostosDeServicios_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new ModificacionesCambiarCostosDeServicios());
-            //codigo
-            ocultarsubmenu();
+
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new ListadosCambiarCostosDeServicios());
-            //codigo
-            ocultarsubmenu();
+
         }
 
         private void btnListadoServicios_Click(object sender, EventArgs e)
@@ -253,9 +267,9 @@ namespace GUI
 
         private void button13_Click(object sender, EventArgs e)
         {
-            mostrarsubmenu(panelCambiarCostosDeServicios);
+            AbrirFormulariohijo(new CambiarCostosDeServicios());
         }
-        private Form FormularioActivo = null;
+
 
 
         private void btnhome_Click(object sender, EventArgs e)
@@ -285,6 +299,11 @@ namespace GUI
             AbrirFormulariohijo(new ListadosEjecutivoYJefeDeServicios());
             //codigo
             ocultarsubmenu();
+        }
+
+        private void panelContenedordesubmenusHome_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

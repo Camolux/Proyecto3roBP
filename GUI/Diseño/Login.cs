@@ -1,11 +1,34 @@
+ï»¿using Controlador;
+
 namespace GUI
 {
     public partial class Login : Form
     {
-        public Login()
+        public static Login instance;
+
+
+        private Login()
         {
             InitializeComponent();
-            RedondearBoton(button1, 30); // Redondear el botón al iniciar el formulario
+            RedondearBoton(BTNConfirmar, 30);
+
+            // Get the singleton instance of Controlador
+            Controlador.Controlador controlador = Controlador.Controlador.GetInstance();
+            controlador.formLogin = this;
+
+            BTNConfirmar.Click += new EventHandler(controlador.OnButtonClick);
+        }
+
+        public static Login Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Login();
+                }
+                return instance;
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -13,14 +36,14 @@ namespace GUI
           
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BTNConfirmar_Click(object sender, EventArgs e)
         {
             
         }
 
         private void RedondearBoton(Button button, int borderRadius)
         {
-            // Ajustar el radio para que sea más redondeado
+            // Ajustar el radio para que sea mÃ¡s redondeado
             int radius = Math.Min(borderRadius, button.Height / 2);
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
             path.StartFigure();

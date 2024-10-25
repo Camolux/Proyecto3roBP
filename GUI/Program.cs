@@ -1,3 +1,7 @@
+using GUI.Diseño.Ejecutivo_de_Servicios;
+using GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus;
+using GUI.Diseño.Jefe_de_Servicios;
+using GUI.Diseño;
 namespace GUI
 {
     internal static class Program
@@ -8,10 +12,9 @@ namespace GUI
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new MenuGerente());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(Login.Instance);
         }
     }
 }

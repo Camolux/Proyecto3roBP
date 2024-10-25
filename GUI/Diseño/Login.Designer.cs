@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             label1 = new Label();
             label2 = new Label();
-            button1 = new Button();
+            BTNConfirmar = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             panel1 = new Panel();
-            textBox3 = new TextBox();
+            TBNomUsu = new TextBox();
             panel2 = new Panel();
-            textBox1 = new TextBox();
+            TBPass = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -67,20 +67,20 @@
             label2.Text = "Contraseña";
             label2.Click += label2_Click;
             // 
-            // button1
+            // BTNConfirmar
             // 
-            button1.BackColor = SystemColors.ActiveCaption;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(33, 412);
-            button1.Name = "button1";
-            button1.Size = new Size(286, 37);
-            button1.TabIndex = 5;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            BTNConfirmar.BackColor = SystemColors.ActiveCaption;
+            BTNConfirmar.FlatAppearance.BorderSize = 0;
+            BTNConfirmar.FlatStyle = FlatStyle.Flat;
+            BTNConfirmar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            BTNConfirmar.ForeColor = SystemColors.ActiveCaptionText;
+            BTNConfirmar.Location = new Point(33, 412);
+            BTNConfirmar.Name = "BTNConfirmar";
+            BTNConfirmar.Size = new Size(286, 37);
+            BTNConfirmar.TabIndex = 5;
+            BTNConfirmar.Text = "Login";
+            BTNConfirmar.UseVisualStyleBackColor = false;
+            BTNConfirmar.Click += BTNConfirmar_Click;
             // 
             // pictureBox1
             // 
@@ -117,15 +117,15 @@
             panel1.Size = new Size(285, 2);
             panel1.TabIndex = 65;
             // 
-            // textBox3
+            // TBNomUsu
             // 
-            textBox3.BackColor = Color.White;
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(34, 253);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(280, 16);
-            textBox3.TabIndex = 64;
+            TBNomUsu.BackColor = Color.White;
+            TBNomUsu.BorderStyle = BorderStyle.None;
+            TBNomUsu.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            TBNomUsu.Location = new Point(34, 253);
+            TBNomUsu.Name = "TBNomUsu";
+            TBNomUsu.Size = new Size(280, 16);
+            TBNomUsu.TabIndex = 64;
             // 
             // panel2
             // 
@@ -135,14 +135,15 @@
             panel2.Size = new Size(285, 2);
             panel2.TabIndex = 67;
             // 
-            // textBox1
+            // TBPass
             // 
-            textBox1.BackColor = Color.White;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(34, 343);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(280, 16);
-            textBox1.TabIndex = 66;
+            TBPass.BackColor = Color.White;
+            TBPass.BorderStyle = BorderStyle.None;
+            TBPass.Location = new Point(34, 343);
+            TBPass.Name = "TBPass";
+            TBPass.PasswordChar = '*';
+            TBPass.Size = new Size(280, 16);
+            TBPass.TabIndex = 66;
             // 
             // Login
             // 
@@ -151,17 +152,19 @@
             BackColor = Color.White;
             ClientSize = new Size(353, 543);
             Controls.Add(panel2);
-            Controls.Add(textBox1);
+            Controls.Add(TBPass);
             Controls.Add(panel1);
-            Controls.Add(textBox3);
+            Controls.Add(TBNomUsu);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(button1);
+            Controls.Add(BTNConfirmar);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CoreTex";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -173,13 +176,16 @@
         #endregion
         private Label label1;
         private Label label2;
-        private Button button1;
+        private Button BTNConfirmar;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private Panel panel1;
-        private TextBox textBox3;
+        private TextBox TBNomUsu;
         private Panel panel2;
-        private TextBox textBox1;
+        private TextBox TBPass;
+
+        public TextBox TBPass1 { get => TBPass; set => TBPass = value; }
+        public TextBox TBNomUsu1 { get => TBNomUsu; set => TBNomUsu = value; }
     }
 }
