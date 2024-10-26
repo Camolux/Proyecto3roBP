@@ -11,12 +11,44 @@ using GUI.Diseño.Ejecutivo_de_Servicios;
 using GUI;
 using GUI.Diseño.Jefe_de_Servicios;
 using GUI.Diseño.Gerente.Vehiculos;
+using GUI.Diseño.Cajero.DiseñosDeBotonesSubMenusCajero;
+using GUI.Diseño.Gerente.Clientes;
 
 
 namespace Controlador
 {
     public class Controlador
     {
+        public EmitirFacturasServicios emitirFacturasServicios;
+        public EntregaDeVehiculos entregaDeVehiculos;
+        public AltasClientesEjecutivoDeServicios altasClientesEjecutivoDeServicios;
+        public AltasServiciosEjecutivoDeServicios altasServiciosEjecutivoDeServicios;
+        public AltasVehiculosEjecutivoDeServicios altasVehiculosEjecutivoDeServicios;
+        public ModificacionesDeClientesMenuEjecutivoDeServicios modificacionesDeClientesMenuEjecutivoDeServicios;
+        public AltasClientes altasClientes;
+        public AltasServicios altasServicios;
+        public AltasVehiculos altasVehiculos;
+        public BajasEjecutivoYJefeDeServicios bajasEjecutivoYJefeDeServicios;
+        public CambiarCostosDeServicios cambiarCostosDeServicios;
+        public ListadosClientes listadosClientes;
+        public ListadosEjecutivoYJefeDeServicios listadosEjecutivoYJefeDeServicios;
+        public ListadosServicios listadosServicios;
+        public ListadosVehiculos listadosVehiculos;
+        public ModificacionesClientes modificacionesClientes;
+        public ModificacionesEjecutivoYJefeDeServicios modificacionesEjecutivoYJefeDeServicios;
+        public ModificacionesServicios modificacionesServicios;
+        public ModificacionesVehiculos modificacionesVehiculos;
+        public AltasClientesJefe altasClientesJefe;
+        public AltasEjecutivoYJefeDeServiciosMenuJefe altasEjecutivoYJefeDeServiciosMenuJefe; 
+        public AltasServiciosJefe altasServiciosJefe;
+        public AltasVehiculosJefe altasVehiculosJefe;
+        public BajasEjecutivoYJefeDeServiciosMenuJefe bajasEjecutivoYJefeDeServiciosMenuJefe;
+        public ListadoEjecutivoYJefeDeServiciosMenuJefe listadoEjecutivoYJefeDeServiciosMenuJefe;
+        public ModificacionesDeClientesMenuJefe modificacionesDeClientesMenuJefe;
+        public ModificacionesEjecutivoYJefeDeServiciosMenuJefe modificacionesEjecutivoYJefeDeServiciosMenuJefe;
+
+
+
         Usuario usuarioLogeado;
         Usuario usuarioDTO;
         public static Controlador instance; // Singleton instance
@@ -31,6 +63,34 @@ namespace Controlador
         private Controlador()
         {
             instance = this;
+            modificacionesVehiculos = ModificacionesVehiculos.GetInsance();
+            modificacionesServicios = ModificacionesServicios.GetInsance();
+            modificacionesEjecutivoYJefeDeServicios = ModificacionesEjecutivoYJefeDeServicios.GetInsance();
+            modificacionesClientes = ModificacionesClientes.GetInsance();
+            listadosVehiculos = ListadosVehiculos.GetInsance();
+            listadosServicios = ListadosServicios.GetInsance();
+            listadosEjecutivoYJefeDeServicios = ListadosEjecutivoYJefeDeServicios.GetInsance();
+            listadosClientes = ListadosClientes.GetInsance();
+            cambiarCostosDeServicios = CambiarCostosDeServicios.GetInsance();
+            bajasEjecutivoYJefeDeServicios = BajasEjecutivoYJefeDeServicios.GetInsance();
+            altasVehiculos = AltasVehiculos.GetInsance();
+            altasServicios = AltasServicios.GetInsance();
+            altasClientes = AltasClientes.GetInsance();
+            modificacionesDeClientesMenuEjecutivoDeServicios = ModificacionesDeClientesMenuEjecutivoDeServicios.GetInsance();
+            altasVehiculosEjecutivoDeServicios = AltasVehiculosEjecutivoDeServicios.GetInsance();
+            altasServiciosEjecutivoDeServicios = AltasServiciosEjecutivoDeServicios.GetInsance();
+            altasClientesEjecutivoDeServicios = AltasClientesEjecutivoDeServicios.GetInsance();
+            entregaDeVehiculos = EntregaDeVehiculos.GetInsance();
+            emitirFacturasServicios = EmitirFacturasServicios.GetInsance();
+            altasClientesJefe = AltasClientesJefe.GetInsance();
+            altasEjecutivoYJefeDeServiciosMenuJefe = AltasEjecutivoYJefeDeServiciosMenuJefe.GetInsance();
+            altasServiciosJefe = AltasServiciosJefe.GetInsance();
+            altasVehiculosJefe = AltasVehiculosJefe.GetInsance();
+            altasVehiculosJefe = AltasVehiculosJefe.GetInsance();
+            listadoEjecutivoYJefeDeServiciosMenuJefe = ListadoEjecutivoYJefeDeServiciosMenuJefe.GetInsance();
+            modificacionesDeClientesMenuJefe = ModificacionesDeClientesMenuJefe.GetInsance();
+            modificacionesEjecutivoYJefeDeServiciosMenuJefe = ModificacionesEjecutivoYJefeDeServiciosMenuJefe.GetInsance();
+
 
             usuariosServicios = UsuariosServicios.GetInsance();
             usuarioLogeado = new Usuario();

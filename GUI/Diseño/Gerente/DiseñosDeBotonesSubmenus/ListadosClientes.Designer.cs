@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridViewVehiculos = new DataGridView();
+            dataGridViewClientes = new DataGridView();
             label5 = new Label();
             panel1 = new Panel();
-            textBox1 = new TextBox();
+            TBBuscarClienteCI = new TextBox();
             label1 = new Label();
-            btnIngresarVehiculos = new Button();
-            button1 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewVehiculos).BeginInit();
+            BTNBuscarClientesGer = new Button();
+            BTNMostrarClientesGer = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
             SuspendLayout();
             // 
-            // dataGridViewVehiculos
+            // dataGridViewClientes
             // 
-            dataGridViewVehiculos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewVehiculos.Location = new Point(73, 180);
-            dataGridViewVehiculos.Name = "dataGridViewVehiculos";
-            dataGridViewVehiculos.RowTemplate.Height = 25;
-            dataGridViewVehiculos.Size = new Size(589, 268);
-            dataGridViewVehiculos.TabIndex = 58;
+            dataGridViewClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewClientes.Location = new Point(73, 180);
+            dataGridViewClientes.Name = "dataGridViewClientes";
+            dataGridViewClientes.RowTemplate.Height = 25;
+            dataGridViewClientes.Size = new Size(589, 268);
+            dataGridViewClientes.TabIndex = 58;
             // 
             // label5
             // 
@@ -65,14 +65,14 @@
             panel1.Size = new Size(246, 2);
             panel1.TabIndex = 56;
             // 
-            // textBox1
+            // TBBuscarClienteCI
             // 
-            textBox1.BackColor = SystemColors.ActiveCaption;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(266, 140);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(246, 16);
-            textBox1.TabIndex = 55;
+            TBBuscarClienteCI.BackColor = SystemColors.ActiveCaption;
+            TBBuscarClienteCI.BorderStyle = BorderStyle.None;
+            TBBuscarClienteCI.Location = new Point(266, 140);
+            TBBuscarClienteCI.Name = "TBBuscarClienteCI";
+            TBBuscarClienteCI.Size = new Size(246, 16);
+            TBBuscarClienteCI.TabIndex = 55;
             // 
             // label1
             // 
@@ -84,29 +84,31 @@
             label1.TabIndex = 54;
             label1.Text = "Buscar Cliente por CI ";
             // 
-            // btnIngresarVehiculos
+            // BTNBuscarClientesGer
             // 
-            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
-            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnIngresarVehiculos.Location = new Point(121, 469);
-            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
-            btnIngresarVehiculos.Size = new Size(204, 38);
-            btnIngresarVehiculos.TabIndex = 53;
-            btnIngresarVehiculos.Text = "Buscar";
-            btnIngresarVehiculos.UseVisualStyleBackColor = false;
+            BTNBuscarClientesGer.BackColor = SystemColors.ButtonFace;
+            BTNBuscarClientesGer.FlatAppearance.BorderSize = 0;
+            BTNBuscarClientesGer.FlatStyle = FlatStyle.Flat;
+            BTNBuscarClientesGer.Location = new Point(121, 469);
+            BTNBuscarClientesGer.Name = "BTNBuscarClientesGer";
+            BTNBuscarClientesGer.Size = new Size(204, 38);
+            BTNBuscarClientesGer.TabIndex = 53;
+            BTNBuscarClientesGer.Text = "Buscar";
+            BTNBuscarClientesGer.UseVisualStyleBackColor = false;
+            BTNBuscarClientesGer.Click += BTNBuscarClientesGer_Click;
             // 
-            // button1
+            // BTNMostrarClientesGer
             // 
-            button1.BackColor = SystemColors.ButtonFace;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(404, 469);
-            button1.Name = "button1";
-            button1.Size = new Size(204, 38);
-            button1.TabIndex = 59;
-            button1.Text = "Mostrar";
-            button1.UseVisualStyleBackColor = false;
+            BTNMostrarClientesGer.BackColor = SystemColors.ButtonFace;
+            BTNMostrarClientesGer.FlatAppearance.BorderSize = 0;
+            BTNMostrarClientesGer.FlatStyle = FlatStyle.Flat;
+            BTNMostrarClientesGer.Location = new Point(404, 469);
+            BTNMostrarClientesGer.Name = "BTNMostrarClientesGer";
+            BTNMostrarClientesGer.Size = new Size(204, 38);
+            BTNMostrarClientesGer.TabIndex = 59;
+            BTNMostrarClientesGer.Text = "Mostrar";
+            BTNMostrarClientesGer.UseVisualStyleBackColor = false;
+            BTNMostrarClientesGer.Click += BTNMostrarClientesGer_Click;
             // 
             // ListadosClientes
             // 
@@ -114,29 +116,32 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
-            Controls.Add(button1);
-            Controls.Add(dataGridViewVehiculos);
+            Controls.Add(BTNMostrarClientesGer);
+            Controls.Add(dataGridViewClientes);
             Controls.Add(label5);
             Controls.Add(panel1);
-            Controls.Add(textBox1);
+            Controls.Add(TBBuscarClienteCI);
             Controls.Add(label1);
-            Controls.Add(btnIngresarVehiculos);
+            Controls.Add(BTNBuscarClientesGer);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ListadosClientes";
             Text = "ListadosClientes";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewVehiculos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        public DataGridView dataGridViewVehiculos;
+        private DataGridView dataGridViewClientes;
         private Label label5;
         private Panel panel1;
-        private TextBox textBox1;
+        private TextBox TBBuscarClienteCI;
         private Label label1;
-        private Button btnIngresarVehiculos;
-        private Button button1;
+        private Button BTNBuscarClientesGer;
+        private Button BTNMostrarClientesGer;
+
+        public DataGridView DataGridViewClientes { get => dataGridViewClientes; set => dataGridViewClientes = value; }
+        public TextBox TBBuscarClienteCI1 { get => TBBuscarClienteCI; set => TBBuscarClienteCI = value; }
     }
 }

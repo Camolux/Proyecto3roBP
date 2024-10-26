@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.Diseño.Gerente.Vehiculos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,26 @@ namespace GUI
 {
     public partial class Home : Form
     {
-        public Home()
+        public static Home instance;
+        private Home()
         {
             InitializeComponent();
+            Controlador.Controlador controlador = Controlador.Controlador.GetInstance();
+
+        }
+
+        public static Home GetInsance()
+        {
+            if (instance == null)
+            {
+                instance = new Home();
+            }
+            return instance;
+        }
+
+        private void panelContenedordesubmenusHome_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

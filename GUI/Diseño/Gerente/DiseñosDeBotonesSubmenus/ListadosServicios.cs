@@ -12,9 +12,34 @@ namespace GUI.Diseño.Gerente.Vehiculos
 {
     public partial class ListadosServicios : Form
     {
-        public ListadosServicios()
+        public static ListadosServicios instance;
+        private ListadosServicios()
         {
             InitializeComponent();
+            Controlador.Controlador controlador = Controlador.Controlador.GetInstance();
+
+            btnBuscarServicioGer.Click += new EventHandler(controlador.OnButtonClick);
+            btnMostrarServGer.Click += new EventHandler(controlador.OnButtonClick);
+
+        }
+
+        public static ListadosServicios GetInsance()
+        {
+            if (instance == null)
+            {
+                instance = new ListadosServicios();
+            }
+            return instance;
+        }
+
+        private void btnMostrarServGer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarServicioGer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

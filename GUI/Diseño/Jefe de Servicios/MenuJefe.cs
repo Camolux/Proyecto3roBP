@@ -93,28 +93,28 @@ namespace GUI.Diseño.Jefe_de_Servicios
 
         private void btnAltasClientesEjecutivoDeServicios_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new AltasClientesJefe());
+            AbrirFormulariohijo(AltasClientesJefe.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void btnAltasServiciosEjecutivoDeServicios_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new AltasServiciosEjecutivoDeServicios());
+            AbrirFormulariohijo(AltasServiciosEjecutivoDeServicios.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void btnAltasVehiculosEjecutivoDeServicios_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new AltasVehiculosEjecutivoDeServicios());
+            AbrirFormulariohijo(AltasVehiculosEjecutivoDeServicios.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void btnModificacionesClientesMenuEjecutivoDeServicios_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new ModificacionesDeClientesMenuJefe());
+            AbrirFormulariohijo(ModificacionesDeClientesMenuJefe.GetInsance());
         }
 
         private void btnEjecutivoyjefedeServicios_Click(object sender, EventArgs e)
@@ -124,28 +124,28 @@ namespace GUI.Diseño.Jefe_de_Servicios
 
         private void btnAltasEjecutivoYJefe_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new AltasEjecutivoYJefeDeServiciosMenuJefe());
+            AbrirFormulariohijo(AltasEjecutivoYJefeDeServiciosMenuJefe.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void btnBajasEjecutivoYJefe_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new BajasEjecutivoYJefeDeServiciosMenuJefe());
+            AbrirFormulariohijo(BajasEjecutivoYJefeDeServiciosMenuJefe.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void btnModificacionesEjecutivoYJefe_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new ModificacionesEjecutivoYJefeDeServiciosMenuJefe());
+            AbrirFormulariohijo(ModificacionesEjecutivoYJefeDeServiciosMenuJefe.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void btnListadoEjecutivoYJefeDeServicios_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new ListadoEjecutivoYJefeDeServiciosMenuJefe());
+            AbrirFormulariohijo(ListadoEjecutivoYJefeDeServiciosMenuJefe.GetInsance());
             //codigo
             ocultarsubmenu();
         }
@@ -157,7 +157,7 @@ namespace GUI.Diseño.Jefe_de_Servicios
 
         private void btnhome_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new HomeJefe());
+            AbrirFormulariohijo(HomeJefe.GetInsance());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

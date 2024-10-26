@@ -28,49 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnIngresarVehiculos = new Button();
+            BTNAltaServGer = new Button();
             label5 = new Label();
-            textBox7 = new TextBox();
+            TBAltaServGerIDCliente = new TextBox();
             label1 = new Label();
             label3 = new Label();
             label11 = new Label();
             label4 = new Label();
-            textBox1 = new TextBox();
+            TBAltaServGerID = new TextBox();
             label9 = new Label();
-            textBox2 = new TextBox();
+            TBAltaServGerMatr = new TextBox();
             panel1 = new Panel();
             panel2 = new Panel();
             panel10 = new Panel();
             panel4 = new Panel();
             panel9 = new Panel();
             label6 = new Label();
-            textBox4 = new TextBox();
+            TBAltaServGerNumPlaza = new TextBox();
             panel5 = new Panel();
-            textBox6 = new TextBox();
+            TBAltaServGerNomFuncionario = new TextBox();
             label24 = new Label();
-            RBNeumaticos = new RadioButton();
-            maskedTextBox4 = new MaskedTextBox();
+            mTBAltaServGerFechaFin = new MaskedTextBox();
             label8 = new Label();
             label10 = new Label();
-            RBParking = new RadioButton();
-            RBLavado = new RadioButton();
-            RBAlineacion = new RadioButton();
-            maskedTextBox2 = new MaskedTextBox();
-            RBBalanceo = new RadioButton();
-            textBox8 = new TextBox();
+            mTBAltaServGerFechaInicio = new MaskedTextBox();
+            TBAltaServGerIDNeum = new TextBox();
             SuspendLayout();
             // 
-            // btnIngresarVehiculos
+            // BTNAltaServGer
             // 
-            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
-            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnIngresarVehiculos.Location = new Point(231, 471);
-            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
-            btnIngresarVehiculos.Size = new Size(204, 38);
-            btnIngresarVehiculos.TabIndex = 90;
-            btnIngresarVehiculos.Text = "Ingresar Servicio";
-            btnIngresarVehiculos.UseVisualStyleBackColor = false;
+            BTNAltaServGer.BackColor = SystemColors.ButtonFace;
+            BTNAltaServGer.FlatAppearance.BorderSize = 0;
+            BTNAltaServGer.FlatStyle = FlatStyle.Flat;
+            BTNAltaServGer.Location = new Point(231, 471);
+            BTNAltaServGer.Name = "BTNAltaServGer";
+            BTNAltaServGer.Size = new Size(204, 38);
+            BTNAltaServGer.TabIndex = 90;
+            BTNAltaServGer.Text = "Ingresar Servicio";
+            BTNAltaServGer.UseVisualStyleBackColor = false;
+            BTNAltaServGer.Click += BTNAltaServGer_Click;
             // 
             // label5
             // 
@@ -82,14 +78,14 @@
             label5.TabIndex = 99;
             label5.Text = "Altas Servicios";
             // 
-            // textBox7
+            // TBAltaServGerIDCliente
             // 
-            textBox7.BackColor = SystemColors.ActiveCaption;
-            textBox7.BorderStyle = BorderStyle.None;
-            textBox7.Location = new Point(240, 312);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(230, 16);
-            textBox7.TabIndex = 126;
+            TBAltaServGerIDCliente.BackColor = SystemColors.ActiveCaption;
+            TBAltaServGerIDCliente.BorderStyle = BorderStyle.None;
+            TBAltaServGerIDCliente.Location = new Point(240, 312);
+            TBAltaServGerIDCliente.Name = "TBAltaServGerIDCliente";
+            TBAltaServGerIDCliente.Size = new Size(230, 16);
+            TBAltaServGerIDCliente.TabIndex = 126;
             // 
             // label1
             // 
@@ -131,14 +127,14 @@
             label4.TabIndex = 93;
             label4.Text = "Ingrese ID de neumatico";
             // 
-            // textBox1
+            // TBAltaServGerID
             // 
-            textBox1.BackColor = SystemColors.ActiveCaption;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(240, 109);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(230, 16);
-            textBox1.TabIndex = 94;
+            TBAltaServGerID.BackColor = SystemColors.ActiveCaption;
+            TBAltaServGerID.BorderStyle = BorderStyle.None;
+            TBAltaServGerID.Location = new Point(240, 109);
+            TBAltaServGerID.Name = "TBAltaServGerID";
+            TBAltaServGerID.Size = new Size(230, 16);
+            TBAltaServGerID.TabIndex = 94;
             // 
             // label9
             // 
@@ -150,14 +146,14 @@
             label9.TabIndex = 105;
             label9.Text = "Ingrese ID Clientes";
             // 
-            // textBox2
+            // TBAltaServGerMatr
             // 
-            textBox2.BackColor = SystemColors.ActiveCaption;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Location = new Point(240, 150);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(230, 16);
-            textBox2.TabIndex = 95;
+            TBAltaServGerMatr.BackColor = SystemColors.ActiveCaption;
+            TBAltaServGerMatr.BorderStyle = BorderStyle.None;
+            TBAltaServGerMatr.Location = new Point(240, 150);
+            TBAltaServGerMatr.Name = "TBAltaServGerMatr";
+            TBAltaServGerMatr.Size = new Size(230, 16);
+            TBAltaServGerMatr.TabIndex = 95;
             // 
             // panel1
             // 
@@ -209,14 +205,14 @@
             label6.TabIndex = 100;
             label6.Text = "Ingrese Numero de Plaza";
             // 
-            // textBox4
+            // TBAltaServGerNumPlaza
             // 
-            textBox4.BackColor = SystemColors.ActiveCaption;
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Location = new Point(240, 231);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(230, 16);
-            textBox4.TabIndex = 102;
+            TBAltaServGerNumPlaza.BackColor = SystemColors.ActiveCaption;
+            TBAltaServGerNumPlaza.BorderStyle = BorderStyle.None;
+            TBAltaServGerNumPlaza.Location = new Point(240, 231);
+            TBAltaServGerNumPlaza.Name = "TBAltaServGerNumPlaza";
+            TBAltaServGerNumPlaza.Size = new Size(230, 16);
+            TBAltaServGerNumPlaza.TabIndex = 102;
             // 
             // panel5
             // 
@@ -226,14 +222,14 @@
             panel5.Size = new Size(230, 2);
             panel5.TabIndex = 103;
             // 
-            // textBox6
+            // TBAltaServGerNomFuncionario
             // 
-            textBox6.BackColor = SystemColors.ActiveCaption;
-            textBox6.BorderStyle = BorderStyle.None;
-            textBox6.Location = new Point(240, 269);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(230, 16);
-            textBox6.TabIndex = 125;
+            TBAltaServGerNomFuncionario.BackColor = SystemColors.ActiveCaption;
+            TBAltaServGerNomFuncionario.BorderStyle = BorderStyle.None;
+            TBAltaServGerNomFuncionario.Location = new Point(240, 269);
+            TBAltaServGerNomFuncionario.Name = "TBAltaServGerNomFuncionario";
+            TBAltaServGerNomFuncionario.Size = new Size(230, 16);
+            TBAltaServGerNomFuncionario.TabIndex = 125;
             // 
             // label24
             // 
@@ -245,26 +241,14 @@
             label24.TabIndex = 140;
             label24.Text = "Seleccione el tipo de Servicio";
             // 
-            // RBNeumaticos
+            // mTBAltaServGerFechaFin
             // 
-            RBNeumaticos.AutoSize = true;
-            RBNeumaticos.Location = new Point(502, 332);
-            RBNeumaticos.Name = "RBNeumaticos";
-            RBNeumaticos.Size = new Size(149, 19);
-            RBNeumaticos.TabIndex = 139;
-            RBNeumaticos.TabStop = true;
-            RBNeumaticos.Text = "Compra de neumaticos";
-            RBNeumaticos.UseVisualStyleBackColor = true;
-            RBNeumaticos.CheckedChanged += RBNeumaticos_CheckedChanged;
-            // 
-            // maskedTextBox4
-            // 
-            maskedTextBox4.Location = new Point(300, 422);
-            maskedTextBox4.Mask = "00/00/0000 00:00";
-            maskedTextBox4.Name = "maskedTextBox4";
-            maskedTextBox4.Size = new Size(230, 23);
-            maskedTextBox4.TabIndex = 130;
-            maskedTextBox4.ValidatingType = typeof(DateTime);
+            mTBAltaServGerFechaFin.Location = new Point(300, 422);
+            mTBAltaServGerFechaFin.Mask = "00/00/0000 00:00";
+            mTBAltaServGerFechaFin.Name = "mTBAltaServGerFechaFin";
+            mTBAltaServGerFechaFin.Size = new Size(230, 23);
+            mTBAltaServGerFechaFin.TabIndex = 130;
+            mTBAltaServGerFechaFin.ValidatingType = typeof(DateTime);
             // 
             // label8
             // 
@@ -286,71 +270,23 @@
             label10.TabIndex = 134;
             label10.Text = "Ingrese Fecha De finalizacion de servicio";
             // 
-            // RBParking
+            // mTBAltaServGerFechaInicio
             // 
-            RBParking.AutoSize = true;
-            RBParking.Location = new Point(504, 148);
-            RBParking.Name = "RBParking";
-            RBParking.Size = new Size(65, 19);
-            RBParking.TabIndex = 135;
-            RBParking.TabStop = true;
-            RBParking.Text = "Parking";
-            RBParking.UseVisualStyleBackColor = true;
-            RBParking.CheckedChanged += RBParking_CheckedChanged;
+            mTBAltaServGerFechaInicio.Location = new Point(301, 384);
+            mTBAltaServGerFechaInicio.Mask = "00/00/0000 00:00";
+            mTBAltaServGerFechaInicio.Name = "mTBAltaServGerFechaInicio";
+            mTBAltaServGerFechaInicio.Size = new Size(230, 23);
+            mTBAltaServGerFechaInicio.TabIndex = 128;
+            mTBAltaServGerFechaInicio.ValidatingType = typeof(DateTime);
             // 
-            // RBLavado
+            // TBAltaServGerIDNeum
             // 
-            RBLavado.AutoSize = true;
-            RBLavado.Location = new Point(502, 197);
-            RBLavado.Name = "RBLavado";
-            RBLavado.Size = new Size(63, 19);
-            RBLavado.TabIndex = 136;
-            RBLavado.TabStop = true;
-            RBLavado.Text = "Lavado";
-            RBLavado.UseVisualStyleBackColor = true;
-            RBLavado.CheckedChanged += RBLavado_CheckedChanged;
-            // 
-            // RBAlineacion
-            // 
-            RBAlineacion.AutoSize = true;
-            RBAlineacion.Location = new Point(502, 241);
-            RBAlineacion.Name = "RBAlineacion";
-            RBAlineacion.Size = new Size(81, 19);
-            RBAlineacion.TabIndex = 137;
-            RBAlineacion.TabStop = true;
-            RBAlineacion.Text = "Alineacion";
-            RBAlineacion.UseVisualStyleBackColor = true;
-            RBAlineacion.CheckedChanged += RBAlineacion_CheckedChanged;
-            // 
-            // maskedTextBox2
-            // 
-            maskedTextBox2.Location = new Point(301, 384);
-            maskedTextBox2.Mask = "00/00/0000 00:00";
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(230, 23);
-            maskedTextBox2.TabIndex = 128;
-            maskedTextBox2.ValidatingType = typeof(DateTime);
-            // 
-            // RBBalanceo
-            // 
-            RBBalanceo.AutoSize = true;
-            RBBalanceo.Location = new Point(502, 287);
-            RBBalanceo.Name = "RBBalanceo";
-            RBBalanceo.Size = new Size(73, 19);
-            RBBalanceo.TabIndex = 141;
-            RBBalanceo.TabStop = true;
-            RBBalanceo.Text = "Balanceo";
-            RBBalanceo.UseVisualStyleBackColor = true;
-            RBBalanceo.CheckedChanged += RBBalanceo_CheckedChanged;
-            // 
-            // textBox8
-            // 
-            textBox8.BackColor = SystemColors.ActiveCaption;
-            textBox8.BorderStyle = BorderStyle.None;
-            textBox8.Location = new Point(240, 192);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(230, 16);
-            textBox8.TabIndex = 107;
+            TBAltaServGerIDNeum.BackColor = SystemColors.ActiveCaption;
+            TBAltaServGerIDNeum.BorderStyle = BorderStyle.None;
+            TBAltaServGerIDNeum.Location = new Point(240, 192);
+            TBAltaServGerIDNeum.Name = "TBAltaServGerIDNeum";
+            TBAltaServGerIDNeum.Size = new Size(230, 16);
+            TBAltaServGerIDNeum.TabIndex = 107;
             // 
             // AltasServicios
             // 
@@ -358,20 +294,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
-            Controls.Add(RBBalanceo);
             Controls.Add(label24);
-            Controls.Add(RBNeumaticos);
-            Controls.Add(RBAlineacion);
-            Controls.Add(RBLavado);
-            Controls.Add(RBParking);
             Controls.Add(label10);
             Controls.Add(label8);
-            Controls.Add(maskedTextBox4);
-            Controls.Add(maskedTextBox2);
-            Controls.Add(textBox7);
-            Controls.Add(textBox6);
+            Controls.Add(mTBAltaServGerFechaFin);
+            Controls.Add(mTBAltaServGerFechaInicio);
+            Controls.Add(TBAltaServGerIDCliente);
+            Controls.Add(TBAltaServGerNomFuncionario);
             Controls.Add(panel5);
-            Controls.Add(textBox4);
+            Controls.Add(TBAltaServGerNumPlaza);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(panel9);
@@ -379,15 +310,15 @@
             Controls.Add(panel10);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(textBox8);
-            Controls.Add(textBox2);
+            Controls.Add(TBAltaServGerIDNeum);
+            Controls.Add(TBAltaServGerMatr);
             Controls.Add(label9);
-            Controls.Add(textBox1);
+            Controls.Add(TBAltaServGerID);
             Controls.Add(label4);
             Controls.Add(label11);
             Controls.Add(label3);
             Controls.Add(label1);
-            Controls.Add(btnIngresarVehiculos);
+            Controls.Add(BTNAltaServGer);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AltasServicios";
             Text = "AltasServicios";
@@ -396,35 +327,50 @@
         }
 
         #endregion
-        private Button btnIngresarVehiculos;
+        private Button BTNAltaServGer;
         private Label label5;
-        private TextBox textBox7;
+        private TextBox TBAltaServGerIDCliente;
         private Label label1;
         private Label label3;
         private Label label11;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox TBAltaServGerID;
         private Label label9;
-        private TextBox textBox2;
+        private TextBox TBAltaServGerMatr;
         private Panel panel1;
         private Panel panel2;
         private Panel panel10;
         private Panel panel4;
         private Panel panel9;
         private Label label6;
-        private TextBox textBox4;
+        private TextBox TBAltaServGerNumPlaza;
         private Panel panel5;
-        private TextBox textBox6;
+        private TextBox TBAltaServGerNomFuncionario;
         public Label label24;
-        public RadioButton RBNeumaticos;
-        private MaskedTextBox maskedTextBox4;
+        private RadioButton rBNeumaticos;
+        private MaskedTextBox mTBAltaServGerFechaFin;
         private Label label8;
         private Label label10;
-        public RadioButton RBParking;
-        public RadioButton RBLavado;
-        public RadioButton RBAlineacion;
-        private MaskedTextBox maskedTextBox2;
-        public RadioButton RBBalanceo;
-        private TextBox textBox8;
+        private RadioButton rBParking;
+        private RadioButton rBLavado;
+        private RadioButton rBAlineacion;
+        private MaskedTextBox mTBAltaServGerFechaInicio;
+        private RadioButton rBBalanceo;
+        private TextBox TBAltaServGerIDNeum;
+
+        public Button BTNAltaServGer1 { get => BTNAltaServGer; set => BTNAltaServGer = value; }
+        public TextBox TBAltaServGerIDCliente1 { get => TBAltaServGerIDCliente; set => TBAltaServGerIDCliente = value; }
+        public TextBox TBAltaServGerID1 { get => TBAltaServGerID; set => TBAltaServGerID = value; }
+        public TextBox TBAltaServGerMatr1 { get => TBAltaServGerMatr; set => TBAltaServGerMatr = value; }
+        public TextBox TBAltaServGerNumPlaza1 { get => TBAltaServGerNumPlaza; set => TBAltaServGerNumPlaza = value; }
+        public TextBox TBAltaServGerNomFuncionario1 { get => TBAltaServGerNomFuncionario; set => TBAltaServGerNomFuncionario = value; }
+        public RadioButton RBNeumaticos { get => rBNeumaticos; set => rBNeumaticos = value; }
+        public MaskedTextBox MTBAltaServGerFechaFin { get => mTBAltaServGerFechaFin; set => mTBAltaServGerFechaFin = value; }
+        public RadioButton RBParking { get => rBParking; set => rBParking = value; }
+        public RadioButton RBLavado { get => rBLavado; set => rBLavado = value; }
+        public RadioButton RBAlineacion { get => rBAlineacion; set => rBAlineacion = value; }
+        public MaskedTextBox MTBAltaServGerFechaInicio { get => mTBAltaServGerFechaInicio; set => mTBAltaServGerFechaInicio = value; }
+        public RadioButton RBBalanceo { get => rBBalanceo; set => rBBalanceo = value; }
+        public TextBox TBAltaServGerIDNeum1 { get => TBAltaServGerIDNeum; set => TBAltaServGerIDNeum = value; }
     }
 }

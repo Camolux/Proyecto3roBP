@@ -52,6 +52,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "HomeEjecutivoDeServicios";
             Text = "HomeEjecutivoDeServicios";
+            Load += HomeEjecutivoDeServicios_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }

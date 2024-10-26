@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.Diseño.Gerente.Vehiculos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +14,22 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
 {
     public partial class CambiarCostosDeServicios : Form
     {
-        public CambiarCostosDeServicios()
+        public static CambiarCostosDeServicios instance;
+        private CambiarCostosDeServicios()
         {
             InitializeComponent();
+            Controlador.Controlador controlador = Controlador.Controlador.GetInstance();
+
+            BTNModCostServGer.Click += new EventHandler(controlador.OnButtonClick);
+        }
+
+        public static CambiarCostosDeServicios GetInsance()
+        {
+            if (instance == null)
+            {
+                instance = new CambiarCostosDeServicios();
+            }
+            return instance;
         }
 
         private void RBParking_CheckedChanged(object sender, EventArgs e)
@@ -23,20 +37,20 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
             if (RBParking.Checked)
             {
                 // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
-                textBox3.Enabled = false;
-                textBox2.Enabled = false;
+                TBCostoServIDServ.Enabled = false;
+                TBCostoServIDNeumatico.Enabled = false;
 
-                textBox3.BackColor = Color.DarkGray;
-                textBox2.BackColor = Color.DarkGray;
+                TBCostoServIDServ.BackColor = Color.DarkGray;
+                TBCostoServIDNeumatico.BackColor = Color.DarkGray;
 
             }
             else
             {
                 // Habilitarlos si no está seleccionado
-                textBox3.Enabled = true;
-                textBox2.Enabled = true;
-                textBox3.BackColor = SystemColors.ActiveCaption;
-                textBox2.BackColor = SystemColors.ActiveCaption;
+                TBCostoServIDServ.Enabled = true;
+                TBCostoServIDNeumatico.Enabled = true;
+                TBCostoServIDServ.BackColor = SystemColors.ActiveCaption;
+                TBCostoServIDNeumatico.BackColor = SystemColors.ActiveCaption;
 
             }
         }
@@ -46,20 +60,20 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
             if (RBLavado.Checked)
             {
                 // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
-                textBox4.Enabled = false;
-                textBox2.Enabled = false;
+                TBCostoServIDPlaza.Enabled = false;
+                TBCostoServIDNeumatico.Enabled = false;
 
-                textBox4.BackColor = Color.DarkGray;
-                textBox2.BackColor = Color.DarkGray;
+                TBCostoServIDPlaza.BackColor = Color.DarkGray;
+                TBCostoServIDNeumatico.BackColor = Color.DarkGray;
 
             }
             else
             {
                 // Habilitarlos si no está seleccionado
-                textBox4.Enabled = true;
-                textBox2.Enabled = true;
-                textBox4.BackColor = SystemColors.ActiveCaption;
-                textBox2.BackColor = SystemColors.ActiveCaption;
+                TBCostoServIDPlaza.Enabled = true;
+                TBCostoServIDNeumatico.Enabled = true;
+                TBCostoServIDPlaza.BackColor = SystemColors.ActiveCaption;
+                TBCostoServIDNeumatico.BackColor = SystemColors.ActiveCaption;
 
             }
         }
@@ -69,20 +83,20 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
             if (RBAlineacion.Checked)
             {
                 // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
-                textBox4.Enabled = false;
-                textBox2.Enabled = false;
+                TBCostoServIDPlaza.Enabled = false;
+                TBCostoServIDNeumatico.Enabled = false;
 
-                textBox4.BackColor = Color.DarkGray;
-                textBox2.BackColor = Color.DarkGray;
+                TBCostoServIDPlaza.BackColor = Color.DarkGray;
+                TBCostoServIDNeumatico.BackColor = Color.DarkGray;
 
             }
             else
             {
                 // Habilitarlos si no está seleccionado
-                textBox4.Enabled = true;
-                textBox2.Enabled = true;
-                textBox4.BackColor = SystemColors.ActiveCaption;
-                textBox2.BackColor = SystemColors.ActiveCaption;
+                TBCostoServIDPlaza.Enabled = true;
+                TBCostoServIDNeumatico.Enabled = true;
+                TBCostoServIDPlaza.BackColor = SystemColors.ActiveCaption;
+                TBCostoServIDNeumatico.BackColor = SystemColors.ActiveCaption;
 
             }
         }
@@ -92,20 +106,20 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
             if (RBBalanceo.Checked)
             {
                 // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
-                textBox4.Enabled = false;
-                textBox2.Enabled = false;
+                TBCostoServIDPlaza.Enabled = false;
+                TBCostoServIDNeumatico.Enabled = false;
 
-                textBox4.BackColor = Color.DarkGray;
-                textBox2.BackColor = Color.DarkGray;
+                TBCostoServIDPlaza.BackColor = Color.DarkGray;
+                TBCostoServIDNeumatico.BackColor = Color.DarkGray;
 
             }
             else
             {
                 // Habilitarlos si no está seleccionado
-                textBox4.Enabled = true;
-                textBox2.Enabled = true;
-                textBox4.BackColor = SystemColors.ActiveCaption;
-                textBox2.BackColor = SystemColors.ActiveCaption;
+                TBCostoServIDPlaza.Enabled = true;
+                TBCostoServIDNeumatico.Enabled = true;
+                TBCostoServIDPlaza.BackColor = SystemColors.ActiveCaption;
+                TBCostoServIDNeumatico.BackColor = SystemColors.ActiveCaption;
 
             }
         }
@@ -115,22 +129,27 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
             if (RBNeumaticos.Checked)
             {
                 // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
-                textBox4.Enabled = false;
-                textBox3.Enabled = false;
+                TBCostoServIDPlaza.Enabled = false;
+                TBCostoServIDServ.Enabled = false;
 
-                textBox4.BackColor = Color.DarkGray;
-                textBox3.BackColor = Color.DarkGray;
+                TBCostoServIDPlaza.BackColor = Color.DarkGray;
+                TBCostoServIDServ.BackColor = Color.DarkGray;
 
             }
             else
             {
                 // Habilitarlos si no está seleccionado
-                textBox4.Enabled = true;
-                textBox3.Enabled = true;
-                textBox4.BackColor = SystemColors.ActiveCaption;
-                textBox3.BackColor = SystemColors.ActiveCaption;
+                TBCostoServIDPlaza.Enabled = true;
+                TBCostoServIDServ.Enabled = true;
+                TBCostoServIDPlaza.BackColor = SystemColors.ActiveCaption;
+                TBCostoServIDServ.BackColor = SystemColors.ActiveCaption;
 
             }
+        }
+
+        private void BTNModCostServGer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

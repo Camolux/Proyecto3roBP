@@ -28,36 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            dataGridViewVehiculos = new DataGridView();
+            btnMostrarFuncionariosGer = new Button();
+            dataGridViewFuncionarios = new DataGridView();
             label5 = new Label();
             panel1 = new Panel();
-            textBox1 = new TextBox();
+            TBBuscarFuncionarios = new TextBox();
             label1 = new Label();
-            btnIngresarVehiculos = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewVehiculos).BeginInit();
+            btnBuscarFuncionariosGer = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewFuncionarios).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // btnMostrarFuncionariosGer
             // 
-            button1.BackColor = SystemColors.ButtonFace;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(404, 469);
-            button1.Name = "button1";
-            button1.Size = new Size(204, 38);
-            button1.TabIndex = 66;
-            button1.Text = "Mostrar";
-            button1.UseVisualStyleBackColor = false;
+            btnMostrarFuncionariosGer.BackColor = SystemColors.ButtonFace;
+            btnMostrarFuncionariosGer.FlatAppearance.BorderSize = 0;
+            btnMostrarFuncionariosGer.FlatStyle = FlatStyle.Flat;
+            btnMostrarFuncionariosGer.Location = new Point(404, 469);
+            btnMostrarFuncionariosGer.Name = "btnMostrarFuncionariosGer";
+            btnMostrarFuncionariosGer.Size = new Size(204, 38);
+            btnMostrarFuncionariosGer.TabIndex = 66;
+            btnMostrarFuncionariosGer.Text = "Mostrar";
+            btnMostrarFuncionariosGer.UseVisualStyleBackColor = false;
+            btnMostrarFuncionariosGer.Click += btnMostrarFuncionariosGer_Click;
             // 
-            // dataGridViewVehiculos
+            // dataGridViewFuncionarios
             // 
-            dataGridViewVehiculos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewVehiculos.Location = new Point(73, 180);
-            dataGridViewVehiculos.Name = "dataGridViewVehiculos";
-            dataGridViewVehiculos.RowTemplate.Height = 25;
-            dataGridViewVehiculos.Size = new Size(589, 268);
-            dataGridViewVehiculos.TabIndex = 65;
+            dataGridViewFuncionarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewFuncionarios.Location = new Point(73, 180);
+            dataGridViewFuncionarios.Name = "dataGridViewFuncionarios";
+            dataGridViewFuncionarios.RowTemplate.Height = 25;
+            dataGridViewFuncionarios.Size = new Size(589, 268);
+            dataGridViewFuncionarios.TabIndex = 65;
             // 
             // label5
             // 
@@ -77,14 +78,14 @@
             panel1.Size = new Size(246, 2);
             panel1.TabIndex = 63;
             // 
-            // textBox1
+            // TBBuscarFuncionarios
             // 
-            textBox1.BackColor = SystemColors.ActiveCaption;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(268, 125);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(246, 16);
-            textBox1.TabIndex = 62;
+            TBBuscarFuncionarios.BackColor = SystemColors.ActiveCaption;
+            TBBuscarFuncionarios.BorderStyle = BorderStyle.None;
+            TBBuscarFuncionarios.Location = new Point(268, 125);
+            TBBuscarFuncionarios.Name = "TBBuscarFuncionarios";
+            TBBuscarFuncionarios.Size = new Size(246, 16);
+            TBBuscarFuncionarios.TabIndex = 62;
             // 
             // label1
             // 
@@ -96,17 +97,18 @@
             label1.TabIndex = 61;
             label1.Text = "Ingresar Nombre Del Usuario";
             // 
-            // btnIngresarVehiculos
+            // btnBuscarFuncionariosGer
             // 
-            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
-            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnIngresarVehiculos.Location = new Point(121, 469);
-            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
-            btnIngresarVehiculos.Size = new Size(204, 38);
-            btnIngresarVehiculos.TabIndex = 60;
-            btnIngresarVehiculos.Text = "Buscar ";
-            btnIngresarVehiculos.UseVisualStyleBackColor = false;
+            btnBuscarFuncionariosGer.BackColor = SystemColors.ButtonFace;
+            btnBuscarFuncionariosGer.FlatAppearance.BorderSize = 0;
+            btnBuscarFuncionariosGer.FlatStyle = FlatStyle.Flat;
+            btnBuscarFuncionariosGer.Location = new Point(121, 469);
+            btnBuscarFuncionariosGer.Name = "btnBuscarFuncionariosGer";
+            btnBuscarFuncionariosGer.Size = new Size(204, 38);
+            btnBuscarFuncionariosGer.TabIndex = 60;
+            btnBuscarFuncionariosGer.Text = "Buscar ";
+            btnBuscarFuncionariosGer.UseVisualStyleBackColor = false;
+            btnBuscarFuncionariosGer.Click += btnBuscarFuncionariosGer_Click;
             // 
             // ListadosEjecutivoYJefeDeServicios
             // 
@@ -114,29 +116,32 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
-            Controls.Add(button1);
-            Controls.Add(dataGridViewVehiculos);
+            Controls.Add(btnMostrarFuncionariosGer);
+            Controls.Add(dataGridViewFuncionarios);
             Controls.Add(label5);
             Controls.Add(panel1);
-            Controls.Add(textBox1);
+            Controls.Add(TBBuscarFuncionarios);
             Controls.Add(label1);
-            Controls.Add(btnIngresarVehiculos);
+            Controls.Add(btnBuscarFuncionariosGer);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ListadosEjecutivoYJefeDeServicios";
             Text = "ListadosEjecutivoYJefeDeServicios";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewVehiculos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewFuncionarios).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        public DataGridView dataGridViewVehiculos;
+        private Button btnMostrarFuncionariosGer;
+        private DataGridView dataGridViewFuncionarios;
         private Label label5;
         private Panel panel1;
-        private TextBox textBox1;
+        private TextBox TBBuscarFuncionarios;
         private Label label1;
-        private Button btnIngresarVehiculos;
+        private Button btnBuscarFuncionariosGer;
+
+        public DataGridView DataGridViewFuncionarios { get => dataGridViewFuncionarios; set => dataGridViewFuncionarios = value; }
+        public TextBox TBBuscarFuncionarios1 { get => TBBuscarFuncionarios; set => TBBuscarFuncionarios = value; }
     }
 }

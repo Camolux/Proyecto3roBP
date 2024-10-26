@@ -52,6 +52,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "HomeJefe";
             Text = "HomeJefe";
+            Load += HomeJefe_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             panel3 = new Panel();
-            textBox3 = new TextBox();
+            TBBajaUsuNom = new TextBox();
             label12 = new Label();
             label5 = new Label();
-            btnIngresarVehiculos = new Button();
+            btnBajaFuncionario = new Button();
             SuspendLayout();
             // 
             // panel3
@@ -43,14 +43,14 @@
             panel3.Size = new Size(232, 2);
             panel3.TabIndex = 137;
             // 
-            // textBox3
+            // TBBajaUsuNom
             // 
-            textBox3.BackColor = SystemColors.ActiveCaption;
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Location = new Point(247, 267);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(232, 16);
-            textBox3.TabIndex = 135;
+            TBBajaUsuNom.BackColor = SystemColors.ActiveCaption;
+            TBBajaUsuNom.BorderStyle = BorderStyle.None;
+            TBBajaUsuNom.Location = new Point(247, 267);
+            TBBajaUsuNom.Name = "TBBajaUsuNom";
+            TBBajaUsuNom.Size = new Size(232, 16);
+            TBBajaUsuNom.TabIndex = 135;
             // 
             // label12
             // 
@@ -72,17 +72,18 @@
             label5.TabIndex = 136;
             label5.Text = "Bajas Ejecutivo Y Jefe De Servicios";
             // 
-            // btnIngresarVehiculos
+            // btnBajaFuncionario
             // 
-            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
-            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnIngresarVehiculos.Location = new Point(258, 434);
-            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
-            btnIngresarVehiculos.Size = new Size(204, 38);
-            btnIngresarVehiculos.TabIndex = 133;
-            btnIngresarVehiculos.Text = "Eliminar";
-            btnIngresarVehiculos.UseVisualStyleBackColor = false;
+            btnBajaFuncionario.BackColor = SystemColors.ButtonFace;
+            btnBajaFuncionario.FlatAppearance.BorderSize = 0;
+            btnBajaFuncionario.FlatStyle = FlatStyle.Flat;
+            btnBajaFuncionario.Location = new Point(258, 434);
+            btnBajaFuncionario.Name = "btnBajaFuncionario";
+            btnBajaFuncionario.Size = new Size(204, 38);
+            btnBajaFuncionario.TabIndex = 133;
+            btnBajaFuncionario.Text = "Eliminar";
+            btnBajaFuncionario.UseVisualStyleBackColor = false;
+            btnBajaFuncionario.Click += btnBajaFuncionario_Click;
             // 
             // BajasEjecutivoYJefeDeServiciosMenuJefe
             // 
@@ -91,10 +92,10 @@
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
             Controls.Add(panel3);
-            Controls.Add(textBox3);
+            Controls.Add(TBBajaUsuNom);
             Controls.Add(label12);
             Controls.Add(label5);
-            Controls.Add(btnIngresarVehiculos);
+            Controls.Add(btnBajaFuncionario);
             FormBorderStyle = FormBorderStyle.None;
             Name = "BajasEjecutivoYJefeDeServiciosMenuJefe";
             Text = "BajasEjecutivoYJefeDeServiciosMenuJefe";
@@ -105,9 +106,11 @@
         #endregion
 
         private Panel panel3;
-        private TextBox textBox3;
+        private TextBox TBBajaUsuNom;
         private Label label12;
         private Label label5;
-        private Button btnIngresarVehiculos;
+        private Button btnBajaFuncionario;
+
+        public TextBox TBBajaUsuNom1 { get => TBBajaUsuNom; set => TBBajaUsuNom = value; }
     }
 }

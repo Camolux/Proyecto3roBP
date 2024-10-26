@@ -28,36 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            dataGridViewVehiculos = new DataGridView();
+            btnMostrarServGer = new Button();
+            dataGridViewServicio = new DataGridView();
             label5 = new Label();
             panel1 = new Panel();
-            textBox1 = new TextBox();
+            TBBuscarServicio = new TextBox();
             label1 = new Label();
-            btnIngresarVehiculos = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewVehiculos).BeginInit();
+            btnBuscarServicioGer = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewServicio).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // btnMostrarServGer
             // 
-            button1.BackColor = SystemColors.ButtonFace;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(404, 469);
-            button1.Name = "button1";
-            button1.Size = new Size(204, 38);
-            button1.TabIndex = 66;
-            button1.Text = "Mostrar";
-            button1.UseVisualStyleBackColor = false;
+            btnMostrarServGer.BackColor = SystemColors.ButtonFace;
+            btnMostrarServGer.FlatAppearance.BorderSize = 0;
+            btnMostrarServGer.FlatStyle = FlatStyle.Flat;
+            btnMostrarServGer.Location = new Point(404, 469);
+            btnMostrarServGer.Name = "btnMostrarServGer";
+            btnMostrarServGer.Size = new Size(204, 38);
+            btnMostrarServGer.TabIndex = 66;
+            btnMostrarServGer.Text = "Mostrar";
+            btnMostrarServGer.UseVisualStyleBackColor = false;
+            btnMostrarServGer.Click += btnMostrarServGer_Click;
             // 
-            // dataGridViewVehiculos
+            // dataGridViewServicio
             // 
-            dataGridViewVehiculos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewVehiculos.Location = new Point(73, 180);
-            dataGridViewVehiculos.Name = "dataGridViewVehiculos";
-            dataGridViewVehiculos.RowTemplate.Height = 25;
-            dataGridViewVehiculos.Size = new Size(589, 268);
-            dataGridViewVehiculos.TabIndex = 65;
+            dataGridViewServicio.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewServicio.Location = new Point(73, 180);
+            dataGridViewServicio.Name = "dataGridViewServicio";
+            dataGridViewServicio.RowTemplate.Height = 25;
+            dataGridViewServicio.Size = new Size(589, 268);
+            dataGridViewServicio.TabIndex = 65;
             // 
             // label5
             // 
@@ -77,14 +78,14 @@
             panel1.Size = new Size(246, 2);
             panel1.TabIndex = 63;
             // 
-            // textBox1
+            // TBBuscarServicio
             // 
-            textBox1.BackColor = SystemColors.ActiveCaption;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(266, 140);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(246, 16);
-            textBox1.TabIndex = 62;
+            TBBuscarServicio.BackColor = SystemColors.ActiveCaption;
+            TBBuscarServicio.BorderStyle = BorderStyle.None;
+            TBBuscarServicio.Location = new Point(266, 140);
+            TBBuscarServicio.Name = "TBBuscarServicio";
+            TBBuscarServicio.Size = new Size(246, 16);
+            TBBuscarServicio.TabIndex = 62;
             // 
             // label1
             // 
@@ -96,17 +97,18 @@
             label1.TabIndex = 61;
             label1.Text = "Buscar por ID del Servicio";
             // 
-            // btnIngresarVehiculos
+            // btnBuscarServicioGer
             // 
-            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
-            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnIngresarVehiculos.Location = new Point(121, 469);
-            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
-            btnIngresarVehiculos.Size = new Size(204, 38);
-            btnIngresarVehiculos.TabIndex = 60;
-            btnIngresarVehiculos.Text = "Buscar ";
-            btnIngresarVehiculos.UseVisualStyleBackColor = false;
+            btnBuscarServicioGer.BackColor = SystemColors.ButtonFace;
+            btnBuscarServicioGer.FlatAppearance.BorderSize = 0;
+            btnBuscarServicioGer.FlatStyle = FlatStyle.Flat;
+            btnBuscarServicioGer.Location = new Point(121, 469);
+            btnBuscarServicioGer.Name = "btnBuscarServicioGer";
+            btnBuscarServicioGer.Size = new Size(204, 38);
+            btnBuscarServicioGer.TabIndex = 60;
+            btnBuscarServicioGer.Text = "Buscar ";
+            btnBuscarServicioGer.UseVisualStyleBackColor = false;
+            btnBuscarServicioGer.Click += btnBuscarServicioGer_Click;
             // 
             // ListadosServicios
             // 
@@ -114,29 +116,32 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
-            Controls.Add(button1);
-            Controls.Add(dataGridViewVehiculos);
+            Controls.Add(btnMostrarServGer);
+            Controls.Add(dataGridViewServicio);
             Controls.Add(label5);
             Controls.Add(panel1);
-            Controls.Add(textBox1);
+            Controls.Add(TBBuscarServicio);
             Controls.Add(label1);
-            Controls.Add(btnIngresarVehiculos);
+            Controls.Add(btnBuscarServicioGer);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ListadosServicios";
             Text = "ListadosServicios";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewVehiculos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewServicio).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        public DataGridView dataGridViewVehiculos;
+        private Button btnMostrarServGer;
+        private DataGridView dataGridViewServicio;
         private Label label5;
         private Panel panel1;
-        private TextBox textBox1;
+        private TextBox TBBuscarServicio;
         private Label label1;
-        private Button btnIngresarVehiculos;
+        private Button btnBuscarServicioGer;
+
+        public DataGridView DataGridViewServicio { get => dataGridViewServicio; set => dataGridViewServicio = value; }
+        public TextBox TBBuscarServicio1 { get => TBBuscarServicio; set => TBBuscarServicio = value; }
     }
 }

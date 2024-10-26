@@ -28,28 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            CBTipoVehiculo = new ComboBox();
             panel4 = new Panel();
             panel2 = new Panel();
             panel1 = new Panel();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            TBModFuncionariosContra = new TextBox();
+            TBModFuncionariosUsu = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
             label5 = new Label();
-            btnIngresarVehiculos = new Button();
+            btnModFuncionarioJefe = new Button();
             SuspendLayout();
-            // 
-            // CBTipoVehiculo
-            // 
-            CBTipoVehiculo.BackColor = SystemColors.ActiveCaption;
-            CBTipoVehiculo.FormattingEnabled = true;
-            CBTipoVehiculo.Items.AddRange(new object[] { "ejecutivo", "jefe", "operador", "cajero" });
-            CBTipoVehiculo.Location = new Point(250, 300);
-            CBTipoVehiculo.Name = "CBTipoVehiculo";
-            CBTipoVehiculo.Size = new Size(232, 23);
-            CBTipoVehiculo.TabIndex = 185;
             // 
             // panel4
             // 
@@ -75,23 +64,23 @@
             panel1.Size = new Size(232, 2);
             panel1.TabIndex = 182;
             // 
-            // textBox2
+            // TBModFuncionariosContra
             // 
-            textBox2.BackColor = SystemColors.ActiveCaption;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Location = new Point(250, 254);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(232, 16);
-            textBox2.TabIndex = 181;
+            TBModFuncionariosContra.BackColor = SystemColors.ActiveCaption;
+            TBModFuncionariosContra.BorderStyle = BorderStyle.None;
+            TBModFuncionariosContra.Location = new Point(250, 254);
+            TBModFuncionariosContra.Name = "TBModFuncionariosContra";
+            TBModFuncionariosContra.Size = new Size(232, 16);
+            TBModFuncionariosContra.TabIndex = 181;
             // 
-            // textBox1
+            // TBModFuncionariosUsu
             // 
-            textBox1.BackColor = SystemColors.ActiveCaption;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(250, 212);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(232, 16);
-            textBox1.TabIndex = 180;
+            TBModFuncionariosUsu.BackColor = SystemColors.ActiveCaption;
+            TBModFuncionariosUsu.BorderStyle = BorderStyle.None;
+            TBModFuncionariosUsu.Location = new Point(250, 212);
+            TBModFuncionariosUsu.Name = "TBModFuncionariosUsu";
+            TBModFuncionariosUsu.Size = new Size(232, 16);
+            TBModFuncionariosUsu.TabIndex = 180;
             // 
             // label4
             // 
@@ -133,17 +122,18 @@
             label5.TabIndex = 176;
             label5.Text = "Modificar Ejecutivo y jefe de servicios";
             // 
-            // btnIngresarVehiculos
+            // btnModFuncionarioJefe
             // 
-            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
-            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnIngresarVehiculos.Location = new Point(266, 392);
-            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
-            btnIngresarVehiculos.Size = new Size(204, 38);
-            btnIngresarVehiculos.TabIndex = 175;
-            btnIngresarVehiculos.Text = "Modificar";
-            btnIngresarVehiculos.UseVisualStyleBackColor = false;
+            btnModFuncionarioJefe.BackColor = SystemColors.ButtonFace;
+            btnModFuncionarioJefe.FlatAppearance.BorderSize = 0;
+            btnModFuncionarioJefe.FlatStyle = FlatStyle.Flat;
+            btnModFuncionarioJefe.Location = new Point(266, 392);
+            btnModFuncionarioJefe.Name = "btnModFuncionarioJefe";
+            btnModFuncionarioJefe.Size = new Size(204, 38);
+            btnModFuncionarioJefe.TabIndex = 175;
+            btnModFuncionarioJefe.Text = "Modificar";
+            btnModFuncionarioJefe.UseVisualStyleBackColor = false;
+            btnModFuncionarioJefe.Click += btnModFuncionarioJefe_Click;
             // 
             // ModificacionesEjecutivoYJefeDeServiciosMenuJefe
             // 
@@ -151,17 +141,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
-            Controls.Add(CBTipoVehiculo);
             Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(TBModFuncionariosContra);
+            Controls.Add(TBModFuncionariosUsu);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(label5);
-            Controls.Add(btnIngresarVehiculos);
+            Controls.Add(btnModFuncionarioJefe);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ModificacionesEjecutivoYJefeDeServiciosMenuJefe";
             Text = "ModificacionesEjecutivoYJefeDeServiciosMenuJefe";
@@ -171,16 +160,20 @@
 
         #endregion
 
-        public ComboBox CBTipoVehiculo;
+        private ComboBox cBModFuncionariosRol;
         private Panel panel4;
         private Panel panel2;
         private Panel panel1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox TBModFuncionariosContra;
+        private TextBox TBModFuncionariosUsu;
         private Label label4;
         private Label label3;
         private Label label1;
         private Label label5;
-        private Button btnIngresarVehiculos;
+        private Button btnModFuncionarioJefe;
+
+        public ComboBox CBModFuncionariosRol { get => cBModFuncionariosRol; set => cBModFuncionariosRol = value; }
+        public TextBox TBModFuncionariosContra1 { get => TBModFuncionariosContra; set => TBModFuncionariosContra = value; }
+        public TextBox TBModFuncionariosUsu1 { get => TBModFuncionariosUsu; set => TBModFuncionariosUsu = value; }
     }
 }

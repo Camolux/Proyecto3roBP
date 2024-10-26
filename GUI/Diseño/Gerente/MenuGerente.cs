@@ -139,7 +139,7 @@ namespace GUI
 
         private void btnAltasvehiculos_Click_1(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new AltasVehiculos());
+            AbrirFormulariohijo(AltasVehiculos.GetInsance());
             //codigo
             ocultarsubmenu();
         }
@@ -151,14 +151,14 @@ namespace GUI
 
         private void btnModificacionesvehiculos_Click_1(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new ModificacionesVehiculos());
+            AbrirFormulariohijo(ModificacionesVehiculos.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new AltasClientes());
+            AbrirFormulariohijo(AltasClientes.GetInsance());
             //codigo
             ocultarsubmenu();
         }
@@ -169,14 +169,14 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new ModificacionesClientes());
+            AbrirFormulariohijo(ModificacionesClientes.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new AltasServicios());
+            AbrirFormulariohijo(AltasServicios.GetInsance());
             //codigo
             ocultarsubmenu();
         }
@@ -188,7 +188,7 @@ namespace GUI
 
         private void button6_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new ModificacionesServicios());
+            AbrirFormulariohijo(ModificacionesServicios.GetInsance());
             //codigo
             ocultarsubmenu();
         }
@@ -202,14 +202,14 @@ namespace GUI
 
         private void button11_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new BajasEjecutivoYJefeDeServicios());
+            AbrirFormulariohijo(BajasEjecutivoYJefeDeServicios.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new ModificacionesEjecutivoYJefeDeServicios());
+            AbrirFormulariohijo(ModificacionesEjecutivoYJefeDeServicios.GetInsance());
             //codigo
             ocultarsubmenu();
         }
@@ -246,35 +246,35 @@ namespace GUI
 
         private void btnListadoServicios_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new ListadosServicios());
+            AbrirFormulariohijo(ListadosServicios.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void btnListadoVehiculos_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new ListadosVehiculos());
+            AbrirFormulariohijo(ListadosVehiculos.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void btnListadoClientes_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new ListadosClientes());
+            AbrirFormulariohijo(ListadosClientes.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new CambiarCostosDeServicios());
+            AbrirFormulariohijo(CambiarCostosDeServicios.GetInsance());
         }
 
 
 
         private void btnhome_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new Home());
+            AbrirFormulariohijo(Home.GetInsance());
         }
 
         private void panelContenedordesubmenusHome_Paint(object sender, PaintEventArgs e)
@@ -289,14 +289,14 @@ namespace GUI
 
         private void BtnEmitirFacturaServicios_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new EmitirFacturasServicios());
+            AbrirFormulariohijo(EmitirFacturasServicios.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void btnListadoEjecutivoYJefeDeServicios_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new ListadosEjecutivoYJefeDeServicios());
+            AbrirFormulariohijo(ListadosEjecutivoYJefeDeServicios.GetInsance());
             //codigo
             ocultarsubmenu();
         }

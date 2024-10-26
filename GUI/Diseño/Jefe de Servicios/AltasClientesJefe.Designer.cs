@@ -32,16 +32,16 @@
             panel9 = new Panel();
             panel10 = new Panel();
             panel2 = new Panel();
-            textBox7 = new TextBox();
+            TBAltaClienteTel = new TextBox();
             panel1 = new Panel();
-            textBox8 = new TextBox();
-            textBox2 = new TextBox();
+            TBAltaClienteNom = new TextBox();
+            TBAltaClienteApe = new TextBox();
             label9 = new Label();
-            textBox1 = new TextBox();
+            TBAltaClienteCI = new TextBox();
             label11 = new Label();
             label3 = new Label();
             label1 = new Label();
-            btnIngresarVehiculos = new Button();
+            btnIngresarClienteJefe = new Button();
             SuspendLayout();
             // 
             // label5
@@ -78,14 +78,14 @@
             panel2.Size = new Size(232, 2);
             panel2.TabIndex = 100;
             // 
-            // textBox7
+            // TBAltaClienteTel
             // 
-            textBox7.BackColor = SystemColors.ActiveCaption;
-            textBox7.BorderStyle = BorderStyle.None;
-            textBox7.Location = new Point(244, 303);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(232, 16);
-            textBox7.TabIndex = 105;
+            TBAltaClienteTel.BackColor = SystemColors.ActiveCaption;
+            TBAltaClienteTel.BorderStyle = BorderStyle.None;
+            TBAltaClienteTel.Location = new Point(244, 303);
+            TBAltaClienteTel.Name = "TBAltaClienteTel";
+            TBAltaClienteTel.Size = new Size(232, 16);
+            TBAltaClienteTel.TabIndex = 105;
             // 
             // panel1
             // 
@@ -95,23 +95,23 @@
             panel1.Size = new Size(232, 2);
             panel1.TabIndex = 99;
             // 
-            // textBox8
+            // TBAltaClienteNom
             // 
-            textBox8.BackColor = SystemColors.ActiveCaption;
-            textBox8.BorderStyle = BorderStyle.None;
-            textBox8.Location = new Point(244, 262);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(232, 16);
-            textBox8.TabIndex = 104;
+            TBAltaClienteNom.BackColor = SystemColors.ActiveCaption;
+            TBAltaClienteNom.BorderStyle = BorderStyle.None;
+            TBAltaClienteNom.Location = new Point(244, 262);
+            TBAltaClienteNom.Name = "TBAltaClienteNom";
+            TBAltaClienteNom.Size = new Size(232, 16);
+            TBAltaClienteNom.TabIndex = 104;
             // 
-            // textBox2
+            // TBAltaClienteApe
             // 
-            textBox2.BackColor = SystemColors.ActiveCaption;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Location = new Point(244, 218);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(232, 16);
-            textBox2.TabIndex = 98;
+            TBAltaClienteApe.BackColor = SystemColors.ActiveCaption;
+            TBAltaClienteApe.BorderStyle = BorderStyle.None;
+            TBAltaClienteApe.Location = new Point(244, 218);
+            TBAltaClienteApe.Name = "TBAltaClienteApe";
+            TBAltaClienteApe.Size = new Size(232, 16);
+            TBAltaClienteApe.TabIndex = 98;
             // 
             // label9
             // 
@@ -123,14 +123,14 @@
             label9.TabIndex = 103;
             label9.Text = "Ingrese El Telefono Del Cliente";
             // 
-            // textBox1
+            // TBAltaClienteCI
             // 
-            textBox1.BackColor = SystemColors.ActiveCaption;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(244, 177);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(232, 16);
-            textBox1.TabIndex = 97;
+            TBAltaClienteCI.BackColor = SystemColors.ActiveCaption;
+            TBAltaClienteCI.BorderStyle = BorderStyle.None;
+            TBAltaClienteCI.Location = new Point(244, 177);
+            TBAltaClienteCI.Name = "TBAltaClienteCI";
+            TBAltaClienteCI.Size = new Size(232, 16);
+            TBAltaClienteCI.TabIndex = 97;
             // 
             // label11
             // 
@@ -162,17 +162,18 @@
             label1.TabIndex = 95;
             label1.Text = "Ingrese Cedula Del Cliente";
             // 
-            // btnIngresarVehiculos
+            // btnIngresarClienteJefe
             // 
-            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
-            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnIngresarVehiculos.Location = new Point(259, 423);
-            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
-            btnIngresarVehiculos.Size = new Size(204, 38);
-            btnIngresarVehiculos.TabIndex = 94;
-            btnIngresarVehiculos.Text = "Ingresar Cliente";
-            btnIngresarVehiculos.UseVisualStyleBackColor = false;
+            btnIngresarClienteJefe.BackColor = SystemColors.ButtonFace;
+            btnIngresarClienteJefe.FlatAppearance.BorderSize = 0;
+            btnIngresarClienteJefe.FlatStyle = FlatStyle.Flat;
+            btnIngresarClienteJefe.Location = new Point(259, 423);
+            btnIngresarClienteJefe.Name = "btnIngresarClienteJefe";
+            btnIngresarClienteJefe.Size = new Size(204, 38);
+            btnIngresarClienteJefe.TabIndex = 94;
+            btnIngresarClienteJefe.Text = "Ingresar Cliente";
+            btnIngresarClienteJefe.UseVisualStyleBackColor = false;
+            btnIngresarClienteJefe.Click += btnIngresarClienteJefe_Click;
             // 
             // AltasClientesJefe
             // 
@@ -184,16 +185,16 @@
             Controls.Add(panel9);
             Controls.Add(panel10);
             Controls.Add(panel2);
-            Controls.Add(textBox7);
+            Controls.Add(TBAltaClienteTel);
             Controls.Add(panel1);
-            Controls.Add(textBox8);
-            Controls.Add(textBox2);
+            Controls.Add(TBAltaClienteNom);
+            Controls.Add(TBAltaClienteApe);
             Controls.Add(label9);
-            Controls.Add(textBox1);
+            Controls.Add(TBAltaClienteCI);
             Controls.Add(label11);
             Controls.Add(label3);
             Controls.Add(label1);
-            Controls.Add(btnIngresarVehiculos);
+            Controls.Add(btnIngresarClienteJefe);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AltasClientesJefe";
             Text = "AltasClientesJefe";
@@ -207,15 +208,20 @@
         private Panel panel9;
         private Panel panel10;
         private Panel panel2;
-        private TextBox textBox7;
+        private TextBox TBAltaClienteTel;
         private Panel panel1;
-        private TextBox textBox8;
-        private TextBox textBox2;
+        private TextBox TBAltaClienteNom;
+        private TextBox TBAltaClienteApe;
         private Label label9;
-        private TextBox textBox1;
+        private TextBox TBAltaClienteCI;
         private Label label11;
         private Label label3;
         private Label label1;
-        private Button btnIngresarVehiculos;
+        private Button btnIngresarClienteJefe;
+
+        public TextBox TBAltaClienteTel1 { get => TBAltaClienteTel; set => TBAltaClienteTel = value; }
+        public TextBox TBAltaClienteNom1 { get => TBAltaClienteNom; set => TBAltaClienteNom = value; }
+        public TextBox TBAltaClienteApe1 { get => TBAltaClienteApe; set => TBAltaClienteApe = value; }
+        public TextBox TBAltaClienteCI1 { get => TBAltaClienteCI; set => TBAltaClienteCI = value; }
     }
 }

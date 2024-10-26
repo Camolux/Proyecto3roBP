@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             label5 = new Label();
-            btnIngresarVehiculos = new Button();
-            CBTipoVehiculo = new ComboBox();
+            btnModFuncionario = new Button();
             panel4 = new Panel();
             panel2 = new Panel();
             panel1 = new Panel();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            TBModFuncionarioContra = new TextBox();
+            TBModFuncionarioNom = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
@@ -51,27 +50,18 @@
             label5.TabIndex = 164;
             label5.Text = "Modificar Ejecutivo y jefe de servicios";
             // 
-            // btnIngresarVehiculos
+            // btnModFuncionario
             // 
-            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
-            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnIngresarVehiculos.Location = new Point(264, 325);
-            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
-            btnIngresarVehiculos.Size = new Size(204, 38);
-            btnIngresarVehiculos.TabIndex = 153;
-            btnIngresarVehiculos.Text = "Modificar";
-            btnIngresarVehiculos.UseVisualStyleBackColor = false;
-            // 
-            // CBTipoVehiculo
-            // 
-            CBTipoVehiculo.BackColor = SystemColors.ActiveCaption;
-            CBTipoVehiculo.FormattingEnabled = true;
-            CBTipoVehiculo.Items.AddRange(new object[] { "ejecutivo", "jefe", "operador", "cajero" });
-            CBTipoVehiculo.Location = new Point(248, 233);
-            CBTipoVehiculo.Name = "CBTipoVehiculo";
-            CBTipoVehiculo.Size = new Size(232, 23);
-            CBTipoVehiculo.TabIndex = 174;
+            btnModFuncionario.BackColor = SystemColors.ButtonFace;
+            btnModFuncionario.FlatAppearance.BorderSize = 0;
+            btnModFuncionario.FlatStyle = FlatStyle.Flat;
+            btnModFuncionario.Location = new Point(264, 325);
+            btnModFuncionario.Name = "btnModFuncionario";
+            btnModFuncionario.Size = new Size(204, 38);
+            btnModFuncionario.TabIndex = 153;
+            btnModFuncionario.Text = "Modificar";
+            btnModFuncionario.UseVisualStyleBackColor = false;
+            btnModFuncionario.Click += btnModFuncionario_Click;
             // 
             // panel4
             // 
@@ -97,23 +87,23 @@
             panel1.Size = new Size(232, 2);
             panel1.TabIndex = 171;
             // 
-            // textBox2
+            // TBModFuncionarioContra
             // 
-            textBox2.BackColor = SystemColors.ActiveCaption;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Location = new Point(248, 187);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(232, 16);
-            textBox2.TabIndex = 170;
+            TBModFuncionarioContra.BackColor = SystemColors.ActiveCaption;
+            TBModFuncionarioContra.BorderStyle = BorderStyle.None;
+            TBModFuncionarioContra.Location = new Point(248, 187);
+            TBModFuncionarioContra.Name = "TBModFuncionarioContra";
+            TBModFuncionarioContra.Size = new Size(232, 16);
+            TBModFuncionarioContra.TabIndex = 170;
             // 
-            // textBox1
+            // TBModFuncionarioNom
             // 
-            textBox1.BackColor = SystemColors.ActiveCaption;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(248, 145);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(232, 16);
-            textBox1.TabIndex = 169;
+            TBModFuncionarioNom.BackColor = SystemColors.ActiveCaption;
+            TBModFuncionarioNom.BorderStyle = BorderStyle.None;
+            TBModFuncionarioNom.Location = new Point(248, 145);
+            TBModFuncionarioNom.Name = "TBModFuncionarioNom";
+            TBModFuncionarioNom.Size = new Size(232, 16);
+            TBModFuncionarioNom.TabIndex = 169;
             // 
             // label4
             // 
@@ -151,17 +141,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
-            Controls.Add(CBTipoVehiculo);
             Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(TBModFuncionarioContra);
+            Controls.Add(TBModFuncionarioNom);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(label5);
-            Controls.Add(btnIngresarVehiculos);
+            Controls.Add(btnModFuncionario);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ModificacionesEjecutivoYJefeDeServicios";
             Text = "ModificacionesEjecutivoYJefeDeServicios";
@@ -171,15 +160,19 @@
 
         #endregion
         private Label label5;
-        private Button btnIngresarVehiculos;
-        public ComboBox CBTipoVehiculo;
+        private Button btnModFuncionario;
+        private ComboBox cBModFuncionarioRol;
         private Panel panel4;
         private Panel panel2;
         private Panel panel1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox TBModFuncionarioContra;
+        private TextBox TBModFuncionarioNom;
         private Label label4;
         private Label label3;
         private Label label1;
+
+        public ComboBox CBModFuncionarioRol { get => cBModFuncionarioRol; set => cBModFuncionarioRol = value; }
+        public TextBox TBModFuncionarioContra1 { get => TBModFuncionarioContra; set => TBModFuncionarioContra = value; }
+        public TextBox TBModFuncionarioNom1 { get => TBModFuncionarioNom; set => TBModFuncionarioNom = value; }
     }
 }

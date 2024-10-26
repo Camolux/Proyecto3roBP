@@ -43,6 +43,7 @@
             panelContenedordesubmenusHome.Name = "panelContenedordesubmenusHome";
             panelContenedordesubmenusHome.Size = new Size(711, 749);
             panelContenedordesubmenusHome.TabIndex = 2;
+            panelContenedordesubmenusHome.Paint += panelContenedordesubmenusHome_Paint;
             // 
             // pictureBox2
             // 

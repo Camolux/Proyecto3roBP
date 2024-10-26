@@ -30,24 +30,22 @@
         {
             label5 = new Label();
             panel6 = new Panel();
-            textBox4 = new TextBox();
+            TBModVehiculosCIClientes = new TextBox();
             label7 = new Label();
-            comboBox1 = new ComboBox();
             panel5 = new Panel();
             label6 = new Label();
-            CBTipoVehiculo = new ComboBox();
             panel4 = new Panel();
             panel3 = new Panel();
             panel2 = new Panel();
             panel1 = new Panel();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            TBModVehiculosModelo = new TextBox();
+            TBModVehiculosMarca = new TextBox();
+            TBModVehiculosMatricula = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            btnModificarVehiculos = new Button();
+            btnModificarVehiculosGer = new Button();
             SuspendLayout();
             // 
             // label5
@@ -68,14 +66,14 @@
             panel6.Size = new Size(246, 2);
             panel6.TabIndex = 78;
             // 
-            // textBox4
+            // TBModVehiculosCIClientes
             // 
-            textBox4.BackColor = SystemColors.ActiveCaption;
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Location = new Point(230, 131);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(246, 16);
-            textBox4.TabIndex = 77;
+            TBModVehiculosCIClientes.BackColor = SystemColors.ActiveCaption;
+            TBModVehiculosCIClientes.BorderStyle = BorderStyle.None;
+            TBModVehiculosCIClientes.Location = new Point(230, 131);
+            TBModVehiculosCIClientes.Name = "TBModVehiculosCIClientes";
+            TBModVehiculosCIClientes.Size = new Size(246, 16);
+            TBModVehiculosCIClientes.TabIndex = 77;
             // 
             // label7
             // 
@@ -86,16 +84,6 @@
             label7.Size = new Size(147, 18);
             label7.TabIndex = 76;
             label7.Text = "Ingrese CI Del Cliente";
-            // 
-            // comboBox1
-            // 
-            comboBox1.BackColor = SystemColors.ActiveCaption;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "mensual", "sistematico", "eventual", "extraordinario" });
-            comboBox1.Location = new Point(230, 397);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(246, 23);
-            comboBox1.TabIndex = 75;
             // 
             // panel5
             // 
@@ -114,16 +102,6 @@
             label6.Size = new Size(157, 18);
             label6.TabIndex = 73;
             label6.Text = "Ingrese Tipo de Cliente";
-            // 
-            // CBTipoVehiculo
-            // 
-            CBTipoVehiculo.BackColor = SystemColors.ActiveCaption;
-            CBTipoVehiculo.FormattingEnabled = true;
-            CBTipoVehiculo.Items.AddRange(new object[] { "moto", "auto", "camioneta", "pequeño camión", "pequeño utilitario" });
-            CBTipoVehiculo.Location = new Point(230, 342);
-            CBTipoVehiculo.Name = "CBTipoVehiculo";
-            CBTipoVehiculo.Size = new Size(246, 23);
-            CBTipoVehiculo.TabIndex = 72;
             // 
             // panel4
             // 
@@ -157,32 +135,32 @@
             panel1.Size = new Size(246, 2);
             panel1.TabIndex = 68;
             // 
-            // textBox3
+            // TBModVehiculosModelo
             // 
-            textBox3.BackColor = SystemColors.ActiveCaption;
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Location = new Point(230, 287);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(246, 16);
-            textBox3.TabIndex = 67;
+            TBModVehiculosModelo.BackColor = SystemColors.ActiveCaption;
+            TBModVehiculosModelo.BorderStyle = BorderStyle.None;
+            TBModVehiculosModelo.Location = new Point(230, 287);
+            TBModVehiculosModelo.Name = "TBModVehiculosModelo";
+            TBModVehiculosModelo.Size = new Size(246, 16);
+            TBModVehiculosModelo.TabIndex = 67;
             // 
-            // textBox2
+            // TBModVehiculosMarca
             // 
-            textBox2.BackColor = SystemColors.ActiveCaption;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Location = new Point(230, 229);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(246, 16);
-            textBox2.TabIndex = 66;
+            TBModVehiculosMarca.BackColor = SystemColors.ActiveCaption;
+            TBModVehiculosMarca.BorderStyle = BorderStyle.None;
+            TBModVehiculosMarca.Location = new Point(230, 229);
+            TBModVehiculosMarca.Name = "TBModVehiculosMarca";
+            TBModVehiculosMarca.Size = new Size(246, 16);
+            TBModVehiculosMarca.TabIndex = 66;
             // 
-            // textBox1
+            // TBModVehiculosMatricula
             // 
-            textBox1.BackColor = SystemColors.ActiveCaption;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(230, 174);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(246, 16);
-            textBox1.TabIndex = 65;
+            TBModVehiculosMatricula.BackColor = SystemColors.ActiveCaption;
+            TBModVehiculosMatricula.BorderStyle = BorderStyle.None;
+            TBModVehiculosMatricula.Location = new Point(230, 174);
+            TBModVehiculosMatricula.Name = "TBModVehiculosMatricula";
+            TBModVehiculosMatricula.Size = new Size(246, 16);
+            TBModVehiculosMatricula.TabIndex = 65;
             // 
             // label4
             // 
@@ -224,17 +202,18 @@
             label1.TabIndex = 61;
             label1.Text = "Ingrese Matricula";
             // 
-            // btnModificarVehiculos
+            // btnModificarVehiculosGer
             // 
-            btnModificarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnModificarVehiculos.FlatAppearance.BorderSize = 0;
-            btnModificarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnModificarVehiculos.Location = new Point(247, 455);
-            btnModificarVehiculos.Name = "btnModificarVehiculos";
-            btnModificarVehiculos.Size = new Size(204, 38);
-            btnModificarVehiculos.TabIndex = 60;
-            btnModificarVehiculos.Text = "Modificar vehiculo";
-            btnModificarVehiculos.UseVisualStyleBackColor = false;
+            btnModificarVehiculosGer.BackColor = SystemColors.ButtonFace;
+            btnModificarVehiculosGer.FlatAppearance.BorderSize = 0;
+            btnModificarVehiculosGer.FlatStyle = FlatStyle.Flat;
+            btnModificarVehiculosGer.Location = new Point(247, 455);
+            btnModificarVehiculosGer.Name = "btnModificarVehiculosGer";
+            btnModificarVehiculosGer.Size = new Size(204, 38);
+            btnModificarVehiculosGer.TabIndex = 60;
+            btnModificarVehiculosGer.Text = "Modificar vehiculo";
+            btnModificarVehiculosGer.UseVisualStyleBackColor = false;
+            btnModificarVehiculosGer.Click += btnModificarVehiculosGer_Click;
             // 
             // ModificacionesVehiculos
             // 
@@ -243,24 +222,22 @@
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
             Controls.Add(panel6);
-            Controls.Add(textBox4);
+            Controls.Add(TBModVehiculosCIClientes);
             Controls.Add(label7);
-            Controls.Add(comboBox1);
             Controls.Add(panel5);
             Controls.Add(label6);
-            Controls.Add(CBTipoVehiculo);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(TBModVehiculosModelo);
+            Controls.Add(TBModVehiculosMarca);
+            Controls.Add(TBModVehiculosMatricula);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(btnModificarVehiculos);
+            Controls.Add(btnModificarVehiculosGer);
             Controls.Add(label5);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ModificacionesVehiculos";
@@ -272,23 +249,30 @@
         #endregion
         private Label label5;
         private Panel panel6;
-        private TextBox textBox4;
+        private TextBox TBModVehiculosCIClientes;
         private Label label7;
-        public ComboBox comboBox1;
+        private ComboBox cBTipoCliente;
         private Panel panel5;
         private Label label6;
-        public ComboBox CBTipoVehiculo;
+        private ComboBox cBTipoVehiculo;
         private Panel panel4;
         private Panel panel3;
         private Panel panel2;
         private Panel panel1;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox TBModVehiculosModelo;
+        private TextBox TBModVehiculosMarca;
+        private TextBox TBModVehiculosMatricula;
         private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button btnModificarVehiculos;
+        private Button btnModificarVehiculosGer;
+
+        public TextBox TBModVehiculosCIClientes1 { get => TBModVehiculosCIClientes; set => TBModVehiculosCIClientes = value; }
+        public ComboBox CBTipoCliente { get => cBTipoCliente; set => cBTipoCliente = value; }
+        public ComboBox CBTipoVehiculo { get => cBTipoVehiculo; set => cBTipoVehiculo = value; }
+        public TextBox TBModVehiculosModelo1 { get => TBModVehiculosModelo; set => TBModVehiculosModelo = value; }
+        public TextBox TBModVehiculosMarca1 { get => TBModVehiculosMarca; set => TBModVehiculosMarca = value; }
+        public TextBox TBModVehiculosMatricula1 { get => TBModVehiculosMatricula; set => TBModVehiculosMatricula = value; }
     }
 }

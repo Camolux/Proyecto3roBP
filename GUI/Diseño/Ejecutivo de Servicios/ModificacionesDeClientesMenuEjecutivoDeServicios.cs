@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.Diseño.Gerente.Vehiculos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,27 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
 {
     public partial class ModificacionesDeClientesMenuEjecutivoDeServicios : Form
     {
-        public ModificacionesDeClientesMenuEjecutivoDeServicios()
+        public static ModificacionesDeClientesMenuEjecutivoDeServicios instance;
+        private ModificacionesDeClientesMenuEjecutivoDeServicios()
         {
             InitializeComponent();
+            Controlador.Controlador controlador = Controlador.Controlador.GetInstance();
+
+            btnModificarClientesEje.Click += new EventHandler(controlador.OnButtonClick);
+        }
+
+        public static ModificacionesDeClientesMenuEjecutivoDeServicios GetInsance()
+        {
+            if (instance == null)
+            {
+                instance = new ModificacionesDeClientesMenuEjecutivoDeServicios();
+            }
+            return instance;
+        }
+
+        private void btnModificarClientesEje_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

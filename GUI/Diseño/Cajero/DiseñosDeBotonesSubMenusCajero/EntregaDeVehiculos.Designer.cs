@@ -49,6 +49,7 @@
             btnEntregarVehiculos.TabIndex = 177;
             btnEntregarVehiculos.Text = "Entregar";
             btnEntregarVehiculos.UseVisualStyleBackColor = false;
+            btnEntregarVehiculos.Click += btnEntregarVehiculos_Click;
             // 
             // tbEntregaMatr
             // 
@@ -145,5 +146,8 @@
         private Label label5;
         private Panel panel9;
         private Label label9;
+
+        public TextBox TbEntregaMatr { get => tbEntregaMatr; set => tbEntregaMatr = value; }
+        public TextBox TBEntregaCI1 { get => TBEntregaCI; set => TBEntregaCI = value; }
     }
 }

@@ -52,6 +52,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "HomeCajero";
             Text = "HomeCajero";
+            Load += HomeCajero_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }

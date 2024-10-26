@@ -28,33 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnModificarClientes = new Button();
+            btnModificarClientesEje = new Button();
             panel9 = new Panel();
             panel10 = new Panel();
             panel2 = new Panel();
-            TBModClienteTel = new TextBox();
+            TBModClienteTelEje = new TextBox();
             panel1 = new Panel();
-            TbModClienteNom = new TextBox();
-            TBModClienteApe = new TextBox();
+            TbModClienteNomEje = new TextBox();
+            TBModClienteApeEje = new TextBox();
             label9 = new Label();
-            TBModClienteCI = new TextBox();
+            TBModClienteCIEje = new TextBox();
             label11 = new Label();
             label3 = new Label();
             label1 = new Label();
             label5 = new Label();
             SuspendLayout();
             // 
-            // btnModificarClientes
+            // btnModificarClientesEje
             // 
-            btnModificarClientes.BackColor = SystemColors.ButtonFace;
-            btnModificarClientes.FlatAppearance.BorderSize = 0;
-            btnModificarClientes.FlatStyle = FlatStyle.Flat;
-            btnModificarClientes.Location = new Point(250, 404);
-            btnModificarClientes.Name = "btnModificarClientes";
-            btnModificarClientes.Size = new Size(204, 38);
-            btnModificarClientes.TabIndex = 158;
-            btnModificarClientes.Text = "Modificar Clientes";
-            btnModificarClientes.UseVisualStyleBackColor = false;
+            btnModificarClientesEje.BackColor = SystemColors.ButtonFace;
+            btnModificarClientesEje.FlatAppearance.BorderSize = 0;
+            btnModificarClientesEje.FlatStyle = FlatStyle.Flat;
+            btnModificarClientesEje.Location = new Point(250, 404);
+            btnModificarClientesEje.Name = "btnModificarClientesEje";
+            btnModificarClientesEje.Size = new Size(204, 38);
+            btnModificarClientesEje.TabIndex = 158;
+            btnModificarClientesEje.Text = "Modificar Clientes";
+            btnModificarClientesEje.UseVisualStyleBackColor = false;
+            btnModificarClientesEje.Click += btnModificarClientesEje_Click;
             // 
             // panel9
             // 
@@ -80,14 +81,14 @@
             panel2.Size = new Size(232, 2);
             panel2.TabIndex = 151;
             // 
-            // TBModClienteTel
+            // TBModClienteTelEje
             // 
-            TBModClienteTel.BackColor = SystemColors.ActiveCaption;
-            TBModClienteTel.BorderStyle = BorderStyle.None;
-            TBModClienteTel.Location = new Point(250, 311);
-            TBModClienteTel.Name = "TBModClienteTel";
-            TBModClienteTel.Size = new Size(232, 16);
-            TBModClienteTel.TabIndex = 155;
+            TBModClienteTelEje.BackColor = SystemColors.ActiveCaption;
+            TBModClienteTelEje.BorderStyle = BorderStyle.None;
+            TBModClienteTelEje.Location = new Point(250, 311);
+            TBModClienteTelEje.Name = "TBModClienteTelEje";
+            TBModClienteTelEje.Size = new Size(232, 16);
+            TBModClienteTelEje.TabIndex = 155;
             // 
             // panel1
             // 
@@ -97,23 +98,23 @@
             panel1.Size = new Size(232, 2);
             panel1.TabIndex = 150;
             // 
-            // TbModClienteNom
+            // TbModClienteNomEje
             // 
-            TbModClienteNom.BackColor = SystemColors.ActiveCaption;
-            TbModClienteNom.BorderStyle = BorderStyle.None;
-            TbModClienteNom.Location = new Point(250, 270);
-            TbModClienteNom.Name = "TbModClienteNom";
-            TbModClienteNom.Size = new Size(232, 16);
-            TbModClienteNom.TabIndex = 154;
+            TbModClienteNomEje.BackColor = SystemColors.ActiveCaption;
+            TbModClienteNomEje.BorderStyle = BorderStyle.None;
+            TbModClienteNomEje.Location = new Point(250, 270);
+            TbModClienteNomEje.Name = "TbModClienteNomEje";
+            TbModClienteNomEje.Size = new Size(232, 16);
+            TbModClienteNomEje.TabIndex = 154;
             // 
-            // TBModClienteApe
+            // TBModClienteApeEje
             // 
-            TBModClienteApe.BackColor = SystemColors.ActiveCaption;
-            TBModClienteApe.BorderStyle = BorderStyle.None;
-            TBModClienteApe.Location = new Point(250, 226);
-            TBModClienteApe.Name = "TBModClienteApe";
-            TBModClienteApe.Size = new Size(232, 16);
-            TBModClienteApe.TabIndex = 149;
+            TBModClienteApeEje.BackColor = SystemColors.ActiveCaption;
+            TBModClienteApeEje.BorderStyle = BorderStyle.None;
+            TBModClienteApeEje.Location = new Point(250, 226);
+            TBModClienteApeEje.Name = "TBModClienteApeEje";
+            TBModClienteApeEje.Size = new Size(232, 16);
+            TBModClienteApeEje.TabIndex = 149;
             // 
             // label9
             // 
@@ -125,14 +126,14 @@
             label9.TabIndex = 153;
             label9.Text = "Ingrese El Telefono Del Cliente";
             // 
-            // TBModClienteCI
+            // TBModClienteCIEje
             // 
-            TBModClienteCI.BackColor = SystemColors.ActiveCaption;
-            TBModClienteCI.BorderStyle = BorderStyle.None;
-            TBModClienteCI.Location = new Point(250, 185);
-            TBModClienteCI.Name = "TBModClienteCI";
-            TBModClienteCI.Size = new Size(232, 16);
-            TBModClienteCI.TabIndex = 148;
+            TBModClienteCIEje.BackColor = SystemColors.ActiveCaption;
+            TBModClienteCIEje.BorderStyle = BorderStyle.None;
+            TBModClienteCIEje.Location = new Point(250, 185);
+            TBModClienteCIEje.Name = "TBModClienteCIEje";
+            TBModClienteCIEje.Size = new Size(232, 16);
+            TBModClienteCIEje.TabIndex = 148;
             // 
             // label11
             // 
@@ -180,16 +181,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
-            Controls.Add(btnModificarClientes);
+            Controls.Add(btnModificarClientesEje);
             Controls.Add(panel9);
             Controls.Add(panel10);
             Controls.Add(panel2);
-            Controls.Add(TBModClienteTel);
+            Controls.Add(TBModClienteTelEje);
             Controls.Add(panel1);
-            Controls.Add(TbModClienteNom);
-            Controls.Add(TBModClienteApe);
+            Controls.Add(TbModClienteNomEje);
+            Controls.Add(TBModClienteApeEje);
             Controls.Add(label9);
-            Controls.Add(TBModClienteCI);
+            Controls.Add(TBModClienteCIEje);
             Controls.Add(label11);
             Controls.Add(label3);
             Controls.Add(label1);
@@ -203,19 +204,25 @@
 
         #endregion
 
-        private Button btnModificarClientes;
+        private Button btnModificarClientesEje;
         private Panel panel9;
         private Panel panel10;
         private Panel panel2;
-        private TextBox TBModClienteTel;
+        private TextBox TBModClienteTelEje;
         private Panel panel1;
-        private TextBox TbModClienteNom;
-        private TextBox TBModClienteApe;
+        private TextBox TbModClienteNomEje;
+        private TextBox TBModClienteApeEje;
         private Label label9;
-        private TextBox TBModClienteCI;
+        private TextBox TBModClienteCIEje;
         private Label label11;
         private Label label3;
         private Label label1;
         private Label label5;
+
+        public Button BtnModificarClientesEje { get => btnModificarClientesEje; set => btnModificarClientesEje = value; }
+        public TextBox TBModClienteTelEje1 { get => TBModClienteTelEje; set => TBModClienteTelEje = value; }
+        public TextBox TbModClienteNomEje1 { get => TbModClienteNomEje; set => TbModClienteNomEje = value; }
+        public TextBox TBModClienteApeEje1 { get => TBModClienteApeEje; set => TBModClienteApeEje = value; }
+        public TextBox TBModClienteCIEje1 { get => TBModClienteCIEje; set => TBModClienteCIEje = value; }
     }
 }

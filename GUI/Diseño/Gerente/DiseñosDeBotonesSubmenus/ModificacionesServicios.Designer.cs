@@ -28,49 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            RBBalanceo = new RadioButton();
             label24 = new Label();
-            RBNeumaticos = new RadioButton();
-            RBAlineacion = new RadioButton();
-            RBLavado = new RadioButton();
-            RBParking = new RadioButton();
             label10 = new Label();
             label8 = new Label();
-            maskedTextBox4 = new MaskedTextBox();
-            maskedTextBox2 = new MaskedTextBox();
-            textBox7 = new TextBox();
-            textBox6 = new TextBox();
+            mTBModServFechaFin = new MaskedTextBox();
+            mTBModServFechaInicio = new MaskedTextBox();
+            TBModServIDClientes = new TextBox();
+            TBModServFuncionario = new TextBox();
             panel5 = new Panel();
-            textBox4 = new TextBox();
+            TBModServNumPlaza = new TextBox();
             label6 = new Label();
             panel9 = new Panel();
             panel4 = new Panel();
             panel10 = new Panel();
             panel2 = new Panel();
             panel1 = new Panel();
-            textBox8 = new TextBox();
-            textBox2 = new TextBox();
+            TBModServIDNeumatico = new TextBox();
+            TBModServMatr = new TextBox();
             label9 = new Label();
-            textBox1 = new TextBox();
+            TBModServIDServ = new TextBox();
             label4 = new Label();
             label11 = new Label();
             label3 = new Label();
             label1 = new Label();
-            btnIngresarVehiculos = new Button();
+            btnModServGer = new Button();
             label5 = new Label();
             SuspendLayout();
-            // 
-            // RBBalanceo
-            // 
-            RBBalanceo.AutoSize = true;
-            RBBalanceo.Location = new Point(516, 274);
-            RBBalanceo.Name = "RBBalanceo";
-            RBBalanceo.Size = new Size(73, 19);
-            RBBalanceo.TabIndex = 170;
-            RBBalanceo.TabStop = true;
-            RBBalanceo.Text = "Balanceo";
-            RBBalanceo.UseVisualStyleBackColor = true;
-            RBBalanceo.CheckedChanged += RBBalanceo_CheckedChanged_2;
             // 
             // label24
             // 
@@ -81,54 +64,6 @@
             label24.Size = new Size(196, 18);
             label24.TabIndex = 169;
             label24.Text = "Seleccione el tipo de Servicio";
-            // 
-            // RBNeumaticos
-            // 
-            RBNeumaticos.AutoSize = true;
-            RBNeumaticos.Location = new Point(516, 319);
-            RBNeumaticos.Name = "RBNeumaticos";
-            RBNeumaticos.Size = new Size(149, 19);
-            RBNeumaticos.TabIndex = 168;
-            RBNeumaticos.TabStop = true;
-            RBNeumaticos.Text = "Compra de neumaticos";
-            RBNeumaticos.UseVisualStyleBackColor = true;
-            RBNeumaticos.CheckedChanged += RBNeumaticos_CheckedChanged;
-            // 
-            // RBAlineacion
-            // 
-            RBAlineacion.AutoSize = true;
-            RBAlineacion.Location = new Point(516, 228);
-            RBAlineacion.Name = "RBAlineacion";
-            RBAlineacion.Size = new Size(81, 19);
-            RBAlineacion.TabIndex = 167;
-            RBAlineacion.TabStop = true;
-            RBAlineacion.Text = "Alineacion";
-            RBAlineacion.UseVisualStyleBackColor = true;
-            RBAlineacion.CheckedChanged += RBAlineacion_CheckedChanged;
-            // 
-            // RBLavado
-            // 
-            RBLavado.AutoSize = true;
-            RBLavado.Location = new Point(516, 184);
-            RBLavado.Name = "RBLavado";
-            RBLavado.Size = new Size(63, 19);
-            RBLavado.TabIndex = 166;
-            RBLavado.TabStop = true;
-            RBLavado.Text = "Lavado";
-            RBLavado.UseVisualStyleBackColor = true;
-            RBLavado.CheckedChanged += RBLavado_CheckedChanged;
-            // 
-            // RBParking
-            // 
-            RBParking.AutoSize = true;
-            RBParking.Location = new Point(518, 135);
-            RBParking.Name = "RBParking";
-            RBParking.Size = new Size(65, 19);
-            RBParking.TabIndex = 165;
-            RBParking.TabStop = true;
-            RBParking.Text = "Parking";
-            RBParking.UseVisualStyleBackColor = true;
-            RBParking.CheckedChanged += RBParking_CheckedChanged;
             // 
             // label10
             // 
@@ -150,41 +85,41 @@
             label8.TabIndex = 163;
             label8.Text = "Ingrese Fecha De inicio se servicio";
             // 
-            // maskedTextBox4
+            // mTBModServFechaFin
             // 
-            maskedTextBox4.Location = new Point(314, 409);
-            maskedTextBox4.Mask = "00/00/0000 00:00";
-            maskedTextBox4.Name = "maskedTextBox4";
-            maskedTextBox4.Size = new Size(230, 23);
-            maskedTextBox4.TabIndex = 162;
-            maskedTextBox4.ValidatingType = typeof(DateTime);
+            mTBModServFechaFin.Location = new Point(314, 409);
+            mTBModServFechaFin.Mask = "00/00/0000 00:00";
+            mTBModServFechaFin.Name = "mTBModServFechaFin";
+            mTBModServFechaFin.Size = new Size(230, 23);
+            mTBModServFechaFin.TabIndex = 162;
+            mTBModServFechaFin.ValidatingType = typeof(DateTime);
             // 
-            // maskedTextBox2
+            // mTBModServFechaInicio
             // 
-            maskedTextBox2.Location = new Point(315, 371);
-            maskedTextBox2.Mask = "00/00/0000 00:00";
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(230, 23);
-            maskedTextBox2.TabIndex = 161;
-            maskedTextBox2.ValidatingType = typeof(DateTime);
+            mTBModServFechaInicio.Location = new Point(315, 371);
+            mTBModServFechaInicio.Mask = "00/00/0000 00:00";
+            mTBModServFechaInicio.Name = "mTBModServFechaInicio";
+            mTBModServFechaInicio.Size = new Size(230, 23);
+            mTBModServFechaInicio.TabIndex = 161;
+            mTBModServFechaInicio.ValidatingType = typeof(DateTime);
             // 
-            // textBox7
+            // TBModServIDClientes
             // 
-            textBox7.BackColor = SystemColors.ActiveCaption;
-            textBox7.BorderStyle = BorderStyle.None;
-            textBox7.Location = new Point(254, 299);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(230, 16);
-            textBox7.TabIndex = 160;
+            TBModServIDClientes.BackColor = SystemColors.ActiveCaption;
+            TBModServIDClientes.BorderStyle = BorderStyle.None;
+            TBModServIDClientes.Location = new Point(254, 299);
+            TBModServIDClientes.Name = "TBModServIDClientes";
+            TBModServIDClientes.Size = new Size(230, 16);
+            TBModServIDClientes.TabIndex = 160;
             // 
-            // textBox6
+            // TBModServFuncionario
             // 
-            textBox6.BackColor = SystemColors.ActiveCaption;
-            textBox6.BorderStyle = BorderStyle.None;
-            textBox6.Location = new Point(254, 256);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(230, 16);
-            textBox6.TabIndex = 159;
+            TBModServFuncionario.BackColor = SystemColors.ActiveCaption;
+            TBModServFuncionario.BorderStyle = BorderStyle.None;
+            TBModServFuncionario.Location = new Point(254, 256);
+            TBModServFuncionario.Name = "TBModServFuncionario";
+            TBModServFuncionario.Size = new Size(230, 16);
+            TBModServFuncionario.TabIndex = 159;
             // 
             // panel5
             // 
@@ -194,14 +129,14 @@
             panel5.Size = new Size(230, 2);
             panel5.TabIndex = 153;
             // 
-            // textBox4
+            // TBModServNumPlaza
             // 
-            textBox4.BackColor = SystemColors.ActiveCaption;
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Location = new Point(254, 218);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(230, 16);
-            textBox4.TabIndex = 152;
+            TBModServNumPlaza.BackColor = SystemColors.ActiveCaption;
+            TBModServNumPlaza.BorderStyle = BorderStyle.None;
+            TBModServNumPlaza.Location = new Point(254, 218);
+            TBModServNumPlaza.Name = "TBModServNumPlaza";
+            TBModServNumPlaza.Size = new Size(230, 16);
+            TBModServNumPlaza.TabIndex = 152;
             // 
             // label6
             // 
@@ -253,23 +188,23 @@
             panel1.Size = new Size(230, 2);
             panel1.TabIndex = 148;
             // 
-            // textBox8
+            // TBModServIDNeumatico
             // 
-            textBox8.BackColor = SystemColors.ActiveCaption;
-            textBox8.BorderStyle = BorderStyle.None;
-            textBox8.Location = new Point(254, 179);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(230, 16);
-            textBox8.TabIndex = 156;
+            TBModServIDNeumatico.BackColor = SystemColors.ActiveCaption;
+            TBModServIDNeumatico.BorderStyle = BorderStyle.None;
+            TBModServIDNeumatico.Location = new Point(254, 179);
+            TBModServIDNeumatico.Name = "TBModServIDNeumatico";
+            TBModServIDNeumatico.Size = new Size(230, 16);
+            TBModServIDNeumatico.TabIndex = 156;
             // 
-            // textBox2
+            // TBModServMatr
             // 
-            textBox2.BackColor = SystemColors.ActiveCaption;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Location = new Point(254, 137);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(230, 16);
-            textBox2.TabIndex = 147;
+            TBModServMatr.BackColor = SystemColors.ActiveCaption;
+            TBModServMatr.BorderStyle = BorderStyle.None;
+            TBModServMatr.Location = new Point(254, 137);
+            TBModServMatr.Name = "TBModServMatr";
+            TBModServMatr.Size = new Size(230, 16);
+            TBModServMatr.TabIndex = 147;
             // 
             // label9
             // 
@@ -281,14 +216,14 @@
             label9.TabIndex = 155;
             label9.Text = "Ingrese ID Clientes";
             // 
-            // textBox1
+            // TBModServIDServ
             // 
-            textBox1.BackColor = SystemColors.ActiveCaption;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(254, 96);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(230, 16);
-            textBox1.TabIndex = 146;
+            TBModServIDServ.BackColor = SystemColors.ActiveCaption;
+            TBModServIDServ.BorderStyle = BorderStyle.None;
+            TBModServIDServ.Location = new Point(254, 96);
+            TBModServIDServ.Name = "TBModServIDServ";
+            TBModServIDServ.Size = new Size(230, 16);
+            TBModServIDServ.TabIndex = 146;
             // 
             // label4
             // 
@@ -330,17 +265,18 @@
             label1.TabIndex = 143;
             label1.Text = "Ingrese El ID del Servicio";
             // 
-            // btnIngresarVehiculos
+            // btnModServGer
             // 
-            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
-            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnIngresarVehiculos.Location = new Point(234, 466);
-            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
-            btnIngresarVehiculos.Size = new Size(204, 38);
-            btnIngresarVehiculos.TabIndex = 142;
-            btnIngresarVehiculos.Text = "Modificar Servicio";
-            btnIngresarVehiculos.UseVisualStyleBackColor = false;
+            btnModServGer.BackColor = SystemColors.ButtonFace;
+            btnModServGer.FlatAppearance.BorderSize = 0;
+            btnModServGer.FlatStyle = FlatStyle.Flat;
+            btnModServGer.Location = new Point(234, 466);
+            btnModServGer.Name = "btnModServGer";
+            btnModServGer.Size = new Size(204, 38);
+            btnModServGer.TabIndex = 142;
+            btnModServGer.Text = "Modificar Servicio";
+            btnModServGer.UseVisualStyleBackColor = false;
+            btnModServGer.Click += btnModServGer_Click;
             // 
             // label5
             // 
@@ -359,35 +295,30 @@
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
             Controls.Add(label5);
-            Controls.Add(RBBalanceo);
             Controls.Add(label24);
-            Controls.Add(RBNeumaticos);
-            Controls.Add(RBAlineacion);
-            Controls.Add(RBLavado);
-            Controls.Add(RBParking);
             Controls.Add(label10);
             Controls.Add(label8);
-            Controls.Add(maskedTextBox4);
-            Controls.Add(maskedTextBox2);
-            Controls.Add(textBox7);
-            Controls.Add(textBox6);
+            Controls.Add(mTBModServFechaFin);
+            Controls.Add(mTBModServFechaInicio);
+            Controls.Add(TBModServIDClientes);
+            Controls.Add(TBModServFuncionario);
             Controls.Add(panel5);
-            Controls.Add(textBox4);
+            Controls.Add(TBModServNumPlaza);
             Controls.Add(label6);
             Controls.Add(panel9);
             Controls.Add(panel4);
             Controls.Add(panel10);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(textBox8);
-            Controls.Add(textBox2);
+            Controls.Add(TBModServIDNeumatico);
+            Controls.Add(TBModServMatr);
             Controls.Add(label9);
-            Controls.Add(textBox1);
+            Controls.Add(TBModServIDServ);
             Controls.Add(label4);
             Controls.Add(label11);
             Controls.Add(label3);
             Controls.Add(label1);
-            Controls.Add(btnIngresarVehiculos);
+            Controls.Add(btnModServGer);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ModificacionesServicios";
             Text = "ModificacionesServicios";
@@ -397,35 +328,49 @@
 
         #endregion
 
-        public RadioButton RBBalanceo;
+        private RadioButton rBBalanceo;
         public Label label24;
-        public RadioButton RBNeumaticos;
-        public RadioButton RBAlineacion;
-        public RadioButton RBLavado;
-        public RadioButton RBParking;
+        private RadioButton rBNeumaticos;
+        private RadioButton rBAlineacion;
+        private RadioButton rBLavado;
+        private RadioButton rBParking;
         private Label label10;
         private Label label8;
-        private MaskedTextBox maskedTextBox4;
-        private MaskedTextBox maskedTextBox2;
-        private TextBox textBox7;
-        private TextBox textBox6;
+        private MaskedTextBox mTBModServFechaFin;
+        private MaskedTextBox mTBModServFechaInicio;
+        private TextBox TBModServIDClientes;
+        private TextBox TBModServFuncionario;
         private Panel panel5;
-        private TextBox textBox4;
+        private TextBox TBModServNumPlaza;
         private Label label6;
         private Panel panel9;
         private Panel panel4;
         private Panel panel10;
         private Panel panel2;
         private Panel panel1;
-        private TextBox textBox8;
-        private TextBox textBox2;
+        private TextBox TBModServIDNeumatico;
+        private TextBox TBModServMatr;
         private Label label9;
-        private TextBox textBox1;
+        private TextBox TBModServIDServ;
         private Label label4;
         private Label label11;
         private Label label3;
         private Label label1;
-        private Button btnIngresarVehiculos;
+        private Button btnModServGer;
         private Label label5;
+
+        public RadioButton RBBalanceo { get => rBBalanceo; set => rBBalanceo = value; }
+        public RadioButton RBNeumaticos { get => rBNeumaticos; set => rBNeumaticos = value; }
+        public RadioButton RBAlineacion { get => rBAlineacion; set => rBAlineacion = value; }
+        public RadioButton RBLavado { get => rBLavado; set => rBLavado = value; }
+        public RadioButton RBParking { get => rBParking; set => rBParking = value; }
+        public MaskedTextBox MTBModServFechaFin { get => mTBModServFechaFin; set => mTBModServFechaFin = value; }
+        public MaskedTextBox MTBModServFechaInicio { get => mTBModServFechaInicio; set => mTBModServFechaInicio = value; }
+        public TextBox TBModServIDClientes1 { get => TBModServIDClientes; set => TBModServIDClientes = value; }
+        public TextBox TBModServFuncionario1 { get => TBModServFuncionario; set => TBModServFuncionario = value; }
+        public TextBox TBModServNumPlaza1 { get => TBModServNumPlaza; set => TBModServNumPlaza = value; }
+        public TextBox TBModServIDNeumatico1 { get => TBModServIDNeumatico; set => TBModServIDNeumatico = value; }
+        public TextBox TBModServMatr1 { get => TBModServMatr; set => TBModServMatr = value; }
+        public TextBox TBModServIDServ1 { get => TBModServIDServ; set => TBModServIDServ = value; }
     }
 }

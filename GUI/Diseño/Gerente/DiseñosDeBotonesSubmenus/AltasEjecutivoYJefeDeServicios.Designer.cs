@@ -38,7 +38,7 @@
             label3 = new Label();
             label1 = new Label();
             BTNAltaUsuarioGer = new Button();
-            CBAltaTipoUsu = new ComboBox();
+            CBAltaTipoUsuGer = new ComboBox();
             SuspendLayout();
             // 
             // label5
@@ -136,16 +136,16 @@
             BTNAltaUsuarioGer.UseVisualStyleBackColor = false;
             BTNAltaUsuarioGer.Click += btnIngresarVehiculos_Click;
             // 
-            // CBAltaTipoUsu
+            // CBAltaTipoUsuGer
             // 
-            CBAltaTipoUsu.BackColor = SystemColors.ActiveCaption;
-            CBAltaTipoUsu.DropDownStyle = ComboBoxStyle.DropDownList;
-            CBAltaTipoUsu.FormattingEnabled = true;
-            CBAltaTipoUsu.Items.AddRange(new object[] { "ejecutivo", "jefe", "operador", "cajero" });
-            CBAltaTipoUsu.Location = new Point(251, 276);
-            CBAltaTipoUsu.Name = "CBAltaTipoUsu";
-            CBAltaTipoUsu.Size = new Size(232, 23);
-            CBAltaTipoUsu.TabIndex = 100;
+            CBAltaTipoUsuGer.BackColor = SystemColors.ActiveCaption;
+            CBAltaTipoUsuGer.DropDownStyle = ComboBoxStyle.DropDownList;
+            CBAltaTipoUsuGer.FormattingEnabled = true;
+            CBAltaTipoUsuGer.Items.AddRange(new object[] { "ejecutivo", "jefe", "operador", "cajero" });
+            CBAltaTipoUsuGer.Location = new Point(251, 276);
+            CBAltaTipoUsuGer.Name = "CBAltaTipoUsuGer";
+            CBAltaTipoUsuGer.Size = new Size(232, 23);
+            CBAltaTipoUsuGer.TabIndex = 100;
             // 
             // AltasEjecutivoYJefeDeServicios
             // 
@@ -153,7 +153,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
-            Controls.Add(CBAltaTipoUsu);
+            Controls.Add(CBAltaTipoUsuGer);
             Controls.Add(label5);
             Controls.Add(panel4);
             Controls.Add(panel2);
@@ -182,10 +182,10 @@
         public Label label3;
         public Label label1;
         public Button BTNAltaUsuarioGer;
-        private ComboBox CBAltaTipoUsu;
+        private ComboBox CBAltaTipoUsuGer;
 
         public TextBox TBAltaUsuPass1 { get => TBAltaUsuPassGer; set => TBAltaUsuPassGer = value; }
         public TextBox TBAltaUsuNom1 { get => TBAltaUsuNomUsuGer; set => TBAltaUsuNomUsuGer = value; }
-        public ComboBox CBAltaTipoUsu1 { get => CBAltaTipoUsu; set => CBAltaTipoUsu = value; }
+        public ComboBox CBAltaTipoUsu1 { get => CBAltaTipoUsuGer; set => CBAltaTipoUsuGer = value; }
     }
 }

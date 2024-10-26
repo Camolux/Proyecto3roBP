@@ -28,28 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            CBTipoVehiculo = new ComboBox();
             label5 = new Label();
             panel4 = new Panel();
             panel2 = new Panel();
             panel1 = new Panel();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            TBAltaFuncionarioContra = new TextBox();
+            TBAltaFuncionarioNom = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
-            btnIngresarVehiculos = new Button();
+            btnIngresarFuncionarioGer = new Button();
             SuspendLayout();
-            // 
-            // CBTipoVehiculo
-            // 
-            CBTipoVehiculo.BackColor = SystemColors.ActiveCaption;
-            CBTipoVehiculo.FormattingEnabled = true;
-            CBTipoVehiculo.Items.AddRange(new object[] { "ejecutivo", "jefe", "operador", "cajero" });
-            CBTipoVehiculo.Location = new Point(249, 320);
-            CBTipoVehiculo.Name = "CBTipoVehiculo";
-            CBTipoVehiculo.Size = new Size(232, 23);
-            CBTipoVehiculo.TabIndex = 112;
             // 
             // label5
             // 
@@ -85,23 +74,23 @@
             panel1.Size = new Size(232, 2);
             panel1.TabIndex = 108;
             // 
-            // textBox2
+            // TBAltaFuncionarioContra
             // 
-            textBox2.BackColor = SystemColors.ActiveCaption;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Location = new Point(249, 274);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(232, 16);
-            textBox2.TabIndex = 107;
+            TBAltaFuncionarioContra.BackColor = SystemColors.ActiveCaption;
+            TBAltaFuncionarioContra.BorderStyle = BorderStyle.None;
+            TBAltaFuncionarioContra.Location = new Point(249, 274);
+            TBAltaFuncionarioContra.Name = "TBAltaFuncionarioContra";
+            TBAltaFuncionarioContra.Size = new Size(232, 16);
+            TBAltaFuncionarioContra.TabIndex = 107;
             // 
-            // textBox1
+            // TBAltaFuncionarioNom
             // 
-            textBox1.BackColor = SystemColors.ActiveCaption;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(249, 232);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(232, 16);
-            textBox1.TabIndex = 106;
+            TBAltaFuncionarioNom.BackColor = SystemColors.ActiveCaption;
+            TBAltaFuncionarioNom.BorderStyle = BorderStyle.None;
+            TBAltaFuncionarioNom.Location = new Point(249, 232);
+            TBAltaFuncionarioNom.Name = "TBAltaFuncionarioNom";
+            TBAltaFuncionarioNom.Size = new Size(232, 16);
+            TBAltaFuncionarioNom.TabIndex = 106;
             // 
             // label4
             // 
@@ -133,17 +122,18 @@
             label1.TabIndex = 103;
             label1.Text = "Ingresr Username ";
             // 
-            // btnIngresarVehiculos
+            // btnIngresarFuncionarioGer
             // 
-            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
-            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnIngresarVehiculos.Location = new Point(268, 433);
-            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
-            btnIngresarVehiculos.Size = new Size(204, 38);
-            btnIngresarVehiculos.TabIndex = 102;
-            btnIngresarVehiculos.Text = "Dar de alta";
-            btnIngresarVehiculos.UseVisualStyleBackColor = false;
+            btnIngresarFuncionarioGer.BackColor = SystemColors.ButtonFace;
+            btnIngresarFuncionarioGer.FlatAppearance.BorderSize = 0;
+            btnIngresarFuncionarioGer.FlatStyle = FlatStyle.Flat;
+            btnIngresarFuncionarioGer.Location = new Point(268, 433);
+            btnIngresarFuncionarioGer.Name = "btnIngresarFuncionarioGer";
+            btnIngresarFuncionarioGer.Size = new Size(204, 38);
+            btnIngresarFuncionarioGer.TabIndex = 102;
+            btnIngresarFuncionarioGer.Text = "Dar de alta";
+            btnIngresarFuncionarioGer.UseVisualStyleBackColor = false;
+            btnIngresarFuncionarioGer.Click += btnIngresarFuncionarioGer_Click;
             // 
             // AltasEjecutivoYJefeDeServiciosMenuJefe
             // 
@@ -151,17 +141,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
-            Controls.Add(CBTipoVehiculo);
             Controls.Add(label5);
             Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(TBAltaFuncionarioContra);
+            Controls.Add(TBAltaFuncionarioNom);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label1);
-            Controls.Add(btnIngresarVehiculos);
+            Controls.Add(btnIngresarFuncionarioGer);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AltasEjecutivoYJefeDeServiciosMenuJefe";
             Text = "AltasEjecutivoYJefeDeServiciosMenuJefe";
@@ -171,16 +160,20 @@
 
         #endregion
 
-        public ComboBox CBTipoVehiculo;
+        private ComboBox cBAltaFuncionarioRol;
         private Label label5;
         private Panel panel4;
         private Panel panel2;
         private Panel panel1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox TBAltaFuncionarioContra;
+        private TextBox TBAltaFuncionarioNom;
         private Label label4;
         private Label label3;
         private Label label1;
-        private Button btnIngresarVehiculos;
+        private Button btnIngresarFuncionarioGer;
+
+        public ComboBox CBAltaFuncionarioRol { get => cBAltaFuncionarioRol; set => cBAltaFuncionarioRol = value; }
+        public TextBox TBAltaFuncionarioContra1 { get => TBAltaFuncionarioContra; set => TBAltaFuncionarioContra = value; }
+        public TextBox TBAltaFuncionarioNom1 { get => TBAltaFuncionarioNom; set => TBAltaFuncionarioNom = value; }
     }
 }

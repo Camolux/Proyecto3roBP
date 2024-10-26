@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.Diseño.Gerente.Vehiculos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,26 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
 {
     public partial class HomeEjecutivoDeServicios : Form
     {
-        public HomeEjecutivoDeServicios()
+        public static HomeEjecutivoDeServicios instance;
+        private HomeEjecutivoDeServicios()
         {
             InitializeComponent();
+            Controlador.Controlador controlador = Controlador.Controlador.GetInstance();
+
+        }
+
+        public static HomeEjecutivoDeServicios GetInsance()
+        {
+            if (instance == null)
+            {
+                instance = new HomeEjecutivoDeServicios();
+            }
+            return instance;
+        }
+
+        private void HomeEjecutivoDeServicios_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

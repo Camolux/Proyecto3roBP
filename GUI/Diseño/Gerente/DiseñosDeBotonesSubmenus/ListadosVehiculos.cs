@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.Diseño.Gerente.Vehiculos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,34 @@ namespace GUI
 {
     public partial class ListadosVehiculos : Form
     {
-        public ListadosVehiculos()
+        public static ListadosVehiculos instance;
+        private ListadosVehiculos()
         {
             InitializeComponent();
+            Controlador.Controlador controlador = Controlador.Controlador.GetInstance();
+
+            btnBuscarVehiculosGer.Click += new EventHandler(controlador.OnButtonClick);
+            btnMostrarVehiculosGer.Click += new EventHandler(controlador.OnButtonClick);
+
+        }
+
+        public static ListadosVehiculos GetInsance()
+        {
+            if (instance == null)
+            {
+                instance = new ListadosVehiculos();
+            }
+            return instance;
+        }
+
+        private void btnBuscarVehiculosGer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMostrarVehiculosGer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

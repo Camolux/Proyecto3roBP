@@ -29,24 +29,19 @@
         private void InitializeComponent()
         {
             label5 = new Label();
-            btnIngresarVehiculos = new Button();
+            BTNModCostServGer = new Button();
             label24 = new Label();
-            RBNeumaticos = new RadioButton();
-            RBAlineacion = new RadioButton();
-            RBLavado = new RadioButton();
-            RBParking = new RadioButton();
-            RBBalanceo = new RadioButton();
             label1 = new Label();
-            textBox1 = new TextBox();
+            TBCostoServIDCosto = new TextBox();
             panel1 = new Panel();
             panel2 = new Panel();
-            textBox2 = new TextBox();
+            TBCostoServIDNeumatico = new TextBox();
             label2 = new Label();
             panel3 = new Panel();
-            textBox3 = new TextBox();
+            TBCostoServIDServ = new TextBox();
             label3 = new Label();
             panel4 = new Panel();
-            textBox4 = new TextBox();
+            TBCostoServIDPlaza = new TextBox();
             label4 = new Label();
             SuspendLayout();
             // 
@@ -60,17 +55,18 @@
             label5.TabIndex = 176;
             label5.Text = "Cambiar Costos De Servicios";
             // 
-            // btnIngresarVehiculos
+            // BTNModCostServGer
             // 
-            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
-            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnIngresarVehiculos.Location = new Point(251, 429);
-            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
-            btnIngresarVehiculos.Size = new Size(204, 38);
-            btnIngresarVehiculos.TabIndex = 175;
-            btnIngresarVehiculos.Text = "Modificar";
-            btnIngresarVehiculos.UseVisualStyleBackColor = false;
+            BTNModCostServGer.BackColor = SystemColors.ButtonFace;
+            BTNModCostServGer.FlatAppearance.BorderSize = 0;
+            BTNModCostServGer.FlatStyle = FlatStyle.Flat;
+            BTNModCostServGer.Location = new Point(251, 429);
+            BTNModCostServGer.Name = "BTNModCostServGer";
+            BTNModCostServGer.Size = new Size(204, 38);
+            BTNModCostServGer.TabIndex = 175;
+            BTNModCostServGer.Text = "Modificar";
+            BTNModCostServGer.UseVisualStyleBackColor = false;
+            BTNModCostServGer.Click += BTNModCostServGer_Click;
             // 
             // label24
             // 
@@ -82,66 +78,6 @@
             label24.TabIndex = 190;
             label24.Text = "Seleccione el tipo de Servicio";
             // 
-            // RBNeumaticos
-            // 
-            RBNeumaticos.AutoSize = true;
-            RBNeumaticos.Location = new Point(491, 318);
-            RBNeumaticos.Name = "RBNeumaticos";
-            RBNeumaticos.Size = new Size(132, 19);
-            RBNeumaticos.TabIndex = 189;
-            RBNeumaticos.TabStop = true;
-            RBNeumaticos.Text = "Cambio neumaticos";
-            RBNeumaticos.UseVisualStyleBackColor = true;
-            RBNeumaticos.CheckedChanged += RBNeumaticos_CheckedChanged;
-            // 
-            // RBAlineacion
-            // 
-            RBAlineacion.AutoSize = true;
-            RBAlineacion.Location = new Point(492, 237);
-            RBAlineacion.Name = "RBAlineacion";
-            RBAlineacion.Size = new Size(81, 19);
-            RBAlineacion.TabIndex = 188;
-            RBAlineacion.TabStop = true;
-            RBAlineacion.Text = "Alineacion";
-            RBAlineacion.UseVisualStyleBackColor = true;
-            RBAlineacion.CheckedChanged += RBAlineacion_CheckedChanged;
-            // 
-            // RBLavado
-            // 
-            RBLavado.AutoSize = true;
-            RBLavado.Location = new Point(492, 195);
-            RBLavado.Name = "RBLavado";
-            RBLavado.Size = new Size(63, 19);
-            RBLavado.TabIndex = 187;
-            RBLavado.TabStop = true;
-            RBLavado.Text = "Lavado";
-            RBLavado.UseVisualStyleBackColor = true;
-            RBLavado.CheckedChanged += RBLavado_CheckedChanged;
-            // 
-            // RBParking
-            // 
-            RBParking.AutoSize = true;
-            RBParking.Location = new Point(491, 154);
-            RBParking.Name = "RBParking";
-            RBParking.Size = new Size(65, 19);
-            RBParking.TabIndex = 186;
-            RBParking.TabStop = true;
-            RBParking.Text = "Parking";
-            RBParking.UseVisualStyleBackColor = true;
-            RBParking.CheckedChanged += RBParking_CheckedChanged;
-            // 
-            // RBBalanceo
-            // 
-            RBBalanceo.AutoSize = true;
-            RBBalanceo.Location = new Point(492, 279);
-            RBBalanceo.Name = "RBBalanceo";
-            RBBalanceo.Size = new Size(73, 19);
-            RBBalanceo.TabIndex = 191;
-            RBBalanceo.TabStop = true;
-            RBBalanceo.Text = "Balanceo";
-            RBBalanceo.UseVisualStyleBackColor = true;
-            RBBalanceo.CheckedChanged += RBBalanceo_CheckedChanged;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -152,14 +88,14 @@
             label1.TabIndex = 177;
             label1.Text = "Ingresar Costo";
             // 
-            // textBox1
+            // TBCostoServIDCosto
             // 
-            textBox1.BackColor = SystemColors.ActiveCaption;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(191, 341);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(232, 16);
-            textBox1.TabIndex = 180;
+            TBCostoServIDCosto.BackColor = SystemColors.ActiveCaption;
+            TBCostoServIDCosto.BorderStyle = BorderStyle.None;
+            TBCostoServIDCosto.Location = new Point(191, 341);
+            TBCostoServIDCosto.Name = "TBCostoServIDCosto";
+            TBCostoServIDCosto.Size = new Size(232, 16);
+            TBCostoServIDCosto.TabIndex = 180;
             // 
             // panel1
             // 
@@ -177,14 +113,14 @@
             panel2.Size = new Size(232, 2);
             panel2.TabIndex = 185;
             // 
-            // textBox2
+            // TBCostoServIDNeumatico
             // 
-            textBox2.BackColor = SystemColors.ActiveCaption;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Location = new Point(191, 279);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(232, 16);
-            textBox2.TabIndex = 184;
+            TBCostoServIDNeumatico.BackColor = SystemColors.ActiveCaption;
+            TBCostoServIDNeumatico.BorderStyle = BorderStyle.None;
+            TBCostoServIDNeumatico.Location = new Point(191, 279);
+            TBCostoServIDNeumatico.Name = "TBCostoServIDNeumatico";
+            TBCostoServIDNeumatico.Size = new Size(232, 16);
+            TBCostoServIDNeumatico.TabIndex = 184;
             // 
             // label2
             // 
@@ -204,14 +140,14 @@
             panel3.Size = new Size(232, 2);
             panel3.TabIndex = 185;
             // 
-            // textBox3
+            // TBCostoServIDServ
             // 
-            textBox3.BackColor = SystemColors.ActiveCaption;
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Location = new Point(191, 233);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(232, 16);
-            textBox3.TabIndex = 184;
+            TBCostoServIDServ.BackColor = SystemColors.ActiveCaption;
+            TBCostoServIDServ.BorderStyle = BorderStyle.None;
+            TBCostoServIDServ.Location = new Point(191, 233);
+            TBCostoServIDServ.Name = "TBCostoServIDServ";
+            TBCostoServIDServ.Size = new Size(232, 16);
+            TBCostoServIDServ.TabIndex = 184;
             // 
             // label3
             // 
@@ -231,14 +167,14 @@
             panel4.Size = new Size(232, 2);
             panel4.TabIndex = 185;
             // 
-            // textBox4
+            // TBCostoServIDPlaza
             // 
-            textBox4.BackColor = SystemColors.ActiveCaption;
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Location = new Point(191, 181);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(232, 16);
-            textBox4.TabIndex = 184;
+            TBCostoServIDPlaza.BackColor = SystemColors.ActiveCaption;
+            TBCostoServIDPlaza.BorderStyle = BorderStyle.None;
+            TBCostoServIDPlaza.Location = new Point(191, 181);
+            TBCostoServIDPlaza.Name = "TBCostoServIDPlaza";
+            TBCostoServIDPlaza.Size = new Size(232, 16);
+            TBCostoServIDPlaza.TabIndex = 184;
             // 
             // label4
             // 
@@ -257,25 +193,20 @@
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
             Controls.Add(panel4);
-            Controls.Add(textBox4);
+            Controls.Add(TBCostoServIDPlaza);
             Controls.Add(panel3);
             Controls.Add(label4);
-            Controls.Add(textBox3);
+            Controls.Add(TBCostoServIDServ);
             Controls.Add(panel2);
             Controls.Add(label3);
-            Controls.Add(textBox2);
-            Controls.Add(RBBalanceo);
+            Controls.Add(TBCostoServIDNeumatico);
             Controls.Add(label2);
             Controls.Add(label24);
-            Controls.Add(RBNeumaticos);
-            Controls.Add(RBAlineacion);
-            Controls.Add(RBLavado);
-            Controls.Add(RBParking);
             Controls.Add(panel1);
-            Controls.Add(textBox1);
+            Controls.Add(TBCostoServIDCosto);
             Controls.Add(label1);
             Controls.Add(label5);
-            Controls.Add(btnIngresarVehiculos);
+            Controls.Add(BTNModCostServGer);
             FormBorderStyle = FormBorderStyle.None;
             Name = "CambiarCostosDeServicios";
             Text = "CambiarCostosDeServicios";
@@ -285,24 +216,34 @@
 
         #endregion
         private Label label5;
-        private Button btnIngresarVehiculos;
+        private Button BTNModCostServGer;
         public Label label24;
-        public RadioButton RBNeumaticos;
-        public RadioButton RBAlineacion;
-        public RadioButton RBLavado;
-        public RadioButton RBParking;
-        public RadioButton RBBalanceo;
+        private RadioButton rBNeumaticos;
+        private RadioButton rBAlineacion;
+        private RadioButton rBLavado;
+        private RadioButton rBParking;
+        private RadioButton rBBalanceo;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox TBCostoServIDCosto;
         private Panel panel1;
         private Panel panel2;
-        private TextBox textBox2;
+        private TextBox TBCostoServIDNeumatico;
         private Label label2;
         private Panel panel3;
-        private TextBox textBox3;
+        private TextBox TBCostoServIDServ;
         private Label label3;
         private Panel panel4;
-        private TextBox textBox4;
+        private TextBox TBCostoServIDPlaza;
         private Label label4;
+
+        public RadioButton RBNeumaticos { get => rBNeumaticos; set => rBNeumaticos = value; }
+        public RadioButton RBAlineacion { get => rBAlineacion; set => rBAlineacion = value; }
+        public RadioButton RBLavado { get => rBLavado; set => rBLavado = value; }
+        public RadioButton RBParking { get => rBParking; set => rBParking = value; }
+        public RadioButton RBBalanceo { get => rBBalanceo; set => rBBalanceo = value; }
+        public TextBox TBCostoServIDCosto1 { get => TBCostoServIDCosto; set => TBCostoServIDCosto = value; }
+        public TextBox TBCostoServIDNeumatico1 { get => TBCostoServIDNeumatico; set => TBCostoServIDNeumatico = value; }
+        public TextBox TBCostoServIDServ1 { get => TBCostoServIDServ; set => TBCostoServIDServ = value; }
+        public TextBox TBCostoServIDPlaza1 { get => TBCostoServIDPlaza; set => TBCostoServIDPlaza = value; }
     }
 }

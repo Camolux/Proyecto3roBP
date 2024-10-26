@@ -84,21 +84,21 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
 
         private void btnEmitirFacturas_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new AltasClientesEjecutivoDeServicios());
+            AbrirFormulariohijo(AltasClientesEjecutivoDeServicios.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void btnAltasServiciosEjecutivoDeServicios_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new AltasServiciosEjecutivoDeServicios());
+            AbrirFormulariohijo(AltasServiciosEjecutivoDeServicios.GetInsance());
             //codigo
             ocultarsubmenu();
         }
 
         private void btnAltasVehiculosEjecutivoDeServicios_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new AltasVehiculosEjecutivoDeServicios());
+            AbrirFormulariohijo(AltasVehiculosEjecutivoDeServicios.GetInsance());
             //codigo
             ocultarsubmenu();
         }
@@ -110,12 +110,12 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
 
         private void btnModificacionesClientesMenuEjecutivoDeServicios_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new ModificacionesDeClientesMenuEjecutivoDeServicios());
+            AbrirFormulariohijo(ModificacionesDeClientesMenuEjecutivoDeServicios.GetInsance());
         }
 
         private void btnhome_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new HomeEjecutivoDeServicios());
+            AbrirFormulariohijo(HomeEjecutivoDeServicios.GetInsance());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

@@ -76,7 +76,7 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new EntregaDeVehiculos());
+            AbrirFormulariohijo(EntregaDeVehiculos.GetInsance());
             //Codigo del boton
             ocultarsubmenu();
         }
@@ -104,7 +104,7 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
 
         private void btnhome_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new HomeCajero());
+            AbrirFormulariohijo(HomeCajero.GetInsance());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

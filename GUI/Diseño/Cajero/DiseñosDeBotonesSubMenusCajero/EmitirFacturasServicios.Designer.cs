@@ -134,6 +134,7 @@
             BTNImprimirFactura.TabIndex = 167;
             BTNImprimirFactura.Text = "imprimir factura";
             BTNImprimirFactura.UseVisualStyleBackColor = false;
+            BTNImprimirFactura.Click += BTNImprimirFactura_Click;
             // 
             // EmitirFacturasServicios
             // 
@@ -169,5 +170,9 @@
         private Panel panel1;
         private Label label1;
         private Button BTNImprimirFactura;
+
+        public MaskedTextBox MTBFacturaFecha { get => mTBFacturaFecha; set => mTBFacturaFecha = value; }
+        public TextBox TBFacturaMatr1 { get => TBFacturaMatr; set => TBFacturaMatr = value; }
+        public TextBox TBFacturaCI1 { get => TBFacturaCI; set => TBFacturaCI = value; }
     }
 }

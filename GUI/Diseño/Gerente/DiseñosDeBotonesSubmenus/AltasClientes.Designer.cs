@@ -31,15 +31,15 @@
             label5 = new Label();
             panel2 = new Panel();
             panel1 = new Panel();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            TBAltaClienteGerApe = new TextBox();
+            TBAltaClienteGerCI = new TextBox();
             label3 = new Label();
             label1 = new Label();
-            btnIngresarVehiculos = new Button();
+            BTNAltaClienteGer = new Button();
             panel9 = new Panel();
             panel10 = new Panel();
-            textBox7 = new TextBox();
-            textBox8 = new TextBox();
+            TBAltaClienteGerTel = new TextBox();
+            TBAltaClienteGerNom = new TextBox();
             label9 = new Label();
             label11 = new Label();
             SuspendLayout();
@@ -70,23 +70,23 @@
             panel1.Size = new Size(232, 2);
             panel1.TabIndex = 63;
             // 
-            // textBox2
+            // TBAltaClienteGerApe
             // 
-            textBox2.BackColor = SystemColors.ActiveCaption;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Location = new Point(226, 169);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(232, 16);
-            textBox2.TabIndex = 61;
+            TBAltaClienteGerApe.BackColor = SystemColors.ActiveCaption;
+            TBAltaClienteGerApe.BorderStyle = BorderStyle.None;
+            TBAltaClienteGerApe.Location = new Point(226, 169);
+            TBAltaClienteGerApe.Name = "TBAltaClienteGerApe";
+            TBAltaClienteGerApe.Size = new Size(232, 16);
+            TBAltaClienteGerApe.TabIndex = 61;
             // 
-            // textBox1
+            // TBAltaClienteGerCI
             // 
-            textBox1.BackColor = SystemColors.ActiveCaption;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(226, 128);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(232, 16);
-            textBox1.TabIndex = 60;
+            TBAltaClienteGerCI.BackColor = SystemColors.ActiveCaption;
+            TBAltaClienteGerCI.BorderStyle = BorderStyle.None;
+            TBAltaClienteGerCI.Location = new Point(226, 128);
+            TBAltaClienteGerCI.Name = "TBAltaClienteGerCI";
+            TBAltaClienteGerCI.Size = new Size(232, 16);
+            TBAltaClienteGerCI.TabIndex = 60;
             // 
             // label3
             // 
@@ -108,17 +108,18 @@
             label1.TabIndex = 56;
             label1.Text = "Ingrese Cedula Del Cliente";
             // 
-            // btnIngresarVehiculos
+            // BTNAltaClienteGer
             // 
-            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
-            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnIngresarVehiculos.Location = new Point(241, 374);
-            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
-            btnIngresarVehiculos.Size = new Size(204, 38);
-            btnIngresarVehiculos.TabIndex = 55;
-            btnIngresarVehiculos.Text = "Ingresar Cliente";
-            btnIngresarVehiculos.UseVisualStyleBackColor = false;
+            BTNAltaClienteGer.BackColor = SystemColors.ButtonFace;
+            BTNAltaClienteGer.FlatAppearance.BorderSize = 0;
+            BTNAltaClienteGer.FlatStyle = FlatStyle.Flat;
+            BTNAltaClienteGer.Location = new Point(241, 374);
+            BTNAltaClienteGer.Name = "BTNAltaClienteGer";
+            BTNAltaClienteGer.Size = new Size(204, 38);
+            BTNAltaClienteGer.TabIndex = 55;
+            BTNAltaClienteGer.Text = "Ingresar Cliente";
+            BTNAltaClienteGer.UseVisualStyleBackColor = false;
+            BTNAltaClienteGer.Click += BTNAltaClienteGer_Click;
             // 
             // panel9
             // 
@@ -136,23 +137,23 @@
             panel10.Size = new Size(232, 2);
             panel10.TabIndex = 77;
             // 
-            // textBox7
+            // TBAltaClienteGerTel
             // 
-            textBox7.BackColor = SystemColors.ActiveCaption;
-            textBox7.BorderStyle = BorderStyle.None;
-            textBox7.Location = new Point(226, 254);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(232, 16);
-            textBox7.TabIndex = 75;
+            TBAltaClienteGerTel.BackColor = SystemColors.ActiveCaption;
+            TBAltaClienteGerTel.BorderStyle = BorderStyle.None;
+            TBAltaClienteGerTel.Location = new Point(226, 254);
+            TBAltaClienteGerTel.Name = "TBAltaClienteGerTel";
+            TBAltaClienteGerTel.Size = new Size(232, 16);
+            TBAltaClienteGerTel.TabIndex = 75;
             // 
-            // textBox8
+            // TBAltaClienteGerNom
             // 
-            textBox8.BackColor = SystemColors.ActiveCaption;
-            textBox8.BorderStyle = BorderStyle.None;
-            textBox8.Location = new Point(226, 213);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(232, 16);
-            textBox8.TabIndex = 74;
+            TBAltaClienteGerNom.BackColor = SystemColors.ActiveCaption;
+            TBAltaClienteGerNom.BorderStyle = BorderStyle.None;
+            TBAltaClienteGerNom.Location = new Point(226, 213);
+            TBAltaClienteGerNom.Name = "TBAltaClienteGerNom";
+            TBAltaClienteGerNom.Size = new Size(232, 16);
+            TBAltaClienteGerNom.TabIndex = 74;
             // 
             // label9
             // 
@@ -184,16 +185,16 @@
             Controls.Add(panel9);
             Controls.Add(panel10);
             Controls.Add(panel2);
-            Controls.Add(textBox7);
+            Controls.Add(TBAltaClienteGerTel);
             Controls.Add(panel1);
-            Controls.Add(textBox8);
-            Controls.Add(textBox2);
+            Controls.Add(TBAltaClienteGerNom);
+            Controls.Add(TBAltaClienteGerApe);
             Controls.Add(label9);
-            Controls.Add(textBox1);
+            Controls.Add(TBAltaClienteGerCI);
             Controls.Add(label11);
             Controls.Add(label3);
             Controls.Add(label1);
-            Controls.Add(btnIngresarVehiculos);
+            Controls.Add(BTNAltaClienteGer);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AltasClientes";
             Text = "AltasClientes";
@@ -205,16 +206,21 @@
         private Label label5;
         private Panel panel2;
         private Panel panel1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox TBAltaClienteGerApe;
+        private TextBox TBAltaClienteGerCI;
         private Label label3;
         private Label label1;
-        private Button btnIngresarVehiculos;
+        private Button BTNAltaClienteGer;
         private Panel panel9;
         private Panel panel10;
-        private TextBox textBox7;
-        private TextBox textBox8;
+        private TextBox TBAltaClienteGerTel;
+        private TextBox TBAltaClienteGerNom;
         private Label label9;
         private Label label11;
+
+        public TextBox TBAltaClienteGerApe1 { get => TBAltaClienteGerApe; set => TBAltaClienteGerApe = value; }
+        public TextBox TBAltaClienteGerCI1 { get => TBAltaClienteGerCI; set => TBAltaClienteGerCI = value; }
+        public TextBox TBAltaClienteGerTel1 { get => TBAltaClienteGerTel; set => TBAltaClienteGerTel = value; }
+        public TextBox TBAltaClienteGerNom1 { get => TBAltaClienteGerNom; set => TBAltaClienteGerNom = value; }
     }
 }

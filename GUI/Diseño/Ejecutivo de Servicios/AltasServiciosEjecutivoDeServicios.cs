@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.Diseño.Gerente.Vehiculos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,22 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
 {
     public partial class AltasServiciosEjecutivoDeServicios : Form
     {
-        public AltasServiciosEjecutivoDeServicios()
+        public static AltasServiciosEjecutivoDeServicios instance;
+        private AltasServiciosEjecutivoDeServicios()
         {
             InitializeComponent();
+            Controlador.Controlador controlador = Controlador.Controlador.GetInstance();
+
+            BTNAltaVehiculoEje.Click += new EventHandler(controlador.OnButtonClick);
+        }
+
+        public static AltasServiciosEjecutivoDeServicios GetInsance()
+        {
+            if (instance == null)
+            {
+                instance = new AltasServiciosEjecutivoDeServicios();
+            }
+            return instance;
         }
 
         private void RBParking_CheckedChanged(object sender, EventArgs e)
@@ -22,26 +36,26 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
             if (RBParking.Checked)
             {
                 // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
-                textBox1.Enabled = false;
-                textBox8.Enabled = false;
-                textBox6.Enabled = false;
-                textBox7.Enabled = false;
-                textBox1.BackColor = Color.DarkGray;
-                textBox8.BackColor = Color.DarkGray;
-                textBox6.BackColor = Color.DarkGray;
-                textBox7.BackColor = Color.DarkGray;
+                TBAltaServEjeID.Enabled = false;
+                TBAltaServEjeIDNeu.Enabled = false;
+                TBAltaServEjeNomFuncio.Enabled = false;
+                TBAltaServEjeIDCliente.Enabled = false;
+                TBAltaServEjeID.BackColor = Color.DarkGray;
+                TBAltaServEjeIDNeu.BackColor = Color.DarkGray;
+                TBAltaServEjeNomFuncio.BackColor = Color.DarkGray;
+                TBAltaServEjeIDCliente.BackColor = Color.DarkGray;
             }
             else
             {
                 // Habilitarlos si no está seleccionado
-                textBox1.Enabled = true;
-                textBox8.Enabled = true;
-                textBox6.Enabled = true;
-                textBox7.Enabled = true;
-                textBox1.BackColor = SystemColors.ActiveCaption;
-                textBox8.BackColor = SystemColors.ActiveCaption;
-                textBox6.BackColor = SystemColors.ActiveCaption;
-                textBox7.BackColor = SystemColors.ActiveCaption;
+                TBAltaServEjeID.Enabled = true;
+                TBAltaServEjeIDNeu.Enabled = true;
+                TBAltaServEjeNomFuncio.Enabled = true;
+                TBAltaServEjeIDCliente.Enabled = true;
+                TBAltaServEjeID.BackColor = SystemColors.ActiveCaption;
+                TBAltaServEjeIDNeu.BackColor = SystemColors.ActiveCaption;
+                TBAltaServEjeNomFuncio.BackColor = SystemColors.ActiveCaption;
+                TBAltaServEjeIDCliente.BackColor = SystemColors.ActiveCaption;
             }
         }
 
@@ -52,25 +66,25 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
             if (RBLavado.Checked)
             {
                 // Si se selecciona RBLavado, deshabilitar TextBox1 y TextBox2
-                maskedTextBox4.Enabled = false;
-                textBox8.Enabled = false;
-                textBox4.Enabled = false;
-                textBox7.Enabled = false;
-                textBox8.BackColor = Color.DarkGray;
-                textBox4.BackColor = Color.DarkGray;
-                textBox7.BackColor = Color.DarkGray;
+                mTBAltaServEjeFechaFin.Enabled = false;
+                TBAltaServEjeIDNeu.Enabled = false;
+                TBAltaServEjeNumPlaza.Enabled = false;
+                TBAltaServEjeIDCliente.Enabled = false;
+                TBAltaServEjeIDNeu.BackColor = Color.DarkGray;
+                TBAltaServEjeNumPlaza.BackColor = Color.DarkGray;
+                TBAltaServEjeIDCliente.BackColor = Color.DarkGray;
             }
             else
             {
                 // Habilitarlos si no está seleccionado
 
-                maskedTextBox4.Enabled = true;
-                textBox8.Enabled = true;
-                textBox4.Enabled = true;
-                textBox7.Enabled = true;
-                textBox8.BackColor = SystemColors.ActiveCaption;
-                textBox4.BackColor = SystemColors.ActiveCaption;
-                textBox7.BackColor = SystemColors.ActiveCaption;
+                mTBAltaServEjeFechaFin.Enabled = true;
+                TBAltaServEjeIDNeu.Enabled = true;
+                TBAltaServEjeNumPlaza.Enabled = true;
+                TBAltaServEjeIDCliente.Enabled = true;
+                TBAltaServEjeIDNeu.BackColor = SystemColors.ActiveCaption;
+                TBAltaServEjeNumPlaza.BackColor = SystemColors.ActiveCaption;
+                TBAltaServEjeIDCliente.BackColor = SystemColors.ActiveCaption;
             }
         }
 
@@ -79,24 +93,24 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
             if (RBAlineacion.Checked)
             {
                 // Si se selecciona RBTaller, deshabilitar TextBox1 y TextBox2
-                maskedTextBox4.Enabled = false;
-                textBox8.Enabled = false;
-                textBox4.Enabled = false;
-                textBox7.Enabled = false;
-                textBox8.BackColor = Color.DarkGray;
-                textBox4.BackColor = Color.DarkGray;
-                textBox7.BackColor = Color.DarkGray;
+                mTBAltaServEjeFechaFin.Enabled = false;
+                TBAltaServEjeIDNeu.Enabled = false;
+                TBAltaServEjeNumPlaza.Enabled = false;
+                TBAltaServEjeIDCliente.Enabled = false;
+                TBAltaServEjeIDNeu.BackColor = Color.DarkGray;
+                TBAltaServEjeNumPlaza.BackColor = Color.DarkGray;
+                TBAltaServEjeIDCliente.BackColor = Color.DarkGray;
             }
             else
             {
                 // Habilitarlos si no está seleccionado
-                maskedTextBox4.Enabled = true;
-                textBox8.Enabled = true;
-                textBox4.Enabled = true;
-                textBox7.Enabled = true;
-                textBox8.BackColor = SystemColors.ActiveCaption;
-                textBox4.BackColor = SystemColors.ActiveCaption;
-                textBox7.BackColor = SystemColors.ActiveCaption;
+                mTBAltaServEjeFechaFin.Enabled = true;
+                TBAltaServEjeIDNeu.Enabled = true;
+                TBAltaServEjeNumPlaza.Enabled = true;
+                TBAltaServEjeIDCliente.Enabled = true;
+                TBAltaServEjeIDNeu.BackColor = SystemColors.ActiveCaption;
+                TBAltaServEjeNumPlaza.BackColor = SystemColors.ActiveCaption;
+                TBAltaServEjeIDCliente.BackColor = SystemColors.ActiveCaption;
 
 
             }
@@ -107,24 +121,24 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
             if (RBBalanceo.Checked)
             {
                 // Si se selecciona RBTaller, deshabilitar TextBox1 y TextBox2
-                maskedTextBox4.Enabled = false;
-                textBox8.Enabled = false;
-                textBox4.Enabled = false;
-                textBox7.Enabled = false;
-                textBox8.BackColor = Color.DarkGray;
-                textBox4.BackColor = Color.DarkGray;
-                textBox7.BackColor = Color.DarkGray;
+                mTBAltaServEjeFechaFin.Enabled = false;
+                TBAltaServEjeIDNeu.Enabled = false;
+                TBAltaServEjeNumPlaza.Enabled = false;
+                TBAltaServEjeIDCliente.Enabled = false;
+                TBAltaServEjeIDNeu.BackColor = Color.DarkGray;
+                TBAltaServEjeNumPlaza.BackColor = Color.DarkGray;
+                TBAltaServEjeIDCliente.BackColor = Color.DarkGray;
             }
             else
             {
                 // Habilitarlos si no está seleccionado
-                maskedTextBox4.Enabled = true;
-                textBox8.Enabled = true;
-                textBox4.Enabled = true;
-                textBox7.Enabled = true;
-                textBox8.BackColor = SystemColors.ActiveCaption;
-                textBox4.BackColor = SystemColors.ActiveCaption;
-                textBox7.BackColor = SystemColors.ActiveCaption;
+                mTBAltaServEjeFechaFin.Enabled = true;
+                TBAltaServEjeIDNeu.Enabled = true;
+                TBAltaServEjeNumPlaza.Enabled = true;
+                TBAltaServEjeIDCliente.Enabled = true;
+                TBAltaServEjeIDNeu.BackColor = SystemColors.ActiveCaption;
+                TBAltaServEjeNumPlaza.BackColor = SystemColors.ActiveCaption;
+                TBAltaServEjeIDCliente.BackColor = SystemColors.ActiveCaption;
             }
         }
 
@@ -133,25 +147,30 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
             if (RBNeumaticos.Checked)
             {
                 // Si se selecciona RBNeumaticos, deshabilitar TextBox1 y TextBox2
-                maskedTextBox4.Enabled = false;
-                textBox1.Enabled = false;
-                textBox2.Enabled = false;
-                textBox4.Enabled = false;
-                textBox1.BackColor = Color.DarkGray;
-                textBox2.BackColor = Color.DarkGray;
-                textBox4.BackColor = Color.DarkGray;
+                mTBAltaServEjeFechaFin.Enabled = false;
+                TBAltaServEjeID.Enabled = false;
+                TBAltaServEjeMatr.Enabled = false;
+                TBAltaServEjeNumPlaza.Enabled = false;
+                TBAltaServEjeID.BackColor = Color.DarkGray;
+                TBAltaServEjeMatr.BackColor = Color.DarkGray;
+                TBAltaServEjeNumPlaza.BackColor = Color.DarkGray;
             }
             else
             {
                 // Habilitarlos si no está seleccionado
-                maskedTextBox4.Enabled = true;
-                textBox1.Enabled = true;
-                textBox2.Enabled = true;
-                textBox4.Enabled = true;
-                textBox1.BackColor = SystemColors.ActiveCaption;
-                textBox2.BackColor = SystemColors.ActiveCaption;
-                textBox4.BackColor = SystemColors.ActiveCaption;
+                mTBAltaServEjeFechaFin.Enabled = true;
+                TBAltaServEjeID.Enabled = true;
+                TBAltaServEjeMatr.Enabled = true;
+                TBAltaServEjeNumPlaza.Enabled = true;
+                TBAltaServEjeID.BackColor = SystemColors.ActiveCaption;
+                TBAltaServEjeMatr.BackColor = SystemColors.ActiveCaption;
+                TBAltaServEjeNumPlaza.BackColor = SystemColors.ActiveCaption;
             }
+        }
+
+        private void BTNAltaVehiculoEje_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

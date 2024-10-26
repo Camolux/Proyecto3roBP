@@ -33,20 +33,18 @@
             panel3 = new Panel();
             panel2 = new Panel();
             panel1 = new Panel();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            TBAltaVehiculoModelo = new TextBox();
+            TBAltaVehiculoMarca = new TextBox();
+            TBAltaVehiculoMatr = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            btnIngresarVehiculos = new Button();
-            CBTipoVehiculo = new ComboBox();
-            comboBox1 = new ComboBox();
+            btnIngresarVehiculosGer = new Button();
             panel5 = new Panel();
             label6 = new Label();
             panel6 = new Panel();
-            textBox4 = new TextBox();
+            TBAltaVehiculoCICliente = new TextBox();
             label7 = new Label();
             SuspendLayout();
             // 
@@ -92,32 +90,32 @@
             panel1.Size = new Size(246, 2);
             panel1.TabIndex = 48;
             // 
-            // textBox3
+            // TBAltaVehiculoModelo
             // 
-            textBox3.BackColor = SystemColors.ActiveCaption;
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Location = new Point(256, 308);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(246, 16);
-            textBox3.TabIndex = 46;
+            TBAltaVehiculoModelo.BackColor = SystemColors.ActiveCaption;
+            TBAltaVehiculoModelo.BorderStyle = BorderStyle.None;
+            TBAltaVehiculoModelo.Location = new Point(256, 308);
+            TBAltaVehiculoModelo.Name = "TBAltaVehiculoModelo";
+            TBAltaVehiculoModelo.Size = new Size(246, 16);
+            TBAltaVehiculoModelo.TabIndex = 46;
             // 
-            // textBox2
+            // TBAltaVehiculoMarca
             // 
-            textBox2.BackColor = SystemColors.ActiveCaption;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Location = new Point(256, 250);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(246, 16);
-            textBox2.TabIndex = 45;
+            TBAltaVehiculoMarca.BackColor = SystemColors.ActiveCaption;
+            TBAltaVehiculoMarca.BorderStyle = BorderStyle.None;
+            TBAltaVehiculoMarca.Location = new Point(256, 250);
+            TBAltaVehiculoMarca.Name = "TBAltaVehiculoMarca";
+            TBAltaVehiculoMarca.Size = new Size(246, 16);
+            TBAltaVehiculoMarca.TabIndex = 45;
             // 
-            // textBox1
+            // TBAltaVehiculoMatr
             // 
-            textBox1.BackColor = SystemColors.ActiveCaption;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(256, 195);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(246, 16);
-            textBox1.TabIndex = 44;
+            TBAltaVehiculoMatr.BackColor = SystemColors.ActiveCaption;
+            TBAltaVehiculoMatr.BorderStyle = BorderStyle.None;
+            TBAltaVehiculoMatr.Location = new Point(256, 195);
+            TBAltaVehiculoMatr.Name = "TBAltaVehiculoMatr";
+            TBAltaVehiculoMatr.Size = new Size(246, 16);
+            TBAltaVehiculoMatr.TabIndex = 44;
             // 
             // label4
             // 
@@ -159,37 +157,18 @@
             label1.TabIndex = 40;
             label1.Text = "Ingrese Matricula";
             // 
-            // btnIngresarVehiculos
+            // btnIngresarVehiculosGer
             // 
-            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
-            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnIngresarVehiculos.Location = new Point(273, 476);
-            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
-            btnIngresarVehiculos.Size = new Size(204, 38);
-            btnIngresarVehiculos.TabIndex = 39;
-            btnIngresarVehiculos.Text = "Ingresar vehiculo";
-            btnIngresarVehiculos.UseVisualStyleBackColor = false;
-            // 
-            // CBTipoVehiculo
-            // 
-            CBTipoVehiculo.BackColor = SystemColors.ActiveCaption;
-            CBTipoVehiculo.FormattingEnabled = true;
-            CBTipoVehiculo.Items.AddRange(new object[] { "moto", "auto", "camioneta", "pequeño camión", "pequeño utilitario" });
-            CBTipoVehiculo.Location = new Point(256, 363);
-            CBTipoVehiculo.Name = "CBTipoVehiculo";
-            CBTipoVehiculo.Size = new Size(246, 23);
-            CBTipoVehiculo.TabIndex = 53;
-            // 
-            // comboBox1
-            // 
-            comboBox1.BackColor = SystemColors.ActiveCaption;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "mensual", "sistematico", "eventual", "extraordinario" });
-            comboBox1.Location = new Point(256, 418);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(246, 23);
-            comboBox1.TabIndex = 56;
+            btnIngresarVehiculosGer.BackColor = SystemColors.ButtonFace;
+            btnIngresarVehiculosGer.FlatAppearance.BorderSize = 0;
+            btnIngresarVehiculosGer.FlatStyle = FlatStyle.Flat;
+            btnIngresarVehiculosGer.Location = new Point(273, 476);
+            btnIngresarVehiculosGer.Name = "btnIngresarVehiculosGer";
+            btnIngresarVehiculosGer.Size = new Size(204, 38);
+            btnIngresarVehiculosGer.TabIndex = 39;
+            btnIngresarVehiculosGer.Text = "Ingresar vehiculo";
+            btnIngresarVehiculosGer.UseVisualStyleBackColor = false;
+            btnIngresarVehiculosGer.Click += btnIngresarVehiculosGer_Click;
             // 
             // panel5
             // 
@@ -217,14 +196,14 @@
             panel6.Size = new Size(246, 2);
             panel6.TabIndex = 59;
             // 
-            // textBox4
+            // TBAltaVehiculoCICliente
             // 
-            textBox4.BackColor = SystemColors.ActiveCaption;
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Location = new Point(256, 152);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(246, 16);
-            textBox4.TabIndex = 58;
+            TBAltaVehiculoCICliente.BackColor = SystemColors.ActiveCaption;
+            TBAltaVehiculoCICliente.BorderStyle = BorderStyle.None;
+            TBAltaVehiculoCICliente.Location = new Point(256, 152);
+            TBAltaVehiculoCICliente.Name = "TBAltaVehiculoCICliente";
+            TBAltaVehiculoCICliente.Size = new Size(246, 16);
+            TBAltaVehiculoCICliente.TabIndex = 58;
             // 
             // label7
             // 
@@ -243,25 +222,23 @@
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
             Controls.Add(panel6);
-            Controls.Add(textBox4);
+            Controls.Add(TBAltaVehiculoCICliente);
             Controls.Add(label7);
-            Controls.Add(comboBox1);
             Controls.Add(panel5);
             Controls.Add(label6);
-            Controls.Add(CBTipoVehiculo);
             Controls.Add(label5);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(TBAltaVehiculoModelo);
+            Controls.Add(TBAltaVehiculoMarca);
+            Controls.Add(TBAltaVehiculoMatr);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(btnIngresarVehiculos);
+            Controls.Add(btnIngresarVehiculosGer);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AltasVehiculos";
             Text = "AltasVehiculos";
@@ -276,20 +253,27 @@
         private Panel panel3;
         private Panel panel2;
         private Panel panel1;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox TBAltaVehiculoModelo;
+        private TextBox TBAltaVehiculoMarca;
+        private TextBox TBAltaVehiculoMatr;
         private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button btnIngresarVehiculos;
-        public ComboBox CBTipoVehiculo;
-        public ComboBox comboBox1;
+        private Button btnIngresarVehiculosGer;
+        private ComboBox cBTipoVehiculo;
+        private ComboBox cBTipoCliente;
         private Panel panel5;
         private Label label6;
         private Panel panel6;
-        private TextBox textBox4;
+        private TextBox TBAltaVehiculoCICliente;
         private Label label7;
+
+        public TextBox TBAltaVehiculoModelo1 { get => TBAltaVehiculoModelo; set => TBAltaVehiculoModelo = value; }
+        public TextBox TBAltaVehiculoMarca1 { get => TBAltaVehiculoMarca; set => TBAltaVehiculoMarca = value; }
+        public TextBox TBAltaVehiculoMatr1 { get => TBAltaVehiculoMatr; set => TBAltaVehiculoMatr = value; }
+        public ComboBox CBTipoVehiculo { get => cBTipoVehiculo; set => cBTipoVehiculo = value; }
+        public ComboBox CBTipoCliente { get => cBTipoCliente; set => cBTipoCliente = value; }
+        public TextBox TBAltaVehiculoCICliente1 { get => TBAltaVehiculoCICliente; set => TBAltaVehiculoCICliente = value; }
     }
 }

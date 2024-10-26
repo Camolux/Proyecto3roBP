@@ -28,33 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnModificarClientes = new Button();
+            btnModificarClientesJefe = new Button();
             panel9 = new Panel();
             panel10 = new Panel();
             panel2 = new Panel();
-            textBox7 = new TextBox();
+            TBModClientesTel = new TextBox();
             panel1 = new Panel();
-            textBox8 = new TextBox();
-            textBox2 = new TextBox();
+            TBModClientesNom = new TextBox();
+            TBModClientesApe = new TextBox();
             label9 = new Label();
-            textBox1 = new TextBox();
+            TBModClientesCI = new TextBox();
             label11 = new Label();
             label3 = new Label();
             label1 = new Label();
             label5 = new Label();
             SuspendLayout();
             // 
-            // btnModificarClientes
+            // btnModificarClientesJefe
             // 
-            btnModificarClientes.BackColor = SystemColors.ButtonFace;
-            btnModificarClientes.FlatAppearance.BorderSize = 0;
-            btnModificarClientes.FlatStyle = FlatStyle.Flat;
-            btnModificarClientes.Location = new Point(256, 411);
-            btnModificarClientes.Name = "btnModificarClientes";
-            btnModificarClientes.Size = new Size(204, 38);
-            btnModificarClientes.TabIndex = 172;
-            btnModificarClientes.Text = "Modificar Clientes";
-            btnModificarClientes.UseVisualStyleBackColor = false;
+            btnModificarClientesJefe.BackColor = SystemColors.ButtonFace;
+            btnModificarClientesJefe.FlatAppearance.BorderSize = 0;
+            btnModificarClientesJefe.FlatStyle = FlatStyle.Flat;
+            btnModificarClientesJefe.Location = new Point(256, 411);
+            btnModificarClientesJefe.Name = "btnModificarClientesJefe";
+            btnModificarClientesJefe.Size = new Size(204, 38);
+            btnModificarClientesJefe.TabIndex = 172;
+            btnModificarClientesJefe.Text = "Modificar Clientes";
+            btnModificarClientesJefe.UseVisualStyleBackColor = false;
+            btnModificarClientesJefe.Click += btnModificarClientesJefe_Click;
             // 
             // panel9
             // 
@@ -80,14 +81,14 @@
             panel2.Size = new Size(232, 2);
             panel2.TabIndex = 165;
             // 
-            // textBox7
+            // TBModClientesTel
             // 
-            textBox7.BackColor = SystemColors.ActiveCaption;
-            textBox7.BorderStyle = BorderStyle.None;
-            textBox7.Location = new Point(256, 318);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(232, 16);
-            textBox7.TabIndex = 169;
+            TBModClientesTel.BackColor = SystemColors.ActiveCaption;
+            TBModClientesTel.BorderStyle = BorderStyle.None;
+            TBModClientesTel.Location = new Point(256, 318);
+            TBModClientesTel.Name = "TBModClientesTel";
+            TBModClientesTel.Size = new Size(232, 16);
+            TBModClientesTel.TabIndex = 169;
             // 
             // panel1
             // 
@@ -97,23 +98,23 @@
             panel1.Size = new Size(232, 2);
             panel1.TabIndex = 164;
             // 
-            // textBox8
+            // TBModClientesNom
             // 
-            textBox8.BackColor = SystemColors.ActiveCaption;
-            textBox8.BorderStyle = BorderStyle.None;
-            textBox8.Location = new Point(256, 277);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(232, 16);
-            textBox8.TabIndex = 168;
+            TBModClientesNom.BackColor = SystemColors.ActiveCaption;
+            TBModClientesNom.BorderStyle = BorderStyle.None;
+            TBModClientesNom.Location = new Point(256, 277);
+            TBModClientesNom.Name = "TBModClientesNom";
+            TBModClientesNom.Size = new Size(232, 16);
+            TBModClientesNom.TabIndex = 168;
             // 
-            // textBox2
+            // TBModClientesApe
             // 
-            textBox2.BackColor = SystemColors.ActiveCaption;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Location = new Point(256, 233);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(232, 16);
-            textBox2.TabIndex = 163;
+            TBModClientesApe.BackColor = SystemColors.ActiveCaption;
+            TBModClientesApe.BorderStyle = BorderStyle.None;
+            TBModClientesApe.Location = new Point(256, 233);
+            TBModClientesApe.Name = "TBModClientesApe";
+            TBModClientesApe.Size = new Size(232, 16);
+            TBModClientesApe.TabIndex = 163;
             // 
             // label9
             // 
@@ -125,14 +126,14 @@
             label9.TabIndex = 167;
             label9.Text = "Ingrese El Telefono Del Cliente";
             // 
-            // textBox1
+            // TBModClientesCI
             // 
-            textBox1.BackColor = SystemColors.ActiveCaption;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(256, 192);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(232, 16);
-            textBox1.TabIndex = 162;
+            TBModClientesCI.BackColor = SystemColors.ActiveCaption;
+            TBModClientesCI.BorderStyle = BorderStyle.None;
+            TBModClientesCI.Location = new Point(256, 192);
+            TBModClientesCI.Name = "TBModClientesCI";
+            TBModClientesCI.Size = new Size(232, 16);
+            TBModClientesCI.TabIndex = 162;
             // 
             // label11
             // 
@@ -180,16 +181,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
-            Controls.Add(btnModificarClientes);
+            Controls.Add(btnModificarClientesJefe);
             Controls.Add(panel9);
             Controls.Add(panel10);
             Controls.Add(panel2);
-            Controls.Add(textBox7);
+            Controls.Add(TBModClientesTel);
             Controls.Add(panel1);
-            Controls.Add(textBox8);
-            Controls.Add(textBox2);
+            Controls.Add(TBModClientesNom);
+            Controls.Add(TBModClientesApe);
             Controls.Add(label9);
-            Controls.Add(textBox1);
+            Controls.Add(TBModClientesCI);
             Controls.Add(label11);
             Controls.Add(label3);
             Controls.Add(label1);
@@ -203,19 +204,24 @@
 
         #endregion
 
-        private Button btnModificarClientes;
+        private Button btnModificarClientesJefe;
         private Panel panel9;
         private Panel panel10;
         private Panel panel2;
-        private TextBox textBox7;
+        private TextBox TBModClientesTel;
         private Panel panel1;
-        private TextBox textBox8;
-        private TextBox textBox2;
+        private TextBox TBModClientesNom;
+        private TextBox TBModClientesApe;
         private Label label9;
-        private TextBox textBox1;
+        private TextBox TBModClientesCI;
         private Label label11;
         private Label label3;
         private Label label1;
         private Label label5;
+
+        public TextBox TBModClientesTel1 { get => TBModClientesTel; set => TBModClientesTel = value; }
+        public TextBox TBModClientesNom1 { get => TBModClientesNom; set => TBModClientesNom = value; }
+        public TextBox TBModClientesApe1 { get => TBModClientesApe; set => TBModClientesApe = value; }
+        public TextBox TBModClientesCI1 { get => TBModClientesCI; set => TBModClientesCI = value; }
     }
 }
