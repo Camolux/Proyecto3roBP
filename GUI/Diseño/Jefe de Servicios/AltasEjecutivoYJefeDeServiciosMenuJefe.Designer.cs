@@ -46,9 +46,9 @@
             label5.Font = new Font("Sitka Text", 26.2499962F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(49, 68);
             label5.Name = "label5";
-            label5.Size = new Size(612, 50);
+            label5.Size = new Size(619, 50);
             label5.TabIndex = 111;
-            label5.Text = "Altas Ejecutivo Y Jefe De Servicios";
+            label5.Text = "Altas Ejecutivo, Cajero Y Operador";
             // 
             // panel4
             // 

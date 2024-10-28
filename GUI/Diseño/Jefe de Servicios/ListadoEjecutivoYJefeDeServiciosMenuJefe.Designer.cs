@@ -66,9 +66,9 @@
             label5.Font = new Font("Sitka Text", 26.2499962F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(45, 36);
             label5.Name = "label5";
-            label5.Size = new Size(620, 50);
+            label5.Size = new Size(389, 50);
             label5.TabIndex = 71;
-            label5.Text = "Listar Ejecutivo y jefe de Servicios";
+            label5.Text = "Listado Funcionarios";
             // 
             // panel1
             // 

@@ -23,7 +23,7 @@ namespace GUI.Diseño.Cajero.DiseñosDeBotonesSubMenusCajero
 
         public static HomeCajero GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new HomeCajero();
             }

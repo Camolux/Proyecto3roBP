@@ -24,7 +24,7 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
 
         public static MenuEjecutivoDeServicios GetInstance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new MenuEjecutivoDeServicios();
             }
@@ -69,7 +69,7 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
         private void AbrirFormulariohijo(Form FormularioHijo)
         {
             if (FormularioActivo != null)
-                FormularioActivo.Close();
+                FormularioActivo.Hide();
             FormularioActivo = FormularioHijo;
             FormularioHijo.TopLevel = false;
             FormularioHijo.FormBorderStyle = FormBorderStyle.None;

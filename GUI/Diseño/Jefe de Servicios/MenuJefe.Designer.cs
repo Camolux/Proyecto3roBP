@@ -161,7 +161,7 @@
             btnEjecutivoyjefedeServiciosMenuJefe.Name = "btnEjecutivoyjefedeServiciosMenuJefe";
             btnEjecutivoyjefedeServiciosMenuJefe.Size = new Size(255, 40);
             btnEjecutivoyjefedeServiciosMenuJefe.TabIndex = 23;
-            btnEjecutivoyjefedeServiciosMenuJefe.Text = "Ejecutivo y jefe de Servicios";
+            btnEjecutivoyjefedeServiciosMenuJefe.Text = "Funcionarios";
             btnEjecutivoyjefedeServiciosMenuJefe.UseVisualStyleBackColor = false;
             btnEjecutivoyjefedeServiciosMenuJefe.Click += btnEjecutivoyjefedeServicios_Click;
             // 

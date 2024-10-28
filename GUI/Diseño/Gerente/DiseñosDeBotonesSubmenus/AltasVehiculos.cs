@@ -24,7 +24,7 @@ namespace GUI
 
         public static AltasVehiculos GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new AltasVehiculos();
             }

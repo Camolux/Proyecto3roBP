@@ -24,7 +24,7 @@ namespace GUI.Diseño.Gerente.Clientes
 
         public static ModificacionesClientes GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new ModificacionesClientes();
             }

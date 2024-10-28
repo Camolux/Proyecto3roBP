@@ -24,7 +24,7 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
 
         public static AltasClientesEjecutivoDeServicios GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new AltasClientesEjecutivoDeServicios();
             }

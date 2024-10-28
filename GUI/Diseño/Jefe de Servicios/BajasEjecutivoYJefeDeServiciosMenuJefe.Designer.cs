@@ -68,9 +68,9 @@
             label5.Font = new Font("Sitka Text", 26.2499962F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(46, 67);
             label5.Name = "label5";
-            label5.Size = new Size(619, 50);
+            label5.Size = new Size(345, 50);
             label5.TabIndex = 136;
-            label5.Text = "Bajas Ejecutivo Y Jefe De Servicios";
+            label5.Text = "BajasFuncionarios";
             // 
             // btnBajaFuncionario
             // 

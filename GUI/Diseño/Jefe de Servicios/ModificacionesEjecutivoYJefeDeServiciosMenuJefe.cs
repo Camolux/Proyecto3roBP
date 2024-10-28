@@ -24,7 +24,7 @@ namespace GUI.Diseño.Jefe_de_Servicios
 
         public static ModificacionesEjecutivoYJefeDeServiciosMenuJefe GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new ModificacionesEjecutivoYJefeDeServiciosMenuJefe();
             }

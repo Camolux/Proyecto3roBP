@@ -19,12 +19,12 @@ namespace GUI.Diseño.Jefe_de_Servicios
             InitializeComponent();
             Controlador.Controlador controlador = Controlador.Controlador.GetInstance();
 
-            btnIngresarVehiculos.Click += new EventHandler(controlador.OnButtonClick);
+            btnIngresarVehiculosJefe.Click += new EventHandler(controlador.OnButtonClick);
         }
 
         public static AltasVehiculosJefe GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new AltasVehiculosJefe();
             }

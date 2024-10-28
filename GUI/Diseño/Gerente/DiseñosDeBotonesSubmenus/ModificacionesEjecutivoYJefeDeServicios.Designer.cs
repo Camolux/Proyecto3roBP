@@ -38,6 +38,7 @@
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
+            comboBox1 = new ComboBox();
             SuspendLayout();
             // 
             // label5
@@ -135,12 +136,23 @@
             label1.TabIndex = 166;
             label1.Text = "Ingresr Username ";
             // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "ejecutivo", "operador", "cajero" });
+            comboBox1.Location = new Point(248, 228);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(232, 23);
+            comboBox1.TabIndex = 174;
+            // 
             // ModificacionesEjecutivoYJefeDeServicios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(comboBox1);
             Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -170,8 +182,9 @@
         private Label label4;
         private Label label3;
         private Label label1;
+        private ComboBox comboBox1;
 
-        public ComboBox CBModFuncionarioRol { get => cBModFuncionarioRol; set => cBModFuncionarioRol = value; }
+        public ComboBox CBModFuncionarioRol { get => comboBox1; set => comboBox1 = value; }
         public TextBox TBModFuncionarioContra1 { get => TBModFuncionarioContra; set => TBModFuncionarioContra = value; }
         public TextBox TBModFuncionarioNom1 { get => TBModFuncionarioNom; set => TBModFuncionarioNom = value; }
     }

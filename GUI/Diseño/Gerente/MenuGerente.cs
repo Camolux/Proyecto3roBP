@@ -21,7 +21,7 @@ namespace GUI
 
         public static MenuGerente GetInstance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new MenuGerente();
             }
@@ -76,7 +76,7 @@ namespace GUI
         private void AbrirFormulariohijo(Form FormularioHijo)
         {
             if (FormularioActivo != null)
-                FormularioActivo.Close();
+                FormularioActivo.Hide();
             FormularioActivo = FormularioHijo;
             FormularioHijo.TopLevel = false;
             FormularioHijo.FormBorderStyle = FormBorderStyle.None;

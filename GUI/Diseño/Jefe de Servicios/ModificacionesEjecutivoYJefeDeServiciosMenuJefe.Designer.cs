@@ -118,9 +118,9 @@
             label5.Font = new Font("Sitka Text", 26.2499962F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(14, 108);
             label5.Name = "label5";
-            label5.Size = new Size(683, 50);
+            label5.Size = new Size(429, 50);
             label5.TabIndex = 176;
-            label5.Text = "Modificar Ejecutivo y jefe de servicios";
+            label5.Text = "Modificar Funcionarios";
             // 
             // btnModFuncionarioJefe
             // 

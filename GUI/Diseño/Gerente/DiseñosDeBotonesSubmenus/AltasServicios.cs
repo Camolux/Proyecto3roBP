@@ -24,7 +24,7 @@ namespace GUI.Diseño.Gerente.Vehiculos
 
         public static AltasServicios GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new AltasServicios();
             }

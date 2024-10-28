@@ -26,7 +26,7 @@ namespace GUI.Diseño.Gerente.Clientes
 
         public static ListadosClientes GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new ListadosClientes();
             }

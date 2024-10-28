@@ -166,14 +166,111 @@ namespace Controlador
                         //Aca escondo la ventana de Login y muestro la ventana siguiente
 
                         break;
+                    case "BTNImprimirFactura":
 
+                        break;
+                    case "btnEntregarVehiculos":
 
+                        break;
+                    case "BTNIngresarClienteEje":
 
+                        break;
+                    case "BTNAltaVehiculoEje":
 
+                        break;
+                    case "btnIngresarVehiculos":
 
+                        break;
+                    case "btnModificarClientesEje":
+
+                        break;
+                    case "btnIngresarClienteJefe":
+
+                        break;
+                    case "btnIngresarFuncionarioGer":
+
+                        break;
+                    case "btnIngresarServicios":
+
+                        break;
+                    case "btnIngresarVehiculosJefe":
+
+                        break;
+                    case "btnBajaFuncionario":
+
+                        break;
+                    case "btnBuscarFuncionariosJefe":
+
+                        break;
+                    case "btnMostrarFuncionariosJefe":
+
+                        break;
+                    case "btnModificarClientesJefe":
+
+                        break;
+                    case "btnModFuncionarioJefe":
+
+                        break;
+                    case "BTNAltaClienteGer":
+
+                        break;
                     case "BTNAltaUsuarioGer":
 
                         AltaUsuGer();
+
+                        break;
+                    case "BTNAltaServGer":
+
+                        break;
+                    case "btnIngresarVehiculosGer":
+
+                        break;
+                    case "BTNEliminarFunciGer":
+
+                        break;
+                    case "BTNModCostServGer":
+
+                        break;
+                    case "BTNBuscarClientesGer":
+
+                        break;
+                    case "BTNMostrarClientesGer":
+
+                        break;
+                    case "btnBuscarFuncionariosGer":
+
+                        break;
+                    case "btnMostrarFuncionariosGer":
+
+                        break;
+                    case "btnBuscarServicioGer":
+
+                        break;
+                    case "btnMostrarServGer":
+
+                        break;
+                    case "btnBuscarVehiculosGer":
+
+                        break;
+                    case "btnMostrarVehiculosGer":
+
+                        break;
+                    case "btnModificarClientesGer":
+
+                        break;
+                    case "btnModFuncionario":
+                        usuarioDTO.nombreUsuario = modificacionesEjecutivoYJefeDeServicios.TBModFuncionarioNom1.Text;
+                        usuarioDTO.contraUsuario = modificacionesEjecutivoYJefeDeServicios.TBModFuncionarioContra1.Text;
+                        usuarioDTO.idTipoUsuario = modificacionesEjecutivoYJefeDeServicios.CBModFuncionarioRol.Text;
+                        usuariosServicios.ModificarUsuario(usuarioDTO);
+                        modificacionesEjecutivoYJefeDeServicios.TBModFuncionarioNom1.Clear(); 
+                        modificacionesEjecutivoYJefeDeServicios.TBModFuncionarioContra1.Clear();
+                        modificacionesEjecutivoYJefeDeServicios.CBModFuncionarioRol.Items.Clear();
+                        break;
+                    case "btnModServGer":
+
+                        break;
+                    case "btnModificarVehiculosGer":
 
                         break;
                     default:
@@ -188,7 +285,6 @@ namespace Controlador
             usuarioDTO.nombreUsuario = altasEjecutivoYJefeDeServicios.TBAltaUsuNom1.Text;
             usuarioDTO.contraUsuario = altasEjecutivoYJefeDeServicios.TBAltaUsuPass1.Text;
             usuarioDTO.idTipoUsuario = altasEjecutivoYJefeDeServicios.CBAltaTipoUsu1.Text;
-            MessageBox.Show("Usuario Ingresado Correctamente");
             MessageBox.Show("Usuario Ingresado Correctamente");
             usuariosServicios.AgregarUsuario(usuarioDTO);
             altasEjecutivoYJefeDeServicios.TBAltaUsuNom1.Clear();

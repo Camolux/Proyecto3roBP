@@ -25,7 +25,7 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
 
         public static CambiarCostosDeServicios GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new CambiarCostosDeServicios();
             }

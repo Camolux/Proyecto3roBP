@@ -26,7 +26,7 @@ namespace GUI.Diseño.Jefe_de_Servicios
 
         public static ListadoEjecutivoYJefeDeServiciosMenuJefe GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new ListadoEjecutivoYJefeDeServiciosMenuJefe();
             }

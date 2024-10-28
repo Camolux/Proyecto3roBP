@@ -24,7 +24,7 @@ namespace GUI.Diseño.Cajero.DiseñosDeBotonesSubMenusCajero
 
         public static EntregaDeVehiculos GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new EntregaDeVehiculos();
             }

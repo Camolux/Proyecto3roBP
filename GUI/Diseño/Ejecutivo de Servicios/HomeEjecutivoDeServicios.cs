@@ -23,7 +23,7 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
 
         public static HomeEjecutivoDeServicios GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new HomeEjecutivoDeServicios();
             }

@@ -24,7 +24,7 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
 
         public static MenuCajero GetInstance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new MenuCajero();
             }
@@ -89,7 +89,7 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
         private void AbrirFormulariohijo(Form FormularioHijo)
         {
             if (FormularioActivo != null)
-                FormularioActivo.Close();
+                FormularioActivo.Hide();
             FormularioActivo = FormularioHijo;
             FormularioHijo.TopLevel = false;
             FormularioHijo.FormBorderStyle = FormBorderStyle.None;

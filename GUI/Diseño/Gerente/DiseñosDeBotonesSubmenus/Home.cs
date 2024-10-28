@@ -23,7 +23,7 @@ namespace GUI
 
         public static Home GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new Home();
             }

@@ -25,7 +25,7 @@ namespace GUI.Diseño.Jefe_de_Servicios
 
         public static MenuJefe GetInstance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new MenuJefe();
             }
@@ -78,7 +78,7 @@ namespace GUI.Diseño.Jefe_de_Servicios
         private void AbrirFormulariohijo(Form FormularioHijo)
         {
             if (FormularioActivo != null)
-                FormularioActivo.Close();
+                FormularioActivo.Hide();
             FormularioActivo = FormularioHijo;
             FormularioHijo.TopLevel = false;
             FormularioHijo.FormBorderStyle = FormBorderStyle.None;

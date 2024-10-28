@@ -23,7 +23,7 @@ namespace GUI.Diseño.Jefe_de_Servicios
 
         public static HomeJefe GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new HomeJefe();
             }

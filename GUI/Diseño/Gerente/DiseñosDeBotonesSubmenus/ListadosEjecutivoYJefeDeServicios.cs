@@ -25,7 +25,7 @@ namespace GUI.Diseño.Gerente.Vehiculos
 
         public static ListadosEjecutivoYJefeDeServicios GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new ListadosEjecutivoYJefeDeServicios();
             }

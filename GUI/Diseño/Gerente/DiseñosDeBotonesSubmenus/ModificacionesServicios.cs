@@ -23,7 +23,7 @@ namespace GUI.Diseño.Gerente.Vehiculos
 
         public static ModificacionesServicios GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new ModificacionesServicios();
             }

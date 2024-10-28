@@ -45,7 +45,7 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            btnIngresarVehiculos = new Button();
+            btnIngresarVehiculosJefe = new Button();
             SuspendLayout();
             // 
             // panel6
@@ -202,18 +202,18 @@
             label1.TabIndex = 81;
             label1.Text = "Ingrese Matricula";
             // 
-            // btnIngresarVehiculos
+            // btnIngresarVehiculosJefe
             // 
-            btnIngresarVehiculos.BackColor = SystemColors.ButtonFace;
-            btnIngresarVehiculos.FlatAppearance.BorderSize = 0;
-            btnIngresarVehiculos.FlatStyle = FlatStyle.Flat;
-            btnIngresarVehiculos.Location = new Point(264, 453);
-            btnIngresarVehiculos.Name = "btnIngresarVehiculos";
-            btnIngresarVehiculos.Size = new Size(204, 38);
-            btnIngresarVehiculos.TabIndex = 80;
-            btnIngresarVehiculos.Text = "Ingresar vehiculo";
-            btnIngresarVehiculos.UseVisualStyleBackColor = false;
-            btnIngresarVehiculos.Click += btnIngresarVehiculos_Click;
+            btnIngresarVehiculosJefe.BackColor = SystemColors.ButtonFace;
+            btnIngresarVehiculosJefe.FlatAppearance.BorderSize = 0;
+            btnIngresarVehiculosJefe.FlatStyle = FlatStyle.Flat;
+            btnIngresarVehiculosJefe.Location = new Point(264, 453);
+            btnIngresarVehiculosJefe.Name = "btnIngresarVehiculosJefe";
+            btnIngresarVehiculosJefe.Size = new Size(204, 38);
+            btnIngresarVehiculosJefe.TabIndex = 80;
+            btnIngresarVehiculosJefe.Text = "Ingresar vehiculo";
+            btnIngresarVehiculosJefe.UseVisualStyleBackColor = false;
+            btnIngresarVehiculosJefe.Click += btnIngresarVehiculos_Click;
             // 
             // AltasVehiculosJefe
             // 
@@ -238,7 +238,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(btnIngresarVehiculos);
+            Controls.Add(btnIngresarVehiculosJefe);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AltasVehiculosJefe";
             Text = "AltasVehiculosJefe";
@@ -267,7 +267,7 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button btnIngresarVehiculos;
+        private Button btnIngresarVehiculosJefe;
 
         public TextBox TBIngresoVehiculoCICliente1 { get => TBIngresoVehiculoCICliente; set => TBIngresoVehiculoCICliente = value; }
         public ComboBox CBTipoCliente { get => cBTipoCliente; set => cBTipoCliente = value; }

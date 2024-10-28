@@ -24,7 +24,7 @@ namespace GUI
 
         public static ModificacionesVehiculos GetInsance()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new ModificacionesVehiculos();
             }
