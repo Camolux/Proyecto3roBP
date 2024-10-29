@@ -56,6 +56,10 @@
             label2 = new Label();
             comboBox1 = new ComboBox();
             panel6 = new Panel();
+            radioButtonNeumaticos = new RadioButton();
+            radioButtonLavado = new RadioButton();
+            radioButtonTaller = new RadioButton();
+            radioButtonParking = new RadioButton();
             SuspendLayout();
             // 
             // label24
@@ -320,12 +324,64 @@
             panel6.Size = new Size(230, 2);
             panel6.TabIndex = 173;
             // 
+            // radioButtonNeumaticos
+            // 
+            radioButtonNeumaticos.AutoSize = true;
+            radioButtonNeumaticos.Location = new Point(535, 278);
+            radioButtonNeumaticos.Name = "radioButtonNeumaticos";
+            radioButtonNeumaticos.Size = new Size(134, 19);
+            radioButtonNeumaticos.TabIndex = 211;
+            radioButtonNeumaticos.TabStop = true;
+            radioButtonNeumaticos.Text = "Cambio Neumaticos";
+            radioButtonNeumaticos.UseVisualStyleBackColor = true;
+            radioButtonNeumaticos.CheckedChanged += radioButtonNeumaticos_CheckedChanged;
+            // 
+            // radioButtonLavado
+            // 
+            radioButtonLavado.AutoSize = true;
+            radioButtonLavado.Location = new Point(535, 239);
+            radioButtonLavado.Name = "radioButtonLavado";
+            radioButtonLavado.Size = new Size(63, 19);
+            radioButtonLavado.TabIndex = 210;
+            radioButtonLavado.TabStop = true;
+            radioButtonLavado.Text = "Lavado";
+            radioButtonLavado.UseVisualStyleBackColor = true;
+            radioButtonLavado.CheckedChanged += this.radioButtonLavado_CheckedChanged;
+            // 
+            // radioButtonTaller
+            // 
+            radioButtonTaller.AutoSize = true;
+            radioButtonTaller.Location = new Point(535, 195);
+            radioButtonTaller.Name = "radioButtonTaller";
+            radioButtonTaller.Size = new Size(52, 19);
+            radioButtonTaller.TabIndex = 209;
+            radioButtonTaller.TabStop = true;
+            radioButtonTaller.Text = "Taller";
+            radioButtonTaller.UseVisualStyleBackColor = true;
+            radioButtonTaller.CheckedChanged += this.radioButtonTaller_CheckedChanged;
+            // 
+            // radioButtonParking
+            // 
+            radioButtonParking.AutoSize = true;
+            radioButtonParking.Location = new Point(535, 150);
+            radioButtonParking.Name = "radioButtonParking";
+            radioButtonParking.Size = new Size(65, 19);
+            radioButtonParking.TabIndex = 208;
+            radioButtonParking.TabStop = true;
+            radioButtonParking.Text = "Parking";
+            radioButtonParking.UseVisualStyleBackColor = true;
+            radioButtonParking.CheckedChanged += this.radioButtonParking_CheckedChanged;
+            // 
             // AltasServiciosEjecutivoDeServicios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(radioButtonNeumaticos);
+            Controls.Add(radioButtonLavado);
+            Controls.Add(radioButtonTaller);
+            Controls.Add(radioButtonParking);
             Controls.Add(panel6);
             Controls.Add(comboBox1);
             Controls.Add(label2);
@@ -397,12 +453,15 @@
         private Label label2;
         private ComboBox comboBox1;
         private Panel panel6;
+        private RadioButton radioButtonNeumaticos;
+        private RadioButton radioButtonLavado;
+        private RadioButton radioButtonTaller;
+        private RadioButton radioButtonParking;
 
-        public RadioButton RBBalanceo { get => rBBalanceo; set => rBBalanceo = value; }
-        public RadioButton RBNeumaticos { get => rBNeumaticos; set => rBNeumaticos = value; }
-        public RadioButton RBAlineacion { get => rBAlineacion; set => rBAlineacion = value; }
-        public RadioButton RBLavado { get => rBLavado; set => rBLavado = value; }
-        public RadioButton RBParking { get => rBParking; set => rBParking = value; }
+        public RadioButton RBNeumaticos { get => radioButtonNeumaticos; set => radioButtonNeumaticos = value; }
+        public RadioButton RBAlineacion { get => radioButtonTaller; set => radioButtonTaller = value; }
+        public RadioButton RBLavado { get => radioButtonLavado; set => radioButtonLavado = value; }
+        public RadioButton RBParking { get => radioButtonLavado; set => radioButtonLavado = value; }
         public MaskedTextBox MTBAltaServEjeFechaFin { get => mTBAltaServEjeFechaFin; set => mTBAltaServEjeFechaFin = value; }
         public MaskedTextBox MTBAltaServEjeFechaInicio { get => mTBAltaServEjeFechaInicio; set => mTBAltaServEjeFechaInicio = value; }
         public TextBox TBAltaServEjeIDCliente1 { get => TBAltaServEjeIDCliente; set => TBAltaServEjeIDCliente = value; }

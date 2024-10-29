@@ -34,7 +34,7 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
 
         private void RBParking_CheckedChanged(object sender, EventArgs e)
         {
-            if (RBParking.Checked)
+            if (radioButtonParking.Checked)
             {
                 // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
                 TBCostoServIDServ.Enabled = false;
@@ -57,7 +57,7 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
 
         private void RBLavado_CheckedChanged(object sender, EventArgs e)
         {
-            if (RBLavado.Checked)
+            if (radioButtonLavado.Checked)
             {
                 // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
                 TBCostoServIDPlaza.Enabled = false;
@@ -80,7 +80,7 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
 
         private void RBAlineacion_CheckedChanged(object sender, EventArgs e)
         {
-            if (RBAlineacion.Checked)
+            if (radioButtonTaller.Checked)
             {
                 // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
                 TBCostoServIDPlaza.Enabled = false;
@@ -105,7 +105,7 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
 
         private void RBNeumaticos_CheckedChanged(object sender, EventArgs e)
         {
-            if (RBNeumaticos.Checked)
+            if (radioButtonNeumaticos.Checked)
             {
                 // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
                 TBCostoServIDPlaza.Enabled = false;

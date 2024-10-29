@@ -104,8 +104,8 @@ namespace Repositorios
                         Matricula = reader["matricula"].ToString(),
                         Marca = reader["marca"].ToString(),
                         Modelo = reader["modelo"].ToString(),
-                        Tipo = (VehiculoDTO.TipoVehiculo)Enum.Parse(typeof(VehiculoDTO.TipoVehiculo), reader["tipo"].ToString()),
-                        TIpoCliente = (VehiculoDTO.TipoCliente)Enum.Parse(typeof(VehiculoDTO.TipoCliente), reader["tipoCliente"].ToString()),
+                        Tipo = reader["tipo"].ToString(),
+                        TIpoCliente = reader["tipoCliente"].ToString(),
                         Propietario = reader["propietario"].ToString()
                     };
                     return vehiculo;
@@ -145,8 +145,8 @@ namespace Repositorios
                         Matricula = reader["matricula"].ToString(),
                         Marca = reader["marca"].ToString(),
                         Modelo = reader["modelo"].ToString(),
-                        Tipo = (VehiculoDTO.TipoVehiculo)Enum.Parse(typeof(VehiculoDTO.TipoVehiculo), reader["tipo"].ToString()),
-                        TIpoCliente = (VehiculoDTO.TipoCliente)Enum.Parse(typeof(VehiculoDTO.TipoCliente), reader["tipoCliente"].ToString()),
+                        Tipo = reader["tipo"].ToString(),
+                        TIpoCliente = reader["tipoCliente"].ToString(),
                         Propietario = reader["propietario"].ToString()
                     };
                     listaVehiculos.Add(vehiculo);

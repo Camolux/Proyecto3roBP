@@ -143,14 +143,14 @@ namespace Repositorios
         }
 
         // Nuevo método para eliminar un usuario
-        public bool EliminarUsuario(string username)
+        public bool EliminarUsuario(string nombreUsuario)
         {
             MySqlConnection connection = conexionBD.ConnectToDataBase();
             try
             {
                 string query = "DELETE FROM Funcionario WHERE username = @username";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@username", nombreUsuario);
 
                 connection.Open();
                 int result = cmd.ExecuteNonQuery();
@@ -167,16 +167,20 @@ namespace Repositorios
             }
         }
 
-        public bool VerificarUsuarioExistente(string username)
+        public bool VerificarUsuarioExistente(string nombreUsuario)
         {
+            nombreUsuario = nombreUsuario.Trim(); // Elimina espacios en blanco
             MySqlConnection connection = conexionBD.ConnectToDataBase();
             try
             {
-                string query = "SELECT COUNT(*) FROM Funcionario WHERE username = @username";
+                string query = "SELECT COUNT(*) FROM Funcionario WHERE LOWER(username) = LOWER(@username)";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@username", nombreUsuario);
+
                 connection.Open();
                 int count = Convert.ToInt32(cmd.ExecuteScalar());
+                Console.WriteLine($"Usuario encontrado: {count > 0}");
+
                 return count > 0;
             }
             catch (Exception ex)

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GUI.Diseño.Ejecutivo_de_Servicios
 {
@@ -31,15 +32,17 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
             return instance;
         }
 
-        private void RBParking_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonParking_CheckedChanged(object sender, EventArgs e)
         {
-            if (RBParking.Checked)
+            if (radioButtonParking.Checked)
             {
                 // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
                 TBAltaServEjeID.Enabled = false;
                 TBAltaServEjeIDNeu.Enabled = false;
                 TBAltaServEjeNomFuncio.Enabled = false;
                 TBAltaServEjeIDCliente.Enabled = false;
+                comboBox1.Enabled = false;
+                TBAltaServEjeID.BackColor = Color.DarkGray;
                 TBAltaServEjeID.BackColor = Color.DarkGray;
                 TBAltaServEjeIDNeu.BackColor = Color.DarkGray;
                 TBAltaServEjeNomFuncio.BackColor = Color.DarkGray;
@@ -52,6 +55,7 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
                 TBAltaServEjeIDNeu.Enabled = true;
                 TBAltaServEjeNomFuncio.Enabled = true;
                 TBAltaServEjeIDCliente.Enabled = true;
+                comboBox1.Enabled = true;
                 TBAltaServEjeID.BackColor = SystemColors.ActiveCaption;
                 TBAltaServEjeIDNeu.BackColor = SystemColors.ActiveCaption;
                 TBAltaServEjeNomFuncio.BackColor = SystemColors.ActiveCaption;
@@ -59,17 +63,19 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
             }
         }
 
-        private void RBLavado_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonLavado_CheckedChanged(object sender, EventArgs e)
         {
 
 
-            if (RBLavado.Checked)
+            if (radioButtonLavado.Checked)
             {
                 // Si se selecciona RBLavado, deshabilitar TextBox1 y TextBox2
                 mTBAltaServEjeFechaFin.Enabled = false;
                 TBAltaServEjeIDNeu.Enabled = false;
                 TBAltaServEjeNumPlaza.Enabled = false;
                 TBAltaServEjeIDCliente.Enabled = false;
+                comboBox1.Enabled = false;
+                TBAltaServEjeID.BackColor = Color.DarkGray;
                 TBAltaServEjeIDNeu.BackColor = Color.DarkGray;
                 TBAltaServEjeNumPlaza.BackColor = Color.DarkGray;
                 TBAltaServEjeIDCliente.BackColor = Color.DarkGray;
@@ -82,6 +88,7 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
                 TBAltaServEjeIDNeu.Enabled = true;
                 TBAltaServEjeNumPlaza.Enabled = true;
                 TBAltaServEjeIDCliente.Enabled = true;
+                comboBox1.Enabled = true;
                 TBAltaServEjeIDNeu.BackColor = SystemColors.ActiveCaption;
                 TBAltaServEjeNumPlaza.BackColor = SystemColors.ActiveCaption;
                 TBAltaServEjeIDCliente.BackColor = SystemColors.ActiveCaption;
@@ -91,15 +98,16 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
 
 
 
-        private void RBNeumaticos_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonNeumaticos_CheckedChanged(object sender, EventArgs e)
         {
-            if (RBNeumaticos.Checked)
+            if (radioButtonNeumaticos.Checked)
             {
                 // Si se selecciona RBNeumaticos, deshabilitar TextBox1 y TextBox2
                 mTBAltaServEjeFechaFin.Enabled = false;
                 TBAltaServEjeID.Enabled = false;
                 TBAltaServEjeMatr.Enabled = false;
                 TBAltaServEjeNumPlaza.Enabled = false;
+                comboBox1.Enabled = false;
                 TBAltaServEjeID.BackColor = Color.DarkGray;
                 TBAltaServEjeMatr.BackColor = Color.DarkGray;
                 TBAltaServEjeNumPlaza.BackColor = Color.DarkGray;
@@ -111,9 +119,33 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
                 TBAltaServEjeID.Enabled = true;
                 TBAltaServEjeMatr.Enabled = true;
                 TBAltaServEjeNumPlaza.Enabled = true;
+                comboBox1.Enabled = true;
                 TBAltaServEjeID.BackColor = SystemColors.ActiveCaption;
                 TBAltaServEjeMatr.BackColor = SystemColors.ActiveCaption;
                 TBAltaServEjeNumPlaza.BackColor = SystemColors.ActiveCaption;
+            }
+        }
+        private void radioButtonTaller_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonTaller.Checked)
+            {
+                mTBAltaServEjeFechaFin.Enabled = false;
+                TBAltaServEjeIDNeu.Enabled = false;
+                TBAltaServEjeNumPlaza.Enabled = false;
+                TBAltaServEjeIDCliente.Enabled = false;
+                TBAltaServEjeIDNeu.BackColor = Color.DarkGray;
+                TBAltaServEjeNumPlaza.BackColor = Color.DarkGray;
+                TBAltaServEjeIDCliente.BackColor = Color.DarkGray;
+            }
+            else
+            {
+                mTBAltaServEjeFechaFin.Enabled = true;
+                TBAltaServEjeIDNeu.Enabled = true;
+                TBAltaServEjeNumPlaza.Enabled = true;
+                TBAltaServEjeIDCliente.Enabled = true;
+                TBAltaServEjeIDNeu.BackColor = SystemColors.ActiveCaption;
+                TBAltaServEjeNumPlaza.BackColor = SystemColors.ActiveCaption;
+                TBAltaServEjeIDCliente.BackColor = SystemColors.ActiveCaption;
             }
         }
 
@@ -131,5 +163,11 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
         {
 
         }
+
+        private void radioButtonNeumaticos_CheckedChanged_1(object sender, EventArgs e)
+        {
+            
+        }
+        
     }
 }

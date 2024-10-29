@@ -40,6 +40,7 @@ namespace GUI.Diseño.Gerente.Vehiculos
                 TBAltaServGerIDNeum.Enabled = false;
                 TBAltaServGerNomFuncionario.Enabled = false;
                 TBAltaServGerIDCliente.Enabled = false;
+                comboBoxServicio.Enabled = false;
                 TBAltaServGerID.BackColor = Color.DarkGray;
                 TBAltaServGerIDNeum.BackColor = Color.DarkGray;
                 TBAltaServGerNomFuncionario.BackColor = Color.DarkGray;
@@ -52,6 +53,7 @@ namespace GUI.Diseño.Gerente.Vehiculos
                 TBAltaServGerIDNeum.Enabled = true;
                 TBAltaServGerNomFuncionario.Enabled = true;
                 TBAltaServGerIDCliente.Enabled = true;
+                comboBoxServicio.Enabled = true;
                 TBAltaServGerID.BackColor = SystemColors.ActiveCaption;
                 TBAltaServGerIDNeum.BackColor = SystemColors.ActiveCaption;
                 TBAltaServGerNomFuncionario.BackColor = SystemColors.ActiveCaption;
@@ -68,6 +70,7 @@ namespace GUI.Diseño.Gerente.Vehiculos
                 TBAltaServGerIDNeum.Enabled = false;
                 TBAltaServGerNumPlaza.Enabled = false;
                 TBAltaServGerIDCliente.Enabled = false;
+                comboBoxServicio.Enabled = false;
                 TBAltaServGerIDNeum.BackColor = Color.DarkGray;
                 TBAltaServGerNumPlaza.BackColor = Color.DarkGray;
                 TBAltaServGerIDCliente.BackColor = Color.DarkGray;
@@ -80,6 +83,7 @@ namespace GUI.Diseño.Gerente.Vehiculos
                 TBAltaServGerIDNeum.Enabled = true;
                 TBAltaServGerNumPlaza.Enabled = true;
                 TBAltaServGerIDCliente.Enabled = true;
+                comboBoxServicio.Enabled = true;
                 TBAltaServGerIDNeum.BackColor = SystemColors.ActiveCaption;
                 TBAltaServGerNumPlaza.BackColor = SystemColors.ActiveCaption;
                 TBAltaServGerIDCliente.BackColor = SystemColors.ActiveCaption;
@@ -121,6 +125,7 @@ namespace GUI.Diseño.Gerente.Vehiculos
                 TBAltaServGerID.Enabled = false;
                 TBAltaServGerMatr.Enabled = false;
                 TBAltaServGerNumPlaza.Enabled = false;
+                comboBoxServicio.Enabled = false;
                 TBAltaServGerID.BackColor = Color.DarkGray;
                 TBAltaServGerMatr.BackColor = Color.DarkGray;
                 TBAltaServGerNumPlaza.BackColor = Color.DarkGray;
@@ -132,6 +137,7 @@ namespace GUI.Diseño.Gerente.Vehiculos
                 TBAltaServGerID.Enabled = true;
                 TBAltaServGerMatr.Enabled = true;
                 TBAltaServGerNumPlaza.Enabled = true;
+                comboBoxServicio.Enabled = true;
                 TBAltaServGerID.BackColor = SystemColors.ActiveCaption;
                 TBAltaServGerMatr.BackColor = SystemColors.ActiveCaption;
                 TBAltaServGerNumPlaza.BackColor = SystemColors.ActiveCaption;

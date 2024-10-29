@@ -13,6 +13,12 @@ using GUI.Diseño.Jefe_de_Servicios;
 using GUI.Diseño.Gerente.Vehiculos;
 using GUI.Diseño.Cajero.DiseñosDeBotonesSubMenusCajero;
 using GUI.Diseño.Gerente.Clientes;
+using Cliente;
+using GUI.Modelo.Neumatico;
+using Neumatico;
+using Parking;
+using Vehiculo;
+using GUI.Servicios;
 
 
 namespace Controlador
@@ -51,10 +57,42 @@ namespace Controlador
 
         Usuario usuarioLogeado;
         Usuario usuarioDTO;
+        ClienteDTO clienteDTO;
+        TelefonoDTO telefonoDTO;
+        CompraDTO compraDTO;
+        NeumaticoDTO neumaticoDTO;
+        OcupaDTO ocupaDTO;
+        ParkingDTO parkingDTO;
+        PlazaDTO plazaDTO;
+        LavadoDTO lavadoDTO;
+        RecibeDTO recibeDTO;
+        ServicioDTO servicioDTO;
+        TallerDTO tallerDTO;
+        VehiculoDTO vehiculoDTO;
+
+
+
+
+
+
         public static Controlador instance; // Singleton instance
         public MenuGerente formGerente;
         public AltasEjecutivoYJefeDeServicios altasEjecutivoYJefeDeServicios;
+
+
         private UsuariosServicios usuariosServicios;
+        private ClienteServicios clienteServicios;
+        private LavadoServicios lavadoServicios;
+        private NeumaticoServicios neumaticoServicios;
+        private OcupaServicios ocupaServicios;
+        private ParkingServicios parkingServicios;
+        private PlazaServicios plazaServicios;
+        private RecibeServicios recibeServicios;
+        private ServiciosServicios serviciosServicios;
+        private TallerServicios tallerServicios;
+        private TelefonoServicios telefonoServicios;
+        private VehiculoServicios vehiculoServicios;
+
         public Login formLogin;
         public MenuCajero formCajero;
         public MenuEjecutivoDeServicios formEjecutivo;
@@ -90,14 +128,40 @@ namespace Controlador
             listadoEjecutivoYJefeDeServiciosMenuJefe = ListadoEjecutivoYJefeDeServiciosMenuJefe.GetInsance();
             modificacionesDeClientesMenuJefe = ModificacionesDeClientesMenuJefe.GetInsance();
             modificacionesEjecutivoYJefeDeServiciosMenuJefe = ModificacionesEjecutivoYJefeDeServiciosMenuJefe.GetInsance();
-
-
             usuariosServicios = UsuariosServicios.GetInsance();
-            usuarioLogeado = new Usuario();
             altasEjecutivoYJefeDeServicios = AltasEjecutivoYJefeDeServicios.GetInsance();
-            // Create forms but delay showing them
-            usuarioDTO = new Usuario();
             
+            
+            
+            clienteServicios = ClienteServicios.GetInstance();
+            lavadoServicios = LavadoServicios.GetInstance();
+            neumaticoServicios = NeumaticoServicios.GetInstance();
+            ocupaServicios = OcupaServicios.GetInstance();
+            parkingServicios = ParkingServicios.GetInstance();
+            plazaServicios = PlazaServicios.GetInstance();
+            recibeServicios = RecibeServicios.GetInstance();
+            serviciosServicios = ServiciosServicios.GetInstance();
+            tallerServicios = TallerServicios.GetInstance();
+            telefonoServicios = TelefonoServicios.GetInstance();
+            vehiculoServicios = VehiculoServicios.GetInstance();
+
+            usuarioLogeado = new Usuario();
+            usuarioDTO = new Usuario();
+            clienteDTO = new ClienteDTO();
+            telefonoDTO = new TelefonoDTO();
+            compraDTO = new CompraDTO();
+            neumaticoDTO = new NeumaticoDTO();
+            ocupaDTO = new OcupaDTO();
+            parkingDTO = new ParkingDTO();
+            plazaDTO = new PlazaDTO();
+            lavadoDTO = new LavadoDTO();
+            recibeDTO = new RecibeDTO();
+            servicioDTO = new ServicioDTO();
+            tallerDTO = new TallerDTO();
+            vehiculoDTO = new VehiculoDTO();
+
+
+
             formEjecutivo = MenuEjecutivoDeServicios.GetInstance();
             formEjecutivo.SetControlador(this);
             
@@ -212,21 +276,55 @@ namespace Controlador
 
                         break;
                     case "BTNAltaClienteGer":
-
+                        clienteDTO.CI = altasClientes.TBAltaClienteGerCI1.Text;
+                        clienteDTO.Nombre = altasClientes.TBAltaClienteGerNom1.Text;
+                        clienteDTO.Apellido = altasClientes.TBAltaClienteGerApe1.Text;
+                        telefonoDTO.CI = altasClientes.TBAltaClienteGerCI1.Text;
+                        telefonoDTO.Telefono = Convert.ToInt32(altasClientes.TBAltaClienteGerTel1.Text);
+                        MessageBox.Show("Cliente Ingresado Con exito");
+                        clienteServicios.AgregarCliente(clienteDTO);
+                        telefonoServicios.AgregarTelefono(telefonoDTO);
+                        altasClientes.TBAltaClienteGerApe1.Clear();
+                        altasClientes.TBAltaClienteGerCI1.Clear();
+                        altasClientes.TBAltaClienteGerNom1.Clear();
+                        altasClientes.TBAltaClienteGerTel1.Clear();
                         break;
                     case "BTNAltaUsuarioGer":
 
-                        AltaUsuGer();
+                        usuarioDTO.nombreUsuario = altasEjecutivoYJefeDeServicios.TBAltaUsuNom1.Text;
+                        usuarioDTO.contraUsuario = altasEjecutivoYJefeDeServicios.TBAltaUsuPass1.Text;
+                        usuarioDTO.idTipoUsuario = altasEjecutivoYJefeDeServicios.CBAltaTipoUsu1.Text;
+                        MessageBox.Show("Usuario Ingresado Correctamente");
+                        usuariosServicios.AgregarUsuario(usuarioDTO);
+                        altasEjecutivoYJefeDeServicios.TBAltaUsuNom1.Clear();
+                        altasEjecutivoYJefeDeServicios.TBAltaUsuPass1.Clear();
+                        altasEjecutivoYJefeDeServicios.CBAltaTipoUsu1.Items.Clear();
 
                         break;
                     case "BTNAltaServGer":
-
+                        
                         break;
                     case "btnIngresarVehiculosGer":
-
+                        vehiculoDTO.Propietario = altasVehiculos.TBAltaVehiculoCICliente1.Text;
+                        vehiculoDTO.Matricula = altasVehiculos.TBAltaVehiculoMatr1.Text;
+                        vehiculoDTO.Marca = altasVehiculos.TBAltaVehiculoMarca1.Text;
+                        vehiculoDTO.Modelo = altasVehiculos.TBAltaVehiculoModelo1.Text;
+                        vehiculoDTO.Tipo = altasVehiculos.CBTipoVehiculo.Text;
+                        vehiculoDTO.TIpoCliente = altasVehiculos.CBTipoCliente.Text;
+                        MessageBox.Show("Vehiculo Ingresado Correctamente");
+                        vehiculoServicios.AgregarVehiculo(vehiculoDTO);
+                        altasVehiculos.TBAltaVehiculoCICliente1.Clear();
+                        altasVehiculos.TBAltaVehiculoMatr1.Clear();
+                        altasVehiculos.TBAltaVehiculoMarca1.Clear();
+                        altasVehiculos.TBAltaVehiculoModelo1.Clear();
+                        altasVehiculos.CBTipoVehiculo.Items.Clear();
+                        altasVehiculos.CBTipoCliente.Items.Clear();
                         break;
                     case "BTNEliminarFunciGer":
-
+                        string nombreUsuario= bajasEjecutivoYJefeDeServicios.TBNomBorrarFunci1.Text;
+                        MessageBox.Show("Funcionario Eliminado Correctamente" + nombreUsuario);
+                        usuariosServicios.EliminarUsuario(nombreUsuario);
+                        bajasEjecutivoYJefeDeServicios.TBNomBorrarFunci1.Clear();
                         break;
                     case "BTNModCostServGer":
 
@@ -280,17 +378,7 @@ namespace Controlador
             }
         }
 
-        private void AltaUsuGer()
-        {
-            usuarioDTO.nombreUsuario = altasEjecutivoYJefeDeServicios.TBAltaUsuNom1.Text;
-            usuarioDTO.contraUsuario = altasEjecutivoYJefeDeServicios.TBAltaUsuPass1.Text;
-            usuarioDTO.idTipoUsuario = altasEjecutivoYJefeDeServicios.CBAltaTipoUsu1.Text;
-            MessageBox.Show("Usuario Ingresado Correctamente");
-            usuariosServicios.AgregarUsuario(usuarioDTO);
-            altasEjecutivoYJefeDeServicios.TBAltaUsuNom1.Clear();
-            altasEjecutivoYJefeDeServicios.TBAltaUsuPass1.Clear();
-            altasEjecutivoYJefeDeServicios.CBAltaTipoUsu1.Items.Clear();
-        }
+        
 
         private void LimpiarLBL()
         {

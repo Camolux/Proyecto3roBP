@@ -38,7 +38,7 @@ namespace GUI.Servicios
                 if (string.IsNullOrWhiteSpace(telefono.CI))
                     throw new ArgumentException("La cédula de identidad no puede estar vacía.");
 
-                if (telefono.Telefono < 100000000 || telefono.Telefono > 999999999)
+                if (telefono.Telefono < 10000000 || telefono.Telefono > 999999999)
                     throw new ArgumentException("El número de teléfono debe tener 9 dígitos.");
 
                 // Validar que el teléfono no exista ya para el cliente
