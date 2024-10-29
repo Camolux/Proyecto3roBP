@@ -88,59 +88,8 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
             }
         }
 
-        private void RBAlineacion_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RBAlineacion.Checked)
-            {
-                // Si se selecciona RBTaller, deshabilitar TextBox1 y TextBox2
-                mTBAltaServEjeFechaFin.Enabled = false;
-                TBAltaServEjeIDNeu.Enabled = false;
-                TBAltaServEjeNumPlaza.Enabled = false;
-                TBAltaServEjeIDCliente.Enabled = false;
-                TBAltaServEjeIDNeu.BackColor = Color.DarkGray;
-                TBAltaServEjeNumPlaza.BackColor = Color.DarkGray;
-                TBAltaServEjeIDCliente.BackColor = Color.DarkGray;
-            }
-            else
-            {
-                // Habilitarlos si no está seleccionado
-                mTBAltaServEjeFechaFin.Enabled = true;
-                TBAltaServEjeIDNeu.Enabled = true;
-                TBAltaServEjeNumPlaza.Enabled = true;
-                TBAltaServEjeIDCliente.Enabled = true;
-                TBAltaServEjeIDNeu.BackColor = SystemColors.ActiveCaption;
-                TBAltaServEjeNumPlaza.BackColor = SystemColors.ActiveCaption;
-                TBAltaServEjeIDCliente.BackColor = SystemColors.ActiveCaption;
 
 
-            }
-        }
-
-        private void RBBalanceo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RBBalanceo.Checked)
-            {
-                // Si se selecciona RBTaller, deshabilitar TextBox1 y TextBox2
-                mTBAltaServEjeFechaFin.Enabled = false;
-                TBAltaServEjeIDNeu.Enabled = false;
-                TBAltaServEjeNumPlaza.Enabled = false;
-                TBAltaServEjeIDCliente.Enabled = false;
-                TBAltaServEjeIDNeu.BackColor = Color.DarkGray;
-                TBAltaServEjeNumPlaza.BackColor = Color.DarkGray;
-                TBAltaServEjeIDCliente.BackColor = Color.DarkGray;
-            }
-            else
-            {
-                // Habilitarlos si no está seleccionado
-                mTBAltaServEjeFechaFin.Enabled = true;
-                TBAltaServEjeIDNeu.Enabled = true;
-                TBAltaServEjeNumPlaza.Enabled = true;
-                TBAltaServEjeIDCliente.Enabled = true;
-                TBAltaServEjeIDNeu.BackColor = SystemColors.ActiveCaption;
-                TBAltaServEjeNumPlaza.BackColor = SystemColors.ActiveCaption;
-                TBAltaServEjeIDCliente.BackColor = SystemColors.ActiveCaption;
-            }
-        }
 
         private void RBNeumaticos_CheckedChanged(object sender, EventArgs e)
         {
@@ -169,6 +118,16 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
         }
 
         private void BTNAltaVehiculoEje_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AltasServiciosEjecutivoDeServicios_Load(object sender, EventArgs e)
         {
 
         }

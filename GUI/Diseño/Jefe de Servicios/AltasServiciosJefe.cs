@@ -35,5 +35,10 @@ namespace GUI.Diseño.Jefe_de_Servicios
         {
 
         }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -53,6 +53,9 @@
             label3 = new Label();
             label1 = new Label();
             btnIngresarServicios = new Button();
+            panel6 = new Panel();
+            comboBoxServicio = new ComboBox();
+            label2 = new Label();
             SuspendLayout();
             // 
             // label24
@@ -288,12 +291,44 @@
             btnIngresarServicios.UseVisualStyleBackColor = false;
             btnIngresarServicios.Click += btnIngresarServicios_Click;
             // 
+            // panel6
+            // 
+            panel6.BackColor = SystemColors.ActiveCaptionText;
+            panel6.Location = new Point(242, 369);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(230, 2);
+            panel6.TabIndex = 202;
+            panel6.Paint += panel6_Paint;
+            // 
+            // comboBoxServicio
+            // 
+            comboBoxServicio.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxServicio.FormattingEnabled = true;
+            comboBoxServicio.Items.AddRange(new object[] { "montaje neumatico", "alineacion 1 tren", "alineacion", "balanceo auto + valvula", "alineacion 2 trenes", "pack alineacion", "balanceo camioneta + valvula" });
+            comboBoxServicio.Location = new Point(242, 345);
+            comboBoxServicio.Name = "comboBoxServicio";
+            comboBoxServicio.Size = new Size(230, 23);
+            comboBoxServicio.TabIndex = 201;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(42, 350);
+            label2.Name = "label2";
+            label2.Size = new Size(153, 18);
+            label2.TabIndex = 203;
+            label2.Text = "Tipo de Servicio Taller";
+            // 
             // AltasServiciosJefe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(label2);
+            Controls.Add(panel6);
+            Controls.Add(comboBoxServicio);
             Controls.Add(label24);
             Controls.Add(label10);
             Controls.Add(label8);
@@ -358,6 +393,9 @@
         private Label label3;
         private Label label1;
         private Button btnIngresarServicios;
+        private Panel panel6;
+        private ComboBox comboBoxServicio;
+        private Label label2;
 
         public RadioButton RBBalanceo { get => rBBalanceo; set => rBBalanceo = value; }
         public RadioButton RBNeumaticos { get => rBNeumaticos; set => rBNeumaticos = value; }
@@ -372,5 +410,6 @@
         public TextBox TBAltaServicioIDNeumatico1 { get => TBAltaServicioIDNeumatico; set => TBAltaServicioIDNeumatico = value; }
         public TextBox TBAltaServicioMatr1 { get => TBAltaServicioMatr; set => TBAltaServicioMatr = value; }
         public TextBox TBAltaServicioID1 { get => TBAltaServicioID; set => TBAltaServicioID = value; }
+        public ComboBox ComboBoxServicio { get => comboBoxServicio; set => comboBoxServicio = value; }
     }
 }

@@ -101,28 +101,7 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
             }
         }
 
-        private void RBBalanceo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RBBalanceo.Checked)
-            {
-                // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
-                TBCostoServIDPlaza.Enabled = false;
-                TBCostoServIDNeumatico.Enabled = false;
-
-                TBCostoServIDPlaza.BackColor = Color.DarkGray;
-                TBCostoServIDNeumatico.BackColor = Color.DarkGray;
-
-            }
-            else
-            {
-                // Habilitarlos si no está seleccionado
-                TBCostoServIDPlaza.Enabled = true;
-                TBCostoServIDNeumatico.Enabled = true;
-                TBCostoServIDPlaza.BackColor = SystemColors.ActiveCaption;
-                TBCostoServIDNeumatico.BackColor = SystemColors.ActiveCaption;
-
-            }
-        }
+        
 
         private void RBNeumaticos_CheckedChanged(object sender, EventArgs e)
         {

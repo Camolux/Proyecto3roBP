@@ -138,31 +138,7 @@ namespace GUI.Diseño.Gerente.Vehiculos
             }
         }
 
-        private void RBBalanceo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RBBalanceo.Checked)
-            {
-                // Si se selecciona RBTaller, deshabilitar TextBox1 y TextBox2
-                mTBAltaServGerFechaFin.Enabled = false;
-                TBAltaServGerIDNeum.Enabled = false;
-                TBAltaServGerNumPlaza.Enabled = false;
-                TBAltaServGerIDCliente.Enabled = false;
-                TBAltaServGerIDNeum.BackColor = Color.DarkGray;
-                TBAltaServGerNumPlaza.BackColor = Color.DarkGray;
-                TBAltaServGerIDCliente.BackColor = Color.DarkGray;
-            }
-            else
-            {
-                // Habilitarlos si no está seleccionado
-                mTBAltaServGerFechaFin.Enabled = true;
-                TBAltaServGerIDNeum.Enabled = true;
-                TBAltaServGerNumPlaza.Enabled = true;
-                TBAltaServGerIDCliente.Enabled = true;
-                TBAltaServGerIDNeum.BackColor = SystemColors.ActiveCaption;
-                TBAltaServGerNumPlaza.BackColor = SystemColors.ActiveCaption;
-                TBAltaServGerIDCliente.BackColor = SystemColors.ActiveCaption;
-            }
-        }
+        
 
         private void BTNAltaServGer_Click(object sender, EventArgs e)
         {

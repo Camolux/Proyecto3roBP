@@ -38,6 +38,7 @@
             label1 = new Label();
             label5 = new Label();
             btnModFuncionarioJefe = new Button();
+            comboBoxRol = new ComboBox();
             SuspendLayout();
             // 
             // panel4
@@ -135,12 +136,23 @@
             btnModFuncionarioJefe.UseVisualStyleBackColor = false;
             btnModFuncionarioJefe.Click += btnModFuncionarioJefe_Click;
             // 
+            // comboBoxRol
+            // 
+            comboBoxRol.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxRol.FormattingEnabled = true;
+            comboBoxRol.Items.AddRange(new object[] { "ejecutivo", "operador", "cajero" });
+            comboBoxRol.Location = new Point(250, 300);
+            comboBoxRol.Name = "comboBoxRol";
+            comboBoxRol.Size = new Size(232, 23);
+            comboBoxRol.TabIndex = 185;
+            // 
             // ModificacionesEjecutivoYJefeDeServiciosMenuJefe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(comboBoxRol);
             Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -171,8 +183,9 @@
         private Label label1;
         private Label label5;
         private Button btnModFuncionarioJefe;
+        private ComboBox comboBoxRol;
 
-        public ComboBox CBModFuncionariosRol { get => cBModFuncionariosRol; set => cBModFuncionariosRol = value; }
+        public ComboBox CBModFuncionariosRol { get => comboBoxRol; set => comboBoxRol = value; }
         public TextBox TBModFuncionariosContra1 { get => TBModFuncionariosContra; set => TBModFuncionariosContra = value; }
         public TextBox TBModFuncionariosUsu1 { get => TBModFuncionariosUsu; set => TBModFuncionariosUsu = value; }
     }

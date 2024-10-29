@@ -43,6 +43,9 @@
             panel4 = new Panel();
             TBCostoServIDPlaza = new TextBox();
             label4 = new Label();
+            label6 = new Label();
+            panel6 = new Panel();
+            comboBoxServicio = new ComboBox();
             SuspendLayout();
             // 
             // label5
@@ -82,7 +85,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(45, 347);
+            label1.Location = new Point(58, 305);
             label1.Name = "label1";
             label1.Size = new Size(102, 18);
             label1.TabIndex = 177;
@@ -92,7 +95,7 @@
             // 
             TBCostoServIDCosto.BackColor = SystemColors.ActiveCaption;
             TBCostoServIDCosto.BorderStyle = BorderStyle.None;
-            TBCostoServIDCosto.Location = new Point(191, 341);
+            TBCostoServIDCosto.Location = new Point(204, 299);
             TBCostoServIDCosto.Name = "TBCostoServIDCosto";
             TBCostoServIDCosto.Size = new Size(232, 16);
             TBCostoServIDCosto.TabIndex = 180;
@@ -100,7 +103,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaptionText;
-            panel1.Location = new Point(191, 363);
+            panel1.Location = new Point(204, 321);
             panel1.Name = "panel1";
             panel1.Size = new Size(232, 2);
             panel1.TabIndex = 182;
@@ -108,7 +111,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ActiveCaptionText;
-            panel2.Location = new Point(191, 301);
+            panel2.Location = new Point(204, 259);
             panel2.Name = "panel2";
             panel2.Size = new Size(232, 2);
             panel2.TabIndex = 185;
@@ -117,7 +120,7 @@
             // 
             TBCostoServIDNeumatico.BackColor = SystemColors.ActiveCaption;
             TBCostoServIDNeumatico.BorderStyle = BorderStyle.None;
-            TBCostoServIDNeumatico.Location = new Point(191, 279);
+            TBCostoServIDNeumatico.Location = new Point(204, 237);
             TBCostoServIDNeumatico.Name = "TBCostoServIDNeumatico";
             TBCostoServIDNeumatico.Size = new Size(232, 16);
             TBCostoServIDNeumatico.TabIndex = 184;
@@ -126,7 +129,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(19, 287);
+            label2.Location = new Point(32, 245);
             label2.Name = "label2";
             label2.Size = new Size(152, 18);
             label2.TabIndex = 183;
@@ -135,7 +138,7 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.ActiveCaptionText;
-            panel3.Location = new Point(191, 255);
+            panel3.Location = new Point(204, 213);
             panel3.Name = "panel3";
             panel3.Size = new Size(232, 2);
             panel3.TabIndex = 185;
@@ -144,7 +147,7 @@
             // 
             TBCostoServIDServ.BackColor = SystemColors.ActiveCaption;
             TBCostoServIDServ.BorderStyle = BorderStyle.None;
-            TBCostoServIDServ.Location = new Point(191, 233);
+            TBCostoServIDServ.Location = new Point(204, 191);
             TBCostoServIDServ.Name = "TBCostoServIDServ";
             TBCostoServIDServ.Size = new Size(232, 16);
             TBCostoServIDServ.TabIndex = 184;
@@ -153,7 +156,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(33, 239);
+            label3.Location = new Point(46, 197);
             label3.Name = "label3";
             label3.Size = new Size(136, 18);
             label3.TabIndex = 183;
@@ -162,7 +165,7 @@
             // panel4
             // 
             panel4.BackColor = SystemColors.ActiveCaptionText;
-            panel4.Location = new Point(191, 203);
+            panel4.Location = new Point(204, 161);
             panel4.Name = "panel4";
             panel4.Size = new Size(232, 2);
             panel4.TabIndex = 185;
@@ -171,7 +174,7 @@
             // 
             TBCostoServIDPlaza.BackColor = SystemColors.ActiveCaption;
             TBCostoServIDPlaza.BorderStyle = BorderStyle.None;
-            TBCostoServIDPlaza.Location = new Point(191, 181);
+            TBCostoServIDPlaza.Location = new Point(204, 139);
             TBCostoServIDPlaza.Name = "TBCostoServIDPlaza";
             TBCostoServIDPlaza.Size = new Size(232, 16);
             TBCostoServIDPlaza.TabIndex = 184;
@@ -180,11 +183,39 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(33, 187);
+            label4.Location = new Point(46, 145);
             label4.Name = "label4";
             label4.Size = new Size(138, 18);
             label4.TabIndex = 183;
             label4.Text = "Ingresar ID De Plaza";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(4, 354);
+            label6.Name = "label6";
+            label6.Size = new Size(153, 18);
+            label6.TabIndex = 209;
+            label6.Text = "Tipo de Servicio Taller";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = SystemColors.ActiveCaptionText;
+            panel6.Location = new Point(204, 373);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(230, 2);
+            panel6.TabIndex = 208;
+            // 
+            // comboBoxServicio
+            // 
+            comboBoxServicio.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxServicio.FormattingEnabled = true;
+            comboBoxServicio.Items.AddRange(new object[] { "montaje neumatico", "alineacion 1 tren", "alineacion", "balanceo auto + valvula", "alineacion 2 trenes", "pack alineacion", "balanceo camioneta + valvula" });
+            comboBoxServicio.Location = new Point(204, 349);
+            comboBoxServicio.Name = "comboBoxServicio";
+            comboBoxServicio.Size = new Size(230, 23);
+            comboBoxServicio.TabIndex = 207;
             // 
             // CambiarCostosDeServicios
             // 
@@ -192,6 +223,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(label6);
+            Controls.Add(panel6);
+            Controls.Add(comboBoxServicio);
             Controls.Add(panel4);
             Controls.Add(TBCostoServIDPlaza);
             Controls.Add(panel3);
@@ -235,6 +269,9 @@
         private Panel panel4;
         private TextBox TBCostoServIDPlaza;
         private Label label4;
+        private Label label6;
+        private Panel panel6;
+        private ComboBox comboBoxServicio;
 
         public RadioButton RBNeumaticos { get => rBNeumaticos; set => rBNeumaticos = value; }
         public RadioButton RBAlineacion { get => rBAlineacion; set => rBAlineacion = value; }
@@ -245,5 +282,6 @@
         public TextBox TBCostoServIDNeumatico1 { get => TBCostoServIDNeumatico; set => TBCostoServIDNeumatico = value; }
         public TextBox TBCostoServIDServ1 { get => TBCostoServIDServ; set => TBCostoServIDServ = value; }
         public TextBox TBCostoServIDPlaza1 { get => TBCostoServIDPlaza; set => TBCostoServIDPlaza = value; }
+        public ComboBox ComboBoxServicio { get => comboBoxServicio; set => comboBoxServicio = value; }
     }
 }

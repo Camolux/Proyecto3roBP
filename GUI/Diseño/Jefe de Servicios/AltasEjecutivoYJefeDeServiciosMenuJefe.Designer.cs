@@ -38,6 +38,7 @@
             label3 = new Label();
             label1 = new Label();
             btnIngresarFuncionarioGer = new Button();
+            comboBoxRol = new ComboBox();
             SuspendLayout();
             // 
             // label5
@@ -135,12 +136,23 @@
             btnIngresarFuncionarioGer.UseVisualStyleBackColor = false;
             btnIngresarFuncionarioGer.Click += btnIngresarFuncionarioGer_Click;
             // 
+            // comboBoxRol
+            // 
+            comboBoxRol.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxRol.FormattingEnabled = true;
+            comboBoxRol.Items.AddRange(new object[] { "ejecutivo", "operador", "cajero" });
+            comboBoxRol.Location = new Point(249, 320);
+            comboBoxRol.Name = "comboBoxRol";
+            comboBoxRol.Size = new Size(232, 23);
+            comboBoxRol.TabIndex = 112;
+            // 
             // AltasEjecutivoYJefeDeServiciosMenuJefe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(comboBoxRol);
             Controls.Add(label5);
             Controls.Add(panel4);
             Controls.Add(panel2);
@@ -171,8 +183,9 @@
         private Label label3;
         private Label label1;
         private Button btnIngresarFuncionarioGer;
+        private ComboBox comboBoxRol;
 
-        public ComboBox CBAltaFuncionarioRol { get => cBAltaFuncionarioRol; set => cBAltaFuncionarioRol = value; }
+        public ComboBox CBAltaFuncionarioRol { get => comboBoxRol; set => comboBoxRol = value; }
         public TextBox TBAltaFuncionarioContra1 { get => TBAltaFuncionarioContra; set => TBAltaFuncionarioContra = value; }
         public TextBox TBAltaFuncionarioNom1 { get => TBAltaFuncionarioNom; set => TBAltaFuncionarioNom = value; }
     }

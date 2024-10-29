@@ -46,6 +46,8 @@
             label2 = new Label();
             label1 = new Label();
             btnIngresarVehiculos = new Button();
+            comboBoxTipoVehiculo = new ComboBox();
+            comboBoxTipoCliente = new ComboBox();
             SuspendLayout();
             // 
             // panel6
@@ -215,12 +217,34 @@
             btnIngresarVehiculos.UseVisualStyleBackColor = false;
             btnIngresarVehiculos.Click += btnIngresarVehiculos_Click;
             // 
+            // comboBoxTipoVehiculo
+            // 
+            comboBoxTipoVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxTipoVehiculo.FormattingEnabled = true;
+            comboBoxTipoVehiculo.Items.AddRange(new object[] { "moto", "auto", "camioneta", "pequeño camion", "pequeño utilitario" });
+            comboBoxTipoVehiculo.Location = new Point(246, 341);
+            comboBoxTipoVehiculo.Name = "comboBoxTipoVehiculo";
+            comboBoxTipoVehiculo.Size = new Size(246, 23);
+            comboBoxTipoVehiculo.TabIndex = 80;
+            // 
+            // comboBoxTipoCliente
+            // 
+            comboBoxTipoCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxTipoCliente.FormattingEnabled = true;
+            comboBoxTipoCliente.Items.AddRange(new object[] { "mensual", "sistematico", "eventual", "extraordinario" });
+            comboBoxTipoCliente.Location = new Point(246, 396);
+            comboBoxTipoCliente.Name = "comboBoxTipoCliente";
+            comboBoxTipoCliente.Size = new Size(246, 23);
+            comboBoxTipoCliente.TabIndex = 81;
+            // 
             // AltasVehiculosEjecutivoDeServicios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(comboBoxTipoCliente);
+            Controls.Add(comboBoxTipoVehiculo);
             Controls.Add(panel6);
             Controls.Add(TBAltaVehiculo);
             Controls.Add(label7);
@@ -268,10 +292,12 @@
         private Label label2;
         private Label label1;
         private Button btnIngresarVehiculos;
+        private ComboBox comboBoxTipoVehiculo;
+        private ComboBox comboBoxTipoCliente;
 
-        public ComboBox CBAltaVehiculoTipoCliente1 { get => CBAltaVehiculoTipoCliente; set => CBAltaVehiculoTipoCliente = value; }
+        public ComboBox CBAltaVehiculoTipoCliente1 { get => comboBoxTipoCliente; set => comboBoxTipoCliente = value; }
         public TextBox TBAltaVehiculo1 { get => TBAltaVehiculo; set => TBAltaVehiculo = value; }
-        public ComboBox CBAltaVehiculoTipoVehiculo1 { get => CBAltaVehiculoTipoVehiculo; set => CBAltaVehiculoTipoVehiculo = value; }
+        public ComboBox CBAltaVehiculoTipoVehiculo1 { get => comboBoxTipoVehiculo; set => comboBoxTipoVehiculo = value; }
         public TextBox TBAltaVehiculoModelo1 { get => TBAltaVehiculoModelo; set => TBAltaVehiculoModelo = value; }
         public TextBox TBAltaVehiculoMarca1 { get => TBAltaVehiculoMarca; set => TBAltaVehiculoMarca = value; }
         public TextBox TBAltaVehiculoMatr1 { get => TBAltaVehiculoMatr; set => TBAltaVehiculoMatr = value; }

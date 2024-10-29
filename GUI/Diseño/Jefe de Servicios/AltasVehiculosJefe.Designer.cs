@@ -46,6 +46,8 @@
             label2 = new Label();
             label1 = new Label();
             btnIngresarVehiculosJefe = new Button();
+            comboBoxVehiculo = new ComboBox();
+            comboBoxCliente = new ComboBox();
             SuspendLayout();
             // 
             // panel6
@@ -215,12 +217,34 @@
             btnIngresarVehiculosJefe.UseVisualStyleBackColor = false;
             btnIngresarVehiculosJefe.Click += btnIngresarVehiculos_Click;
             // 
+            // comboBoxVehiculo
+            // 
+            comboBoxVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxVehiculo.FormattingEnabled = true;
+            comboBoxVehiculo.Items.AddRange(new object[] { "moto", "", "auto", "", "camioneta", "", "pequeño camion", "", "pequeño utilitario" });
+            comboBoxVehiculo.Location = new Point(247, 340);
+            comboBoxVehiculo.Name = "comboBoxVehiculo";
+            comboBoxVehiculo.Size = new Size(246, 23);
+            comboBoxVehiculo.TabIndex = 100;
+            // 
+            // comboBoxCliente
+            // 
+            comboBoxCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCliente.FormattingEnabled = true;
+            comboBoxCliente.Items.AddRange(new object[] { "mensual", "", "sistematico", "", "eventual", "", "extraordinario" });
+            comboBoxCliente.Location = new Point(247, 395);
+            comboBoxCliente.Name = "comboBoxCliente";
+            comboBoxCliente.Size = new Size(246, 23);
+            comboBoxCliente.TabIndex = 101;
+            // 
             // AltasVehiculosJefe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(comboBoxCliente);
+            Controls.Add(comboBoxVehiculo);
             Controls.Add(panel6);
             Controls.Add(TBIngresoVehiculoCICliente);
             Controls.Add(label7);
@@ -268,10 +292,12 @@
         private Label label2;
         private Label label1;
         private Button btnIngresarVehiculosJefe;
+        private ComboBox comboBoxVehiculo;
+        private ComboBox comboBoxCliente;
 
         public TextBox TBIngresoVehiculoCICliente1 { get => TBIngresoVehiculoCICliente; set => TBIngresoVehiculoCICliente = value; }
-        public ComboBox CBTipoCliente { get => cBTipoCliente; set => cBTipoCliente = value; }
-        public ComboBox CBTipoVehiculo { get => cBTipoVehiculo; set => cBTipoVehiculo = value; }
+        public ComboBox CBTipoCliente { get => comboBoxCliente; set => comboBoxCliente = value; }
+        public ComboBox CBTipoVehiculo { get => comboBoxVehiculo; set => comboBoxVehiculo = value; }
         public TextBox TBIngresoVehiculoModelo1 { get => TBIngresoVehiculoModelo; set => TBIngresoVehiculoModelo = value; }
         public TextBox TBIngresoVehiculoMarca1 { get => TBIngresoVehiculoMarca; set => TBIngresoVehiculoMarca = value; }
         public TextBox TBIngresoVehiculoMatr1 { get => TBIngresoVehiculoMatr; set => TBIngresoVehiculoMatr = value; }

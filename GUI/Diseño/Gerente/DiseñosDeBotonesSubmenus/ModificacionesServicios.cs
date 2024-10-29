@@ -159,36 +159,7 @@ namespace GUI.Diseño.Gerente.Vehiculos
             }
         }
 
-        private void RBBalanceo_CheckedChanged_2(object sender, EventArgs e)
-        {
-
-
-            if (RBBalanceo.Checked)
-            {
-                // Si se selecciona RBTaller, deshabilitar TextBox1 y TextBox2
-                mTBModServFechaFin.Enabled = false;
-                TBModServIDNeumatico.Enabled = false;
-                TBModServNumPlaza.Enabled = false;
-                TBModServIDClientes.Enabled = false;
-                TBModServIDNeumatico.BackColor = Color.DarkGray;
-                TBModServNumPlaza.BackColor = Color.DarkGray;
-                TBModServIDClientes.BackColor = Color.DarkGray;
-            }
-            else
-            {
-                // Habilitarlos si no está seleccionado
-                mTBModServFechaFin.Enabled = true;
-                TBModServIDNeumatico.Enabled = true;
-                TBModServNumPlaza.Enabled = true;
-                TBModServIDClientes.Enabled = true;
-                TBModServIDNeumatico.BackColor = SystemColors.ActiveCaption;
-                TBModServNumPlaza.BackColor = SystemColors.ActiveCaption;
-                TBModServIDClientes.BackColor = SystemColors.ActiveCaption;
-            }
-
-
-
-        }
+        
 
         private void RBNeumaticos_CheckedChanged(object sender, EventArgs e)
         {

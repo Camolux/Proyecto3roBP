@@ -46,6 +46,8 @@
             label2 = new Label();
             label1 = new Label();
             btnModificarVehiculosGer = new Button();
+            comboBoxVehiculo = new ComboBox();
+            comboBoxCliente = new ComboBox();
             SuspendLayout();
             // 
             // label5
@@ -215,12 +217,34 @@
             btnModificarVehiculosGer.UseVisualStyleBackColor = false;
             btnModificarVehiculosGer.Click += btnModificarVehiculosGer_Click;
             // 
+            // comboBoxVehiculo
+            // 
+            comboBoxVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxVehiculo.FormattingEnabled = true;
+            comboBoxVehiculo.Items.AddRange(new object[] { "moto", "auto", "camioneta", "pequeño camion", "pequeño utilitario" });
+            comboBoxVehiculo.Location = new Point(230, 342);
+            comboBoxVehiculo.Name = "comboBoxVehiculo";
+            comboBoxVehiculo.Size = new Size(246, 23);
+            comboBoxVehiculo.TabIndex = 79;
+            // 
+            // comboBoxCliente
+            // 
+            comboBoxCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCliente.FormattingEnabled = true;
+            comboBoxCliente.Items.AddRange(new object[] { "mensual", "sistematico", "eventual", "extraordinario" });
+            comboBoxCliente.Location = new Point(230, 397);
+            comboBoxCliente.Name = "comboBoxCliente";
+            comboBoxCliente.Size = new Size(246, 23);
+            comboBoxCliente.TabIndex = 80;
+            // 
             // ModificacionesVehiculos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(comboBoxCliente);
+            Controls.Add(comboBoxVehiculo);
             Controls.Add(panel6);
             Controls.Add(TBModVehiculosCIClientes);
             Controls.Add(label7);
@@ -267,10 +291,12 @@
         private Label label2;
         private Label label1;
         private Button btnModificarVehiculosGer;
+        private ComboBox comboBoxVehiculo;
+        private ComboBox comboBoxCliente;
 
         public TextBox TBModVehiculosCIClientes1 { get => TBModVehiculosCIClientes; set => TBModVehiculosCIClientes = value; }
-        public ComboBox CBTipoCliente { get => cBTipoCliente; set => cBTipoCliente = value; }
-        public ComboBox CBTipoVehiculo { get => cBTipoVehiculo; set => cBTipoVehiculo = value; }
+        public ComboBox CBTipoCliente { get => comboBoxCliente; set => comboBoxCliente = value; }
+        public ComboBox CBTipoVehiculo { get => comboBoxVehiculo; set => comboBoxVehiculo = value; }
         public TextBox TBModVehiculosModelo1 { get => TBModVehiculosModelo; set => TBModVehiculosModelo = value; }
         public TextBox TBModVehiculosMarca1 { get => TBModVehiculosMarca; set => TBModVehiculosMarca = value; }
         public TextBox TBModVehiculosMatricula1 { get => TBModVehiculosMatricula; set => TBModVehiculosMatricula = value; }

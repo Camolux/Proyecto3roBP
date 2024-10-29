@@ -53,6 +53,9 @@
             label3 = new Label();
             label1 = new Label();
             BTNAltaVehiculoEje = new Button();
+            label2 = new Label();
+            comboBox1 = new ComboBox();
+            panel6 = new Panel();
             SuspendLayout();
             // 
             // label24
@@ -69,7 +72,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(26, 430);
+            label10.Location = new Point(27, 435);
             label10.Name = "label10";
             label10.Size = new Size(270, 18);
             label10.TabIndex = 165;
@@ -79,7 +82,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(42, 392);
+            label8.Location = new Point(42, 397);
             label8.Name = "label8";
             label8.Size = new Size(230, 18);
             label8.TabIndex = 164;
@@ -87,7 +90,7 @@
             // 
             // mTBAltaServEjeFechaFin
             // 
-            mTBAltaServEjeFechaFin.Location = new Point(302, 425);
+            mTBAltaServEjeFechaFin.Location = new Point(303, 430);
             mTBAltaServEjeFechaFin.Mask = "00/00/0000 00:00";
             mTBAltaServEjeFechaFin.Name = "mTBAltaServEjeFechaFin";
             mTBAltaServEjeFechaFin.Size = new Size(230, 23);
@@ -96,7 +99,7 @@
             // 
             // mTBAltaServEjeFechaInicio
             // 
-            mTBAltaServEjeFechaInicio.Location = new Point(303, 387);
+            mTBAltaServEjeFechaInicio.Location = new Point(303, 392);
             mTBAltaServEjeFechaInicio.Mask = "00/00/0000 00:00";
             mTBAltaServEjeFechaInicio.Name = "mTBAltaServEjeFechaInicio";
             mTBAltaServEjeFechaInicio.Size = new Size(230, 23);
@@ -116,7 +119,7 @@
             // 
             TBAltaServEjeNomFuncio.BackColor = SystemColors.ActiveCaption;
             TBAltaServEjeNomFuncio.BorderStyle = BorderStyle.None;
-            TBAltaServEjeNomFuncio.Location = new Point(242, 272);
+            TBAltaServEjeNomFuncio.Location = new Point(242, 277);
             TBAltaServEjeNomFuncio.Name = "TBAltaServEjeNomFuncio";
             TBAltaServEjeNomFuncio.Size = new Size(230, 16);
             TBAltaServEjeNomFuncio.TabIndex = 160;
@@ -288,12 +291,44 @@
             BTNAltaVehiculoEje.UseVisualStyleBackColor = false;
             BTNAltaVehiculoEje.Click += BTNAltaVehiculoEje_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(42, 352);
+            label2.Name = "label2";
+            label2.Size = new Size(153, 18);
+            label2.TabIndex = 171;
+            label2.Text = "Tipo de Servicio Taller";
+            label2.Click += label2_Click;
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "montaje neumatico", "alineacion 1 tren", "alineacion", "balanceo auto + valvula", "alineacion 2 trenes", "pack alineacion", "balanceo camioneta + valvula" });
+            comboBox1.Location = new Point(242, 347);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(230, 23);
+            comboBox1.TabIndex = 172;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = SystemColors.ActiveCaptionText;
+            panel6.Location = new Point(242, 368);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(230, 2);
+            panel6.TabIndex = 173;
+            // 
             // AltasServiciosEjecutivoDeServicios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(panel6);
+            Controls.Add(comboBox1);
+            Controls.Add(label2);
             Controls.Add(label24);
             Controls.Add(label10);
             Controls.Add(label8);
@@ -322,6 +357,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "AltasServiciosEjecutivoDeServicios";
             Text = "AltasServicios";
+            Load += AltasServiciosEjecutivoDeServicios_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -358,6 +394,9 @@
         private Label label3;
         private Label label1;
         private Button BTNAltaVehiculoEje;
+        private Label label2;
+        private ComboBox comboBox1;
+        private Panel panel6;
 
         public RadioButton RBBalanceo { get => rBBalanceo; set => rBBalanceo = value; }
         public RadioButton RBNeumaticos { get => rBNeumaticos; set => rBNeumaticos = value; }
@@ -372,5 +411,6 @@
         public TextBox TBAltaServEjeIDNeu1 { get => TBAltaServEjeIDNeu; set => TBAltaServEjeIDNeu = value; }
         public TextBox TBAltaServEjeMatr1 { get => TBAltaServEjeMatr; set => TBAltaServEjeMatr = value; }
         public TextBox TBAltaServEjeID1 { get => TBAltaServEjeID; set => TBAltaServEjeID = value; }
+        public ComboBox ComboBox1 { get => comboBox1; set => comboBox1 = value; }
     }
 }

@@ -46,6 +46,8 @@
             panel6 = new Panel();
             TBAltaVehiculoCICliente = new TextBox();
             label7 = new Label();
+            comboBoxVehiculo = new ComboBox();
+            comboBoxCliente = new ComboBox();
             SuspendLayout();
             // 
             // label5
@@ -215,12 +217,34 @@
             label7.TabIndex = 57;
             label7.Text = "Ingrese CI Del Cliente";
             // 
+            // comboBoxVehiculo
+            // 
+            comboBoxVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxVehiculo.FormattingEnabled = true;
+            comboBoxVehiculo.Items.AddRange(new object[] { "moto", "auto", "camioneta", "pequeño camion", "pequeño utilitario" });
+            comboBoxVehiculo.Location = new Point(256, 363);
+            comboBoxVehiculo.Name = "comboBoxVehiculo";
+            comboBoxVehiculo.Size = new Size(246, 23);
+            comboBoxVehiculo.TabIndex = 60;
+            // 
+            // comboBoxCliente
+            // 
+            comboBoxCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCliente.FormattingEnabled = true;
+            comboBoxCliente.Items.AddRange(new object[] { "mensual", "sistematico", "eventual", "extraordinario" });
+            comboBoxCliente.Location = new Point(256, 418);
+            comboBoxCliente.Name = "comboBoxCliente";
+            comboBoxCliente.Size = new Size(246, 23);
+            comboBoxCliente.TabIndex = 61;
+            // 
             // AltasVehiculos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(comboBoxCliente);
+            Controls.Add(comboBoxVehiculo);
             Controls.Add(panel6);
             Controls.Add(TBAltaVehiculoCICliente);
             Controls.Add(label7);
@@ -268,12 +292,14 @@
         private Panel panel6;
         private TextBox TBAltaVehiculoCICliente;
         private Label label7;
+        private ComboBox comboBoxVehiculo;
+        private ComboBox comboBoxCliente;
 
         public TextBox TBAltaVehiculoModelo1 { get => TBAltaVehiculoModelo; set => TBAltaVehiculoModelo = value; }
         public TextBox TBAltaVehiculoMarca1 { get => TBAltaVehiculoMarca; set => TBAltaVehiculoMarca = value; }
         public TextBox TBAltaVehiculoMatr1 { get => TBAltaVehiculoMatr; set => TBAltaVehiculoMatr = value; }
-        public ComboBox CBTipoVehiculo { get => cBTipoVehiculo; set => cBTipoVehiculo = value; }
-        public ComboBox CBTipoCliente { get => cBTipoCliente; set => cBTipoCliente = value; }
+        public ComboBox CBTipoVehiculo { get => comboBoxVehiculo; set => comboBoxVehiculo = value; }
+        public ComboBox CBTipoCliente { get => comboBoxCliente; set => comboBoxCliente = value; }
         public TextBox TBAltaVehiculoCICliente1 { get => TBAltaVehiculoCICliente; set => TBAltaVehiculoCICliente = value; }
     }
 }

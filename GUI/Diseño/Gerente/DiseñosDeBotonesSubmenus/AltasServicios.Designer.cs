@@ -53,6 +53,9 @@
             label10 = new Label();
             mTBAltaServGerFechaInicio = new MaskedTextBox();
             TBAltaServGerIDNeum = new TextBox();
+            label2 = new Label();
+            panel6 = new Panel();
+            comboBoxServicio = new ComboBox();
             SuspendLayout();
             // 
             // BTNAltaServGer
@@ -288,12 +291,43 @@
             TBAltaServGerIDNeum.Size = new Size(230, 16);
             TBAltaServGerIDNeum.TabIndex = 107;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(40, 345);
+            label2.Name = "label2";
+            label2.Size = new Size(153, 18);
+            label2.TabIndex = 206;
+            label2.Text = "Tipo de Servicio Taller";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = SystemColors.ActiveCaptionText;
+            panel6.Location = new Point(240, 364);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(230, 2);
+            panel6.TabIndex = 205;
+            // 
+            // comboBoxServicio
+            // 
+            comboBoxServicio.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxServicio.FormattingEnabled = true;
+            comboBoxServicio.Items.AddRange(new object[] { "montaje neumatico", "alineacion 1 tren", "alineacion", "balanceo auto + valvula", "alineacion 2 trenes", "pack alineacion", "balanceo camioneta + valvula" });
+            comboBoxServicio.Location = new Point(240, 340);
+            comboBoxServicio.Name = "comboBoxServicio";
+            comboBoxServicio.Size = new Size(230, 23);
+            comboBoxServicio.TabIndex = 204;
+            // 
             // AltasServicios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(label2);
+            Controls.Add(panel6);
+            Controls.Add(comboBoxServicio);
             Controls.Add(label24);
             Controls.Add(label10);
             Controls.Add(label8);
@@ -357,6 +391,9 @@
         private MaskedTextBox mTBAltaServGerFechaInicio;
         private RadioButton rBBalanceo;
         private TextBox TBAltaServGerIDNeum;
+        private Label label2;
+        private Panel panel6;
+        private ComboBox comboBoxServicio;
 
         public Button BTNAltaServGer1 { get => BTNAltaServGer; set => BTNAltaServGer = value; }
         public TextBox TBAltaServGerIDCliente1 { get => TBAltaServGerIDCliente; set => TBAltaServGerIDCliente = value; }
@@ -372,5 +409,6 @@
         public MaskedTextBox MTBAltaServGerFechaInicio { get => mTBAltaServGerFechaInicio; set => mTBAltaServGerFechaInicio = value; }
         public RadioButton RBBalanceo { get => rBBalanceo; set => rBBalanceo = value; }
         public TextBox TBAltaServGerIDNeum1 { get => TBAltaServGerIDNeum; set => TBAltaServGerIDNeum = value; }
+        public ComboBox ComboBoxServicio { get => comboBoxServicio; set => comboBoxServicio = value; }
     }
 }
