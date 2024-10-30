@@ -101,6 +101,7 @@ namespace Controlador
         private Controlador()
         {
             instance = this;
+            bajasEjecutivoYJefeDeServiciosMenuJefe = BajasEjecutivoYJefeDeServiciosMenuJefe.GetInsance();
             modificacionesVehiculos = ModificacionesVehiculos.GetInsance();
             modificacionesServicios = ModificacionesServicios.GetInsance();
             modificacionesEjecutivoYJefeDeServicios = ModificacionesEjecutivoYJefeDeServicios.GetInsance();
@@ -191,6 +192,8 @@ namespace Controlador
         {
             if (sender is Button button)
             {
+                List<Usuario> listaUsuarios = usuariosServicios.ListarTodosLosUsuarios();
+                string ci;
                 switch (button.Name)
                 {
                     case "BTNConfirmar":
@@ -230,52 +233,186 @@ namespace Controlador
                         //Aca escondo la ventana de Login y muestro la ventana siguiente
 
                         break;
-                    case "BTNImprimirFactura":
+                    case "BTNImprimirFactura"://Cajero
 
                         break;
                     case "btnEntregarVehiculos":
 
-                        break;
-                    case "BTNIngresarClienteEje":
+                        break;//Fin CAJERO
 
+
+
+                    case "BTNIngresarClienteEje"://Ejecutivo
+                        clienteDTO.CI = altasClientesEjecutivoDeServicios.TBAltaClienteEjeCI1.Text;
+                        clienteDTO.Nombre = altasClientesEjecutivoDeServicios.TBAltaClienteEjeNom1.Text;
+                        clienteDTO.Apellido = altasClientesEjecutivoDeServicios.TBAltaClienteEjeApe1.Text;
+                        telefonoDTO.CI = altasClientesEjecutivoDeServicios.TBAltaClienteEjeCI1.Text;
+                        telefonoDTO.Telefono = Convert.ToInt32(altasClientesEjecutivoDeServicios.TBAltaClienteEjeTel1.Text);
+                        MessageBox.Show("Cliente Ingresado");
+                        clienteServicios.AgregarCliente(clienteDTO);
+                        telefonoServicios.AgregarTelefono(telefonoDTO);
+                        altasClientesEjecutivoDeServicios.TBAltaClienteEjeCI1.Clear();
+                        altasClientesEjecutivoDeServicios.TBAltaClienteEjeNom1.Clear();
+                        altasClientesEjecutivoDeServicios.TBAltaClienteEjeApe1.Clear();
+                        altasClientesEjecutivoDeServicios.TBAltaClienteEjeTel1.Clear();
                         break;
-                    case "BTNAltaVehiculoEje":
+                    case "BTNAltaVehiculoEje"://es el alta de servicios
+
+
+
+
+
+
+
+
+
+
+
 
                         break;
                     case "btnIngresarVehiculos":
-
+                        vehiculoDTO.Propietario = altasVehiculosEjecutivoDeServicios.TBAltaVehiculo1.Text;
+                        vehiculoDTO.Matricula = altasVehiculosEjecutivoDeServicios.TBAltaVehiculoMatr1.Text;
+                        vehiculoDTO.Marca = altasVehiculosEjecutivoDeServicios.TBAltaVehiculoMarca1.Text;
+                        vehiculoDTO.Modelo = altasVehiculosEjecutivoDeServicios.TBAltaVehiculoModelo1.Text;
+                        vehiculoDTO.Tipo = altasVehiculosEjecutivoDeServicios.CBAltaVehiculoTipoVehiculo1.Text;
+                        vehiculoDTO.TIpoCliente = altasVehiculosEjecutivoDeServicios.CBAltaVehiculoTipoCliente1.Text;
+                        MessageBox.Show("Vehiculo Ingresado Correctamente");
+                        vehiculoServicios.AgregarVehiculo(vehiculoDTO);
+                        altasVehiculosEjecutivoDeServicios.TBAltaVehiculo1.Clear();
+                        altasVehiculosEjecutivoDeServicios.TBAltaVehiculoMatr1.Clear();
+                        altasVehiculosEjecutivoDeServicios.TBAltaVehiculoMarca1.Clear();
+                        altasVehiculosEjecutivoDeServicios.TBAltaVehiculoModelo1.Clear();
+                        altasVehiculosEjecutivoDeServicios.CBAltaVehiculoTipoVehiculo1.Items.Clear();
+                        altasVehiculosEjecutivoDeServicios.CBAltaVehiculoTipoCliente1.Items.Clear();
                         break;
                     case "btnModificarClientesEje":
-
+                        clienteDTO.CI = modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteCIEje1.Text;
+                        clienteDTO.Nombre = modificacionesDeClientesMenuEjecutivoDeServicios.TbModClienteNomEje1.Text;
+                        clienteDTO.Apellido = modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteApeEje1.Text;
+                        telefonoDTO.CI = modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteCIEje1.Text;
+                        telefonoDTO.Telefono = Convert.ToInt32(modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteTelEje1.Text);
+                        MessageBox.Show("Cliente Ingresado");
+                        clienteServicios.ModificarCliente(clienteDTO);
+                        telefonoServicios.ModificarTelefono(telefonoDTO);
+                        modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteCIEje1.Clear();
+                        modificacionesDeClientesMenuEjecutivoDeServicios.TbModClienteNomEje1.Clear();
+                        modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteApeEje1.Clear();
+                        modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteTelEje1.Clear();
+                        break;//Fin Ejecutivo
+                    case "btnIngresarClienteJefe"://Jefe
+                        clienteDTO.CI = altasClientesJefe.TBAltaClienteCI1.Text;
+                        clienteDTO.Nombre = altasClientesJefe.TBAltaClienteNom1.Text;
+                        clienteDTO.Apellido = altasClientesJefe.TBAltaClienteApe1.Text;
+                        telefonoDTO.CI = altasClientesJefe.TBAltaClienteCI1.Text;
+                        telefonoDTO.Telefono = Convert.ToInt32(altasClientesJefe.TBAltaClienteTel1.Text);
+                        MessageBox.Show("Cliente Ingresado");
+                        clienteServicios.AgregarCliente(clienteDTO);
+                        telefonoServicios.AgregarTelefono(telefonoDTO);
+                        altasClientesJefe.TBAltaClienteCI1.Clear();
+                        altasClientesJefe.TBAltaClienteNom1.Clear();
+                        altasClientesJefe.TBAltaClienteApe1.Clear();
+                        altasClientesJefe.TBAltaClienteTel1.Clear();
                         break;
-                    case "btnIngresarClienteJefe":
-
-                        break;
-                    case "btnIngresarFuncionarioGer":
-
+                    case "btnIngresarFuncionarioGer"://AltaUsuario Jefe de servicios
+                        usuarioDTO.nombreUsuario = altasEjecutivoYJefeDeServiciosMenuJefe.TBAltaFuncionarioNom1.Text;
+                        usuarioDTO.contraUsuario = altasEjecutivoYJefeDeServiciosMenuJefe.TBAltaFuncionarioContra1.Text;
+                        usuarioDTO.idTipoUsuario = altasEjecutivoYJefeDeServiciosMenuJefe.CBAltaFuncionarioRol.Text;
+                        MessageBox.Show("Usuario Ingresado Correctamente");
+                        usuariosServicios.AgregarUsuario(usuarioDTO);
+                        altasEjecutivoYJefeDeServiciosMenuJefe.TBAltaFuncionarioNom1.Clear();
+                        altasEjecutivoYJefeDeServiciosMenuJefe.TBAltaFuncionarioContra1.Clear();
+                        altasEjecutivoYJefeDeServiciosMenuJefe.CBAltaFuncionarioRol.Items.Clear();
                         break;
                     case "btnIngresarServicios":
 
+
+
+
+
+
+
+
+
+
+
                         break;
                     case "btnIngresarVehiculosJefe":
-
+                        vehiculoDTO.Propietario = altasVehiculosJefe.TBIngresoVehiculoCICliente1.Text;
+                        vehiculoDTO.Matricula = altasVehiculosJefe.TBIngresoVehiculoMatr1.Text;
+                        vehiculoDTO.Marca = altasVehiculosJefe.TBIngresoVehiculoMarca1.Text;
+                        vehiculoDTO.Modelo = altasVehiculosJefe.TBIngresoVehiculoModelo1.Text;
+                        vehiculoDTO.Tipo = altasVehiculosJefe.CBTipoVehiculo.Text;
+                        vehiculoDTO.TIpoCliente = altasVehiculosJefe.CBTipoCliente.Text;
+                        MessageBox.Show("Vehiculo Ingresado Correctamente");
+                        vehiculoServicios.AgregarVehiculo(vehiculoDTO);
+                        altasVehiculosJefe.TBIngresoVehiculoCICliente1.Clear();
+                        altasVehiculosJefe.TBIngresoVehiculoMatr1.Clear();
+                        altasVehiculosJefe.TBIngresoVehiculoMarca1.Clear();
+                        altasVehiculosJefe.TBIngresoVehiculoModelo1.Clear();
+                        altasVehiculosJefe.CBTipoVehiculo.Items.Clear();
+                        altasVehiculosJefe.CBTipoCliente.Items.Clear();
                         break;
                     case "btnBajaFuncionario":
+                        string nomUsuad = bajasEjecutivoYJefeDeServiciosMenuJefe.TBBajaUsuNom1.Text;
 
+                        MessageBox.Show("Baja Confirmada"+ nomUsuad);
+                        usuariosServicios.EliminarUsuario(nomUsuad);
+                        bajasEjecutivoYJefeDeServiciosMenuJefe.TBBajaUsuNom1.Clear();
                         break;
                     case "btnBuscarFuncionariosJefe":
+                        try
+                        {
+                            ci = listadoEjecutivoYJefeDeServiciosMenuJefe.TBListadoEje1.Text;
+                            usuariosServicios.ObtenerUsuarioPorNombre(ci);
+                            // Llama al método de búsqueda en ClienteServicios
+                            usuarioDTO = usuariosServicios.ObtenerUsuarioPorNombre(ci);
 
+                            if (usuarioDTO != null)
+                            {
+                                // Muestra el resultado en el DataGridView
+                                listadoEjecutivoYJefeDeServiciosMenuJefe.DataGridViewFuncionarios.DataSource = new List<Usuario> { usuarioDTO };
+                            }
+                            else
+                            {
+                                MessageBox.Show("Cliente no encontrado");
+                                listadoEjecutivoYJefeDeServiciosMenuJefe.DataGridViewFuncionarios.DataSource = null; // Limpia el DataGridView si no se encuentra
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al buscar el cliente: " + ex.Message);
+                        }
                         break;
                     case "btnMostrarFuncionariosJefe":
-
+                        
+                        listadoEjecutivoYJefeDeServiciosMenuJefe.DataGridViewFuncionarios.DataSource = listaUsuarios;
                         break;
                     case "btnModificarClientesJefe":
-
+                        clienteDTO.CI = modificacionesDeClientesMenuJefe.TBModClientesCI1.Text;
+                        clienteDTO.Nombre = modificacionesDeClientesMenuJefe.TBModClientesNom1.Text;
+                        clienteDTO.Apellido = modificacionesDeClientesMenuJefe.TBModClientesApe1.Text;
+                        telefonoDTO.CI = modificacionesDeClientesMenuJefe.TBModClientesCI1.Text;
+                        telefonoDTO.Telefono = Convert.ToInt32(modificacionesDeClientesMenuJefe.TBModClientesTel1.Text);
+                        MessageBox.Show("ModificacionCorrecta");
+                        clienteServicios.ModificarCliente(clienteDTO);
+                        telefonoServicios.ModificarTelefono(telefonoDTO);
+                        modificacionesDeClientesMenuJefe.TBModClientesNom1.Clear();
+                        modificacionesDeClientesMenuJefe.TBModClientesApe1.Clear();
+                        modificacionesDeClientesMenuJefe.TBModClientesCI1.Clear();
+                        modificacionesDeClientesMenuJefe.TBModClientesTel1.Clear();
                         break;
-                    case "btnModFuncionarioJefe":
-
+                    case "btnModFuncionarioJefe": //Fin Jefe
+                        usuarioDTO.nombreUsuario = modificacionesEjecutivoYJefeDeServiciosMenuJefe.TBModFuncionariosUsu1.Text;
+                        usuarioDTO.contraUsuario = modificacionesEjecutivoYJefeDeServiciosMenuJefe.TBModFuncionariosContra1.Text;
+                        usuarioDTO.idTipoUsuario = modificacionesEjecutivoYJefeDeServiciosMenuJefe.CBModFuncionariosRol.Text;
+                        MessageBox.Show("Modificacion Correcta");
+                        usuariosServicios.ModificarUsuario(usuarioDTO);
+                        modificacionesEjecutivoYJefeDeServiciosMenuJefe.TBModFuncionariosUsu1.Clear();
+                        modificacionesEjecutivoYJefeDeServiciosMenuJefe.TBModFuncionariosContra1.Clear();
+                        modificacionesEjecutivoYJefeDeServiciosMenuJefe.CBModFuncionariosRol.Items.Clear();
                         break;
-                    case "BTNAltaClienteGer":
+                    case "BTNAltaClienteGer": //Gerente
                         clienteDTO.CI = altasClientes.TBAltaClienteGerCI1.Text;
                         clienteDTO.Nombre = altasClientes.TBAltaClienteGerNom1.Text;
                         clienteDTO.Apellido = altasClientes.TBAltaClienteGerApe1.Text;
@@ -303,6 +440,17 @@ namespace Controlador
                         break;
                     case "BTNAltaServGer":
                         
+
+
+
+
+
+
+
+
+
+
+
                         break;
                     case "btnIngresarVehiculosGer":
                         vehiculoDTO.Propietario = altasVehiculos.TBAltaVehiculoCICliente1.Text;
@@ -328,38 +476,159 @@ namespace Controlador
                         break;
                     case "BTNModCostServGer":
 
+
+
+
+
+
+
+
+
+
+
+
+
                         break;
                     case "BTNBuscarClientesGer":
+                        try
+                        {
+                            ci = listadosClientes.TBBuscarClienteCI1.Text;
+                            clienteServicios.ObtenerClientePorCI(ci);
+                            // Llama al método de búsqueda en ClienteServicios
+                            clienteDTO = clienteServicios.ObtenerClientePorCI(ci);
 
+                            if (clienteDTO != null)
+                            {
+                                // Muestra el resultado en el DataGridView
+                                listadosClientes.DataGridViewClientes.DataSource = new List<ClienteDTO> { clienteDTO };
+                            }
+                            else
+                            {
+                                MessageBox.Show("Cliente no encontrado");
+                                listadosClientes.DataGridViewClientes.DataSource = null; // Limpia el DataGridView si no se encuentra
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al buscar el cliente: " + ex.Message);
+                        }
                         break;
                     case "BTNMostrarClientesGer":
+                        // Llama al método ListarClientes para obtener la lista de clientes
+                        List<ClienteDTO> listaClientes = clienteServicios.ListarClientes();
 
+                        // Asigna la lista al DataGridView
+                        listadosClientes.DataGridViewClientes.DataSource = listaClientes;
                         break;
                     case "btnBuscarFuncionariosGer":
+                        try
+                        {
+                            string nomUsu = listadosEjecutivoYJefeDeServicios.TBBuscarFuncionarios1.Text;
+                            usuariosServicios.ObtenerUsuarioPorNombre(nomUsu);
+                            // Llama al método de búsqueda en ClienteServicios
+                            usuarioDTO = usuariosServicios.ObtenerUsuarioPorNombre(nomUsu);
 
+                            if (usuarioDTO != null)
+                            {
+                                // Muestra el resultado en el DataGridView
+                                listadosEjecutivoYJefeDeServicios.DataGridViewFuncionarios.DataSource = new List<Usuario> { usuarioDTO };
+                            }
+                            else
+                            {
+                                MessageBox.Show("Usuario no encontrado");
+                                listadosEjecutivoYJefeDeServicios.DataGridViewFuncionarios.DataSource = null; // Limpia el DataGridView si no se encuentra
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al buscar el Usuario: " + ex.Message);
+                        }
                         break;
                     case "btnMostrarFuncionariosGer":
-
+                        
+                        listadosEjecutivoYJefeDeServicios.DataGridViewFuncionarios.DataSource = listaUsuarios;
                         break;
                     case "btnBuscarServicioGer":
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         break;
                     case "btnMostrarServGer":
+                        
+
+
+
+
+
+
+
+
+
+
+
+
 
                         break;
                     case "btnBuscarVehiculosGer":
+                        try
+                        {
+                            string matricula = listadosVehiculos.TBBuscarVehiculo1.Text;
+                            vehiculoServicios.ObtenerVehiculoPorMatricula(matricula);
+                            // Llama al método de búsqueda en ClienteServicios
+                            vehiculoDTO = vehiculoServicios.ObtenerVehiculoPorMatricula(matricula);
 
+                            if (vehiculoDTO != null)
+                            {
+                                // Muestra el resultado en el DataGridView
+                                listadosVehiculos.DataGridViewVehiculos.DataSource = new List<VehiculoDTO> { vehiculoDTO };
+                            }
+                            else
+                            {
+                                MessageBox.Show("Vehiculo no encontrado");
+                                listadosVehiculos.DataGridViewVehiculos.DataSource = null; // Limpia el DataGridView si no se encuentra
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al buscar el Vehiculo: " + ex.Message);
+                        }
                         break;
                     case "btnMostrarVehiculosGer":
-
+                        List<VehiculoDTO> listaVehiculos = vehiculoServicios.ListarVehiculos();
+                        listadosVehiculos.DataGridViewVehiculos.DataSource = listaVehiculos;
                         break;
                     case "btnModificarClientesGer":
-
+                        clienteDTO.CI = modificacionesClientes.TBModClienteCI1.Text;
+                        clienteDTO.Nombre = modificacionesClientes.TBModClienteNom1.Text;
+                        clienteDTO.Apellido = modificacionesClientes.TBModClienteApe1.Text;
+                        telefonoDTO.CI = modificacionesClientes.TBModClienteCI1.Text;
+                        telefonoDTO.Telefono = Convert.ToInt32(modificacionesClientes.TBModClienteTel1.Text);
+                        MessageBox.Show("ModificacionCorrecta");
+                        clienteServicios.ModificarCliente(clienteDTO);
+                        telefonoServicios.ModificarTelefono(telefonoDTO);
+                        modificacionesClientes.TBModClienteCI1.Clear();
+                        modificacionesClientes.TBModClienteNom1.Clear();
+                        modificacionesClientes.TBModClienteApe1.Clear();
+                        modificacionesClientes.TBModClienteTel1.Clear();
                         break;
                     case "btnModFuncionario":
                         usuarioDTO.nombreUsuario = modificacionesEjecutivoYJefeDeServicios.TBModFuncionarioNom1.Text;
                         usuarioDTO.contraUsuario = modificacionesEjecutivoYJefeDeServicios.TBModFuncionarioContra1.Text;
                         usuarioDTO.idTipoUsuario = modificacionesEjecutivoYJefeDeServicios.CBModFuncionarioRol.Text;
+                        MessageBox.Show("Modificacion Correcta");
                         usuariosServicios.ModificarUsuario(usuarioDTO);
                         modificacionesEjecutivoYJefeDeServicios.TBModFuncionarioNom1.Clear(); 
                         modificacionesEjecutivoYJefeDeServicios.TBModFuncionarioContra1.Clear();
@@ -367,13 +636,37 @@ namespace Controlador
                         break;
                     case "btnModServGer":
 
+
+
+
+
+
+
+
+
+
+
                         break;
                     case "btnModificarVehiculosGer":
+                        vehiculoDTO.Propietario = modificacionesVehiculos.TBModVehiculosCIClientes1.Text;
+                        vehiculoDTO.Matricula = modificacionesVehiculos.TBModVehiculosMatricula1.Text;
+                        vehiculoDTO.Marca = modificacionesVehiculos.TBModVehiculosMarca1.Text;
+                        vehiculoDTO.Modelo = modificacionesVehiculos.TBModVehiculosModelo1.Text;
+                        vehiculoDTO.Tipo = modificacionesVehiculos.CBTipoVehiculo.Text;
+                        vehiculoDTO.TIpoCliente = modificacionesVehiculos.CBTipoCliente.Text;
+                        MessageBox.Show("Modificacion Correcta");
+                        vehiculoServicios.ModificarVehiculo(vehiculoDTO);
+                        modificacionesVehiculos.CBTipoCliente.Items.Clear();
+                        modificacionesVehiculos.CBTipoVehiculo.Items.Clear();
+                        modificacionesVehiculos.TBModVehiculosModelo1.Clear();
+                        modificacionesVehiculos.TBModVehiculosMarca1.Clear();
+                        modificacionesVehiculos.TBModVehiculosMatricula1.Clear();
+                        modificacionesVehiculos.TBModVehiculosCIClientes1.Clear();
 
                         break;
                     default:
                         MessageBox.Show("¡Botón incorrecto presionado!");
-                        break;
+                        break; //Fin Gerente
                 }
             }
         }

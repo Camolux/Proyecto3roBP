@@ -333,7 +333,7 @@
             radioButtonNeumaticos.TabStop = true;
             radioButtonNeumaticos.Text = "Cambio Neumaticos";
             radioButtonNeumaticos.UseVisualStyleBackColor = true;
-            radioButtonNeumaticos.CheckedChanged += this.RBNeumaticos_CheckedChanged;
+            radioButtonNeumaticos.CheckedChanged += RBNeumaticos_CheckedChanged;
             // 
             // radioButtonLavado
             // 
@@ -345,7 +345,7 @@
             radioButtonLavado.TabStop = true;
             radioButtonLavado.Text = "Lavado";
             radioButtonLavado.UseVisualStyleBackColor = true;
-            radioButtonLavado.CheckedChanged += this.RBLavado_CheckedChanged;
+            radioButtonLavado.CheckedChanged += RBLavado_CheckedChanged;
             // 
             // radioButtonTaller
             // 

@@ -31,10 +31,7 @@
             btnEntregarVehiculos = new Button();
             tbEntregaMatr = new TextBox();
             panel1 = new Panel();
-            label1 = new Label();
-            TBEntregaCI = new TextBox();
             label5 = new Label();
-            panel9 = new Panel();
             label9 = new Label();
             SuspendLayout();
             // 
@@ -68,25 +65,6 @@
             panel1.Size = new Size(230, 2);
             panel1.TabIndex = 175;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(78, 252);
-            label1.Name = "label1";
-            label1.Size = new Size(121, 18);
-            label1.TabIndex = 174;
-            label1.Text = "Ingrese Matricula";
-            // 
-            // TBEntregaCI
-            // 
-            TBEntregaCI.BackColor = SystemColors.ActiveCaption;
-            TBEntregaCI.BorderStyle = BorderStyle.None;
-            TBEntregaCI.Location = new Point(240, 312);
-            TBEntregaCI.Name = "TBEntregaCI";
-            TBEntregaCI.Size = new Size(230, 16);
-            TBEntregaCI.TabIndex = 171;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -97,23 +75,15 @@
             label5.TabIndex = 168;
             label5.Text = "Entrega De Vehiculos";
             // 
-            // panel9
-            // 
-            panel9.BackColor = SystemColors.ActiveCaptionText;
-            panel9.Location = new Point(240, 332);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(230, 2);
-            panel9.TabIndex = 170;
-            // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(42, 316);
+            label9.Location = new Point(51, 254);
             label9.Name = "label9";
-            label9.Size = new Size(183, 18);
+            label9.Size = new Size(170, 18);
             label9.TabIndex = 169;
-            label9.Text = "Ingrese Cedula del Clientes";
+            label9.Text = "Ingrese El ID del Parking";
             // 
             // EntregaDeVehiculos
             // 
@@ -124,10 +94,7 @@
             Controls.Add(btnEntregarVehiculos);
             Controls.Add(tbEntregaMatr);
             Controls.Add(panel1);
-            Controls.Add(label1);
-            Controls.Add(TBEntregaCI);
             Controls.Add(label5);
-            Controls.Add(panel9);
             Controls.Add(label9);
             FormBorderStyle = FormBorderStyle.None;
             Name = "EntregaDeVehiculos";
@@ -141,13 +108,10 @@
         private Button btnEntregarVehiculos;
         private TextBox tbEntregaMatr;
         private Panel panel1;
-        private Label label1;
-        private TextBox TBEntregaCI;
         private Label label5;
-        private Panel panel9;
         private Label label9;
 
         public TextBox TbEntregaMatr { get => tbEntregaMatr; set => tbEntregaMatr = value; }
-        public TextBox TBEntregaCI1 { get => TBEntregaCI; set => TBEntregaCI = value; }
+       
     }
 }

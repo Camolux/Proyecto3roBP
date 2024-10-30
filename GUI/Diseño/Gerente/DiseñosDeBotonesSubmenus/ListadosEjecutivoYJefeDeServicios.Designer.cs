@@ -143,5 +143,6 @@
 
         public DataGridView DataGridViewFuncionarios { get => dataGridViewFuncionarios; set => dataGridViewFuncionarios = value; }
         public TextBox TBBuscarFuncionarios1 { get => TBBuscarFuncionarios; set => TBBuscarFuncionarios = value; }
+        public DataGridView DataGridViewFuncionarios1 { get => dataGridViewFuncionarios; set => dataGridViewFuncionarios = value; }
     }
 }

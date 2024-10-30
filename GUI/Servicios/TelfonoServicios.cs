@@ -65,13 +65,10 @@ namespace GUI.Servicios
                 if (string.IsNullOrWhiteSpace(telefono.CI))
                     throw new ArgumentException("La cédula de identidad no puede estar vacía.");
 
-                if (telefono.Telefono < 100000000 || telefono.Telefono > 999999999)
+                if (telefono.Telefono < 10000000 || telefono.Telefono > 999999999)
                     throw new ArgumentException("El número de teléfono debe tener 9 dígitos.");
 
-                // Validar que el teléfono exista para el cliente
-                TelefonoDTO existente = telefonoRepositorio.ObtenerTelefonoPorCIyNumero(telefono.CI, telefono.Telefono);
-                if (existente == null)
-                    throw new Exception("No existe un teléfono con ese número para el cliente.");
+                
 
                 return telefonoRepositorio.ModificarTelefono(telefono);
             }
@@ -89,7 +86,7 @@ namespace GUI.Servicios
                 if (string.IsNullOrWhiteSpace(ci))
                     throw new ArgumentException("La cédula de identidad no puede estar vacía.");
 
-                if (telefono < 100000000 || telefono > 999999999)
+                if (telefono < 10000000 || telefono > 999999999)
                     throw new ArgumentException("El número de teléfono debe tener 9 dígitos.");
 
                 return telefonoRepositorio.ObtenerTelefonoPorCIyNumero(ci, telefono);

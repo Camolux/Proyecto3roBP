@@ -59,7 +59,7 @@ namespace GUI.Servicios.Repositorios
             MySqlConnection connection = conexionBD.ConnectToDataBase();
             try
             {
-                string query = "UPDATE Telefono SET telefono = @telefono WHERE ci = @ci AND telefono = @telefono";
+                string query = "UPDATE Telefono SET telefono = @telefono WHERE ci = @ci";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@telefono", telefono.Telefono);
                 cmd.Parameters.AddWithValue("@ci", telefono.CI);

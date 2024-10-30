@@ -165,5 +165,35 @@ namespace Repositorios
                 connection.Close();
             }
         }
+        public string ObtenerTipoClientePorMatriculaEnParking(string matricula)
+        {
+            MySqlConnection connection = conexionBD.ConnectToDataBase();
+            try
+            {
+                // Consulta para obtener el tipo de cliente a partir de la matrícula en Parking
+                string query = @"
+            SELECT v.tipocliente 
+            FROM Vehiculo v
+            INNER JOIN Parking p ON v.matricula = p.matricula
+            WHERE p.matricula = @matricula";
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@matricula", matricula);
+
+                connection.Open();
+                object result = cmd.ExecuteScalar();
+
+                // Verificar si se obtuvo un resultado y retornarlo como string
+                return result != null ? result.ToString() : null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el tipo de cliente por matrícula en Parking", ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
