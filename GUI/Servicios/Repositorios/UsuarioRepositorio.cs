@@ -262,6 +262,47 @@ namespace Repositorios
                 connection.Close();
             }
         }
+        public bool ModificarUsuarioJefe(Usuario usuario)
+        {
+            MySqlConnection connection = conexionBD.ConnectToDataBase();
+            try
+            {
+                // Verificar si el usuario no tiene rol de "jefe" o "gerente"
+                string verificarRolQuery = "SELECT rol FROM Funcionario WHERE username = @username";
+                MySqlCommand verificarCmd = new MySqlCommand(verificarRolQuery, connection);
+                verificarCmd.Parameters.AddWithValue("@username", usuario.nombreUsuario);
+
+                connection.Open();
+                string rol = verificarCmd.ExecuteScalar()?.ToString();
+                connection.Close();
+
+                if (rol == "jefe" || rol == "gerente")
+                {
+                    // Si el usuario es "jefe" o "gerente", no se permite la modificación
+                    throw new Exception("No se permite modificar usuarios con rol de 'jefe' o 'gerente'.");
+                }
+
+                // Proceder con la modificación si el rol es diferente de "jefe" o "gerente"
+                string query = "UPDATE Funcionario SET contrasenia = @password, rol = @rol WHERE username = @username";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@username", usuario.nombreUsuario);
+                cmd.Parameters.AddWithValue("@password", usuario.contraUsuario);
+                cmd.Parameters.AddWithValue("@rol", usuario.idTipoUsuario);
+
+                connection.Open();
+                int result = cmd.ExecuteNonQuery();
+                return result > 0; // Devuelve true si al menos una fila fue afectada
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                throw new Exception("Error al modificar el usuario", ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
 
 

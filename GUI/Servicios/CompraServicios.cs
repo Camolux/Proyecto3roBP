@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using GUI.Modelo.Neumatico;
 using Repositorios;
 
-namespace Servicios
+namespace GUI.Servicios
 {
     public class CompraServicios
     {

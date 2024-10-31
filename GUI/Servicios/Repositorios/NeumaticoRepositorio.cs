@@ -96,5 +96,27 @@ namespace Repositorios
                 connection.Close();
             }
         }
+        public int? ObtenerPrecioPorId(int idNeumatico)
+        {
+            MySqlConnection connection = conexionBD.ConnectToDataBase();
+            try
+            {
+                string query = "SELECT precio FROM Neumatico WHERE idneumatico = @idNeumatico";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@idNeumatico", idNeumatico);
+
+                connection.Open();
+                object result = cmd.ExecuteScalar();
+                return result != null ? Convert.ToInt32(result) : (int?)null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el precio del neumático", ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

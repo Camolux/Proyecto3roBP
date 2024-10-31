@@ -47,5 +47,29 @@ namespace Servicios
                 throw new Exception("Error al obtener el servicio: " + ex.Message, ex);
             }
         }
+        public int ObtenerPrecioPorId(int idServicio)
+        {
+            try
+            {
+                // Validación del ID
+                if (idServicio <= 0)
+                {
+                    throw new ArgumentException("El ID del servicio debe ser un número positivo.");
+                }
+
+                int? precio = servicioRepositorio.ObtenerPrecioPorId(idServicio);
+
+                if (precio == null)
+                {
+                    throw new Exception("El servicio con el ID proporcionado no existe.");
+                }
+
+                return precio.Value;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el precio del servicio: " + ex.Message, ex);
+            }
+        }
     }
 }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using UsuarioDTO;
 using Repositorios;
-
 
 namespace Servicios
 {
@@ -26,6 +26,7 @@ namespace Servicios
         {
             usuarioRepositorio = UsuarioRepositorio.GetInstance();
         }
+
         public Usuario VerificarUsuario(string nombreUsuario, string contraUsuario)
         {
             try
@@ -36,86 +37,125 @@ namespace Servicios
                 }
                 else
                 {
+                    MessageBox.Show("Usuario o contraseña incorrectos.");
                     return null;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo verificar el usuario");
+                MessageBox.Show("No se pudo verificar el usuario: " + ex.Message);
                 return null;
             }
         }
+
         public bool AgregarUsuario(Usuario usuario)
         {
             try
             {
                 // Validaciones
                 if (string.IsNullOrWhiteSpace(usuario.nombreUsuario))
-                    throw new ArgumentException("El nombre de usuario no puede estar vacío.");
+                {
+                    MessageBox.Show("El nombre de usuario no puede estar vacío.");
+                    return false;
+                }
                 if (string.IsNullOrWhiteSpace(usuario.contraUsuario))
-                    throw new ArgumentException("La contraseña no puede estar vacía.");
+                {
+                    MessageBox.Show("La contraseña no puede estar vacía.");
+                    return false;
+                }
                 if (string.IsNullOrWhiteSpace(usuario.idTipoUsuario))
-                    throw new ArgumentException("El tipo de usuario no puede estar vacío.");
+                {
+                    MessageBox.Show("El tipo de usuario no puede estar vacío.");
+                    return false;
+                }
 
-                // Puedes agregar más validaciones según tus reglas de negocio
-                // Por ejemplo, validar que el nombre de usuario no exista ya en la base de datos
+                // Validar que el nombre de usuario no exista ya en la base de datos
                 if (usuarioRepositorio.VerificarUsuarioExistente(usuario.nombreUsuario))
-                    throw new ArgumentException("El nombre de usuario ya existe.");
+                {
+                    MessageBox.Show("El nombre de usuario ya existe.");
+                    return false;
+                }
 
                 // Llamada al repositorio para agregar el usuario
                 return usuarioRepositorio.AgregarUsuario(usuario);
             }
             catch (Exception ex)
             {
-                // Manejo de excepciones
-                // Puedes registrar el error y/o propagar la excepción
-                throw new Exception("Error al agregar el usuario: " + ex.Message, ex);
+                MessageBox.Show("Error al agregar el usuario: " + ex.Message);
+                return false;
             }
         }
+
         public bool ModificarUsuario(Usuario usuario)
         {
             try
             {
                 // Validaciones
                 if (string.IsNullOrWhiteSpace(usuario.nombreUsuario))
-                    throw new ArgumentException("El nombre de usuario no puede estar vacío.");
+                {
+                    MessageBox.Show("El nombre de usuario no puede estar vacío.");
+                    return false;
+                }
                 if (string.IsNullOrWhiteSpace(usuario.contraUsuario))
-                    throw new ArgumentException("La contraseña no puede estar vacía.");
+                {
+                    MessageBox.Show("La contraseña no puede estar vacía.");
+                    return false;
+                }
                 if (string.IsNullOrWhiteSpace(usuario.idTipoUsuario))
-                    throw new ArgumentException("El tipo de usuario no puede estar vacío.");
+                {
+                    MessageBox.Show("El tipo de usuario no puede estar vacío.");
+                    return false;
+                }
 
-                // Validar que el usuario exista antes de modificarlo
-                if (!usuarioRepositorio.VerificarUsuarioExistente(usuario.nombreUsuario))
-                    throw new ArgumentException("El usuario no existe.");
+                // Verificar que el usuario no tenga rol de "gerente"
+                var usuarioExistente = usuarioRepositorio.ObtenerUsuarioPorNombre(usuario.nombreUsuario);
+                if (usuarioExistente == null)
+                {
+                    MessageBox.Show("El usuario no existe.");
+                    return false;
+                }
 
-                // Llamada al repositorio para modificar el usuario
+                if (usuarioExistente.idTipoUsuario == "gerente")
+                {
+                    MessageBox.Show("No se permite modificar usuarios con rol de 'gerente'.");
+                    return false;
+                }
+
+                // Llamada al repositorio para modificar el usuario si no es gerente
                 return usuarioRepositorio.ModificarUsuario(usuario);
             }
             catch (Exception ex)
             {
-                // Manejo de excepciones
-                throw new Exception("Error al modificar el usuario: " + ex.Message, ex);
+                MessageBox.Show("Error al modificar el usuario: " + ex.Message);
+                return false;
             }
         }
+
         public bool EliminarUsuario(string nombreUsuario)
         {
             try
             {
                 // Validaciones
                 if (string.IsNullOrWhiteSpace(nombreUsuario))
-                    throw new ArgumentException("El nombre de usuario no puede estar vacío.");
+                {
+                    MessageBox.Show("El nombre de usuario no puede estar vacío.");
+                    return false;
+                }
 
                 // Validar que el usuario exista antes de eliminarlo
                 if (!usuarioRepositorio.VerificarUsuarioExistente(nombreUsuario))
-                    throw new ArgumentException("El usuario no existe.");
+                {
+                    MessageBox.Show("El usuario no existe.");
+                    return false;
+                }
 
                 // Llamada al repositorio para eliminar el usuario
                 return usuarioRepositorio.EliminarUsuario(nombreUsuario);
             }
             catch (Exception ex)
             {
-                // Manejo de excepciones
-                throw new Exception("Error al eliminar el usuario: " + ex.Message, ex);
+                MessageBox.Show("Error al eliminar el usuario: " + ex.Message);
+                return false;
             }
         }
 
@@ -125,13 +165,17 @@ namespace Servicios
             {
                 // Validaciones
                 if (string.IsNullOrWhiteSpace(nombreUsuario))
-                    throw new ArgumentException("El nombre de usuario no puede estar vacío.");
+                {
+                    MessageBox.Show("El nombre de usuario no puede estar vacío.");
+                    return null;
+                }
 
                 return usuarioRepositorio.ObtenerUsuarioPorNombre(nombreUsuario);
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al obtener el usuario: " + ex.Message, ex);
+                MessageBox.Show("Error al obtener el usuario: " + ex.Message);
+                return null;
             }
         }
 
@@ -144,9 +188,54 @@ namespace Servicios
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar los usuarios: " + ex.Message, ex);
+                MessageBox.Show("Error al listar los usuarios: " + ex.Message);
+                return new List<Usuario>();
             }
         }
 
+        public bool ModificarUsuarioJefe(Usuario usuario)
+        {
+            try
+            {
+                // Validaciones
+                if (string.IsNullOrWhiteSpace(usuario.nombreUsuario))
+                {
+                    MessageBox.Show("El nombre de usuario no puede estar vacío.");
+                    return false;
+                }
+                if (string.IsNullOrWhiteSpace(usuario.contraUsuario))
+                {
+                    MessageBox.Show("La contraseña no puede estar vacía.");
+                    return false;
+                }
+                if (string.IsNullOrWhiteSpace(usuario.idTipoUsuario))
+                {
+                    MessageBox.Show("El tipo de usuario no puede estar vacío.");
+                    return false;
+                }
+
+                // Verificar que el usuario no tenga rol de "jefe" o "gerente"
+                var usuarioExistente = usuarioRepositorio.ObtenerUsuarioPorNombre(usuario.nombreUsuario);
+                if (usuarioExistente == null)
+                {
+                    MessageBox.Show("El usuario no existe.");
+                    return false;
+                }
+
+                if (usuarioExistente.idTipoUsuario == "jefe" || usuarioExistente.idTipoUsuario == "gerente")
+                {
+                    MessageBox.Show("No se permite modificar usuarios con rol de 'jefe' o 'gerente'.");
+                    return false;
+                }
+
+                // Llamada al repositorio para modificar el usuario si no es jefe o gerente
+                return usuarioRepositorio.ModificarUsuario(usuario);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar el usuario: " + ex.Message);
+                return false;
+            }
+        }
     }
 }

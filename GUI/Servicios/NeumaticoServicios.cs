@@ -52,5 +52,29 @@ namespace Servicios
                 throw new Exception("Error al listar los neumáticos: " + ex.Message, ex);
             }
         }
+        public int ObtenerPrecioPorId(int idNeumatico)
+        {
+            try
+            {
+                // Validación de ID
+                if (idNeumatico <= 0)
+                {
+                    throw new ArgumentException("El ID del neumático debe ser un valor positivo.");
+                }
+
+                int? precio = neumaticoRepositorio.ObtenerPrecioPorId(idNeumatico);
+
+                if (precio == null)
+                {
+                    throw new Exception("El neumático con el ID proporcionado no existe.");
+                }
+
+                return precio.Value;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el precio del neumático: " + ex.Message, ex);
+            }
+        }
     }
 }

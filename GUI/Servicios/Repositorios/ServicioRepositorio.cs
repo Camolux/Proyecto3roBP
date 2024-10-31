@@ -59,5 +59,28 @@ namespace Repositorios
                 connection.Close();
             }
         }
+        public int? ObtenerPrecioPorId(int idServicio)
+        {
+            MySqlConnection connection = conexionBD.ConnectToDataBase();
+            try
+            {
+                string query = "SELECT precio FROM Servicio WHERE idservicio = @idServicio";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@idServicio", idServicio);
+
+                connection.Open();
+                object result = cmd.ExecuteScalar();
+
+                return result != null ? Convert.ToInt32(result) : (int?)null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el precio del servicio", ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

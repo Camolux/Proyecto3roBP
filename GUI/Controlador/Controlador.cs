@@ -283,8 +283,7 @@ namespace Controlador
                         altasVehiculosEjecutivoDeServicios.TBAltaVehiculoMatr1.Clear();
                         altasVehiculosEjecutivoDeServicios.TBAltaVehiculoMarca1.Clear();
                         altasVehiculosEjecutivoDeServicios.TBAltaVehiculoModelo1.Clear();
-                        altasVehiculosEjecutivoDeServicios.CBAltaVehiculoTipoVehiculo1.Items.Clear();
-                        altasVehiculosEjecutivoDeServicios.CBAltaVehiculoTipoCliente1.Items.Clear();
+                        
                         break;
                     case "btnModificarClientesEje":
                         clienteDTO.CI = modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteCIEje1.Text;
@@ -322,7 +321,7 @@ namespace Controlador
                         usuariosServicios.AgregarUsuario(usuarioDTO);
                         altasEjecutivoYJefeDeServiciosMenuJefe.TBAltaFuncionarioNom1.Clear();
                         altasEjecutivoYJefeDeServiciosMenuJefe.TBAltaFuncionarioContra1.Clear();
-                        altasEjecutivoYJefeDeServiciosMenuJefe.CBAltaFuncionarioRol.Items.Clear();
+                        
                         break;
                     case "btnIngresarServicios":
 
@@ -350,8 +349,7 @@ namespace Controlador
                         altasVehiculosJefe.TBIngresoVehiculoMatr1.Clear();
                         altasVehiculosJefe.TBIngresoVehiculoMarca1.Clear();
                         altasVehiculosJefe.TBIngresoVehiculoModelo1.Clear();
-                        altasVehiculosJefe.CBTipoVehiculo.Items.Clear();
-                        altasVehiculosJefe.CBTipoCliente.Items.Clear();
+                        
                         break;
                     case "btnBajaFuncionario":
                         string nomUsuad = bajasEjecutivoYJefeDeServiciosMenuJefe.TBBajaUsuNom1.Text;
@@ -401,16 +399,19 @@ namespace Controlador
                         modificacionesDeClientesMenuJefe.TBModClientesApe1.Clear();
                         modificacionesDeClientesMenuJefe.TBModClientesCI1.Clear();
                         modificacionesDeClientesMenuJefe.TBModClientesTel1.Clear();
+                        
                         break;
                     case "btnModFuncionarioJefe": //Fin Jefe
                         usuarioDTO.nombreUsuario = modificacionesEjecutivoYJefeDeServiciosMenuJefe.TBModFuncionariosUsu1.Text;
                         usuarioDTO.contraUsuario = modificacionesEjecutivoYJefeDeServiciosMenuJefe.TBModFuncionariosContra1.Text;
                         usuarioDTO.idTipoUsuario = modificacionesEjecutivoYJefeDeServiciosMenuJefe.CBModFuncionariosRol.Text;
                         MessageBox.Show("Modificacion Correcta");
-                        usuariosServicios.ModificarUsuario(usuarioDTO);
+                        usuariosServicios.ModificarUsuarioJefe(usuarioDTO);
                         modificacionesEjecutivoYJefeDeServiciosMenuJefe.TBModFuncionariosUsu1.Clear();
                         modificacionesEjecutivoYJefeDeServiciosMenuJefe.TBModFuncionariosContra1.Clear();
-                        modificacionesEjecutivoYJefeDeServiciosMenuJefe.CBModFuncionariosRol.Items.Clear();
+                        modificacionesEjecutivoYJefeDeServiciosMenuJefe.CBModFuncionariosRol.SelectedIndex = 0;
+
+
                         break;
                     case "BTNAltaClienteGer": //Gerente
                         clienteDTO.CI = altasClientes.TBAltaClienteGerCI1.Text;
@@ -435,11 +436,15 @@ namespace Controlador
                         usuariosServicios.AgregarUsuario(usuarioDTO);
                         altasEjecutivoYJefeDeServicios.TBAltaUsuNom1.Clear();
                         altasEjecutivoYJefeDeServicios.TBAltaUsuPass1.Clear();
-                        altasEjecutivoYJefeDeServicios.CBAltaTipoUsu1.Items.Clear();
+                        
 
                         break;
                     case "BTNAltaServGer":
-                        
+                        if (altasServicios.RBLavado.Checked)
+                        {
+                            recibeDTO.Matricula = altasServicios.TBAltaServGerMatr1.Text;
+
+                        }
 
 
 
@@ -465,8 +470,7 @@ namespace Controlador
                         altasVehiculos.TBAltaVehiculoMatr1.Clear();
                         altasVehiculos.TBAltaVehiculoMarca1.Clear();
                         altasVehiculos.TBAltaVehiculoModelo1.Clear();
-                        altasVehiculos.CBTipoVehiculo.Items.Clear();
-                        altasVehiculos.CBTipoCliente.Items.Clear();
+                        
                         break;
                     case "BTNEliminarFunciGer":
                         string nombreUsuario= bajasEjecutivoYJefeDeServicios.TBNomBorrarFunci1.Text;
@@ -632,7 +636,7 @@ namespace Controlador
                         usuariosServicios.ModificarUsuario(usuarioDTO);
                         modificacionesEjecutivoYJefeDeServicios.TBModFuncionarioNom1.Clear(); 
                         modificacionesEjecutivoYJefeDeServicios.TBModFuncionarioContra1.Clear();
-                        modificacionesEjecutivoYJefeDeServicios.CBModFuncionarioRol.Items.Clear();
+                        
                         break;
                     case "btnModServGer":
 
@@ -656,8 +660,7 @@ namespace Controlador
                         vehiculoDTO.TIpoCliente = modificacionesVehiculos.CBTipoCliente.Text;
                         MessageBox.Show("Modificacion Correcta");
                         vehiculoServicios.ModificarVehiculo(vehiculoDTO);
-                        modificacionesVehiculos.CBTipoCliente.Items.Clear();
-                        modificacionesVehiculos.CBTipoVehiculo.Items.Clear();
+                        
                         modificacionesVehiculos.TBModVehiculosModelo1.Clear();
                         modificacionesVehiculos.TBModVehiculosMarca1.Clear();
                         modificacionesVehiculos.TBModVehiculosMatricula1.Clear();

@@ -140,7 +140,7 @@
             // 
             comboBoxRol.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRol.FormattingEnabled = true;
-            comboBoxRol.Items.AddRange(new object[] { "ejecutivo", "operador", "cajero" });
+            comboBoxRol.Items.AddRange(new object[] { "", "ejecutivo", "operador", "cajero" });
             comboBoxRol.Location = new Point(250, 300);
             comboBoxRol.Name = "comboBoxRol";
             comboBoxRol.Size = new Size(232, 23);
