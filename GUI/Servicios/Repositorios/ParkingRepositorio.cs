@@ -195,5 +195,93 @@ namespace Repositorios
                 connection.Close();
             }
         }
+        public bool ActualizarPrecioParking(int idParking, int nuevoPrecio)
+        {
+            MySqlConnection connection = conexionBD.ConnectToDataBase();
+            try
+            {
+                string query = "UPDATE Parking SET precio = @nuevoPrecio WHERE idparking = @idParking";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@nuevoPrecio", nuevoPrecio);
+                cmd.Parameters.AddWithValue("@idParking", idParking);
+
+                connection.Open();
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar el precio de parking", ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public bool CambiarParaEntregar(int idParking)
+        {
+            MySqlConnection connection = conexionBD.ConnectToDataBase();
+            try
+            {
+                // Consulta que cambia 'ParaEntregar' a 'sí' solo si está en 'no'
+                string query = @"
+                    UPDATE Parking 
+                    SET paraentregar = 'sí' 
+                    WHERE idparking = @idParking AND paraentregar = 'no';
+
+                    SELECT CASE WHEN ROW_COUNT() > 0 THEN 1 ELSE 0 END;";
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@idParking", idParking);
+
+                connection.Open();
+                int resultado = Convert.ToInt32(cmd.ExecuteScalar());
+                return resultado == 1; // Retorna true si la actualización fue exitosa
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al cambiar el estado de 'ParaEntregar'", ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public ParkingDTO ObtenerParkingPorMatriculaYFecha(string matricula, DateTime fechaEntrada)
+        {
+            MySqlConnection connection = conexionBD.ConnectToDataBase();
+            try
+            {
+                string query = "SELECT * FROM Parking WHERE matricula = @matricula AND DATE(fechaentrada) = DATE(@fechaEntrada)";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@matricula", matricula);
+                cmd.Parameters.AddWithValue("@fechaEntrada", fechaEntrada);
+
+                connection.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    return new ParkingDTO
+                    {
+                        IdParking = Convert.ToInt32(reader["idparking"]),
+                        Precio = Convert.ToInt32(reader["precio"]),
+                        FechaEntrada = Convert.ToDateTime(reader["fechaentrada"]),
+                        FechaSalida = Convert.ToDateTime(reader["fechasalida"]),
+                        ParaEntregarEstado = (ParkingDTO.ParaEntregar)Enum.Parse(typeof(ParkingDTO.ParaEntregar), reader["paraentregar"].ToString()),
+                        NumPlaza = Convert.ToInt32(reader["numplaza"]),
+                        Funcionario = reader["funcionario"].ToString()
+                    };
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el registro de Parking", ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

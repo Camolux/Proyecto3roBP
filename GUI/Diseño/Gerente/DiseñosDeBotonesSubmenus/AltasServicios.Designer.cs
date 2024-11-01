@@ -53,13 +53,13 @@
             label10 = new Label();
             mTBAltaServGerFechaInicio = new MaskedTextBox();
             TBAltaServGerIDNeum = new TextBox();
-            label2 = new Label();
             panel6 = new Panel();
             comboBoxServicio = new ComboBox();
             radioButtonNeumaticos = new RadioButton();
             radioButtonLavado = new RadioButton();
             radioButtonTaller = new RadioButton();
             radioButtonParking = new RadioButton();
+            label2 = new Label();
             SuspendLayout();
             // 
             // BTNAltaServGer
@@ -89,7 +89,7 @@
             // 
             TBAltaServGerIDCliente.BackColor = SystemColors.ActiveCaption;
             TBAltaServGerIDCliente.BorderStyle = BorderStyle.None;
-            TBAltaServGerIDCliente.Location = new Point(240, 312);
+            TBAltaServGerIDCliente.Location = new Point(240, 282);
             TBAltaServGerIDCliente.Name = "TBAltaServGerIDCliente";
             TBAltaServGerIDCliente.Size = new Size(230, 16);
             TBAltaServGerIDCliente.TabIndex = 126;
@@ -98,7 +98,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(40, 115);
+            label1.Location = new Point(40, 85);
             label1.Name = "label1";
             label1.Size = new Size(172, 18);
             label1.TabIndex = 91;
@@ -108,7 +108,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(53, 156);
+            label3.Location = new Point(53, 126);
             label3.Name = "label3";
             label3.Size = new Size(140, 18);
             label3.TabIndex = 92;
@@ -118,7 +118,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(27, 275);
+            label11.Location = new Point(27, 245);
             label11.Name = "label11";
             label11.Size = new Size(198, 18);
             label11.TabIndex = 104;
@@ -128,7 +128,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(40, 198);
+            label4.Location = new Point(40, 168);
             label4.Name = "label4";
             label4.Size = new Size(163, 18);
             label4.TabIndex = 93;
@@ -138,7 +138,7 @@
             // 
             TBAltaServGerID.BackColor = SystemColors.ActiveCaption;
             TBAltaServGerID.BorderStyle = BorderStyle.None;
-            TBAltaServGerID.Location = new Point(240, 109);
+            TBAltaServGerID.Location = new Point(240, 79);
             TBAltaServGerID.Name = "TBAltaServGerID";
             TBAltaServGerID.Size = new Size(230, 16);
             TBAltaServGerID.TabIndex = 94;
@@ -147,7 +147,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(53, 316);
+            label9.Location = new Point(53, 286);
             label9.Name = "label9";
             label9.Size = new Size(130, 18);
             label9.TabIndex = 105;
@@ -157,7 +157,7 @@
             // 
             TBAltaServGerMatr.BackColor = SystemColors.ActiveCaption;
             TBAltaServGerMatr.BorderStyle = BorderStyle.None;
-            TBAltaServGerMatr.Location = new Point(240, 150);
+            TBAltaServGerMatr.Location = new Point(240, 120);
             TBAltaServGerMatr.Name = "TBAltaServGerMatr";
             TBAltaServGerMatr.Size = new Size(230, 16);
             TBAltaServGerMatr.TabIndex = 95;
@@ -165,7 +165,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaptionText;
-            panel1.Location = new Point(240, 131);
+            panel1.Location = new Point(240, 101);
             panel1.Name = "panel1";
             panel1.Size = new Size(230, 2);
             panel1.TabIndex = 96;
@@ -173,7 +173,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ActiveCaptionText;
-            panel2.Location = new Point(240, 172);
+            panel2.Location = new Point(240, 142);
             panel2.Name = "panel2";
             panel2.Size = new Size(230, 2);
             panel2.TabIndex = 98;
@@ -181,7 +181,7 @@
             // panel10
             // 
             panel10.BackColor = SystemColors.ActiveCaptionText;
-            panel10.Location = new Point(240, 291);
+            panel10.Location = new Point(240, 261);
             panel10.Name = "panel10";
             panel10.Size = new Size(230, 2);
             panel10.TabIndex = 109;
@@ -189,7 +189,7 @@
             // panel4
             // 
             panel4.BackColor = SystemColors.ActiveCaptionText;
-            panel4.Location = new Point(240, 214);
+            panel4.Location = new Point(240, 184);
             panel4.Name = "panel4";
             panel4.Size = new Size(230, 2);
             panel4.TabIndex = 97;
@@ -197,7 +197,7 @@
             // panel9
             // 
             panel9.BackColor = SystemColors.ActiveCaptionText;
-            panel9.Location = new Point(240, 332);
+            panel9.Location = new Point(240, 302);
             panel9.Name = "panel9";
             panel9.Size = new Size(230, 2);
             panel9.TabIndex = 111;
@@ -206,7 +206,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(40, 237);
+            label6.Location = new Point(40, 207);
             label6.Name = "label6";
             label6.Size = new Size(168, 18);
             label6.TabIndex = 100;
@@ -216,7 +216,7 @@
             // 
             TBAltaServGerNumPlaza.BackColor = SystemColors.ActiveCaption;
             TBAltaServGerNumPlaza.BorderStyle = BorderStyle.None;
-            TBAltaServGerNumPlaza.Location = new Point(240, 231);
+            TBAltaServGerNumPlaza.Location = new Point(240, 201);
             TBAltaServGerNumPlaza.Name = "TBAltaServGerNumPlaza";
             TBAltaServGerNumPlaza.Size = new Size(230, 16);
             TBAltaServGerNumPlaza.TabIndex = 102;
@@ -224,7 +224,7 @@
             // panel5
             // 
             panel5.BackColor = SystemColors.ActiveCaptionText;
-            panel5.Location = new Point(240, 253);
+            panel5.Location = new Point(240, 223);
             panel5.Name = "panel5";
             panel5.Size = new Size(230, 2);
             panel5.TabIndex = 103;
@@ -233,7 +233,7 @@
             // 
             TBAltaServGerNomFuncionario.BackColor = SystemColors.ActiveCaption;
             TBAltaServGerNomFuncionario.BorderStyle = BorderStyle.None;
-            TBAltaServGerNomFuncionario.Location = new Point(240, 269);
+            TBAltaServGerNomFuncionario.Location = new Point(240, 239);
             TBAltaServGerNomFuncionario.Name = "TBAltaServGerNomFuncionario";
             TBAltaServGerNomFuncionario.Size = new Size(230, 16);
             TBAltaServGerNomFuncionario.TabIndex = 125;
@@ -290,25 +290,15 @@
             // 
             TBAltaServGerIDNeum.BackColor = SystemColors.ActiveCaption;
             TBAltaServGerIDNeum.BorderStyle = BorderStyle.None;
-            TBAltaServGerIDNeum.Location = new Point(240, 192);
+            TBAltaServGerIDNeum.Location = new Point(240, 162);
             TBAltaServGerIDNeum.Name = "TBAltaServGerIDNeum";
             TBAltaServGerIDNeum.Size = new Size(230, 16);
             TBAltaServGerIDNeum.TabIndex = 107;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(40, 345);
-            label2.Name = "label2";
-            label2.Size = new Size(153, 18);
-            label2.TabIndex = 206;
-            label2.Text = "Tipo de Servicio Taller";
-            // 
             // panel6
             // 
             panel6.BackColor = SystemColors.ActiveCaptionText;
-            panel6.Location = new Point(240, 364);
+            panel6.Location = new Point(240, 334);
             panel6.Name = "panel6";
             panel6.Size = new Size(230, 2);
             panel6.TabIndex = 205;
@@ -318,7 +308,7 @@
             comboBoxServicio.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxServicio.FormattingEnabled = true;
             comboBoxServicio.Items.AddRange(new object[] { "montaje neumatico", "alineacion 1 tren", "alineacion", "balanceo auto + valvula", "alineacion 2 trenes", "pack alineacion", "balanceo camioneta + valvula" });
-            comboBoxServicio.Location = new Point(240, 340);
+            comboBoxServicio.Location = new Point(240, 310);
             comboBoxServicio.Name = "comboBoxServicio";
             comboBoxServicio.Size = new Size(230, 23);
             comboBoxServicio.TabIndex = 204;
@@ -371,17 +361,27 @@
             radioButtonParking.UseVisualStyleBackColor = true;
             radioButtonParking.CheckedChanged += RBParking_CheckedChanged;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(50, 311);
+            label2.Name = "label2";
+            label2.Size = new Size(153, 18);
+            label2.TabIndex = 217;
+            label2.Text = "Tipo de Servicio Taller";
+            // 
             // AltasServicios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(label2);
             Controls.Add(radioButtonNeumaticos);
             Controls.Add(radioButtonLavado);
             Controls.Add(radioButtonTaller);
             Controls.Add(radioButtonParking);
-            Controls.Add(label2);
             Controls.Add(panel6);
             Controls.Add(comboBoxServicio);
             Controls.Add(label24);
@@ -447,13 +447,13 @@
         private MaskedTextBox mTBAltaServGerFechaInicio;
         private RadioButton rBBalanceo;
         private TextBox TBAltaServGerIDNeum;
-        private Label label2;
         private Panel panel6;
         private ComboBox comboBoxServicio;
         private RadioButton radioButtonNeumaticos;
         private RadioButton radioButtonLavado;
         private RadioButton radioButtonTaller;
         private RadioButton radioButtonParking;
+        private Label label2;
 
         public Button BTNAltaServGer1 { get => BTNAltaServGer; set => BTNAltaServGer = value; }
         public TextBox TBAltaServGerIDCliente1 { get => TBAltaServGerIDCliente; set => TBAltaServGerIDCliente = value; }

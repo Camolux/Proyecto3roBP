@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using Neumatico;
 using Repositorios;
 
@@ -27,17 +28,22 @@ namespace Servicios
         // Método para obtener un neumático por su ID
         public NeumaticoDTO ObtenerNeumaticoPorId(int idNeumatico)
         {
-            try
+            // Validación del ID del neumático
+            if (idNeumatico <= 0)
             {
-                if (idNeumatico <= 0)
-                    throw new ArgumentException("El ID del neumático debe ser un valor positivo.");
+                MessageBox.Show("El ID del neumático debe ser un valor positivo.");
+                return null;
+            }
 
-                return neumaticoRepositorio.ObtenerNeumaticoPorId(idNeumatico);
-            }
-            catch (Exception ex)
+            // Llamar al repositorio para obtener el neumático
+            NeumaticoDTO neumatico = neumaticoRepositorio.ObtenerNeumaticoPorId(idNeumatico);
+
+            if (neumatico == null)
             {
-                throw new Exception("Error al obtener el neumático: " + ex.Message, ex);
+                MessageBox.Show("El neumático con el ID proporcionado no existe.");
             }
+
+            return neumatico;
         }
 
         // Método para listar todos los neumáticos
@@ -49,32 +55,41 @@ namespace Servicios
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar los neumáticos: " + ex.Message, ex);
+                MessageBox.Show("Error al listar los neumáticos: " + ex.Message);
+                return new List<NeumaticoDTO>();
             }
         }
-        public int ObtenerPrecioPorId(int idNeumatico)
+
+        // Método para obtener el precio de un neumático por su ID
+        public int? ObtenerPrecioPorId(int idNeumatico)
         {
-            try
+            // Validación del ID
+            if (idNeumatico <= 0)
             {
-                // Validación de ID
-                if (idNeumatico <= 0)
-                {
-                    throw new ArgumentException("El ID del neumático debe ser un valor positivo.");
-                }
-
-                int? precio = neumaticoRepositorio.ObtenerPrecioPorId(idNeumatico);
-
-                if (precio == null)
-                {
-                    throw new Exception("El neumático con el ID proporcionado no existe.");
-                }
-
-                return precio.Value;
+                MessageBox.Show("El ID del neumático debe ser un valor positivo.");
+                return null;
             }
-            catch (Exception ex)
+
+            // Obtener el precio del neumático desde el repositorio
+            int? precio = neumaticoRepositorio.ObtenerPrecioPorId(idNeumatico);
+
+            if (precio == null)
             {
-                throw new Exception("Error al obtener el precio del neumático: " + ex.Message, ex);
+                MessageBox.Show("El neumático con el ID proporcionado no existe.");
+                return null;
             }
+
+            return precio;
+        }
+        public bool ActualizarPrecioNeumatico(int idNeumatico, int nuevoPrecio)
+        {
+            if (nuevoPrecio <= 0)
+            {
+                MessageBox.Show("El precio debe ser un valor positivo.");
+                return false;
+            }
+
+            return neumaticoRepositorio.ActualizarPrecioNeumatico(idNeumatico, nuevoPrecio);
         }
     }
 }

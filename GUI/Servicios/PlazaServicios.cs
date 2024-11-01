@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using Parking;
 using Repositorios;
 
@@ -27,17 +28,23 @@ namespace Servicios
         // Método para obtener una plaza por Id
         public PlazaDTO ObtenerPlazaPorId(int idPlaza)
         {
-            try
+            // Validación del ID de plaza
+            if (idPlaza <= 0)
             {
-                if (idPlaza <= 0)
-                    throw new ArgumentException("El ID de plaza debe ser un valor positivo.");
+                MessageBox.Show("El ID de plaza debe ser un valor positivo.");
+                return null;
+            }
 
-                return plazaRepositorio.ObtenerPlazaPorId(idPlaza);
-            }
-            catch (Exception ex)
+            // Llamar al repositorio para obtener la plaza
+            PlazaDTO plaza = plazaRepositorio.ObtenerPlazaPorId(idPlaza);
+
+            if (plaza == null)
             {
-                throw new Exception("Error al obtener la plaza: " + ex.Message, ex);
+                MessageBox.Show("No se encontró la plaza con el ID proporcionado.");
+                return null;
             }
+
+            return plaza;
         }
 
         // Método para listar plazas por tipo
@@ -49,7 +56,8 @@ namespace Servicios
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar las plazas por tipo: " + ex.Message, ex);
+                MessageBox.Show("Error al listar las plazas por tipo: " + ex.Message);
+                return new List<PlazaDTO>();
             }
         }
     }

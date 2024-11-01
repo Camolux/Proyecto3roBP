@@ -53,12 +53,10 @@ namespace GUI.Diseño.Jefe_de_Servicios
                 // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
                 TBAltaServicioID.Enabled = false;
                 TBAltaServicioIDNeumatico.Enabled = false;
-                TBAltaServicioNomFuncionario.Enabled = false;
                 TBAltaServicioIDClientes.Enabled = false;
                 comboBoxServicio.Enabled = false;
                 TBAltaServicioID.BackColor = Color.DarkGray;
                 TBAltaServicioIDNeumatico.BackColor = Color.DarkGray;
-                TBAltaServicioNomFuncionario.BackColor = Color.DarkGray;
                 TBAltaServicioIDClientes.BackColor = Color.DarkGray;
             }
             else

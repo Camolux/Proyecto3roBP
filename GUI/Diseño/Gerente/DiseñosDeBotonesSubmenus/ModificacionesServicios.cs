@@ -37,12 +37,10 @@ namespace GUI.Diseño.Gerente.Vehiculos
                 // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
                 TBModServIDServ.Enabled = false;
                 TBModServIDNeumatico.Enabled = false;
-                TBModServFuncionario.Enabled = false;
                 TBModServIDClientes.Enabled = false;
                 comboBoxServicio.Enabled = false;
                 TBModServIDServ.BackColor = Color.DarkGray;
                 TBModServIDNeumatico.BackColor = Color.DarkGray;
-                TBModServFuncionario.BackColor = Color.DarkGray;
                 TBModServIDClientes.BackColor = Color.DarkGray;
             }
             else

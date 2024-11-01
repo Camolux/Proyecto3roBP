@@ -2,9 +2,7 @@
 using GUI.Servicios.Repositorios;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GUI.Servicios
 {
@@ -30,87 +28,95 @@ namespace GUI.Servicios
         // Método para agregar un teléfono
         public bool AgregarTelefono(TelefonoDTO telefono)
         {
-            try
+            // Validaciones
+            if (telefono == null)
             {
-                if (telefono == null)
-                    throw new ArgumentNullException("El teléfono no puede ser nulo.");
-
-                if (string.IsNullOrWhiteSpace(telefono.CI))
-                    throw new ArgumentException("La cédula de identidad no puede estar vacía.");
-
-                if (telefono.Telefono < 10000000 || telefono.Telefono > 999999999)
-                    throw new ArgumentException("El número de teléfono debe tener 9 dígitos.");
-
-                // Validar que el teléfono no exista ya para el cliente
-                TelefonoDTO existente = telefonoRepositorio.ObtenerTelefonoPorCIyNumero(telefono.CI, telefono.Telefono);
-                if (existente != null)
-                    throw new Exception("Ya existe un teléfono con ese número para el cliente.");
-
-                return telefonoRepositorio.AgregarTelefono(telefono);
+                MessageBox.Show("El teléfono no puede ser nulo.");
+                return false;
             }
-            catch (Exception ex)
+
+            if (string.IsNullOrWhiteSpace(telefono.CI))
             {
-                throw new Exception("Error al agregar el teléfono: " + ex.Message, ex);
+                MessageBox.Show("La cédula de identidad no puede estar vacía.");
+                return false;
             }
+
+            if (telefono.Telefono < 10000000 || telefono.Telefono > 999999999)
+            {
+                MessageBox.Show("El número de teléfono debe tener 9 dígitos.");
+                return false;
+            }
+
+            // Validar que el teléfono no exista ya para el cliente
+            TelefonoDTO existente = telefonoRepositorio.ObtenerTelefonoPorCIyNumero(telefono.CI, telefono.Telefono);
+            if (existente != null)
+            {
+                MessageBox.Show("Ya existe un teléfono con ese número para el cliente.");
+                return false;
+            }
+
+            // Llamar al repositorio para agregar el teléfono
+            return telefonoRepositorio.AgregarTelefono(telefono);
         }
 
         // Método para modificar un teléfono
         public bool ModificarTelefono(TelefonoDTO telefono)
         {
-            try
+            // Validaciones
+            if (telefono == null)
             {
-                if (telefono == null)
-                    throw new ArgumentNullException("El teléfono no puede ser nulo.");
-
-                if (string.IsNullOrWhiteSpace(telefono.CI))
-                    throw new ArgumentException("La cédula de identidad no puede estar vacía.");
-
-                if (telefono.Telefono < 10000000 || telefono.Telefono > 999999999)
-                    throw new ArgumentException("El número de teléfono debe tener 9 dígitos.");
-
-                
-
-                return telefonoRepositorio.ModificarTelefono(telefono);
+                MessageBox.Show("El teléfono no puede ser nulo.");
+                return false;
             }
-            catch (Exception ex)
+
+            if (string.IsNullOrWhiteSpace(telefono.CI))
             {
-                throw new Exception("Error al modificar el teléfono: " + ex.Message, ex);
+                MessageBox.Show("La cédula de identidad no puede estar vacía.");
+                return false;
             }
+
+            if (telefono.Telefono < 10000000 || telefono.Telefono > 999999999)
+            {
+                MessageBox.Show("El número de teléfono debe tener 9 dígitos.");
+                return false;
+            }
+
+            // Llamar al repositorio para modificar el teléfono
+            return telefonoRepositorio.ModificarTelefono(telefono);
         }
 
         // Método para obtener un teléfono por CI y número
         public TelefonoDTO ObtenerTelefonoPorCIyNumero(string ci, int telefono)
         {
-            try
+            // Validaciones
+            if (string.IsNullOrWhiteSpace(ci))
             {
-                if (string.IsNullOrWhiteSpace(ci))
-                    throw new ArgumentException("La cédula de identidad no puede estar vacía.");
-
-                if (telefono < 10000000 || telefono > 999999999)
-                    throw new ArgumentException("El número de teléfono debe tener 9 dígitos.");
-
-                return telefonoRepositorio.ObtenerTelefonoPorCIyNumero(ci, telefono);
+                MessageBox.Show("La cédula de identidad no puede estar vacía.");
+                return null;
             }
-            catch (Exception ex)
+
+            if (telefono < 10000000 || telefono > 999999999)
             {
-                throw new Exception("Error al obtener el teléfono: " + ex.Message, ex);
+                MessageBox.Show("El número de teléfono debe tener 9 dígitos.");
+                return null;
             }
+
+            // Llamar al repositorio para obtener el teléfono
+            return telefonoRepositorio.ObtenerTelefonoPorCIyNumero(ci, telefono);
         }
 
         // Método para listar todos los teléfonos de un cliente
         public List<TelefonoDTO> ListarTelefonosPorCI(string ci)
         {
-            try
+            // Validaciones
+            if (string.IsNullOrWhiteSpace(ci))
             {
-                if (string.IsNullOrWhiteSpace(ci))
-                    throw new ArgumentException("La cédula de identidad no puede estar vacía.");
+                MessageBox.Show("La cédula de identidad no puede estar vacía.");
+                return new List<TelefonoDTO>();
+            }
 
-                return telefonoRepositorio.ListarTelefonosPorCI(ci);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al listar los teléfonos: " + ex.Message, ex);
-            }
+            // Llamar al repositorio para listar los teléfonos
+            return telefonoRepositorio.ListarTelefonosPorCI(ci);
         }
     }
 }

@@ -151,5 +151,39 @@ namespace Repositorios
                 connection.Close();
             }
         }
+        public CompraDTO ObtenerCompraPorClienteYFecha(string ciCliente, DateTime fechaCompra)
+        {
+            MySqlConnection connection = conexionBD.ConnectToDataBase();
+            try
+            {
+                string query = "SELECT * FROM Compra WHERE cliente = @cliente AND DATE(fechaventa) = DATE(@fechaCompra)";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@cliente", ciCliente);
+                cmd.Parameters.AddWithValue("@fechaCompra", fechaCompra);
+
+                connection.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    return new CompraDTO
+                    {
+                        FechaVenta = Convert.ToDateTime(reader["fechaventa"]),
+                        IdNeumatico = Convert.ToInt32(reader["idneumatico"]),
+                        Funcionario = reader["funcionario"].ToString(),
+                        Cliente = reader["cliente"].ToString()
+                    };
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el registro de Compra", ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

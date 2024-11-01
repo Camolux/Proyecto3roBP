@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using Cliente;
 using Repositorios;
 
@@ -8,7 +9,6 @@ namespace Servicios
     public class ClienteServicios
     {
         private static ClienteServicios instance;
-
         private ClienteRepositorio clienteRepositorio;
 
         public static ClienteServicios GetInstance()
@@ -28,95 +28,123 @@ namespace Servicios
         // Método para agregar un cliente
         public bool AgregarCliente(ClienteDTO cliente)
         {
-            try
+            // Validaciones
+            if (cliente == null)
             {
-                // Validaciones
-                if (cliente == null)
-                    throw new ArgumentNullException("El cliente no puede ser nulo.");
-
-                if (string.IsNullOrWhiteSpace(cliente.CI))
-                    throw new ArgumentException("La cédula de identidad no puede estar vacía.");
-
-                if (string.IsNullOrWhiteSpace(cliente.Nombre))
-                    throw new ArgumentException("El nombre no puede estar vacío.");
-
-                if (string.IsNullOrWhiteSpace(cliente.Apellido))
-                    throw new ArgumentException("El apellido no puede estar vacío.");
-
-                // Validar que el CI tenga un formato válido (por ejemplo, longitud específica)
-                if (cliente.CI.Length != 8)
-                    throw new ArgumentException("La cédula de identidad debe tener 8 dígitos.");
-
-                // Validar que el cliente no exista ya
-                ClienteDTO existente = clienteRepositorio.ObtenerClientePorCI(cliente.CI);
-                if (existente != null)
-                    throw new Exception("Ya existe un cliente con esa cédula de identidad.");
-
-                // Llamar al repositorio para agregar el cliente
-                return clienteRepositorio.AgregarCliente(cliente);
+                MessageBox.Show("El cliente no puede ser nulo.");
+                return false;
             }
-            catch (Exception ex)
+
+            if (string.IsNullOrWhiteSpace(cliente.CI))
             {
-                throw new Exception("Error al agregar el cliente: " + ex.Message, ex);
+                MessageBox.Show("La cédula de identidad no puede estar vacía.");
+                return false;
             }
+
+            if (string.IsNullOrWhiteSpace(cliente.Nombre))
+            {
+                MessageBox.Show("El nombre no puede estar vacío.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(cliente.Apellido))
+            {
+                MessageBox.Show("El apellido no puede estar vacío.");
+                return false;
+            }
+
+            // Validar que el CI tenga un formato válido (por ejemplo, longitud específica)
+            if (cliente.CI.Length != 8)
+            {
+                MessageBox.Show("La cédula de identidad debe tener 8 dígitos.");
+                return false;
+            }
+
+            // Validar que el cliente no exista ya
+            ClienteDTO existente = clienteRepositorio.ObtenerClientePorCI(cliente.CI);
+            if (existente != null)
+            {
+                MessageBox.Show("Ya existe un cliente con esa cédula de identidad.");
+                return false;
+            }
+
+            // Llamar al repositorio para agregar el cliente
+            return clienteRepositorio.AgregarCliente(cliente);
         }
 
         // Método para modificar un cliente
         public bool ModificarCliente(ClienteDTO cliente)
         {
-            try
+            // Validaciones
+            if (cliente == null)
             {
-                // Validaciones
-                if (cliente == null)
-                    throw new ArgumentNullException("El cliente no puede ser nulo.");
-
-                if (string.IsNullOrWhiteSpace(cliente.CI))
-                    throw new ArgumentException("La cédula de identidad no puede estar vacía.");
-
-                if (string.IsNullOrWhiteSpace(cliente.Nombre))
-                    throw new ArgumentException("El nombre no puede estar vacío.");
-
-                if (string.IsNullOrWhiteSpace(cliente.Apellido))
-                    throw new ArgumentException("El apellido no puede estar vacío.");
-
-                // Validar que el CI tenga un formato válido
-                if (cliente.CI.Length != 8)
-                    throw new ArgumentException("La cédula de identidad debe tener 8 dígitos.");
-
-                // Validar que el cliente exista
-                ClienteDTO existente = clienteRepositorio.ObtenerClientePorCI(cliente.CI);
-                if (existente == null)
-                    throw new Exception("No existe un cliente con esa cédula de identidad.");
-
-                // Llamar al repositorio para modificar el cliente
-                return clienteRepositorio.ModificarCliente(cliente);
+                MessageBox.Show("El cliente no puede ser nulo.");
+                return false;
             }
-            catch (Exception ex)
+
+            if (string.IsNullOrWhiteSpace(cliente.CI))
             {
-                throw new Exception("Error al modificar el cliente: " + ex.Message, ex);
+                MessageBox.Show("La cédula de identidad no puede estar vacía.");
+                return false;
             }
+
+            if (string.IsNullOrWhiteSpace(cliente.Nombre))
+            {
+                MessageBox.Show("El nombre no puede estar vacío.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(cliente.Apellido))
+            {
+                MessageBox.Show("El apellido no puede estar vacío.");
+                return false;
+            }
+
+            // Validar que el CI tenga un formato válido
+            if (cliente.CI.Length != 8)
+            {
+                MessageBox.Show("La cédula de identidad debe tener 8 dígitos.");
+                return false;
+            }
+
+            // Validar que el cliente exista
+            ClienteDTO existente = clienteRepositorio.ObtenerClientePorCI(cliente.CI);
+            if (existente == null)
+            {
+                MessageBox.Show("No existe un cliente con esa cédula de identidad.");
+                return false;
+            }
+
+            // Llamar al repositorio para modificar el cliente
+            return clienteRepositorio.ModificarCliente(cliente);
         }
 
         // Método para obtener un cliente por CI
         public ClienteDTO ObtenerClientePorCI(string ci)
         {
-            try
+            // Validaciones
+            if (string.IsNullOrWhiteSpace(ci))
             {
-                // Validaciones
-                if (string.IsNullOrWhiteSpace(ci))
-                    throw new ArgumentException("La cédula de identidad no puede estar vacía.");
-
-                // Validar que el CI tenga un formato válido
-                if (ci.Length != 8)
-                    throw new ArgumentException("La cédula de identidad debe tener 8 dígitos.");
-
-                // Llamar al repositorio para obtener el cliente
-                return clienteRepositorio.ObtenerClientePorCI(ci);
+                MessageBox.Show("La cédula de identidad no puede estar vacía.");
+                return null;
             }
-            catch (Exception ex)
+
+            // Validar que el CI tenga un formato válido
+            if (ci.Length != 8)
             {
-                throw new Exception("Error al obtener el cliente: " + ex.Message, ex);
+                MessageBox.Show("La cédula de identidad debe tener 8 dígitos.");
+                return null;
             }
+
+            // Llamar al repositorio para obtener el cliente
+            ClienteDTO cliente = clienteRepositorio.ObtenerClientePorCI(ci);
+
+            if (cliente == null)
+            {
+                MessageBox.Show("No se encontró el cliente con la cédula de identidad proporcionada.");
+            }
+
+            return cliente;
         }
 
         // Método para listar todos los clientes
@@ -128,9 +156,9 @@ namespace Servicios
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar los clientes: " + ex.Message, ex);
+                MessageBox.Show("Error al listar los clientes: " + ex.Message);
+                return new List<ClienteDTO>();
             }
         }
-        
     }
 }

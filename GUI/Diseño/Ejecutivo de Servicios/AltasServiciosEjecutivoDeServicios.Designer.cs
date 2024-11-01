@@ -461,15 +461,15 @@
         public RadioButton RBNeumaticos { get => radioButtonNeumaticos; set => radioButtonNeumaticos = value; }
         public RadioButton RBAlineacion { get => radioButtonTaller; set => radioButtonTaller = value; }
         public RadioButton RBLavado { get => radioButtonLavado; set => radioButtonLavado = value; }
-        public RadioButton RBParking { get => radioButtonLavado; set => radioButtonLavado = value; }
-        public MaskedTextBox MTBAltaServEjeFechaFin { get => mTBAltaServEjeFechaFin; set => mTBAltaServEjeFechaFin = value; }
-        public MaskedTextBox MTBAltaServEjeFechaInicio { get => mTBAltaServEjeFechaInicio; set => mTBAltaServEjeFechaInicio = value; }
-        public TextBox TBAltaServEjeIDCliente1 { get => TBAltaServEjeIDCliente; set => TBAltaServEjeIDCliente = value; }
-        public TextBox TBAltaServEjeNomFuncio1 { get => TBAltaServEjeNomFuncio; set => TBAltaServEjeNomFuncio = value; }
-        public TextBox TBAltaServEjeNumPlaza1 { get => TBAltaServEjeNumPlaza; set => TBAltaServEjeNumPlaza = value; }
-        public TextBox TBAltaServEjeIDNeu1 { get => TBAltaServEjeIDNeu; set => TBAltaServEjeIDNeu = value; }
-        public TextBox TBAltaServEjeMatr1 { get => TBAltaServEjeMatr; set => TBAltaServEjeMatr = value; }
-        public TextBox TBAltaServEjeID1 { get => TBAltaServEjeID; set => TBAltaServEjeID = value; }
-        public ComboBox ComboBox1 { get => comboBox1; set => comboBox1 = value; }
+        public RadioButton RBParking { get => radioButtonParking; set => radioButtonParking = value; }
+        public MaskedTextBox MTBAltaServGerFechaFin { get => mTBAltaServEjeFechaFin; set => mTBAltaServEjeFechaFin = value; }
+        public MaskedTextBox MTBAltaServGerFechaInicio { get => mTBAltaServEjeFechaInicio; set => mTBAltaServEjeFechaInicio = value; }
+        public TextBox TBAltaServGerIDCliente1 { get => TBAltaServEjeIDCliente; set => TBAltaServEjeIDCliente = value; }
+        public TextBox TBAltaServGerNomFuncionario1 { get => TBAltaServEjeNomFuncio; set => TBAltaServEjeNomFuncio = value; }
+        public TextBox TBAltaServGerNumPlaza1 { get => TBAltaServEjeNumPlaza; set => TBAltaServEjeNumPlaza = value; }
+        public TextBox TBAltaServGerIDNeum1 { get => TBAltaServEjeIDNeu; set => TBAltaServEjeIDNeu = value; }
+        public TextBox TBAltaServGerMatr1 { get => TBAltaServEjeMatr; set => TBAltaServEjeMatr = value; }
+        public TextBox TBAltaServGerID1 { get => TBAltaServEjeID; set => TBAltaServEjeID = value; }
+        public ComboBox ComboBoxServicio { get => comboBox1; set => comboBox1 = value; }
     }
 }

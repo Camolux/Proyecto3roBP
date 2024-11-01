@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using Servicios;
 using Repositorios;
 
@@ -26,50 +27,55 @@ namespace Servicios
         // Método para obtener un servicio por su Id
         public ServicioDTO ObtenerServicioPorId(int idServicio)
         {
-            try
+            // Validación del ID
+            if (idServicio <= 0)
             {
-                if (idServicio <= 0)
-                {
-                    throw new ArgumentException("El ID del servicio debe ser un número positivo.");
-                }
-
-                ServicioDTO servicio = servicioRepositorio.ObtenerServicioPorId(idServicio);
-
-                if (servicio == null)
-                {
-                    throw new Exception("El servicio con el ID proporcionado no existe.");
-                }
-
-                return servicio;
+                MessageBox.Show("El ID del servicio debe ser un número positivo.");
+                return null;
             }
-            catch (Exception ex)
+
+            // Obtener el servicio desde el repositorio
+            ServicioDTO servicio = servicioRepositorio.ObtenerServicioPorId(idServicio);
+
+            if (servicio == null)
             {
-                throw new Exception("Error al obtener el servicio: " + ex.Message, ex);
+                MessageBox.Show("El servicio con el ID proporcionado no existe.");
+                return null;
             }
+
+            return servicio;
         }
-        public int ObtenerPrecioPorId(int idServicio)
+
+        // Método para obtener el precio del servicio por su Id
+        public int? ObtenerPrecioPorId(int idServicio)
         {
-            try
+            // Validación del ID
+            if (idServicio <= 0)
             {
-                // Validación del ID
-                if (idServicio <= 0)
-                {
-                    throw new ArgumentException("El ID del servicio debe ser un número positivo.");
-                }
-
-                int? precio = servicioRepositorio.ObtenerPrecioPorId(idServicio);
-
-                if (precio == null)
-                {
-                    throw new Exception("El servicio con el ID proporcionado no existe.");
-                }
-
-                return precio.Value;
+                MessageBox.Show("El ID del servicio debe ser un número positivo.");
+                return null;
             }
-            catch (Exception ex)
+
+            // Obtener el precio del servicio desde el repositorio
+            int? precio = servicioRepositorio.ObtenerPrecioPorId(idServicio);
+
+            if (precio == null)
             {
-                throw new Exception("Error al obtener el precio del servicio: " + ex.Message, ex);
+                MessageBox.Show("El servicio con el ID proporcionado no existe.");
+                return null;
             }
+
+            return precio;
+        }
+        public bool ActualizarPrecioServicio(int idServicio, int nuevoPrecio)
+        {
+            if (nuevoPrecio <= 0)
+            {
+                MessageBox.Show("El precio debe ser un valor positivo.");
+                return false;
+            }
+
+            return servicioRepositorio.ActualizarPrecioServicio(idServicio, nuevoPrecio);
         }
     }
 }

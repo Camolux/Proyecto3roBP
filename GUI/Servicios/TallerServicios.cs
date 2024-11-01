@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using Servicios;
 using Repositorios;
 
@@ -27,22 +28,23 @@ namespace Servicios
         // Método para obtener un taller por ID de servicio
         public TallerDTO ObtenerTallerPorId(int idServicio)
         {
-            try
+            // Validación del ID de servicio
+            if (idServicio <= 0)
             {
-                if (idServicio <= 0)
-                    throw new ArgumentException("El ID de servicio debe ser un número positivo.");
-
-                TallerDTO taller = tallerRepositorio.ObtenerTallerPorId(idServicio);
-
-                if (taller == null)
-                    throw new Exception("No se encontró el taller con el ID de servicio proporcionado.");
-
-                return taller;
+                MessageBox.Show("El ID de servicio debe ser un número positivo.");
+                return null;
             }
-            catch (Exception ex)
+
+            // Obtener el taller desde el repositorio
+            TallerDTO taller = tallerRepositorio.ObtenerTallerPorId(idServicio);
+
+            if (taller == null)
             {
-                throw new Exception("Error al obtener el taller: " + ex.Message, ex);
+                MessageBox.Show("No se encontró el taller con el ID de servicio proporcionado.");
+                return null;
             }
+
+            return taller;
         }
 
         // Método para listar todos los talleres
@@ -54,7 +56,8 @@ namespace Servicios
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar los talleres: " + ex.Message, ex);
+                MessageBox.Show("Error al listar los talleres: " + ex.Message);
+                return new List<TallerDTO>();
             }
         }
     }

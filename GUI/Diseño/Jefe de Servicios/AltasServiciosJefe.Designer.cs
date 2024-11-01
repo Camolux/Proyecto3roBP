@@ -462,14 +462,14 @@
         public RadioButton RBAlineacion { get => radioButtonTaller; set => radioButtonTaller = value; }
         public RadioButton RBLavado { get => radioButtonLavado; set => radioButtonLavado = value; }
         public RadioButton RBParking { get => radioButtonParking; set => radioButtonParking = value; }
-        public MaskedTextBox MTBAltaServicioFechaFin { get => mTBAltaServicioFechaFin; set => mTBAltaServicioFechaFin = value; }
-        public MaskedTextBox MTBAltaServicioFechaInicio { get => mTBAltaServicioFechaInicio; set => mTBAltaServicioFechaInicio = value; }
-        public TextBox TBAltaServicioIDClientes1 { get => TBAltaServicioIDClientes; set => TBAltaServicioIDClientes = value; }
-        public TextBox TBAltaServicioNomFuncionario1 { get => TBAltaServicioNomFuncionario; set => TBAltaServicioNomFuncionario = value; }
-        public TextBox TBAltaServicioNumPlaza1 { get => TBAltaServicioNumPlaza; set => TBAltaServicioNumPlaza = value; }
-        public TextBox TBAltaServicioIDNeumatico1 { get => TBAltaServicioIDNeumatico; set => TBAltaServicioIDNeumatico = value; }
-        public TextBox TBAltaServicioMatr1 { get => TBAltaServicioMatr; set => TBAltaServicioMatr = value; }
-        public TextBox TBAltaServicioID1 { get => TBAltaServicioID; set => TBAltaServicioID = value; }
+        public MaskedTextBox MTBAltaServGerFechaFin { get => mTBAltaServicioFechaFin; set => mTBAltaServicioFechaFin = value; }
+        public MaskedTextBox MTBAltaServGerFechaInicio { get => mTBAltaServicioFechaInicio; set => mTBAltaServicioFechaInicio = value; }
+        public TextBox TBAltaServGerIDCliente1 { get => TBAltaServicioIDClientes; set => TBAltaServicioIDClientes = value; }
+        public TextBox TBAltaServGerNomFuncionario1 { get => TBAltaServicioNomFuncionario; set => TBAltaServicioNomFuncionario = value; }
+        public TextBox TBAltaServGerNumPlaza1 { get => TBAltaServicioNumPlaza; set => TBAltaServicioNumPlaza = value; }
+        public TextBox TBAltaServGerIDNeum1 { get => TBAltaServicioIDNeumatico; set => TBAltaServicioIDNeumatico = value; }
+        public TextBox TBAltaServGerMatr1 { get => TBAltaServicioMatr; set => TBAltaServicioMatr = value; }
+        public TextBox TBAltaServGerID1 { get => TBAltaServicioID; set => TBAltaServicioID = value; }
         public ComboBox ComboBoxServicio { get => comboBoxServicio; set => comboBoxServicio = value; }
     }
 }

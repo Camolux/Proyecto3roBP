@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using Servicios;
 using Repositorios;
 
@@ -27,17 +28,22 @@ namespace Servicios
         // Método para obtener un Lavado por IdServicio
         public LavadoDTO ObtenerLavadoPorIdServicio(int idServicio)
         {
-            try
+            // Validación del ID de servicio
+            if (idServicio <= 0)
             {
-                if (idServicio <= 0)
-                    throw new ArgumentException("El ID del servicio debe ser un valor positivo.");
+                MessageBox.Show("El ID del servicio debe ser un valor positivo.");
+                return null;
+            }
 
-                return lavadoRepositorio.ObtenerLavadoPorIdServicio(idServicio);
-            }
-            catch (Exception ex)
+            // Llamar al repositorio para obtener el servicio de lavado
+            LavadoDTO lavado = lavadoRepositorio.ObtenerLavadoPorIdServicio(idServicio);
+
+            if (lavado == null)
             {
-                throw new Exception("Error al obtener el servicio de lavado: " + ex.Message, ex);
+                MessageBox.Show("No se encontró el servicio de lavado con el ID proporcionado.");
             }
+
+            return lavado;
         }
 
         // Método para listar Lavados por TipoVehiculo
@@ -49,7 +55,8 @@ namespace Servicios
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar los servicios de lavado por tipo de vehículo: " + ex.Message, ex);
+                MessageBox.Show("Error al listar los servicios de lavado por tipo de vehículo: " + ex.Message);
+                return new List<LavadoDTO>();
             }
         }
     }

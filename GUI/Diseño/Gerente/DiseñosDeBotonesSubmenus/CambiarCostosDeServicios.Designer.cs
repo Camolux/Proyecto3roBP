@@ -334,11 +334,11 @@
         private RadioButton radioButtonTaller;
         private RadioButton radioButtonParking;
 
-        public RadioButton RBNeumaticos { get => rBNeumaticos; set => rBNeumaticos = value; }
-        public RadioButton RBAlineacion { get => rBAlineacion; set => rBAlineacion = value; }
-        public RadioButton RBLavado { get => rBLavado; set => rBLavado = value; }
-        public RadioButton RBParking { get => rBParking; set => rBParking = value; }
-        public RadioButton RBBalanceo { get => rBBalanceo; set => rBBalanceo = value; }
+        public RadioButton RBNeumaticos { get => radioButtonNeumaticos; set => radioButtonNeumaticos = value; }
+        public RadioButton RBAlineacion { get => radioButtonTaller; set => radioButtonTaller = value; }
+        public RadioButton RBLavado { get => radioButtonLavado; set => radioButtonLavado = value; }
+        public RadioButton RBParking { get => radioButtonParking; set => radioButtonParking = value; }
+       
         public TextBox TBCostoServIDCosto1 { get => TBCostoServIDCosto; set => TBCostoServIDCosto = value; }
         public TextBox TBCostoServIDNeumatico1 { get => TBCostoServIDNeumatico; set => TBCostoServIDNeumatico = value; }
         public TextBox TBCostoServIDServ1 { get => TBCostoServIDServ; set => TBCostoServIDServ = value; }

@@ -39,13 +39,11 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
                 // Si se selecciona RBParking, deshabilitar TextBox1 y TextBox2
                 TBAltaServEjeID.Enabled = false;
                 TBAltaServEjeIDNeu.Enabled = false;
-                TBAltaServEjeNomFuncio.Enabled = false;
                 TBAltaServEjeIDCliente.Enabled = false;
                 comboBox1.Enabled = false;
                 TBAltaServEjeID.BackColor = Color.DarkGray;
                 TBAltaServEjeID.BackColor = Color.DarkGray;
                 TBAltaServEjeIDNeu.BackColor = Color.DarkGray;
-                TBAltaServEjeNomFuncio.BackColor = Color.DarkGray;
                 TBAltaServEjeIDCliente.BackColor = Color.DarkGray;
             }
             else
@@ -53,7 +51,6 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
                 // Habilitarlos si no está seleccionado
                 TBAltaServEjeID.Enabled = true;
                 TBAltaServEjeIDNeu.Enabled = true;
-                TBAltaServEjeNomFuncio.Enabled = true;
                 TBAltaServEjeIDCliente.Enabled = true;
                 comboBox1.Enabled = true;
                 TBAltaServEjeID.BackColor = SystemColors.ActiveCaption;

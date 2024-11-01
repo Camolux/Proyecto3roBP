@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using Parking;
 using Repositorios;
 
@@ -27,64 +28,80 @@ namespace Servicios
         // Método para agregar una ocupación
         public bool AgregarOcupa(OcupaDTO ocupa)
         {
-            try
+            // Validaciones
+            if (ocupa == null)
             {
-                if (ocupa == null)
-                    throw new ArgumentNullException("La ocupación no puede ser nula.");
-
-                if (string.IsNullOrWhiteSpace(ocupa.Matricula))
-                    throw new ArgumentException("La matrícula no puede estar vacía.");
-
-                if (ocupa.FechaEntrada >= ocupa.FechaSalida)
-                    throw new ArgumentException("La fecha de entrada debe ser anterior a la fecha de salida.");
-
-                return ocupaRepositorio.AgregarOcupa(ocupa);
+                MessageBox.Show("La ocupación no puede ser nula.");
+                return false;
             }
-            catch (Exception ex)
+
+            if (string.IsNullOrWhiteSpace(ocupa.Matricula))
             {
-                throw new Exception("Error al agregar la ocupación: " + ex.Message, ex);
+                MessageBox.Show("La matrícula no puede estar vacía.");
+                return false;
             }
+
+            if (ocupa.FechaEntrada >= ocupa.FechaSalida)
+            {
+                MessageBox.Show("La fecha de entrada debe ser anterior a la fecha de salida.");
+                return false;
+            }
+
+            // Llamar al repositorio para agregar la ocupación
+            return ocupaRepositorio.AgregarOcupa(ocupa);
         }
 
         // Método para modificar una ocupación
         public bool ModificarOcupa(OcupaDTO ocupa)
         {
-            try
+            // Validaciones
+            if (ocupa == null)
             {
-                if (ocupa == null)
-                    throw new ArgumentNullException("La ocupación no puede ser nula.");
-
-                if (string.IsNullOrWhiteSpace(ocupa.Matricula))
-                    throw new ArgumentException("La matrícula no puede estar vacía.");
-
-                if (ocupa.FechaEntrada >= ocupa.FechaSalida)
-                    throw new ArgumentException("La fecha de entrada debe ser anterior a la fecha de salida.");
-
-                return ocupaRepositorio.ModificarOcupa(ocupa);
+                MessageBox.Show("La ocupación no puede ser nula.");
+                return false;
             }
-            catch (Exception ex)
+
+            if (string.IsNullOrWhiteSpace(ocupa.Matricula))
             {
-                throw new Exception("Error al modificar la ocupación: " + ex.Message, ex);
+                MessageBox.Show("La matrícula no puede estar vacía.");
+                return false;
             }
+
+            if (ocupa.FechaEntrada >= ocupa.FechaSalida)
+            {
+                MessageBox.Show("La fecha de entrada debe ser anterior a la fecha de salida.");
+                return false;
+            }
+
+            // Llamar al repositorio para modificar la ocupación
+            return ocupaRepositorio.ModificarOcupa(ocupa);
         }
 
         // Método para obtener una ocupación específica
         public OcupaDTO ObtenerOcupa(string matricula, int numPlaza)
         {
-            try
+            // Validaciones
+            if (string.IsNullOrWhiteSpace(matricula))
             {
-                if (string.IsNullOrWhiteSpace(matricula))
-                    throw new ArgumentException("La matrícula no puede estar vacía.");
-
-                if (numPlaza <= 0)
-                    throw new ArgumentException("El número de plaza debe ser un valor positivo.");
-
-                return ocupaRepositorio.ObtenerOcupa(matricula, numPlaza);
+                MessageBox.Show("La matrícula no puede estar vacía.");
+                return null;
             }
-            catch (Exception ex)
+
+            if (numPlaza <= 0)
             {
-                throw new Exception("Error al obtener la ocupación: " + ex.Message, ex);
+                MessageBox.Show("El número de plaza debe ser un valor positivo.");
+                return null;
             }
+
+            // Llamar al repositorio para obtener la ocupación
+            OcupaDTO ocupa = ocupaRepositorio.ObtenerOcupa(matricula, numPlaza);
+
+            if (ocupa == null)
+            {
+                MessageBox.Show("No se encontró la ocupación con los datos proporcionados.");
+            }
+
+            return ocupa;
         }
 
         // Método para listar todas las ocupaciones
@@ -96,7 +113,8 @@ namespace Servicios
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar las ocupaciones: " + ex.Message, ex);
+                MessageBox.Show("Error al listar las ocupaciones: " + ex.Message);
+                return new List<OcupaDTO>();
             }
         }
     }

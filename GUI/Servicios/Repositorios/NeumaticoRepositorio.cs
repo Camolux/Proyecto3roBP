@@ -118,5 +118,27 @@ namespace Repositorios
                 connection.Close();
             }
         }
+        public bool ActualizarPrecioNeumatico(int idNeumatico, int nuevoPrecio)
+        {
+            MySqlConnection connection = conexionBD.ConnectToDataBase();
+            try
+            {
+                string query = "UPDATE Neumatico SET precio = @nuevoPrecio WHERE idneumatico = @idNeumatico";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@nuevoPrecio", nuevoPrecio);
+                cmd.Parameters.AddWithValue("@idNeumatico", idNeumatico);
+
+                connection.Open();
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar el precio del neumático", ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

@@ -162,5 +162,31 @@ namespace Repositorios
                 connection.Close();
             }
         }
+        public bool EsPropietario(string cedula, string matricula)
+        {
+            MySqlConnection connection = conexionBD.ConnectToDataBase();
+            try
+            {
+                string query = @"
+                    SELECT COUNT(*) FROM Vehiculo 
+                    WHERE matricula = @matricula AND propietario_cedula = @cedula";
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@matricula", matricula);
+                cmd.Parameters.AddWithValue("@cedula", cedula);
+
+                connection.Open();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al verificar la propiedad del vehículo", ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

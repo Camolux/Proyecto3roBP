@@ -147,5 +147,39 @@ namespace Repositorios
                 connection.Close();
             }
         }
+        public RecibeDTO ObtenerRecibePorMatriculaYFecha(string matricula, DateTime fechaServicio)
+        {
+            MySqlConnection connection = conexionBD.ConnectToDataBase();
+            try
+            {
+                string query = "SELECT * FROM Recibe WHERE matricula = @matricula AND DATE(fechaservicio) = DATE(@fechaServicio)";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@matricula", matricula);
+                cmd.Parameters.AddWithValue("@fechaServicio", fechaServicio);
+
+                connection.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    return new RecibeDTO
+                    {
+                        FechaServicio = Convert.ToDateTime(reader["fechaservicio"]),
+                        IdServicio = Convert.ToInt32(reader["idservicio"]),
+                        Matricula = reader["matricula"].ToString(),
+                        Funcionario = reader["funcionario"].ToString()
+                    };
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el registro de Recibe", ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
