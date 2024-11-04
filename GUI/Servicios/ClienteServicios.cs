@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Cliente;
 using Repositorios;
@@ -59,7 +60,11 @@ namespace Servicios
                 MessageBox.Show("La cédula de identidad debe tener 8 dígitos.");
                 return false;
             }
-
+            if ( ! Regex.IsMatch(cliente.CI, @"^\d+$"))
+            {
+                MessageBox.Show("La CI no puede contener letras");
+                return false;
+            }
             // Validar que el cliente no exista ya
             ClienteDTO existente = clienteRepositorio.ObtenerClientePorCI(cliente.CI);
             if (existente != null)
@@ -106,7 +111,11 @@ namespace Servicios
                 MessageBox.Show("La cédula de identidad debe tener 8 dígitos.");
                 return false;
             }
-
+            if (!Regex.IsMatch(cliente.CI, @"^\d+$"))
+            {
+                MessageBox.Show("La CI no puede contener letras");
+                return false;
+            }
             // Validar que el cliente exista
             ClienteDTO existente = clienteRepositorio.ObtenerClientePorCI(cliente.CI);
             if (existente == null)
@@ -135,7 +144,11 @@ namespace Servicios
                 MessageBox.Show("La cédula de identidad debe tener 8 dígitos.");
                 return null;
             }
-
+            if (!Regex.IsMatch(ci, @"^\d+$"))
+            {
+                MessageBox.Show("La CI no puede contener letras");
+                return null;
+            }
             // Llamar al repositorio para obtener el cliente
             ClienteDTO cliente = clienteRepositorio.ObtenerClientePorCI(ci);
 

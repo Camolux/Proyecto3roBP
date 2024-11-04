@@ -23,7 +23,8 @@ using static Servicios.LavadoDTO;
 using Repositorios;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-
+using GUI.Diseño.Cajero.DiseñosDeBotonesSubMenusCajero;
+using System.IO;
 
 namespace Controlador
 {
@@ -56,7 +57,7 @@ namespace Controlador
         public ListadoEjecutivoYJefeDeServiciosMenuJefe listadoEjecutivoYJefeDeServiciosMenuJefe;
         public ModificacionesDeClientesMenuJefe modificacionesDeClientesMenuJefe;
         public ModificacionesEjecutivoYJefeDeServiciosMenuJefe modificacionesEjecutivoYJefeDeServiciosMenuJefe;
-
+        
 
 
         Usuario usuarioLogeado;
@@ -105,6 +106,7 @@ namespace Controlador
         private Controlador()
         {
             instance = this;
+            
             bajasEjecutivoYJefeDeServiciosMenuJefe = BajasEjecutivoYJefeDeServiciosMenuJefe.GetInsance();
             modificacionesVehiculos = ModificacionesVehiculos.GetInsance();
             modificacionesServicios = ModificacionesServicios.GetInsance();
@@ -196,7 +198,7 @@ namespace Controlador
 
         public void OnButtonClick(object sender, EventArgs e) // escucha eventos botones
         {
-
+            bool ingresoCliente = true;
             if (sender is Button button)
             {
                 string matricula;
@@ -258,12 +260,15 @@ namespace Controlador
                         telefonoDTO.CI = altasClientesEjecutivoDeServicios.TBAltaClienteEjeCI1.Text;
                         telefonoDTO.Telefono = Convert.ToInt32(altasClientesEjecutivoDeServicios.TBAltaClienteEjeTel1.Text);
                         MessageBox.Show("Cliente Ingresado");
-                        clienteServicios.AgregarCliente(clienteDTO);
-                        telefonoServicios.AgregarTelefono(telefonoDTO);
-                        altasClientesEjecutivoDeServicios.TBAltaClienteEjeCI1.Clear();
-                        altasClientesEjecutivoDeServicios.TBAltaClienteEjeNom1.Clear();
-                        altasClientesEjecutivoDeServicios.TBAltaClienteEjeApe1.Clear();
-                        altasClientesEjecutivoDeServicios.TBAltaClienteEjeTel1.Clear();
+                        ingresoCliente = clienteServicios.AgregarCliente(clienteDTO);
+                        if (ingresoCliente)
+                        {
+                            telefonoServicios.AgregarTelefono(telefonoDTO);
+                            altasClientesEjecutivoDeServicios.TBAltaClienteEjeCI1.Clear();
+                            altasClientesEjecutivoDeServicios.TBAltaClienteEjeNom1.Clear();
+                            altasClientesEjecutivoDeServicios.TBAltaClienteEjeApe1.Clear();
+                            altasClientesEjecutivoDeServicios.TBAltaClienteEjeTel1.Clear();
+                        }
                         break;
                     case "BTNAltaVehiculoEje"://es el alta de servicios
 
@@ -288,6 +293,7 @@ namespace Controlador
                         vehiculoDTO.TIpoCliente = altasVehiculosEjecutivoDeServicios.CBAltaVehiculoTipoCliente1.Text;
                         MessageBox.Show("Vehiculo Ingresado Correctamente");
                         vehiculoServicios.AgregarVehiculo(vehiculoDTO);
+                        altasVehiculosEjecutivoDeServicios.CBAltaVehiculoTipoVehiculo1.SelectedIndex = -1;
                         altasVehiculosEjecutivoDeServicios.TBAltaVehiculo1.Clear();
                         altasVehiculosEjecutivoDeServicios.TBAltaVehiculoMatr1.Clear();
                         altasVehiculosEjecutivoDeServicios.TBAltaVehiculoMarca1.Clear();
@@ -301,12 +307,14 @@ namespace Controlador
                         telefonoDTO.CI = modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteCIEje1.Text;
                         telefonoDTO.Telefono = Convert.ToInt32(modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteTelEje1.Text);
                         MessageBox.Show("Cliente Ingresado");
-                        clienteServicios.ModificarCliente(clienteDTO);
-                        telefonoServicios.ModificarTelefono(telefonoDTO);
-                        modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteCIEje1.Clear();
-                        modificacionesDeClientesMenuEjecutivoDeServicios.TbModClienteNomEje1.Clear();
-                        modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteApeEje1.Clear();
-                        modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteTelEje1.Clear();
+                        ingresoCliente = clienteServicios.ModificarCliente(clienteDTO);
+                        if (ingresoCliente) {
+                            telefonoServicios.ModificarTelefono(telefonoDTO);
+                            modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteCIEje1.Clear();
+                            modificacionesDeClientesMenuEjecutivoDeServicios.TbModClienteNomEje1.Clear();
+                            modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteApeEje1.Clear();
+                            modificacionesDeClientesMenuEjecutivoDeServicios.TBModClienteTelEje1.Clear();
+                        }
                         break;//Fin Ejecutivo
                     case "btnIngresarClienteJefe"://Jefe
                         clienteDTO.CI = altasClientesJefe.TBAltaClienteCI1.Text;
@@ -315,12 +323,15 @@ namespace Controlador
                         telefonoDTO.CI = altasClientesJefe.TBAltaClienteCI1.Text;
                         telefonoDTO.Telefono = Convert.ToInt32(altasClientesJefe.TBAltaClienteTel1.Text);
                         MessageBox.Show("Cliente Ingresado");
-                        clienteServicios.AgregarCliente(clienteDTO);
-                        telefonoServicios.AgregarTelefono(telefonoDTO);
-                        altasClientesJefe.TBAltaClienteCI1.Clear();
-                        altasClientesJefe.TBAltaClienteNom1.Clear();
-                        altasClientesJefe.TBAltaClienteApe1.Clear();
-                        altasClientesJefe.TBAltaClienteTel1.Clear();
+                        ingresoCliente = clienteServicios.AgregarCliente(clienteDTO);
+                        if (ingresoCliente)
+                        {
+                            telefonoServicios.AgregarTelefono(telefonoDTO);
+                            altasClientesJefe.TBAltaClienteCI1.Clear();
+                            altasClientesJefe.TBAltaClienteNom1.Clear();
+                            altasClientesJefe.TBAltaClienteApe1.Clear();
+                            altasClientesJefe.TBAltaClienteTel1.Clear();
+                        }
                         break;
                     case "btnIngresarFuncionarioGer"://AltaUsuario Jefe de servicios
                         usuarioDTO.nombreUsuario = altasEjecutivoYJefeDeServiciosMenuJefe.TBAltaFuncionarioNom1.Text;
@@ -328,6 +339,7 @@ namespace Controlador
                         usuarioDTO.idTipoUsuario = altasEjecutivoYJefeDeServiciosMenuJefe.CBAltaFuncionarioRol.Text;
                         MessageBox.Show("Usuario Ingresado Correctamente");
                         usuariosServicios.AgregarUsuario(usuarioDTO);
+                        altasEjecutivoYJefeDeServiciosMenuJefe.CBAltaFuncionarioRol.SelectedIndex = -1;
                         altasEjecutivoYJefeDeServiciosMenuJefe.TBAltaFuncionarioNom1.Clear();
                         altasEjecutivoYJefeDeServiciosMenuJefe.TBAltaFuncionarioContra1.Clear();
                         
@@ -353,6 +365,8 @@ namespace Controlador
                         vehiculoDTO.Tipo = altasVehiculosJefe.CBTipoVehiculo.Text;
                         vehiculoDTO.TIpoCliente = altasVehiculosJefe.CBTipoCliente.Text;
                         MessageBox.Show("Vehiculo Ingresado Correctamente");
+                        altasVehiculosJefe.CBTipoCliente.SelectedIndex = -1;
+                        altasVehiculosJefe.CBTipoVehiculo.SelectedIndex = -1;
                         vehiculoServicios.AgregarVehiculo(vehiculoDTO);
                         altasVehiculosJefe.TBIngresoVehiculoCICliente1.Clear();
                         altasVehiculosJefe.TBIngresoVehiculoMatr1.Clear();
@@ -364,7 +378,7 @@ namespace Controlador
                         string nomUsuad = bajasEjecutivoYJefeDeServiciosMenuJefe.TBBajaUsuNom1.Text;
 
                         MessageBox.Show("Baja Confirmada"+ nomUsuad);
-                        usuariosServicios.EliminarUsuario(nomUsuad);
+                        usuariosServicios.EliminarEjecutivoOperadorCajero(nomUsuad);
                         bajasEjecutivoYJefeDeServiciosMenuJefe.TBBajaUsuNom1.Clear();
                         break;
                     case "btnBuscarFuncionariosJefe":
@@ -402,13 +416,15 @@ namespace Controlador
                         telefonoDTO.CI = modificacionesDeClientesMenuJefe.TBModClientesCI1.Text;
                         telefonoDTO.Telefono = Convert.ToInt32(modificacionesDeClientesMenuJefe.TBModClientesTel1.Text);
                         MessageBox.Show("ModificacionCorrecta");
-                        clienteServicios.ModificarCliente(clienteDTO);
-                        telefonoServicios.ModificarTelefono(telefonoDTO);
-                        modificacionesDeClientesMenuJefe.TBModClientesNom1.Clear();
-                        modificacionesDeClientesMenuJefe.TBModClientesApe1.Clear();
-                        modificacionesDeClientesMenuJefe.TBModClientesCI1.Clear();
-                        modificacionesDeClientesMenuJefe.TBModClientesTel1.Clear();
-                        
+                        ingresoCliente = clienteServicios.ModificarCliente(clienteDTO);
+                        if (ingresoCliente)
+                        {
+                            telefonoServicios.ModificarTelefono(telefonoDTO);
+                            modificacionesDeClientesMenuJefe.TBModClientesNom1.Clear();
+                            modificacionesDeClientesMenuJefe.TBModClientesApe1.Clear();
+                            modificacionesDeClientesMenuJefe.TBModClientesCI1.Clear();
+                            modificacionesDeClientesMenuJefe.TBModClientesTel1.Clear();
+                        }
                         break;
                     case "btnModFuncionarioJefe": //Fin Jefe
                         usuarioDTO.nombreUsuario = modificacionesEjecutivoYJefeDeServiciosMenuJefe.TBModFuncionariosUsu1.Text;
@@ -423,18 +439,21 @@ namespace Controlador
 
                         break;
                     case "BTNAltaClienteGer": //Gerente
+                        
                         clienteDTO.CI = altasClientes.TBAltaClienteGerCI1.Text;
                         clienteDTO.Nombre = altasClientes.TBAltaClienteGerNom1.Text;
                         clienteDTO.Apellido = altasClientes.TBAltaClienteGerApe1.Text;
                         telefonoDTO.CI = altasClientes.TBAltaClienteGerCI1.Text;
                         telefonoDTO.Telefono = Convert.ToInt32(altasClientes.TBAltaClienteGerTel1.Text);
                         MessageBox.Show("Cliente Ingresado Con exito");
-                        clienteServicios.AgregarCliente(clienteDTO);
-                        telefonoServicios.AgregarTelefono(telefonoDTO);
-                        altasClientes.TBAltaClienteGerApe1.Clear();
-                        altasClientes.TBAltaClienteGerCI1.Clear();
-                        altasClientes.TBAltaClienteGerNom1.Clear();
-                        altasClientes.TBAltaClienteGerTel1.Clear();
+                        ingresoCliente = clienteServicios.AgregarCliente(clienteDTO);
+                        if (ingresoCliente) {
+                            telefonoServicios.AgregarTelefono(telefonoDTO);
+                            altasClientes.TBAltaClienteGerApe1.Clear();
+                            altasClientes.TBAltaClienteGerCI1.Clear();
+                            altasClientes.TBAltaClienteGerNom1.Clear();
+                            altasClientes.TBAltaClienteGerTel1.Clear();
+                        }
                         break;
                     case "BTNAltaUsuarioGer":
 
@@ -442,6 +461,7 @@ namespace Controlador
                         usuarioDTO.contraUsuario = altasEjecutivoYJefeDeServicios.TBAltaUsuPass1.Text;
                         usuarioDTO.idTipoUsuario = altasEjecutivoYJefeDeServicios.CBAltaTipoUsu1.Text;
                         MessageBox.Show("Usuario Ingresado Correctamente");
+                        altasEjecutivoYJefeDeServicios.CBAltaTipoUsu1.SelectedIndex = -1;
                         usuariosServicios.AgregarUsuario(usuarioDTO);
                         altasEjecutivoYJefeDeServicios.TBAltaUsuNom1.Clear();
                         altasEjecutivoYJefeDeServicios.TBAltaUsuPass1.Clear();
@@ -460,6 +480,8 @@ namespace Controlador
                         vehiculoDTO.Tipo = altasVehiculos.CBTipoVehiculo.Text;
                         vehiculoDTO.TIpoCliente = altasVehiculos.CBTipoCliente.Text;
                         MessageBox.Show("Vehiculo Ingresado Correctamente");
+                        altasVehiculos.CBTipoCliente.SelectedIndex = -1;
+                        altasVehiculos.CBTipoCliente.SelectedIndex = -1;
                         vehiculoServicios.AgregarVehiculo(vehiculoDTO);
                         altasVehiculos.TBAltaVehiculoCICliente1.Clear();
                         altasVehiculos.TBAltaVehiculoMatr1.Clear();
@@ -469,7 +491,7 @@ namespace Controlador
                         break;
                     case "BTNEliminarFunciGer":
                         string nombreUsuario= bajasEjecutivoYJefeDeServicios.TBNomBorrarFunci1.Text;
-                        MessageBox.Show("Funcionario Eliminado Correctamente" + nombreUsuario);
+                        MessageBox.Show("Funcionario Eliminado Correctamente: " + nombreUsuario);
                         usuariosServicios.EliminarUsuario(nombreUsuario);
                         bajasEjecutivoYJefeDeServicios.TBNomBorrarFunci1.Clear();
                         break;
@@ -641,12 +663,14 @@ namespace Controlador
                         telefonoDTO.CI = modificacionesClientes.TBModClienteCI1.Text;
                         telefonoDTO.Telefono = Convert.ToInt32(modificacionesClientes.TBModClienteTel1.Text);
                         MessageBox.Show("ModificacionCorrecta");
-                        clienteServicios.ModificarCliente(clienteDTO);
-                        telefonoServicios.ModificarTelefono(telefonoDTO);
-                        modificacionesClientes.TBModClienteCI1.Clear();
-                        modificacionesClientes.TBModClienteNom1.Clear();
-                        modificacionesClientes.TBModClienteApe1.Clear();
-                        modificacionesClientes.TBModClienteTel1.Clear();
+                        ingresoCliente = clienteServicios.ModificarCliente(clienteDTO);
+                        if (ingresoCliente) {
+                            telefonoServicios.ModificarTelefono(telefonoDTO);
+                            modificacionesClientes.TBModClienteCI1.Clear();
+                            modificacionesClientes.TBModClienteNom1.Clear();
+                            modificacionesClientes.TBModClienteApe1.Clear();
+                            modificacionesClientes.TBModClienteTel1.Clear();
+                        }
                         break;
                     case "btnModFuncionario":
                         usuarioDTO.nombreUsuario = modificacionesEjecutivoYJefeDeServicios.TBModFuncionarioNom1.Text;
@@ -672,19 +696,7 @@ namespace Controlador
 
                         break;
                     case "btnModificarVehiculosGer":
-                        vehiculoDTO.Propietario = modificacionesVehiculos.TBModVehiculosCIClientes1.Text;
-                        vehiculoDTO.Matricula = modificacionesVehiculos.TBModVehiculosMatricula1.Text;
-                        vehiculoDTO.Marca = modificacionesVehiculos.TBModVehiculosMarca1.Text;
-                        vehiculoDTO.Modelo = modificacionesVehiculos.TBModVehiculosModelo1.Text;
-                        vehiculoDTO.Tipo = modificacionesVehiculos.CBTipoVehiculo.Text;
-                        vehiculoDTO.TIpoCliente = modificacionesVehiculos.CBTipoCliente.Text;
-                        MessageBox.Show("Modificacion Correcta");
-                        vehiculoServicios.ModificarVehiculo(vehiculoDTO);
-                        
-                        modificacionesVehiculos.TBModVehiculosModelo1.Clear();
-                        modificacionesVehiculos.TBModVehiculosMarca1.Clear();
-                        modificacionesVehiculos.TBModVehiculosMatricula1.Clear();
-                        modificacionesVehiculos.TBModVehiculosCIClientes1.Clear();
+                        ModificarVehiculosGer();
 
                         break;
                     default:
@@ -694,7 +706,23 @@ namespace Controlador
             }
         }
 
-        
+        private void ModificarVehiculosGer()
+        {
+            vehiculoDTO.Propietario = modificacionesVehiculos.TBModVehiculosCIClientes1.Text;
+            vehiculoDTO.Matricula = modificacionesVehiculos.TBModVehiculosMatricula1.Text;
+            vehiculoDTO.Marca = modificacionesVehiculos.TBModVehiculosMarca1.Text;
+            vehiculoDTO.Modelo = modificacionesVehiculos.TBModVehiculosModelo1.Text;
+            vehiculoDTO.Tipo = modificacionesVehiculos.CBTipoVehiculo.Text;
+            vehiculoDTO.TIpoCliente = modificacionesVehiculos.CBTipoCliente.Text;
+            MessageBox.Show("Modificacion Correcta");
+            vehiculoServicios.ModificarVehiculo(vehiculoDTO);
+
+            modificacionesVehiculos.TBModVehiculosModelo1.Clear();
+            modificacionesVehiculos.TBModVehiculosMarca1.Clear();
+            modificacionesVehiculos.TBModVehiculosMatricula1.Clear();
+            modificacionesVehiculos.TBModVehiculosCIClientes1.Clear();
+        }
+
 
         private void LimpiarLBL()
         {
@@ -1457,59 +1485,70 @@ namespace Controlador
             // Generación del PDF de factura
             Document doc = new Document();
             string filePath = @"C:\Factura_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".pdf";
+            // Crear una instancia de SaveFileDialog
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos de texto (.txt)|.txt|Todos los archivos (.)|.";
+            saveFileDialog.Title = "Guardar archivo como";
+            saveFileDialog.DefaultExt = "pdf";
+            saveFileDialog.FileName = DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".pdf";
 
-            using (FileStream stream = new FileStream(filePath, FileMode.Create))
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                PdfWriter.GetInstance(doc, stream);
-                doc.Open();
-
-                doc.Add(new Paragraph("Factura de Servicios"));
-                doc.Add(new Paragraph("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")));
-                doc.Add(new Paragraph("------------------------------------------------------"));
-
-                if (parking != null)
+                using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
                 {
-                    doc.Add(new Paragraph("Servicio de Parking:"));
-                    doc.Add(new Paragraph("Matrícula: " + parking.Matricula));
-                    doc.Add(new Paragraph("Fecha Entrada: " + parking.FechaEntrada));
-                    doc.Add(new Paragraph("Fecha Salida: " + parking.FechaSalida));
-                    doc.Add(new Paragraph("Precio: $" + parking.Precio));
-                    doc.Add(new Paragraph("Funcionario: " + parking.Funcionario));
+                    PdfWriter.GetInstance(doc, stream);
+                    doc.Open();
+
+                    doc.Add(new Paragraph("Factura de Servicios"));
+                    doc.Add(new Paragraph("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")));
                     doc.Add(new Paragraph("------------------------------------------------------"));
+
+                    if (parking != null)
+                    {
+                        doc.Add(new Paragraph("Servicio de Parking:"));
+                        doc.Add(new Paragraph("Matrícula: " + parking.Matricula));
+                        doc.Add(new Paragraph("Fecha Entrada: " + parking.FechaEntrada));
+                        doc.Add(new Paragraph("Fecha Salida: " + parking.FechaSalida));
+                        doc.Add(new Paragraph("Precio: $" + parking.Precio));
+                        doc.Add(new Paragraph("Funcionario: " + parking.Funcionario));
+                        doc.Add(new Paragraph("------------------------------------------------------"));
+                    }
+
+                    if (recibe != null)
+                    {
+                        doc.Add(new Paragraph("Servicio Recibido:"));
+                        doc.Add(new Paragraph("Matrícula: " + recibe.Matricula));
+                        doc.Add(new Paragraph("Fecha del Servicio: " + recibe.FechaServicio));
+                        doc.Add(new Paragraph("ID Servicio: " + recibe.IdServicio));
+                        doc.Add(new Paragraph("Funcionario: " + recibe.Funcionario));
+                        doc.Add(new Paragraph("------------------------------------------------------"));
+                    }
+
+                    if (compra != null)
+                    {
+                        doc.Add(new Paragraph("Compra de Neumáticos:"));
+                        doc.Add(new Paragraph("ID Neumático: " + compra.IdNeumatico));
+                        doc.Add(new Paragraph("Fecha de Venta: " + compra.FechaVenta));
+                        doc.Add(new Paragraph("Cliente: " + compra.Cliente));
+                        doc.Add(new Paragraph("Funcionario: " + compra.Funcionario));
+                        doc.Add(new Paragraph("------------------------------------------------------"));
+                    }
+
+                    doc.Close();
                 }
 
-                if (recibe != null)
-                {
-                    doc.Add(new Paragraph("Servicio Recibido:"));
-                    doc.Add(new Paragraph("Matrícula: " + recibe.Matricula));
-                    doc.Add(new Paragraph("Fecha del Servicio: " + recibe.FechaServicio));
-                    doc.Add(new Paragraph("ID Servicio: " + recibe.IdServicio));
-                    doc.Add(new Paragraph("Funcionario: " + recibe.Funcionario));
-                    doc.Add(new Paragraph("------------------------------------------------------"));
-                }
-
-                if (compra != null)
-                {
-                    doc.Add(new Paragraph("Compra de Neumáticos:"));
-                    doc.Add(new Paragraph("ID Neumático: " + compra.IdNeumatico));
-                    doc.Add(new Paragraph("Fecha de Venta: " + compra.FechaVenta));
-                    doc.Add(new Paragraph("Cliente: " + compra.Cliente));
-                    doc.Add(new Paragraph("Funcionario: " + compra.Funcionario));
-                    doc.Add(new Paragraph("------------------------------------------------------"));
-                }
-
-                doc.Close();
+                MessageBox.Show("Factura generada con éxito: " + filePath);
             }
-
-            MessageBox.Show("Factura generada con éxito: " + filePath);
+            
         }
+        
         public void EmitirFactura()
         {
 
             // Verifica los valores de los campos
-            string matricula = emitirFacturasServicios.TBFacturaMatr1.Text.ToString();
-            string ciCliente = emitirFacturasServicios.TBFacturaCI1.Text.ToString();
-            string fechaTexto = emitirFacturasServicios.MTBFacturaFecha.Text.ToString();
+            string matricula = emitirFacturasServicios.TBFacturaMatr1.Text;
+            string ciCliente = emitirFacturasServicios.TBFacturaCI1.Text;
+            DateTime fecha = DateTime.Parse(emitirFacturasServicios.MTBFacturaFecha.Text.ToString());
 
 
             if (emitirFacturasServicios.TBFacturaMatr1 == null || emitirFacturasServicios.TBFacturaCI1 == null || emitirFacturasServicios.MTBFacturaFecha == null)
@@ -1525,14 +1564,14 @@ namespace Controlador
             
 
             // Validación
-            if (string.IsNullOrEmpty(matricula) || string.IsNullOrEmpty(ciCliente) || string.IsNullOrWhiteSpace(fechaTexto))
+            if (string.IsNullOrEmpty(matricula) || string.IsNullOrEmpty(ciCliente) || fecha.Equals(null))
             {
                 MessageBox.Show("Por favor, complete todos los campos.");
                 return;
             }
 
             // Parseo de fecha
-            if (DateTime.TryParseExact(fechaTexto, "dd/MM/yyyy HH:mm", null, System.Globalization.DateTimeStyles.None, out DateTime fechaServicio))
+            if (DateTime.TryParseExact(fecha.ToString("dd/MM/yyyy HH:mm"), "dd/MM/yyyy HH:mm", null, System.Globalization.DateTimeStyles.None, out DateTime fechaServicio))
             {
                 GenerarFacturaPDF(matricula, ciCliente, fechaServicio);
             }

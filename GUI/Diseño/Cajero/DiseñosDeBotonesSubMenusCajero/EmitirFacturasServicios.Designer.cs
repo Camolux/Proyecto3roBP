@@ -171,9 +171,9 @@
         private Label label1;
         private Button BTNImprimirFactura;
 
-        
         public MaskedTextBox MTBFacturaFecha { get => mTBFacturaFecha; set => mTBFacturaFecha = value; }
         public TextBox TBFacturaMatr1 { get => TBFacturaMatr; set => TBFacturaMatr = value; }
         public TextBox TBFacturaCI1 { get => TBFacturaCI; set => TBFacturaCI = value; }
+        
     }
 }

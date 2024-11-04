@@ -148,9 +148,13 @@ namespace Repositorios
             MySqlConnection connection = conexionBD.ConnectToDataBase();
             try
             {
-                string query = "DELETE FROM Funcionario WHERE username = @username";
+                // Ajustar la consulta para eliminar solo usuarios con roles específicos
+                string query = @"DELETE FROM Funcionario 
+                         WHERE nombreUsuario = @nombreUsuario 
+                         AND idTipoUsuario IN ('Ejecutivo', 'Jefe', 'Operador', 'Cajero')"; // Roles permitidos para eliminar
+
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@username", nombreUsuario);
+                cmd.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
 
                 connection.Open();
                 int result = cmd.ExecuteNonQuery();
@@ -304,7 +308,32 @@ namespace Repositorios
             }
         }
 
+        public bool EliminarEjecutivoOperadorCajero(string nombreUsuario)
+        {
+            MySqlConnection connection = conexionBD.ConnectToDataBase();
+            try
+            {
+                // Eliminar usuario sin realizar validaciones en esta capa
+                string query = @"DELETE FROM Funcionario 
+                         WHERE username = @username 
+                         AND rol IN ('Ejecutivo', 'Operador', 'Cajero')"; // Roles permitidos para eliminar
 
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@username", nombreUsuario);
+
+                connection.Open();
+                int result = cmd.ExecuteNonQuery();
+                return result > 0; // Devuelve true si al menos una fila fue afectada
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el usuario", ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
     }
 

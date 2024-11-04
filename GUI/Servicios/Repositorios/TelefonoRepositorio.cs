@@ -1,6 +1,7 @@
 ﻿using Cliente;
 using MySql.Data.MySqlClient;
 using Repositorios;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace GUI.Servicios.Repositorios
 {
+    
     public class TelefonoRepositorio
     {
+        public ClienteServicios clienteServicios;
         private static TelefonoRepositorio instance;
         private ConexionBD conexionBD;
 
@@ -25,32 +28,35 @@ namespace GUI.Servicios.Repositorios
 
         private TelefonoRepositorio()
         {
+            clienteServicios = ClienteServicios.GetInstance();
             conexionBD = ConexionBD.GetInstance();
         }
 
         // Método para agregar un teléfono
         public bool AgregarTelefono(TelefonoDTO telefono)
         {
-            MySqlConnection connection = conexionBD.ConnectToDataBase();
-            try
-            {
-                string query = "INSERT INTO Telefono (telefono, ci) VALUES (@telefono, @ci)";
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@telefono", telefono.Telefono);
-                cmd.Parameters.AddWithValue("@ci", telefono.CI);
+        
+                MySqlConnection connection = conexionBD.ConnectToDataBase();
+                try
+                {
+                    string query = "INSERT INTO Telefono (telefono, ci) VALUES (@telefono, @ci)";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@telefono", telefono.Telefono);
+                    cmd.Parameters.AddWithValue("@ci", telefono.CI);
 
-                connection.Open();
-                int result = cmd.ExecuteNonQuery();
-                return result > 0;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al agregar el teléfono", ex);
-            }
-            finally
-            {
-                connection.Close();
-            }
+                    connection.Open();
+                    int result = cmd.ExecuteNonQuery();
+                    return result > 0;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al agregar el teléfono", ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            
         }
 
         // Método para modificar un teléfono

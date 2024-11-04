@@ -69,7 +69,7 @@ namespace GUI.Diseño.Gerente.DiseñosDeBotonesSubmenus
 
         private void btnEmitirFacturas_Click(object sender, EventArgs e)
         {
-            AbrirFormulariohijo(new EmitirFacturasServicios());
+            AbrirFormulariohijo(EmitirFacturasServicios.GetInsance());
             //Codigo del boton
             ocultarsubmenu();
         }
