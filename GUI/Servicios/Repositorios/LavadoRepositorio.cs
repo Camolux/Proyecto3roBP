@@ -57,6 +57,8 @@ namespace Repositorios
             }
         }
 
+
+
         // Método para listar Lavados por TipoVehiculo
         public List<LavadoDTO> ListarLavadosPorTipoVehiculo(LavadoDTO.TipoVehiculo tipoVehiculo)
         {
@@ -90,5 +92,30 @@ namespace Repositorios
                 connection.Close();
             }
         }
-    }
+
+
+
+        public bool ActualizarPrecioLavado(int idServicio, int nuevoPrecio)
+        {
+            MySqlConnection connection = conexionBD.ConnectToDataBase();
+            try
+            {
+                string query = "UPDATE Lavado SET precio = @nuevoPrecio WHERE idservicio = @idServicio";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@nuevoPrecio", nuevoPrecio);
+                cmd.Parameters.AddWithValue("@idServicio", idServicio);
+
+                connection.Open();
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar el precio del servicio de lavado", ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        }
 }

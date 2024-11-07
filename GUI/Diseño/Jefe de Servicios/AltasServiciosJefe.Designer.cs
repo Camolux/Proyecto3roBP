@@ -346,7 +346,7 @@
             radioButtonTaller.TabStop = true;
             radioButtonTaller.Text = "Taller";
             radioButtonTaller.UseVisualStyleBackColor = true;
-            radioButtonTaller.CheckedChanged += radioButtonTaller_CheckedChanged;
+            radioButtonTaller.CheckedChanged += radioButtonTaller_CheckedChanged_1;
             // 
             // radioButtonLavado
             // 
@@ -358,7 +358,7 @@
             radioButtonLavado.TabStop = true;
             radioButtonLavado.Text = "Lavado";
             radioButtonLavado.UseVisualStyleBackColor = true;
-            radioButtonLavado.CheckedChanged += radioButtonLavado_CheckedChanged;
+            radioButtonLavado.CheckedChanged += radioButtonLavado_CheckedChanged_1;
             // 
             // radioButtonNeumaticos
             // 
@@ -456,7 +456,7 @@
         private RadioButton radioButtonTaller;
         private RadioButton radioButtonLavado;
         private RadioButton radioButtonNeumaticos;
-
+        
 
         public RadioButton RBNeumaticos { get => radioButtonNeumaticos; set => radioButtonNeumaticos = value; }
         public RadioButton RBAlineacion { get => radioButtonTaller; set => radioButtonTaller = value; }

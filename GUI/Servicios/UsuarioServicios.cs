@@ -133,30 +133,24 @@ namespace Servicios
 
         public bool EliminarUsuario(string nombreUsuario)
         {
-            try
-            {
-                // Validaciones
-                if (string.IsNullOrWhiteSpace(nombreUsuario))
-                {
-                    MessageBox.Show("El nombre de usuario no puede estar vacío.");
-                    return false;
-                }
+            Usuario usuario = usuarioRepositorio.ObtenerUsuarioPorNombre(nombreUsuario);
 
-                // Validar que el usuario exista antes de eliminarlo
-                if (!usuarioRepositorio.VerificarUsuarioExistente(nombreUsuario))
-                {
-                    MessageBox.Show("El usuario no existe.");
-                    return false;
-                }
-
-                // Llamada al repositorio para eliminar el usuario
-                return usuarioRepositorio.EliminarUsuario(nombreUsuario);
-            }
-            catch (Exception ex)
+            // Validar que el usuario existe
+            if (usuario == null)
             {
-                MessageBox.Show("Error al eliminar el usuario: " + ex.Message);
+                MessageBox.Show("El usuario no existe.");
                 return false;
             }
+
+            // Verificar si el usuario tiene un rol permitido para eliminar (incluyendo "Jefe")
+            if (usuario.idTipoUsuario == "Gerente")
+            {
+                MessageBox.Show("No se puede eliminar un usuario con rol de Gerente.");
+                return false;
+            }
+
+            // Proceder con la eliminación si el rol es permitido
+            return usuarioRepositorio.EliminarUsuario(nombreUsuario);
         }
 
         public Usuario ObtenerUsuarioPorNombre(string nombreUsuario)
@@ -249,21 +243,14 @@ namespace Servicios
             }
 
             // Verificar si el usuario tiene rol de Gerente o Jefe
-            if (usuario.idTipoUsuario == "Gerente" || usuario.idTipoUsuario == "Jefe")
+            if (usuario.idTipoUsuario == "gerente" || usuario.idTipoUsuario == "jefe")
             {
                 MessageBox.Show("No se puede eliminar un usuario con rol de Gerente o Jefe.");
                 return false;
             }
 
-            // Verificar que el rol sea Ejecutivo, Operador o Cajero
-            if (usuario.idTipoUsuario != "Ejecutivo" && usuario.idTipoUsuario != "Operador" && usuario.idTipoUsuario != "Cajero")
-            {
-                MessageBox.Show("Solo se permite eliminar usuarios con roles de Ejecutivo, Operador o Cajero.");
-                return false;
-            }
-
-            // Si pasa las validaciones, intentar eliminar el usuario
-            return usuarioRepositorio.EliminarUsuario(nombreUsuario);
+            // Si el usuario no es Gerente ni Jefe, proceder con la eliminación
+            return usuarioRepositorio.EliminarEjecutivoOperadorCajero(nombreUsuario);
         }
     }
 }

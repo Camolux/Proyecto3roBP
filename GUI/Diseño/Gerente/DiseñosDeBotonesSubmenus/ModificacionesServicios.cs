@@ -69,10 +69,12 @@ namespace GUI.Diseño.Gerente.Vehiculos
             if (radioButtonTaller.Checked)
             {
                 // Si se selecciona RBTaller, deshabilitar TextBox1 y TextBox2
+                textBoxIDParking.Enabled = false;
                 mTBModServFechaFin.Enabled = false;
                 TBModServIDNeumatico.Enabled = false;
                 TBModServNumPlaza.Enabled = false;
                 TBModServIDClientes.Enabled = false;
+                textBoxIDParking.BackColor = Color.DarkGray;
                 TBModServIDNeumatico.BackColor = Color.DarkGray;
                 TBModServNumPlaza.BackColor = Color.DarkGray;
                 TBModServIDClientes.BackColor = Color.DarkGray;
@@ -84,9 +86,12 @@ namespace GUI.Diseño.Gerente.Vehiculos
                 TBModServIDNeumatico.Enabled = true;
                 TBModServNumPlaza.Enabled = true;
                 TBModServIDClientes.Enabled = true;
+                textBoxIDParking.Enabled = true;
+                textBoxIDParking.BackColor = SystemColors.ActiveCaption;
                 TBModServIDNeumatico.BackColor = SystemColors.ActiveCaption;
                 TBModServNumPlaza.BackColor = SystemColors.ActiveCaption;
                 TBModServIDClientes.BackColor = SystemColors.ActiveCaption;
+                
             }
 
         }
@@ -105,11 +110,13 @@ namespace GUI.Diseño.Gerente.Vehiculos
             if (radioButtonLavado.Checked)
             {
                 // Si se selecciona RBLavado, deshabilitar TextBox1 y TextBox2
+                textBoxIDParking.Enabled = false;
                 mTBModServFechaFin.Enabled = false;
                 TBModServIDNeumatico.Enabled = false;
                 TBModServNumPlaza.Enabled = false;
                 TBModServIDClientes.Enabled = false;
                 comboBoxServicio.Enabled = false;
+                textBoxIDParking.BackColor = Color.DarkGray;
                 TBModServIDNeumatico.BackColor = Color.DarkGray;
                 TBModServNumPlaza.BackColor = Color.DarkGray;
                 TBModServIDClientes.BackColor = Color.DarkGray;
@@ -123,6 +130,8 @@ namespace GUI.Diseño.Gerente.Vehiculos
                 TBModServNumPlaza.Enabled = true;
                 TBModServIDClientes.Enabled = true;
                 comboBoxServicio.Enabled = true;
+                textBoxIDParking.Enabled = true;
+                textBoxIDParking.BackColor = SystemColors.ActiveCaption;
                 TBModServIDNeumatico.BackColor = SystemColors.ActiveCaption;
                 TBModServNumPlaza.BackColor = SystemColors.ActiveCaption;
                 TBModServIDClientes.BackColor = SystemColors.ActiveCaption;
@@ -138,10 +147,14 @@ namespace GUI.Diseño.Gerente.Vehiculos
             if (radioButtonTaller.Checked)
             {
                 // Si se selecciona RBTaller, deshabilitar TextBox1 y TextBox2
+                textBoxIDParking.Enabled = false;
+                TBModServIDServ.Enabled = false;
                 mTBModServFechaFin.Enabled = false;
                 TBModServIDNeumatico.Enabled = false;
                 TBModServNumPlaza.Enabled = false;
                 TBModServIDClientes.Enabled = false;
+                textBoxIDParking.BackColor = Color.DarkGray;
+                TBModServIDServ.BackColor = Color.DarkGray;
                 TBModServIDNeumatico.BackColor = Color.DarkGray;
                 TBModServNumPlaza.BackColor = Color.DarkGray;
                 TBModServIDClientes.BackColor = Color.DarkGray;
@@ -152,7 +165,11 @@ namespace GUI.Diseño.Gerente.Vehiculos
                 mTBModServFechaFin.Enabled = true;
                 TBModServIDNeumatico.Enabled = true;
                 TBModServNumPlaza.Enabled = true;
+                TBModServIDServ.Enabled = true;
                 TBModServIDClientes.Enabled = true;
+                textBoxIDParking.Enabled = true;
+                textBoxIDParking.BackColor = SystemColors.ActiveCaption;
+                TBModServIDServ.BackColor = SystemColors.ActiveCaption;
                 TBModServIDNeumatico.BackColor = SystemColors.ActiveCaption;
                 TBModServNumPlaza.BackColor = SystemColors.ActiveCaption;
                 TBModServIDClientes.BackColor = SystemColors.ActiveCaption;
@@ -161,18 +178,20 @@ namespace GUI.Diseño.Gerente.Vehiculos
             }
         }
 
-        
+
 
         private void RBNeumaticos_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonNeumaticos.Checked)
             {
                 // Si se selecciona RBNeumaticos, deshabilitar TextBox1 y TextBox2
+                textBoxIDParking.Enabled = false;
                 mTBModServFechaFin.Enabled = false;
                 TBModServIDServ.Enabled = false;
                 TBModServMatr.Enabled = false;
                 TBModServNumPlaza.Enabled = false;
                 comboBoxServicio.Enabled = false;
+                textBoxIDParking.BackColor = Color.DarkGray;
                 TBModServIDServ.BackColor = Color.DarkGray;
                 TBModServMatr.BackColor = Color.DarkGray;
                 TBModServNumPlaza.BackColor = Color.DarkGray;
@@ -185,6 +204,8 @@ namespace GUI.Diseño.Gerente.Vehiculos
                 TBModServMatr.Enabled = true;
                 TBModServNumPlaza.Enabled = true;
                 comboBoxServicio.Enabled = true;
+                textBoxIDParking.Enabled = true;
+                textBoxIDParking.BackColor = SystemColors.ActiveCaption;
                 TBModServIDServ.BackColor = SystemColors.ActiveCaption;
                 TBModServMatr.BackColor = SystemColors.ActiveCaption;
                 TBModServNumPlaza.BackColor = SystemColors.ActiveCaption;
@@ -194,6 +215,11 @@ namespace GUI.Diseño.Gerente.Vehiculos
         }
 
         private void btnModServGer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

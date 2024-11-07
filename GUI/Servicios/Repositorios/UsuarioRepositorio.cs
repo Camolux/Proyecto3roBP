@@ -148,21 +148,20 @@ namespace Repositorios
             MySqlConnection connection = conexionBD.ConnectToDataBase();
             try
             {
-                // Ajustar la consulta para eliminar solo usuarios con roles específicos
+                // Permitir eliminar usuarios con roles específicos, incluyendo "Jefe"
                 string query = @"DELETE FROM Funcionario 
-                         WHERE nombreUsuario = @nombreUsuario 
-                         AND idTipoUsuario IN ('Ejecutivo', 'Jefe', 'Operador', 'Cajero')"; // Roles permitidos para eliminar
+                         WHERE username = @nombreUsuario 
+                         AND rol IN ('Ejecutivo', 'Operador', 'Cajero', 'Jefe')"; // Roles permitidos para eliminar
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
 
                 connection.Open();
                 int result = cmd.ExecuteNonQuery();
-                return result > 0; // Devuelve true si al menos una fila fue afectada
+                return result > 0; // Devuelve true si se eliminó el usuario
             }
             catch (Exception ex)
             {
-                // Manejo de excepciones
                 throw new Exception("Error al eliminar el usuario", ex);
             }
             finally
@@ -307,23 +306,23 @@ namespace Repositorios
                 connection.Close();
             }
         }
-
+        
         public bool EliminarEjecutivoOperadorCajero(string nombreUsuario)
         {
             MySqlConnection connection = conexionBD.ConnectToDataBase();
             try
             {
-                // Eliminar usuario sin realizar validaciones en esta capa
+                // Ajusta la consulta para eliminar solo usuarios con roles permitidos
                 string query = @"DELETE FROM Funcionario 
-                         WHERE username = @username 
-                         AND rol IN ('Ejecutivo', 'Operador', 'Cajero')"; // Roles permitidos para eliminar
+                         WHERE username = @nombreUsuario 
+                         AND rol IN ('Ejecutivo', 'Operador', 'Cajero')"; // Solo roles permitidos
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@username", nombreUsuario);
+                cmd.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
 
                 connection.Open();
                 int result = cmd.ExecuteNonQuery();
-                return result > 0; // Devuelve true si al menos una fila fue afectada
+                return result > 0; // Devuelve true si se eliminó el usuario
             }
             catch (Exception ex)
             {
@@ -334,6 +333,7 @@ namespace Repositorios
                 connection.Close();
             }
         }
+
 
     }
 

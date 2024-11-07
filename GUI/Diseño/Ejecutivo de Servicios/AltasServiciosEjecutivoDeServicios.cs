@@ -72,7 +72,7 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
                 TBAltaServEjeNumPlaza.Enabled = false;
                 TBAltaServEjeIDCliente.Enabled = false;
                 comboBox1.Enabled = false;
-                TBAltaServEjeID.BackColor = Color.DarkGray;
+                
                 TBAltaServEjeIDNeu.BackColor = Color.DarkGray;
                 TBAltaServEjeNumPlaza.BackColor = Color.DarkGray;
                 TBAltaServEjeIDCliente.BackColor = Color.DarkGray;
@@ -126,20 +126,24 @@ namespace GUI.Diseño.Ejecutivo_de_Servicios
         {
             if (radioButtonTaller.Checked)
             {
+                TBAltaServEjeID.Enabled = false ;
                 mTBAltaServEjeFechaFin.Enabled = false;
                 TBAltaServEjeIDNeu.Enabled = false;
                 TBAltaServEjeNumPlaza.Enabled = false;
                 TBAltaServEjeIDCliente.Enabled = false;
+                TBAltaServEjeID.BackColor= Color.DarkGray;
                 TBAltaServEjeIDNeu.BackColor = Color.DarkGray;
                 TBAltaServEjeNumPlaza.BackColor = Color.DarkGray;
                 TBAltaServEjeIDCliente.BackColor = Color.DarkGray;
             }
             else
             {
+                TBAltaServEjeID.Enabled = true;
                 mTBAltaServEjeFechaFin.Enabled = true;
                 TBAltaServEjeIDNeu.Enabled = true;
                 TBAltaServEjeNumPlaza.Enabled = true;
                 TBAltaServEjeIDCliente.Enabled = true;
+                TBAltaServEjeID.BackColor = SystemColors.ActiveCaption;
                 TBAltaServEjeIDNeu.BackColor = SystemColors.ActiveCaption;
                 TBAltaServEjeNumPlaza.BackColor = SystemColors.ActiveCaption;
                 TBAltaServEjeIDCliente.BackColor = SystemColors.ActiveCaption;

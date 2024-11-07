@@ -92,6 +92,7 @@ namespace GUI.Diseño.Gerente.Vehiculos
             if (RBAlineacion.Checked)
             {
                 // Si se selecciona RBTaller, deshabilitar TextBox1 y TextBox2
+                TBAltaServGerID.Enabled = false;
                 mTBAltaServGerFechaFin.Enabled = false;
                 TBAltaServGerIDNeum.Enabled = false;
                 TBAltaServGerNumPlaza.Enabled = false;
@@ -99,10 +100,12 @@ namespace GUI.Diseño.Gerente.Vehiculos
                 TBAltaServGerIDNeum.BackColor = Color.DarkGray;
                 TBAltaServGerNumPlaza.BackColor = Color.DarkGray;
                 TBAltaServGerIDCliente.BackColor = Color.DarkGray;
+                TBAltaServGerID.BackColor = Color.DarkGray; 
             }
             else
             {
                 // Habilitarlos si no está seleccionado
+                TBAltaServGerID.Enabled = true;
                 mTBAltaServGerFechaFin.Enabled = true;
                 TBAltaServGerIDNeum.Enabled = true;
                 TBAltaServGerNumPlaza.Enabled = true;
@@ -110,6 +113,7 @@ namespace GUI.Diseño.Gerente.Vehiculos
                 TBAltaServGerIDNeum.BackColor = SystemColors.ActiveCaption;
                 TBAltaServGerNumPlaza.BackColor = SystemColors.ActiveCaption;
                 TBAltaServGerIDCliente.BackColor = SystemColors.ActiveCaption;
+                TBAltaServGerID.BackColor = SystemColors.ActiveCaption;
             }
         }
 

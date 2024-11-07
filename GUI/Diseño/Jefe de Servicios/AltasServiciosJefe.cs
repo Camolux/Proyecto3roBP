@@ -76,56 +76,12 @@ namespace GUI.Diseño.Jefe_de_Servicios
 
         private void radioButtonTaller_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonTaller.Checked)
-            {
-                mTBAltaServicioFechaFin.Enabled = false;
-                TBAltaServicioIDNeumatico.Enabled = false;
-                TBAltaServicioNumPlaza.Enabled = false;
-                TBAltaServicioIDClientes.Enabled = false;
-                TBAltaServicioIDNeumatico.BackColor = Color.DarkGray;
-                TBAltaServicioNumPlaza.BackColor = Color.DarkGray;
-                TBAltaServicioIDClientes.BackColor = Color.DarkGray;
-            }
-            else
-            {
-                mTBAltaServicioFechaFin.Enabled = true;
-                TBAltaServicioIDNeumatico.Enabled = true;
-                TBAltaServicioNumPlaza.Enabled = true;
-                TBAltaServicioIDClientes.Enabled = true;
-                TBAltaServicioIDNeumatico.BackColor = SystemColors.ActiveCaption;
-                TBAltaServicioNumPlaza.BackColor = SystemColors.ActiveCaption;
-                TBAltaServicioIDClientes.BackColor = SystemColors.ActiveCaption;
-            }
+            
         }
 
         private void radioButtonLavado_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonLavado.Checked)
-            {
-                // Si se selecciona RBLavado, deshabilitar TextBox1 y TextBox2
-                mTBAltaServicioFechaFin.Enabled = false;
-                TBAltaServicioIDNeumatico.Enabled = false;
-                TBAltaServicioNumPlaza.Enabled = false;
-                TBAltaServicioIDClientes.Enabled = false;
-                comboBoxServicio.Enabled = false;
-                TBAltaServicioID.BackColor = Color.DarkGray;
-                TBAltaServicioIDNeumatico.BackColor = Color.DarkGray;
-                TBAltaServicioNumPlaza.BackColor = Color.DarkGray;
-                TBAltaServicioID.BackColor = Color.DarkGray;
-            }
-            else
-            {
-                // Habilitarlos si no está seleccionado
 
-                mTBAltaServicioFechaFin.Enabled = true;
-                TBAltaServicioIDNeumatico.Enabled = true;
-                TBAltaServicioNumPlaza.Enabled = true;
-                TBAltaServicioIDClientes.Enabled = true;
-                comboBoxServicio.Enabled = true;
-                TBAltaServicioIDNeumatico.BackColor = SystemColors.ActiveCaption;
-                TBAltaServicioNumPlaza.BackColor = SystemColors.ActiveCaption;
-                TBAltaServicioIDClientes.BackColor = SystemColors.ActiveCaption;
-            }
         }
 
         private void radioButtonNeumaticos_CheckedChanged(object sender, EventArgs e)
@@ -154,6 +110,42 @@ namespace GUI.Diseño.Jefe_de_Servicios
                 TBAltaServicioMatr.BackColor = SystemColors.ActiveCaption;
                 TBAltaServicioNumPlaza.BackColor = SystemColors.ActiveCaption;
             }
+        }
+
+        private void radioButtonLavado_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (radioButtonLavado.Checked)
+            {
+
+                // Si se selecciona RBLavado, deshabilitar TextBox1 y TextBox2
+                mTBAltaServicioFechaFin.Enabled = false;
+                TBAltaServicioIDNeumatico.Enabled = false;
+                TBAltaServicioNumPlaza.Enabled = false;
+                TBAltaServicioIDClientes.Enabled = false;
+                comboBoxServicio.Enabled = false;
+                TBAltaServicioIDClientes.BackColor = Color.DarkGray;
+                TBAltaServicioIDNeumatico.BackColor = Color.DarkGray;
+                TBAltaServicioNumPlaza.BackColor = Color.DarkGray;
+
+            }
+            else
+            {
+                // Habilitarlos si no está seleccionado
+
+                mTBAltaServicioFechaFin.Enabled = true;
+                TBAltaServicioIDNeumatico.Enabled = true;
+                TBAltaServicioNumPlaza.Enabled = true;
+                TBAltaServicioIDClientes.Enabled = true;
+                comboBoxServicio.Enabled = true;
+                TBAltaServicioIDNeumatico.BackColor = SystemColors.ActiveCaption;
+                TBAltaServicioNumPlaza.BackColor = SystemColors.ActiveCaption;
+                TBAltaServicioIDClientes.BackColor = SystemColors.ActiveCaption;
+            }
+        }
+
+        private void radioButtonTaller_CheckedChanged_1(object sender, EventArgs e)
+        {
+            
         }
     }
 }

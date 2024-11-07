@@ -69,12 +69,31 @@ namespace Servicios
         }
         public bool ActualizarPrecioServicio(int idServicio, int nuevoPrecio)
         {
+            // Validación del precio
             if (nuevoPrecio <= 0)
             {
                 MessageBox.Show("El precio debe ser un valor positivo.");
                 return false;
             }
 
+            // Validaciones del ID de servicio
+            if (idServicio >= 1 && idServicio <= 5)
+            {
+                // Es un servicio de lavado
+                MessageBox.Show("Actualizando precio del servicio de lavado.");
+            }
+            else if (idServicio >= 6 && idServicio <= 12)
+            {
+                // Es un servicio de taller
+                MessageBox.Show("Actualizando precio del servicio de taller.");
+            }
+            else
+            {
+                MessageBox.Show("El ID de servicio no es válido. Debe estar entre 1-5 para lavado o 6-12 para taller.");
+                return false;
+            }
+
+            // Realizar la actualización en la base de datos a través del repositorio
             return servicioRepositorio.ActualizarPrecioServicio(idServicio, nuevoPrecio);
         }
     }

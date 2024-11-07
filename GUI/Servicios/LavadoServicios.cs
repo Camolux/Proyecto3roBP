@@ -59,5 +59,15 @@ namespace Servicios
                 return new List<LavadoDTO>();
             }
         }
+        public bool ActualizarPrecioLavado(int idServicio, int nuevoPrecio)
+        {
+            if (idServicio <= 0 || nuevoPrecio <= 0)
+            {
+                MessageBox.Show("El ID del servicio y el nuevo precio deben ser valores positivos.");
+                return false;
+            }
+
+            return lavadoRepositorio.ActualizarPrecioLavado(idServicio, nuevoPrecio);
+        }
     }
 }

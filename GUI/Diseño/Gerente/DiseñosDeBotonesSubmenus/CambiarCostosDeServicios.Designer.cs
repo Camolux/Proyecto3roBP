@@ -220,55 +220,56 @@
             comboBoxServicio.Name = "comboBoxServicio";
             comboBoxServicio.Size = new Size(230, 23);
             comboBoxServicio.TabIndex = 207;
-            
             // 
             // radioButtonNeumaticos
             // 
             radioButtonNeumaticos.AutoSize = true;
-            radioButtonNeumaticos.Location = new Point(511, 289);
+            radioButtonNeumaticos.Location = new Point(520, 245);
             radioButtonNeumaticos.Name = "radioButtonNeumaticos";
             radioButtonNeumaticos.Size = new Size(134, 19);
             radioButtonNeumaticos.TabIndex = 215;
             radioButtonNeumaticos.TabStop = true;
             radioButtonNeumaticos.Text = "Cambio Neumaticos";
             radioButtonNeumaticos.UseVisualStyleBackColor = true;
-            radioButtonNeumaticos.CheckedChanged += this.RBNeumaticos_CheckedChanged;
+            radioButtonNeumaticos.CheckedChanged += RBNeumaticos_CheckedChanged;
             // 
             // radioButtonLavado
             // 
             radioButtonLavado.AutoSize = true;
-            radioButtonLavado.Location = new Point(511, 250);
+            radioButtonLavado.Location = new Point(520, 206);
             radioButtonLavado.Name = "radioButtonLavado";
             radioButtonLavado.Size = new Size(63, 19);
             radioButtonLavado.TabIndex = 214;
             radioButtonLavado.TabStop = true;
             radioButtonLavado.Text = "Lavado";
             radioButtonLavado.UseVisualStyleBackColor = true;
-            radioButtonLavado.CheckedChanged += this.RBLavado_CheckedChanged;
+            radioButtonLavado.CheckedChanged += RBLavado_CheckedChanged;
             // 
             // radioButtonTaller
             // 
             radioButtonTaller.AutoSize = true;
-            radioButtonTaller.Location = new Point(511, 206);
+            radioButtonTaller.Location = new Point(520, 155);
             radioButtonTaller.Name = "radioButtonTaller";
             radioButtonTaller.Size = new Size(52, 19);
             radioButtonTaller.TabIndex = 213;
             radioButtonTaller.TabStop = true;
             radioButtonTaller.Text = "Taller";
             radioButtonTaller.UseVisualStyleBackColor = true;
-            radioButtonTaller.CheckedChanged += this.RBAlineacion_CheckedChanged;
+            radioButtonTaller.CheckedChanged += RBAlineacion_CheckedChanged;
             // 
             // radioButtonParking
             // 
             radioButtonParking.AutoSize = true;
-            radioButtonParking.Location = new Point(511, 161);
+            radioButtonParking.Enabled = false;
+            radioButtonParking.Location = new Point(605, 43);
             radioButtonParking.Name = "radioButtonParking";
             radioButtonParking.Size = new Size(65, 19);
             radioButtonParking.TabIndex = 212;
             radioButtonParking.TabStop = true;
             radioButtonParking.Text = "Parking";
             radioButtonParking.UseVisualStyleBackColor = true;
-            radioButtonParking.CheckedChanged += this.RBParking_CheckedChanged;
+            radioButtonParking.Visible = false;
+            radioButtonParking.CheckedChanged += RBParking_CheckedChanged;
             // 
             // CambiarCostosDeServicios
             // 

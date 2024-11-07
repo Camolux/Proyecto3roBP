@@ -61,6 +61,15 @@ namespace Repositorios
             MySqlConnection connection = conexionBD.ConnectToDataBase();
             try
             {
+                // Verificación previa en `ocupa`
+                bool existeRegistro = VerificarRegistroEnOcupa(parking.Matricula, parking.FechaEntrada, parking.FechaSalida, parking.NumPlaza);
+                if (!existeRegistro)
+                {
+                    MessageBox.Show("No se encontró un registro correspondiente en Ocupa para esta modificación.");
+                    return false;
+                }
+
+                // Consulta de modificación
                 string query = "UPDATE Parking SET precio = @precio, paraentregar = @paraEntregar, fechasalida = @fechaSalida, " +
                                "fechaentrada = @fechaEntrada, matricula = @matricula, numplaza = @numPlaza, funcionario = @funcionario " +
                                "WHERE idparking = @idParking";
@@ -80,13 +89,47 @@ namespace Repositorios
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al modificar el registro de parking", ex);
+                MessageBox.Show("Error al modificar el registro de parking: " + ex.Message);
+                return false;
             }
             finally
             {
                 connection.Close();
             }
         }
+
+        private bool VerificarRegistroEnOcupa(string matricula, DateTime fechaEntrada, DateTime fechaSalida, int numPlaza)
+        {
+            MySqlConnection connection = conexionBD.ConnectToDataBase();
+            try
+            {
+                string query = "SELECT COUNT(*) FROM ocupa WHERE matricula = @matricula AND DATE(fechaentrada) = DATE(@fechaEntrada) " +
+                               "AND DATE(fechasalida) = DATE(@fechaSalida) AND numplaza = @numPlaza";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@matricula", matricula);
+                cmd.Parameters.AddWithValue("@fechaEntrada", fechaEntrada);
+                cmd.Parameters.AddWithValue("@fechaSalida", fechaSalida);
+                cmd.Parameters.AddWithValue("@numPlaza", numPlaza);
+
+                connection.Open();
+
+                // Verificar valores de diagnóstico
+                MessageBox.Show($"Verificando en Ocupa:\nMatrícula: {matricula}\nFecha Entrada: {fechaEntrada}\nFecha Salida: {fechaSalida}\nNúmero de Plaza: {numPlaza}");
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al verificar el registro en Ocupa: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        
 
         // Método para obtener un registro de parking específico por ID
         public ParkingDTO ObtenerParkingPorId(int idParking)

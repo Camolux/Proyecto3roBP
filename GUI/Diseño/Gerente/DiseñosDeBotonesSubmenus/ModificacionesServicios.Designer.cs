@@ -60,6 +60,9 @@
             radioButtonLavado = new RadioButton();
             radioButtonTaller = new RadioButton();
             radioButtonParking = new RadioButton();
+            label7 = new Label();
+            panel3 = new Panel();
+            textBoxIDParking = new TextBox();
             SuspendLayout();
             // 
             // label24
@@ -190,7 +193,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaptionText;
-            panel1.Location = new Point(254, 118);
+            panel1.Location = new Point(254, 120);
             panel1.Name = "panel1";
             panel1.Size = new Size(230, 2);
             panel1.TabIndex = 148;
@@ -227,7 +230,7 @@
             // 
             TBModServIDServ.BackColor = SystemColors.ActiveCaption;
             TBModServIDServ.BorderStyle = BorderStyle.None;
-            TBModServIDServ.Location = new Point(254, 96);
+            TBModServIDServ.Location = new Point(254, 98);
             TBModServIDServ.Name = "TBModServIDServ";
             TBModServIDServ.Size = new Size(230, 16);
             TBModServIDServ.TabIndex = 146;
@@ -289,7 +292,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Sitka Text", 26.2499962F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(176, 21);
+            label5.Location = new Point(174, -3);
             label5.Name = "label5";
             label5.Size = new Size(358, 50);
             label5.TabIndex = 171;
@@ -333,7 +336,7 @@
             radioButtonNeumaticos.TabStop = true;
             radioButtonNeumaticos.Text = "Cambio Neumaticos";
             radioButtonNeumaticos.UseVisualStyleBackColor = true;
-            radioButtonNeumaticos.CheckedChanged += this.RBNeumaticos_CheckedChanged;
+            radioButtonNeumaticos.CheckedChanged += RBNeumaticos_CheckedChanged;
             // 
             // radioButtonLavado
             // 
@@ -345,7 +348,7 @@
             radioButtonLavado.TabStop = true;
             radioButtonLavado.Text = "Lavado";
             radioButtonLavado.UseVisualStyleBackColor = true;
-            radioButtonLavado.CheckedChanged += this.RBLavado_CheckedChanged;
+            radioButtonLavado.CheckedChanged += RBLavado_CheckedChanged;
             // 
             // radioButtonTaller
             // 
@@ -357,7 +360,7 @@
             radioButtonTaller.TabStop = true;
             radioButtonTaller.Text = "Taller";
             radioButtonTaller.UseVisualStyleBackColor = true;
-            radioButtonTaller.CheckedChanged += this.RBAlineacion_CheckedChanged;
+            radioButtonTaller.CheckedChanged += RBAlineacion_CheckedChanged;
             // 
             // radioButtonParking
             // 
@@ -369,7 +372,35 @@
             radioButtonParking.TabStop = true;
             radioButtonParking.Text = "Parking";
             radioButtonParking.UseVisualStyleBackColor = true;
-            radioButtonParking.CheckedChanged += this.RBParking_CheckedChanged;
+            radioButtonParking.CheckedChanged += RBParking_CheckedChanged;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(56, 56);
+            label7.Name = "label7";
+            label7.Size = new Size(170, 18);
+            label7.TabIndex = 217;
+            label7.Text = "Ingrese El ID del Parking";
+            // 
+            // panel3
+            // 
+            panel3.BackColor = SystemColors.ActiveCaptionText;
+            panel3.Location = new Point(254, 75);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(230, 2);
+            panel3.TabIndex = 219;
+            panel3.Paint += panel3_Paint;
+            // 
+            // textBoxIDParking
+            // 
+            textBoxIDParking.BackColor = SystemColors.ActiveCaption;
+            textBoxIDParking.BorderStyle = BorderStyle.None;
+            textBoxIDParking.Location = new Point(254, 58);
+            textBoxIDParking.Name = "textBoxIDParking";
+            textBoxIDParking.Size = new Size(230, 16);
+            textBoxIDParking.TabIndex = 218;
             // 
             // ModificacionesServicios
             // 
@@ -377,6 +408,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(711, 539);
+            Controls.Add(panel3);
+            Controls.Add(textBoxIDParking);
+            Controls.Add(label7);
             Controls.Add(radioButtonNeumaticos);
             Controls.Add(radioButtonLavado);
             Controls.Add(radioButtonTaller);
@@ -455,12 +489,15 @@
         private RadioButton radioButtonLavado;
         private RadioButton radioButtonTaller;
         private RadioButton radioButtonParking;
+        private Label label7;
+        private Panel panel3;
+        private TextBox textBoxIDParking;
 
         public RadioButton RBBalanceo { get => rBBalanceo; set => rBBalanceo = value; }
-        public RadioButton RBNeumaticos { get => rBNeumaticos; set => rBNeumaticos = value; }
-        public RadioButton RBAlineacion { get => rBAlineacion; set => rBAlineacion = value; }
-        public RadioButton RBLavado { get => rBLavado; set => rBLavado = value; }
-        public RadioButton RBParking { get => rBParking; set => rBParking = value; }
+        public RadioButton RBNeumaticos { get => radioButtonNeumaticos; set => radioButtonNeumaticos = value; }
+        public RadioButton RBAlineacion { get => radioButtonTaller; set => radioButtonTaller = value; }
+        public RadioButton RBLavado { get => radioButtonLavado; set => radioButtonLavado = value; }
+        public RadioButton RBParking { get => radioButtonParking; set => radioButtonParking = value; }
         public MaskedTextBox MTBModServFechaFin { get => mTBModServFechaFin; set => mTBModServFechaFin = value; }
         public MaskedTextBox MTBModServFechaInicio { get => mTBModServFechaInicio; set => mTBModServFechaInicio = value; }
         public TextBox TBModServIDClientes1 { get => TBModServIDClientes; set => TBModServIDClientes = value; }
@@ -470,5 +507,6 @@
         public TextBox TBModServMatr1 { get => TBModServMatr; set => TBModServMatr = value; }
         public TextBox TBModServIDServ1 { get => TBModServIDServ; set => TBModServIDServ = value; }
         public ComboBox ComboBoxServicio { get => comboBoxServicio; set => comboBoxServicio = value; }
+        public TextBox TextBoxIDParking { get => textBoxIDParking; set => textBoxIDParking = value; }
     }
 }

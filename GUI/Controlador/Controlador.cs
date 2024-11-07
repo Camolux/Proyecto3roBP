@@ -180,7 +180,7 @@ namespace Controlador
             formCajero.SetControlador(this);
             formGerente = MenuGerente.GetInstance();
             formGerente.SetControlador(this);
-
+            string servicioSeleccionado;
             string matricula;
         }
 
@@ -505,32 +505,85 @@ namespace Controlador
                             return;
                         }
 
+                        int nuevoPrecio;
                         int id = 0;
-                        int nuevoPrecio = 0;
 
-                        if (!int.TryParse(cambiarCostosDeServicios.TBCostoServIDServ1.Text, out id) || !int.TryParse(cambiarCostosDeServicios.TBCostoServIDCosto1.Text, out nuevoPrecio))
+                        // Validar el precio ingresado
+                        if (!int.TryParse(cambiarCostosDeServicios.TBCostoServIDCosto1.Text, out nuevoPrecio) || nuevoPrecio <= 0)
                         {
-                            MessageBox.Show("Ingrese valores válidos para el ID y el precio.");
+                            MessageBox.Show("Ingrese un valor válido para el precio.");
                             return;
                         }
 
                         string tipoServicio = "";
 
+                        // Asignar tipo de servicio en función de los radio buttons seleccionados
                         if (cambiarCostosDeServicios.RBParking.Checked)
                         {
                             tipoServicio = "parking";
+                            if (!int.TryParse(cambiarCostosDeServicios.TBCostoServIDServ1.Text, out id) || id <= 0)
+                            {
+                                MessageBox.Show("Ingrese un valor válido para el ID de servicio de parking.");
+                                return;
+                            }
                         }
-                        else if (cambiarCostosDeServicios.RBLavado.Checked || cambiarCostosDeServicios.RBAlineacion.Checked)
+                        else if (cambiarCostosDeServicios.RBLavado.Checked)
                         {
-                            tipoServicio = "servicio";
+                            tipoServicio = "lavado";
+                            if (!int.TryParse(cambiarCostosDeServicios.TBCostoServIDServ1.Text, out id) || id < 1 || id > 5)
+                            {
+                                MessageBox.Show("El ID de servicio para Lavado debe estar entre 1 y 5.");
+                                return;
+                            }
+                        }
+                        else if (cambiarCostosDeServicios.RBAlineacion.Checked)  // Asegúrate de que el RadioButton "Taller" esté nombrado correctamente aquí.
+                        {
+                            tipoServicio = "taller";
+
+                            string servicioSeleccionado = cambiarCostosDeServicios.ComboBoxServicio.SelectedItem?.ToString();
+                            id = ObtenerIdServicioTaller(servicioSeleccionado);
+
+                            if (id == 0)
+                            {
+                                MessageBox.Show("Por favor, seleccione un tipo de servicio de taller válido.");
+                                return;
+                            }
+
+                            // Reflejar el ID calculado en el campo del formulario para que el usuario lo vea
+                            cambiarCostosDeServicios.TBCostoServIDServ1.Text = id.ToString();
                         }
                         else if (cambiarCostosDeServicios.RBNeumaticos.Checked)
                         {
                             tipoServicio = "neumatico";
+                            if (!int.TryParse(cambiarCostosDeServicios.TBCostoServIDNeumatico1.Text, out id) || id < 1 || id > 9)
+                            {
+                                MessageBox.Show("El ID de neumático debe estar entre 1 y 9.");
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Por favor, seleccione un tipo de servicio.");
+                            return;
                         }
 
-                        Controlador.GetInstance().ActualizarCostoServicio(tipoServicio, id, nuevoPrecio);
+                        // Llamar al método en el Controlador para actualizar el costo del servicio
+                        if (Controlador.GetInstance().ActualizarCostoServicio(tipoServicio, id, nuevoPrecio))
+                        {
+                            MessageBox.Show("Precio actualizado correctamente.");
+                            // Limpia los campos después de actualizar el precio
+                            cambiarCostosDeServicios.TBCostoServIDServ1.Clear();
+                            cambiarCostosDeServicios.TBCostoServIDCosto1.Clear();
+                            cambiarCostosDeServicios.TBCostoServIDNeumatico1.Clear();
+                            cambiarCostosDeServicios.TBCostoServIDPlaza1.Clear();
 
+                            // Restablece el ComboBox
+                            cambiarCostosDeServicios.ComboBoxServicio.SelectedIndex = -1;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo actualizar el precio. Verifique los datos ingresados.");
+                        }
 
 
 
@@ -769,7 +822,7 @@ namespace Controlador
         private void RegistrarServicio(dynamic formulario, string rol)
         {
             string tipoServicio = ObtenerTipoServicioSeleccionado(formulario);
-
+            
             if (string.IsNullOrEmpty(tipoServicio))
             {
                 MessageBox.Show("Por favor, seleccione un tipo de servicio.");
@@ -779,11 +832,10 @@ namespace Controlador
             // Obtener datos comunes del formulario
             string matricula = formulario.TBAltaServGerMatr1.Text;
             string fechaInicioTexto = formulario.MTBAltaServGerFechaInicio.Text;
-            string fechaFinTexto = formulario.MTBAltaServGerFechaFin.Text;
             string nombreFuncionario = formulario.TBAltaServGerNomFuncionario1.Text;
 
             // Validaciones comunes
-            if (string.IsNullOrWhiteSpace(matricula) || string.IsNullOrWhiteSpace(fechaInicioTexto))
+            if (string.IsNullOrWhiteSpace(fechaInicioTexto))
             {
                 MessageBox.Show("Por favor, complete todos los campos obligatorios.");
                 return;
@@ -795,9 +847,18 @@ namespace Controlador
                 return;
             }
 
+            // Verificar si el servicio requiere fecha de fin
             DateTime fechaFin = fechaInicio;
-            if (!string.IsNullOrWhiteSpace(fechaFinTexto))
+            if (tipoServicio == "parking") // Solo requerimos la fecha de fin para el servicio de parking
             {
+                string fechaFinTexto = formulario.MTBAltaServGerFechaFin.Text;
+
+                if (string.IsNullOrWhiteSpace(fechaFinTexto))
+                {
+                    MessageBox.Show("Por favor, ingrese la fecha de fin para el servicio de parking.");
+                    return;
+                }
+
                 if (!DateTime.TryParseExact(fechaFinTexto, "dd/MM/yyyy HH:mm", null, System.Globalization.DateTimeStyles.None, out DateTime fechaFinParsed))
                 {
                     MessageBox.Show("La fecha de fin es inválida. Formato correcto: dd/MM/yyyy HH:mm");
@@ -814,12 +875,7 @@ namespace Controlador
             }
 
             // Obtener el vehículo por matrícula
-            VehiculoDTO vehiculoDTO = vehiculoServicios.ObtenerVehiculoPorMatricula(matricula);
-            if (vehiculoDTO == null)
-            {
-                MessageBox.Show("No se encontró un vehículo con la matrícula proporcionada.");
-                return;
-            }
+            
 
             decimal precioBase = 0m;
             decimal precioFinal = 0m;
@@ -827,9 +883,15 @@ namespace Controlador
             switch (tipoServicio)
             {
                 case "parking":
+                    vehiculoDTO = vehiculoServicios.ObtenerVehiculoPorMatricula(matricula);
+                    if (vehiculoDTO == null)
+                    {
+                        MessageBox.Show("No se encontró un vehículo con la matrícula proporcionada.");
+                        return;
+                    }
                     string numPlazaTexto = formulario.TBAltaServGerNumPlaza1.Text;
 
-                    if (string.IsNullOrWhiteSpace(numPlazaTexto))
+                    if (string.IsNullOrWhiteSpace(matricula) || string.IsNullOrWhiteSpace(numPlazaTexto))
                     {
                         MessageBox.Show("Por favor, complete el número de plaza.");
                         return;
@@ -891,79 +953,92 @@ namespace Controlador
                     break;
 
                 case "lavado":
-                    // Calcular precio base
-                    precioBase = ObtenerPrecioBaseLavado(vehiculoDTO.Tipo);
-
-                    // Calcular precio final con descuentos
-                    precioFinal = CalcularPrecioConDescuento(precioBase, vehiculoDTO.TIpoCliente, "lavado", fechaInicio, fechaFin, matricula, vehiculoDTO.Tipo);
-
-                    // Registrar servicio de lavado en Recibe
-                    RecibeDTO recibeDTO = new RecibeDTO
+                    vehiculoDTO = vehiculoServicios.ObtenerVehiculoPorMatricula(matricula);
+                    if (vehiculoDTO == null)
                     {
-                        Matricula = matricula,
-                        FechaServicio = fechaInicio,
-                        Funcionario = nombreFuncionario,
-                        IdServicio = ObtenerIdServicioLavado(vehiculoDTO.Tipo)
-                    };
+                        MessageBox.Show("No se encontró un vehículo con la matrícula proporcionada.");
+                        return;
+                    }
+                    if ( ! string.IsNullOrWhiteSpace(matricula)) {
+                        // Registrar servicio de lavado en Recibe
+                        RecibeDTO recibeDTO = new RecibeDTO
+                        {
+                            Matricula = matricula,
+                            FechaServicio = fechaInicio,
+                            Funcionario = nombreFuncionario,
+                            IdServicio = ObtenerIdServicioLavado(vehiculoDTO.Tipo)
+                        };
 
-                    bool lavadoAgregado = recibeServicios.AgregarRecibe(recibeDTO);
+                        bool lavadoAgregado = recibeServicios.AgregarRecibe(recibeDTO);
 
-                    if (lavadoAgregado)
-                    {
-                        MessageBox.Show($"Servicio de lavado agregado correctamente. Precio: {precioFinal:C}");
-                        LimpiarCamposAltas(formulario);
+                        if (lavadoAgregado)
+                        {
+                            MessageBox.Show($"Servicio de lavado agregado correctamente.");
+                            LimpiarCamposAltas(formulario);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo agregar el servicio de lavado.");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("No se pudo agregar el servicio de lavado.");
+                        MessageBox.Show("Ingrese todos los campos solicitados");
                     }
                     break;
 
                 case "taller":
-                    string idServicioTexto = formulario.TBAltaServGerID1.Text;
-                    if (string.IsNullOrWhiteSpace(idServicioTexto))
+                    vehiculoDTO = vehiculoServicios.ObtenerVehiculoPorMatricula(matricula);
+                    if (vehiculoDTO == null)
                     {
-                        MessageBox.Show("Por favor, complete el ID del servicio.");
+                        MessageBox.Show("No se encontró un vehículo con la matrícula proporcionada.");
                         return;
                     }
+                    // Obtener el tipo de servicio seleccionado en el ComboBox y asignar el ID automáticamente
+                    string servicioSeleccionado = formulario.ComboBoxServicio.SelectedItem?.ToString();
+                    int idServicio = ObtenerIdServicioTaller(servicioSeleccionado);
+                    if ( ! string.IsNullOrWhiteSpace(matricula)) {
+                        if (idServicio == 0)
+                        {
+                            MessageBox.Show("Por favor, seleccione un tipo de servicio de taller válido.");
+                            return;
+                        }
 
-                    if (!int.TryParse(idServicioTexto, out int idServicio))
-                    {
-                        MessageBox.Show("El ID del servicio debe ser un número entero.");
-                        return;
-                    }
+                        // Calcular precio base
+                        precioBase = CalcularPrecioBaseServicio("taller", vehiculoDTO.Tipo, fechaInicio, fechaFin, idServicio);
 
-                    // Calcular precio base
-                    precioBase = CalcularPrecioBaseServicio("taller", vehiculoDTO.Tipo, fechaInicio, fechaFin, idServicio);
+                        // Calcular precio final con descuentos
+                        precioFinal = CalcularPrecioConDescuento(precioBase, vehiculoDTO.TIpoCliente, "taller", fechaInicio, fechaFin, matricula, vehiculoDTO.Tipo);
 
-                    // Calcular precio final con descuentos
-                    precioFinal = CalcularPrecioConDescuento(precioBase, vehiculoDTO.TIpoCliente, "taller", fechaInicio, fechaFin, matricula, vehiculoDTO.Tipo);
+                        // Registrar servicio de taller en Recibe
+                        RecibeDTO recibeDTOTaller = new RecibeDTO
+                        {
+                            Matricula = matricula,
+                            FechaServicio = fechaInicio,
+                            Funcionario = nombreFuncionario,
+                            IdServicio = idServicio
+                        };
 
-                    // Registrar servicio de taller en Recibe
-                    RecibeDTO recibeDTOTaller = new RecibeDTO
-                    {
-                        Matricula = matricula,
-                        FechaServicio = fechaInicio,
-                        Funcionario = nombreFuncionario,
-                        IdServicio = idServicio
-                    };
+                        bool tallerAgregado = recibeServicios.AgregarRecibe(recibeDTOTaller);
 
-                    bool tallerAgregado = recibeServicios.AgregarRecibe(recibeDTOTaller);
-
-                    if (tallerAgregado)
-                    {
-                        MessageBox.Show($"Servicio de taller agregado correctamente. Precio: {precioFinal:C}");
-                        LimpiarCamposAltas(formulario);
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo agregar el servicio de taller.");
+                        if (tallerAgregado)
+                        {
+                            MessageBox.Show($"Servicio de taller '{servicioSeleccionado}' agregado correctamente.");
+                            LimpiarCamposAltas(formulario);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo agregar el servicio de taller.");
+                        }
                     }
                     break;
 
                 case "compra_neumaticos":
+                    
                     string idNeumaticoTexto = formulario.TBAltaServGerIDNeum1.Text;
                     string idCliente = formulario.TBAltaServGerIDCliente1.Text;
+
+                    
 
                     if (string.IsNullOrWhiteSpace(idNeumaticoTexto) || string.IsNullOrWhiteSpace(idCliente))
                     {
@@ -985,10 +1060,7 @@ namespace Controlador
                         return;
                     }
 
-                    precioBase = neumaticoDTO.Precio;
-
-                    // Calcular precio final con descuentos
-                    precioFinal = CalcularPrecioConDescuento(precioBase, vehiculoDTO.TIpoCliente, "compra_neumaticos", fechaInicio, fechaFin, matricula, vehiculoDTO.Tipo);
+                    
 
                     // Registrar compra
                     CompraDTO compraDTO = new CompraDTO
@@ -1003,7 +1075,7 @@ namespace Controlador
 
                     if (compraAgregada)
                     {
-                        MessageBox.Show($"Compra de neumático agregada correctamente. Precio: {precioFinal:C}");
+                        MessageBox.Show($"Compra de neumático agregada correctamente.");
                         LimpiarCamposAltas(formulario);
                     }
                     else
@@ -1015,6 +1087,38 @@ namespace Controlador
                 default:
                     MessageBox.Show("Tipo de servicio no reconocido.");
                     break;
+            }
+        }
+
+
+        private int ObtenerIdServicioTaller(string servicioSeleccionado)
+        {
+            if (string.IsNullOrWhiteSpace(servicioSeleccionado))
+            {
+                return 0; // Devuelve 0 si la selección está vacía
+            }
+
+            // Normalizamos el texto a minúsculas y eliminamos espacios extra
+            servicioSeleccionado = servicioSeleccionado.Trim().ToLower();
+
+            switch (servicioSeleccionado)
+            {
+                case "montaje neumatico":
+                    return 6;
+                case "alineacion 1 tren":
+                    return 7;
+                case "alineacion":
+                    return 8;
+                case "balanceo auto + valvula":
+                    return 9;
+                case "alineacion 2 trenes":
+                    return 10;
+                case "pack alineacion":
+                    return 11;
+                case "balanceo camioneta + valvula":
+                    return 12;
+                default:
+                    return 0; // Si el valor no coincide con ninguno, devuelve 0
             }
         }
 
@@ -1194,6 +1298,20 @@ namespace Controlador
         // Método para procesar la modificación de servicios
         private void ProcesarModificacionServicio()
         {
+            if (modificacionesServicios == null)
+            {
+                MessageBox.Show("El formulario de modificaciones no está inicializado.");
+                return;
+            }
+
+            // Verificar cada control individual antes de acceder a sus valores
+            if (modificacionesServicios.RBParking == null || modificacionesServicios.RBLavado == null ||
+                modificacionesServicios.RBAlineacion == null || modificacionesServicios.RBNeumaticos == null)
+            {
+                MessageBox.Show("Algunos controles de tipo de servicio no están inicializados.");
+                return;
+            }
+
             if (modificacionesServicios.RBParking.Checked)
             {
                 ModificarServicio("parking");
@@ -1222,7 +1340,13 @@ namespace Controlador
             string nombreFuncionario = modificacionesServicios.TBModServFuncionario1.Text;
 
             // Validaciones comunes
-            if (string.IsNullOrWhiteSpace(matricula) || string.IsNullOrWhiteSpace(fechaTexto))
+            if (tipoServicio != "compra_neumaticos" && string.IsNullOrWhiteSpace(matricula))
+            {
+                MessageBox.Show("Por favor, ingrese la matrícula del vehículo.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(fechaTexto))
             {
                 MessageBox.Show("Por favor, complete todos los campos obligatorios para modificar.");
                 return;
@@ -1237,10 +1361,36 @@ namespace Controlador
             switch (tipoServicio)
             {
                 case "parking":
+                    int idParking = Convert.ToInt32(modificacionesServicios.TextBoxIDParking.Text);
+                    string fechaFinTexto = modificacionesServicios.MTBModServFechaFin.Text;
+
+                    if (string.IsNullOrWhiteSpace(fechaFinTexto) ||
+                        !DateTime.TryParseExact(fechaFinTexto, "dd/MM/yyyy HH:mm", null, System.Globalization.DateTimeStyles.None, out DateTime fechaFin))
+                    {
+                        MessageBox.Show("La fecha de fin es inválida. Formato correcto: dd/MM/yyyy HH:mm");
+                        return;
+                    }
+
+                    // Verificar si el vehículo existe
+                    vehiculoDTO = vehiculoServicios.ObtenerVehiculoPorMatricula(matricula);
+                    if (vehiculoDTO == null)
+                    {
+                        MessageBox.Show("No se encontró un vehículo con la matrícula proporcionada.");
+                        return;
+                    }
+
+                    // Calcular el precio automáticamente
+                    decimal precioBase = CalcularPrecioBaseServicio("parking", vehiculoDTO.Tipo, fechaServicio, fechaFin);
+                    int numPlaza = Convert.ToInt32(modificacionesServicios.TBModServNumPlaza1.Text);
                     ParkingDTO parkingDTO = new ParkingDTO
                     {
+                        IdParking = idParking,
                         Matricula = matricula,
                         FechaEntrada = fechaServicio,
+                        FechaSalida = fechaFin,
+                        NumPlaza = numPlaza,
+                        Precio = (int)Math.Round(precioBase),
+                        ParaEntregarEstado = ParkingDTO.ParaEntregar.no, // Mantener 'ParaEntregar' en 'no'
                         Funcionario = nombreFuncionario
                     };
 
@@ -1258,8 +1408,16 @@ namespace Controlador
                     break;
 
                 case "lavado":
+
+                    string idServicioLavado = modificacionesServicios.TBModServIDServ1.Text;
+                    if (Convert.ToInt32(idServicioLavado) < 1 || Convert.ToInt32(idServicioLavado) > 5)
+                    {
+                        MessageBox.Show("El ID de servicio para Lavado debe estar entre 1 y 5.");
+                        return;
+                    }
                     RecibeDTO recibeDTO = new RecibeDTO
                     {
+                        IdServicio = Convert.ToInt32(idServicioLavado),
                         Matricula = matricula,
                         FechaServicio = fechaServicio,
                         Funcionario = nombreFuncionario
@@ -1278,7 +1436,61 @@ namespace Controlador
                     }
                     break;
 
-                // ... otros casos ...
+                case "taller":
+                    string servicioSeleccionado = modificacionesServicios.ComboBoxServicio.SelectedItem?.ToString();
+                    int idServicio = ObtenerIdServicioTaller(servicioSeleccionado);
+
+                    RecibeDTO tallerDTO = new RecibeDTO
+                    {
+                        IdServicio = Convert.ToInt32(idServicio),
+                        Matricula = matricula,
+                        FechaServicio = fechaServicio,
+                        Funcionario = nombreFuncionario
+                    };
+
+                    bool tallerModificado = recibeServicios.ModificarRecibe(tallerDTO);
+
+                    if (tallerModificado)
+                    {
+                        MessageBox.Show("Servicio de taller modificado correctamente.");
+                        LimpiarCamposModificaciones();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo modificar el servicio de taller.");
+                    }
+                    break;
+
+                case "compra_neumaticos":
+                    string idNeumaticoTexto = modificacionesServicios.TBModServIDNeumatico1.Text;
+                    string idCliente = modificacionesServicios.TBModServIDClientes1.Text;
+
+                    if (string.IsNullOrWhiteSpace(idNeumaticoTexto) || string.IsNullOrWhiteSpace(idCliente))
+                    {
+                        MessageBox.Show("Por favor, complete todos los campos obligatorios para modificar.");
+                        return;
+                    }
+
+                    CompraDTO compraDTO = new CompraDTO
+                    {
+                        FechaVenta = fechaServicio,
+                        IdNeumatico = Convert.ToInt32(idNeumaticoTexto),
+                        Funcionario = nombreFuncionario,
+                        Cliente = idCliente
+                    };
+
+                    bool compraModificada = compraServicios.ModificarCompra(compraDTO);
+
+                    if (compraModificada)
+                    {
+                        MessageBox.Show("Compra de neumáticos modificada correctamente.");
+                        LimpiarCamposModificaciones();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo modificar la compra de neumáticos.");
+                    }
+                    break;
 
                 default:
                     MessageBox.Show("Tipo de servicio no reconocido para modificación.");
@@ -1390,47 +1602,122 @@ namespace Controlador
             modificacionesServicios.TBModServIDClientes1.Clear();
             modificacionesServicios.ComboBoxServicio.SelectedIndex = -1;
         }
-        public bool ActualizarPrecioNeumatico(int idNeumatico, int nuevoPrecio)
+        public void ModificarPrecioServicio()
         {
-            if (idNeumatico <= 0 || nuevoPrecio <= 0)
+            if (cambiarCostosDeServicios == null)
             {
-                MessageBox.Show("El ID del neumático y el nuevo precio deben ser positivos.");
-                return false;
+                MessageBox.Show("El formulario para cambiar costos de servicios no está inicializado.");
+                return;
             }
 
-            return neumaticoServicios.ActualizarPrecioNeumatico(idNeumatico, nuevoPrecio);
-        }
-        public bool ActualizarPrecioParking(int idParking, int nuevoPrecio)
-        {
-            if (idParking <= 0 || nuevoPrecio <= 0)
+            int id = 0;
+            int nuevoPrecio;
+
+            // Validar el valor de nuevo precio ingresado en el formulario
+            if (!int.TryParse(cambiarCostosDeServicios.TBCostoServIDCosto1.Text, out nuevoPrecio) || nuevoPrecio <= 0)
             {
-                MessageBox.Show("El ID de parking y el nuevo precio deben ser positivos.");
-                return false;
+                MessageBox.Show("Por favor, ingrese un valor numérico válido para el precio.");
+                return;
             }
 
-            return parkingServicios.ActualizarPrecioParking(idParking, nuevoPrecio);
+            // Obtener el tipo de servicio seleccionado
+            string tipoServicio = ObtenerTipoServicioSeleccionado(cambiarCostosDeServicios);
+
+            if (string.IsNullOrEmpty(tipoServicio))
+            {
+                MessageBox.Show("Por favor, seleccione un tipo de servicio.");
+                return;
+            }
+
+            // Asignación y validación de ID según el tipo de servicio
+            switch (tipoServicio.ToLower())
+            {
+                case "lavado":
+                    // Validar ID de servicio para Lavado (debe estar entre 1 y 5)
+                    if (!int.TryParse(cambiarCostosDeServicios.TBCostoServIDServ1.Text, out id) || id < 1 || id > 5)
+                    {
+                        MessageBox.Show("El ID de servicio para Lavado debe estar entre 1 y 5.");
+                        return;
+                    }
+                    break;
+
+                case "taller":
+                    // Obtener el ID del servicio de taller automáticamente desde el ComboBox
+                    string servicioSeleccionado = cambiarCostosDeServicios.ComboBoxServicio.SelectedItem?.ToString();
+                    id = ObtenerIdServicioTaller(servicioSeleccionado);
+
+                    if (id == 0)
+                    {
+                        MessageBox.Show("Por favor, seleccione un tipo de servicio de taller válido.");
+                        return;
+                    }
+
+                    // Mostrar el ID calculado en el campo del formulario para referencia
+                    cambiarCostosDeServicios.TBCostoServIDServ1.Text = id.ToString();
+                    break;
+
+                case "neumatico":
+                    // Validar el ID de Neumático (debe estar entre 1 y 9)
+                    if (!int.TryParse(cambiarCostosDeServicios.TBCostoServIDNeumatico1.Text, out id) || id < 1 || id > 9)
+                    {
+                        MessageBox.Show("El ID de Neumático debe estar entre 1 y 9.");
+                        return;
+                    }
+
+                    // Actualizar precio de neumático
+                    if (ActualizarPrecioNeumatico(id, nuevoPrecio))
+                    {
+                        MessageBox.Show("Precio del neumático actualizado correctamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo actualizar el precio del neumático. Verifique los datos ingresados.");
+                    }
+                    return;
+
+                case "parking":
+                    MessageBox.Show("Parking no está relacionado con Servicio.");
+                    return;
+
+                default:
+                    MessageBox.Show("Tipo de servicio no reconocido.");
+                    return;
+            }
+
+            // Actualizar precio del servicio (Lavado o Taller)
+            if (ActualizarPrecioServicio(id, nuevoPrecio))
+            {
+                MessageBox.Show("Precio del servicio actualizado correctamente.");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo actualizar el precio del servicio. Verifique los datos ingresados.");
+            }
         }
+
         public bool ActualizarPrecioServicio(int idServicio, int nuevoPrecio)
         {
-            if (idServicio <= 0 || nuevoPrecio <= 0)
-            {
-                MessageBox.Show("El ID del servicio y el nuevo precio deben ser positivos.");
-                return false;
-            }
-
-            return serviciosServicios.ActualizarPrecioServicio(idServicio, nuevoPrecio);
+            return ServiciosServicios.GetInstance().ActualizarPrecioServicio(idServicio, nuevoPrecio);
         }
-        public void ActualizarCostoServicio(string tipoServicio, int id, int nuevoPrecio)
+
+        public bool ActualizarPrecioNeumatico(int idNeumatico, int nuevoPrecio)
+        {
+            return NeumaticoServicios.GetInstance().ActualizarPrecioNeumatico(idNeumatico, nuevoPrecio);
+        }
+        public bool ActualizarCostoServicio(string tipoServicio, int id, int nuevoPrecio)
         {
             bool resultado = false;
 
             switch (tipoServicio.ToLower())
             {
-                case "servicio":
-                    resultado = ServiciosServicios.GetInstance().ActualizarPrecioServicio(id, nuevoPrecio);
-                    break;
                 case "parking":
                     resultado = ParkingServicios.GetInstance().ActualizarPrecioParking(id, nuevoPrecio);
+                    break;
+                case "lavado":
+                    resultado = ServiciosServicios.GetInstance().ActualizarPrecioServicio(id, nuevoPrecio);
+                    break;
+                case "taller":
+                    resultado = ServiciosServicios.GetInstance().ActualizarPrecioServicio(id, nuevoPrecio);
                     break;
                 case "neumatico":
                     resultado = NeumaticoServicios.GetInstance().ActualizarPrecioNeumatico(id, nuevoPrecio);
@@ -1440,14 +1727,11 @@ namespace Controlador
                     break;
             }
 
-            if (resultado)
-            {
-                MessageBox.Show("Precio actualizado correctamente.");
-            }
-            else
-            {
-                MessageBox.Show("No se pudo actualizar el precio. Verifique los datos ingresados.");
-            }
+            return resultado;
+        }
+        private bool ValidarRangoIdLavado(int idServicio)
+        {
+            return idServicio >= 1 && idServicio <= 5;
         }
         private void EntregarVehiculo()
         {
@@ -1469,116 +1753,106 @@ namespace Controlador
             // Limpiar el campo de texto después de la operación
             entregaDeVehiculos.TbEntregaMatr.Clear();
         }
+        public void EmitirFactura()
+        {
+            // Validación de campos
+            string matricula = emitirFacturasServicios.TBFacturaMatr1.Text.Trim();
+            string ciCliente = emitirFacturasServicios.TBFacturaCI1.Text.Trim();
+            if (!DateTime.TryParseExact(emitirFacturasServicios.MTBFacturaFecha.Text, "dd/MM/yyyy HH:mm", null, System.Globalization.DateTimeStyles.None, out DateTime fechaServicio))
+            {
+                MessageBox.Show("Fecha de servicio inválida. Formato correcto: dd/MM/yyyy HH:mm");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(matricula) || string.IsNullOrEmpty(ciCliente))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
+            }
+
+            GenerarFacturaPDF(matricula, ciCliente, fechaServicio);
+        }
+
         public void GenerarFacturaPDF(string matricula, string ciCliente, DateTime fechaServicio)
         {
-            // Llamado a los métodos de cada clase de servicios
             var parking = ParkingServicios.GetInstance().ObtenerParkingPorMatriculaYFecha(matricula, fechaServicio);
             var recibe = RecibeServicios.GetInstance().ObtenerRecibePorMatriculaYFecha(matricula, fechaServicio);
             var compra = CompraServicios.GetInstance().ObtenerCompraPorClienteYFecha(ciCliente, fechaServicio);
 
             if (parking == null && recibe == null && compra == null)
             {
-                MessageBox.Show("No se encontraron registros para generar la factura.");
+                MessageBox.Show("No se encontraron servicios para esta factura.");
                 return;
             }
 
-            // Generación del PDF de factura
-            Document doc = new Document();
-            string filePath = @"C:\Factura_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".pdf";
-            // Crear una instancia de SaveFileDialog
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Archivos de texto (.txt)|.txt|Todos los archivos (.)|.";
-            saveFileDialog.Title = "Guardar archivo como";
-            saveFileDialog.DefaultExt = "pdf";
-            saveFileDialog.FileName = DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".pdf";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            // Mostrar el cuadro de diálogo de guardado
+            SaveFileDialog saveFileDialog = new SaveFileDialog
             {
-                using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                Filter = "Archivo PDF (*.pdf)|*.pdf",
+                Title = "Guardar factura como",
+                FileName = $"Factura_{DateTime.Now:yyyyMMdd_HHmmss}.pdf"
+            };
+
+            if (saveFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return; // Salir si el usuario cancela el guardado
+            }
+
+            string filePath = saveFileDialog.FileName;
+
+            Document doc = new Document();
+
+            using (FileStream stream = new FileStream(filePath, FileMode.Create))
+            {
+                PdfWriter.GetInstance(doc, stream);
+                doc.Open();
+
+                doc.Add(new Paragraph("Factura de Servicios"));
+                doc.Add(new Paragraph($"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm:ss}"));
+                doc.Add(new Paragraph("------------------------------------------------------"));
+
+                decimal total = 0;
+
+                if (parking != null)
                 {
-                    PdfWriter.GetInstance(doc, stream);
-                    doc.Open();
-
-                    doc.Add(new Paragraph("Factura de Servicios"));
-                    doc.Add(new Paragraph("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")));
+                    decimal precioParking = parking.Precio;
+                    doc.Add(new Paragraph("Servicio de Parking:"));
+                    doc.Add(new Paragraph($"Matrícula: {parking.Matricula}"));
+                    doc.Add(new Paragraph($"Fecha Entrada: {parking.FechaEntrada}"));
+                    doc.Add(new Paragraph($"Fecha Salida: {parking.FechaSalida}"));
+                    doc.Add(new Paragraph($"Precio: ${precioParking}"));
+                    total += precioParking;
                     doc.Add(new Paragraph("------------------------------------------------------"));
-
-                    if (parking != null)
-                    {
-                        doc.Add(new Paragraph("Servicio de Parking:"));
-                        doc.Add(new Paragraph("Matrícula: " + parking.Matricula));
-                        doc.Add(new Paragraph("Fecha Entrada: " + parking.FechaEntrada));
-                        doc.Add(new Paragraph("Fecha Salida: " + parking.FechaSalida));
-                        doc.Add(new Paragraph("Precio: $" + parking.Precio));
-                        doc.Add(new Paragraph("Funcionario: " + parking.Funcionario));
-                        doc.Add(new Paragraph("------------------------------------------------------"));
-                    }
-
-                    if (recibe != null)
-                    {
-                        doc.Add(new Paragraph("Servicio Recibido:"));
-                        doc.Add(new Paragraph("Matrícula: " + recibe.Matricula));
-                        doc.Add(new Paragraph("Fecha del Servicio: " + recibe.FechaServicio));
-                        doc.Add(new Paragraph("ID Servicio: " + recibe.IdServicio));
-                        doc.Add(new Paragraph("Funcionario: " + recibe.Funcionario));
-                        doc.Add(new Paragraph("------------------------------------------------------"));
-                    }
-
-                    if (compra != null)
-                    {
-                        doc.Add(new Paragraph("Compra de Neumáticos:"));
-                        doc.Add(new Paragraph("ID Neumático: " + compra.IdNeumatico));
-                        doc.Add(new Paragraph("Fecha de Venta: " + compra.FechaVenta));
-                        doc.Add(new Paragraph("Cliente: " + compra.Cliente));
-                        doc.Add(new Paragraph("Funcionario: " + compra.Funcionario));
-                        doc.Add(new Paragraph("------------------------------------------------------"));
-                    }
-
-                    doc.Close();
                 }
 
-                MessageBox.Show("Factura generada con éxito: " + filePath);
-            }
-            
-        }
-        
-        public void EmitirFactura()
-        {
+                if (recibe != null)
+                {
+                    decimal precioRecibe = Convert.ToDecimal(serviciosServicios.ObtenerPrecioPorId(recibe.IdServicio));
+                    doc.Add(new Paragraph("Servicio de Lavado / Taller:"));
+                    doc.Add(new Paragraph($"Matrícula: {recibe.Matricula}"));
+                    doc.Add(new Paragraph($"Fecha del Servicio: {recibe.FechaServicio}"));
+                    doc.Add(new Paragraph($"ID Servicio: {recibe.IdServicio}"));
+                    doc.Add(new Paragraph($"Precio: ${precioRecibe}"));
+                    total += precioRecibe;
+                    doc.Add(new Paragraph("------------------------------------------------------"));
+                }
 
-            // Verifica los valores de los campos
-            string matricula = emitirFacturasServicios.TBFacturaMatr1.Text;
-            string ciCliente = emitirFacturasServicios.TBFacturaCI1.Text;
-            DateTime fecha = DateTime.Parse(emitirFacturasServicios.MTBFacturaFecha.Text.ToString());
+                if (compra != null)
+                {
+                    decimal precioNeumatico = Convert.ToDecimal(neumaticoServicios.ObtenerPrecioPorId(compra.IdNeumatico));
+                    doc.Add(new Paragraph("Compra de Neumáticos:"));
+                    doc.Add(new Paragraph($"ID Neumático: {compra.IdNeumatico}"));
+                    doc.Add(new Paragraph($"Fecha de Venta: {compra.FechaVenta}"));
+                    doc.Add(new Paragraph($"Precio: ${precioNeumatico}"));
+                    total += precioNeumatico;
+                    doc.Add(new Paragraph("------------------------------------------------------"));
+                }
 
-
-            if (emitirFacturasServicios.TBFacturaMatr1 == null || emitirFacturasServicios.TBFacturaCI1 == null || emitirFacturasServicios.MTBFacturaFecha == null)
-            {
-                MessageBox.Show("Uno o más controles están nulos.");
-            }
-            else
-            {
-                MessageBox.Show($"Matrícula: {emitirFacturasServicios.TBFacturaMatr1.Text}, CI: {emitirFacturasServicios.TBFacturaCI1.Text}, Fecha: {emitirFacturasServicios.MTBFacturaFecha.Text}");
-            }
-
-            // Mostrar los valores leídos
-            
-
-            // Validación
-            if (string.IsNullOrEmpty(matricula) || string.IsNullOrEmpty(ciCliente) || fecha.Equals(null))
-            {
-                MessageBox.Show("Por favor, complete todos los campos.");
-                return;
+                doc.Add(new Paragraph($"Total: ${total}"));
+                doc.Close();
             }
 
-            // Parseo de fecha
-            if (DateTime.TryParseExact(fecha.ToString("dd/MM/yyyy HH:mm"), "dd/MM/yyyy HH:mm", null, System.Globalization.DateTimeStyles.None, out DateTime fechaServicio))
-            {
-                GenerarFacturaPDF(matricula, ciCliente, fechaServicio);
-            }
-            else
-            {
-                MessageBox.Show("Fecha de servicio inválida. Formato correcto: dd/MM/yyyy HH:mm");
-            }
+            MessageBox.Show($"Factura generada con éxito en: {filePath}");
         }
     }
 }
